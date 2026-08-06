@@ -167,12 +167,34 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:30px 0 60px;font
 .vstamp{background:var(--korpus-soft);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.88rem}
 hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
 .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--card);padding:8px 14px;z-index:99;border-radius:8px}
+/* ---------- tezgâh ---------- */
+.tz-io{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+.tz-io input[type="url"]{flex:1 1 340px;font-family:var(--mono);font-size:.8rem;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+.tz textarea{width:100%;min-height:150px;font-family:var(--mono);font-size:.8rem;line-height:1.5;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);resize:vertical}
+.tz select{font-family:var(--sans);font-size:.85rem;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);max-width:100%}
+.tz-status{font-family:var(--sans);font-size:.85rem;padding:9px 13px;border-radius:9px;background:var(--chip);margin:8px 0}
+.tz-status.err{background:var(--rubric-soft);color:var(--rubric)}
+.tz-status.ok{background:var(--korpus-soft)}
+.seclist{max-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.secrow{display:flex;gap:10px;align-items:baseline;width:100%;text-align:right;direction:rtl;border:none;background:none;color:var(--ink);padding:8px 12px;border-bottom:1px solid var(--line);cursor:pointer;font-family:var(--arabic);font-size:1.05rem}
+.secrow:hover{background:var(--chip)}
+.secrow[aria-pressed="true"]{background:var(--model-soft);box-shadow:inset 4px 0 0 var(--model)}
+.secrow .wc{font-family:var(--sans);font-size:.7rem;color:var(--muted);direction:ltr;white-space:nowrap;margin-right:auto}
+.st{font-family:var(--sans);font-size:.7rem;font-weight:700;border-radius:5px;padding:2px 8px;white-space:nowrap}
+.st-tam{background:var(--korpus-soft);color:var(--korpus)}
+.st-kismi{background:var(--model-soft);color:var(--model)}
+.st-yok{background:var(--rubric-soft);color:var(--rubric)}
+.ctxbox{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-top:8px}
+.ctxbox .ar{font-size:1.15rem}
+.ctxbox mark{background:var(--model-soft);color:inherit;padding:0 2px;border-radius:3px}
+.tz h3{margin-top:26px}
+.tz .stepno{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--rubric);color:#fff;font-family:var(--sans);font-size:.8rem;font-weight:700;margin-right:8px;vertical-align:-3px}
 </style>
 
 <a class="skip" href="#d1">İçeriğe atla</a>
 <nav class="nav" aria-label="Duraklar"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
-  <a href="#d0">Yöntem</a><a href="#d1">1 · Kitabı Bul</a><a href="#d2">2 · Veriye Çevir</a><a href="#d3">3 · Soruya Dönüştür</a><a href="#d4">4 · Makaleye Götür</a><a href="#adab">Âdâb &amp; Beyan</a>
+  <a href="#d0">Yöntem</a><a href="#d1">1 · Kitabı Bul</a><a href="#d2">2 · Veriye Çevir</a><a href="#tezgah">⚒ Tezgâh</a><a href="#d3">3 · Soruya Dönüştür</a><a href="#d4">4 · Makaleye Götür</a><a href="#adab">Âdâb &amp; Beyan</a>
 </div></nav>
 
 <header class="hero wrap" id="top">
@@ -262,7 +284,7 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
   <div class="eyebrow">Durak 2</div>
   <h2>Veriye Çevir</h2>
   <div class="intro">
-    <p>Kitap elinizde. Şimdi iki yol var: <b>kendiniz çevirin</b> (aşağıdaki dört fiil ve 90 dakikalık atölye) ya da <b>hazırını alın</b> (sayfanın sonundaki veri setleri rafı). Önce yapılmışını gösterelim — vaat değil, emsal.</p>
+    <p>Kitap elinizde. Şimdi üç yol var: <b>kendiniz çevirin</b> (aşağıdaki dört fiil ve 90 dakikalık atölye), <b>hazırını alın</b> (sayfanın sonundaki veri setleri rafı) — ya da <a href="#tezgah"><b>Tezgâh'a inin</b></a>: kitabı bu sayfada ayrıştırın, modelin çıktısını yapıştırın, mukabeleyi site sizin için yapsın. Önce yapılmışını gösterelim — vaat değil, emsal.</p>
   </div>
 
   <h3 style="margin-top:20px">Yayımlanmış ispat: Belâzürî hattı</h3>
@@ -364,6 +386,68 @@ Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}</pre>
   <div class="shelfhead"><h3>Hazır veri setleri rafı</h3><span class="cnt" data-cnt="veri_setleri"></span></div>
   <p class="intro small muted">Kendiniz çevirmeden önce bakın: aradığınız veri belki çoktan derlenmiş, DOI'siyle yayımlanmıştır. Kullandığınızda atıf yapın — veri seti de bir yayındır.</p>
   <div class="grid" data-shelf="veri_setleri"></div>
+</section>
+
+<!-- ============ TEZGÂH ============ -->
+<section class="stop tz" id="tezgah">
+  <div class="marker" aria-hidden="true">⚒</div>
+  <div class="eyebrow">Canlı tezgâh</div>
+  <h2>Tezgâh: kitaptan doğrulanmış tabloya, bu sayfada</h2>
+  <div class="intro">
+    <p>Burası sitenin atölyesi. İş bölümü, seminerdeki ilkenin kendisi: <b>çıkarımı model yapar, mukabeleyi tezgâh yapar, sorumluluğu siz taşırsınız.</b> Dört adım; kod yok, kurulum yok, anahtar yok.</p>
+  </div>
+
+  <h3><span class="stepno">1</span>Kitabı getir</h3>
+  <p class="intro small muted">Bir OpenITI ham dosya adresi yapıştırın, hazır kitaplardan birini seçin, bilgisayarınızdan dosya yükleyin ya da gömülü atölye metniyle (çevrimdışı da çalışır) başlayın. Not: bazı kısıtlı ortamlarda dış siteden çekim engellenebilir — o zaman dosya yükleme ve gömülü metin yolları her zaman açıktır.</p>
+  <div class="tz-io">
+    <input type="url" id="tz-url" placeholder="https://raw.githubusercontent.com/OpenITI/.../kitap.mARkdown" aria-label="OpenITI ham dosya adresi">
+    <button class="btn" id="tz-fetch">Getir</button>
+  </div>
+  <div class="btnrow">
+    <button class="btn ghost" id="tz-quick-baladhuri">Belâzürî — Fütûh (tam kitap)</button>
+    <button class="btn ghost" id="tz-quick-battuta">İbn Battûta — Rihle (tam kitap)</button>
+    <button class="btn ghost" id="tz-embedded">Gömülü atölye metni (Mısır bölümü)</button>
+    <label class="btn ghost" style="cursor:pointer">Dosya yükle<input type="file" id="tz-file" accept=".txt,.md,.mARkdown,.completed,.inProgress,text/plain" style="display:none"></label>
+  </div>
+  <div class="tz-status" id="tz-status">Henüz kitap yüklenmedi.</div>
+
+  <div id="tz-bookarea" style="display:none">
+    <h3><span class="stepno">2</span>Ayrıştır ve bölüm seç</h3>
+    <div class="card pv k" style="margin:10px 0">
+      <span class="pvlabel">Künye (#META# satırlarından, otomatik)</span>
+      <div class="tablewrap" style="border:none"><table id="tz-meta"></table></div>
+    </div>
+    <p class="intro small muted">Bölüme tıklayın: talimat o bölümle paketlenir. Uzun bölümler otomatik olarak ~2.000 kelimelik, birbirine taşan parçalara bölünür — üretim hattındaki gibi.</p>
+    <div class="seclist" id="tz-sections"></div>
+    <div class="tz-io" style="margin-top:10px">
+      <select id="tz-chunksel" style="display:none" aria-label="Parça seç"></select>
+      <button class="btn ghost" id="tz-dl-section" disabled>Seçili metni indir (.txt)</button>
+      <button class="btn ghost" id="tz-dl-structure" disabled>Yapı özetini indir (JSON)</button>
+    </div>
+
+    <h3><span class="stepno">3</span>Talimatı paketle, kendi asistanına götür</h3>
+    <p class="intro small muted">Şablonu seçin; tezgâh, talimat + seçili metni tek parça halinde panonuza koyar. Bunu kendi sohbet asistanınıza (ücretsiz katman yeter) yapıştırın; dönen JSON'u 4. adıma getirin.</p>
+    <div class="tz-io">
+      <select id="tz-template" aria-label="Talimat şablonu">
+        <option value="fetih">Fetih olayları (EICD şablonu — tarih metinleri)</option>
+        <option value="yer">Yer adları (seyahat/coğrafya metinleri)</option>
+        <option value="kisi">Kişiler ve ilişkiler (tabakat/seyahat)</option>
+      </select>
+      <button class="btn" id="tz-copy-pack">Talimat + metni panoya kopyala</button>
+    </div>
+    <div class="tz-status" id="tz-packinfo"></div>
+
+    <h3><span class="stepno">4</span>Modelin cevabını yapıştır — mukabeleyi tezgâh yapsın</h3>
+    <p class="intro small muted">Modelin döndürdüğü JSON'u olduğu gibi yapıştırın (başındaki-sonundaki açıklama cümleleri sorun değil). Tezgâh her kaydın <b>delilini</b> kitabın tamamında arar: harfiyen bulursa TAM, imlâ farkıyla bulursa KISMÎ der; bulamadığını sonuç dışı bırakır. Satıra tıklayın: delili kaynak bağlamında gösterir.</p>
+    <textarea id="tz-json" placeholder='{"olaylar": [ { "şehir": "...", "delil": "..." } ], "çekimser": [...]}'></textarea>
+    <div class="btnrow">
+      <button class="btn" id="tz-verify">Mukabele et</button>
+      <button class="btn ghost" id="tz-copy-report" disabled>Rapor cümlesini kopyala</button>
+      <button class="btn ghost" id="tz-dl-csv" disabled>Doğrulanmış tabloyu indir (CSV)</button>
+    </div>
+    <div id="tz-report"></div>
+  </div>
+  <p class="intro small muted" style="margin-top:14px">Tezgâhın sınırı — bilerek: çıkarımın kendisini burada çalıştırmıyoruz; o, sizin asistanınızda ve sizin gözetiminizde olur. Tezgâh yalnız deterministik işleri yapar: ayrıştırma, paketleme, arama. Böylece rapordaki her sayının hesabını verebilirsiniz.</p>
 </section>
 
 <!-- ============ DURAK 3 ============ -->
@@ -691,6 +775,360 @@ const ROTALAR=[
  {t:"Kur'an çalışmaları rotası", steps:["Quran.com'da meal karşılaştırmasıyla başlayın","corpus.quran.com'da kelime kelime morfolojiye inin","Corpus Coranicum'da erken yazmaları görün","Bulgunuzu veri makalesine (JOHD) dönüştürmeyi düşünün"]},
 ];
 $("#rotalar").innerHTML=ROTALAR.map(r=>'<div class="route"><h4>'+esc(r.t)+'</h4><ol>'+r.steps.map(s=>'<li>'+esc(s)+'</li>').join("")+'</ol></div>').join("");
+
+/* ================= TEZGÂH ================= */
+const TZ={raw:"",clean:"",norm:"",normMap:[],meta:[],sections:[],sel:-1,chunk:-1,chunks:[],records:null,report:""};
+const TZ_URLS={
+  baladhuri:"https://raw.githubusercontent.com/OpenITI/0300AH/master/data/0279Baladhuri/0279Baladhuri.FutuhBuldan/0279Baladhuri.FutuhBuldan.Shamela0012221-ara1.mARkdown",
+  battuta:"https://raw.githubusercontent.com/OpenITI/0800AH/master/data/0779IbnBattuta/0779IbnBattuta.Rihla/0779IbnBattuta.Rihla.Shamela0011769-ara1.completed"
+};
+const TZ_TEMPLATES={
+ fetih:{name:"Fetih olayları", listKey:"olaylar", text:`Sen, klasik Arapça tarih metinlerinden yapılandırılmış veri çıkaran
+titiz bir araştırma asistanısın.
+
+Aşağıdaki metinden, YALNIZCA bu metne dayanarak, şehirlerin İslam
+hâkimiyetine giriş olaylarını çıkar ve geçerli JSON döndür.
+
+Her olay için:
+  şehir (Arap harfleriyle + Latin yazımı) · hicrî yıl (tam sayı)
+  fetih türü — üç değerden biri:
+     CAPITULATION  → sulhan: antlaşma, emân, cizye  (صلح، أمان، عهد، ذمة، جزية)
+     SUBJUGATION   → anveten: savaş, kuşatma, zor   (عنوة، قتال، حصار، سيف، غلبة)
+     RECONSOLIDATION → bozulan ahd / iki tür işaretin birlikte bulunması
+  komutan · delil: hükmü dayandıran, METİNDEN AYNEN alınmış Arapça cümle
+
+Kurallar: metinde olmayanı yazma · delilsiz olay yazma ·
+emin olamadığını "çekimser" listesine sebep notuyla koy ·
+şehir kuruluşları, şehirsiz meydan savaşları, iç çatışmalar olay sayılmaz.
+
+Metin:
+{metin}
+
+Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}`},
+ yer:{name:"Yer adları", listKey:"yerler", text:`Sen, klasik Arapça seyahat ve coğrafya metinlerinden yapılandırılmış
+veri çıkaran titiz bir araştırma asistanısın.
+
+Aşağıdaki metinden, YALNIZCA bu metne dayanarak, seyyahın uğradığı
+veya andığı yerleşim yerlerini metindeki sırasıyla çıkar ve geçerli
+JSON döndür.
+
+Her yer için:
+  yer (Arap harfleriyle + Latin yazımı) · sıra (tam sayı)
+  tür — üç değerden biri:
+     VISITED   → bizzat gidilen yer
+     MENTIONED → yalnız adı geçen yer
+     UNCERTAIN → hangisi olduğu metinden anlaşılmayan
+  delil: hükmü dayandıran, METİNDEN AYNEN alınmış Arapça cümle
+
+Kurallar: metinde olmayanı yazma · delilsiz kayıt yazma ·
+emin olamadığını "çekimser" listesine sebep notuyla koy ·
+kişi adları, kitap adları, halk ve kabile adları yer sayılmaz.
+
+Metin:
+{metin}
+
+Yalnızca şu biçimde cevap ver:  {"yerler": [...], "çekimser": [...]}`},
+ kisi:{name:"Kişiler ve ilişkiler", listKey:"kişiler", text:`Sen, klasik Arapça tabakat ve seyahat metinlerinden yapılandırılmış
+veri çıkaran titiz bir araştırma asistanısın.
+
+Aşağıdaki metinden, YALNIZCA bu metne dayanarak, adı geçen kişileri
+ve anlatıcıyla ilişkilerini çıkar ve geçerli JSON döndür.
+
+Her kişi için:
+  kişi (Arap harfleriyle + Latin yazımı)
+  ilişki — dört değerden biri:
+     TEACHER   → kendisinden okunmuş / icâzet alınmış
+     MET       → görüşülmüş, karşılaşılmış
+     NAMED     → yalnız adı anılmış
+     UNCERTAIN → metinden anlaşılmayan
+  delil: hükmü dayandıran, METİNDEN AYNEN alınmış Arapça cümle
+
+Kurallar: metinde olmayanı yazma · delilsiz kayıt yazma ·
+emin olamadığını "çekimser" listesine sebep notuyla koy.
+
+Metin:
+{metin}
+
+Yalnızca şu biçimde cevap ver:  {"kişiler": [...], "çekimser": [...]}`}
+};
+function tzStatus(msg, cls){ const el=$("#tz-status"); el.textContent=msg; el.className="tz-status"+(cls?" "+cls:""); }
+function tzWords(s){ return s.split(/\s+/).filter(Boolean); }
+/* mARkdown ayrıştırıcı */
+function tzParse(raw, label){
+  TZ.raw=raw; TZ.meta=[]; TZ.sections=[]; TZ.sel=-1; TZ.chunk=-1; TZ.records=null;
+  const lines=raw.split(/\r?\n/);
+  let cur={title:"(Başlıksız giriş)", parts:[]};
+  const sections=[cur];
+  for(const ln of lines){
+    if(ln.startsWith("#META#")){
+      const m=ln.slice(6).split("::");
+      if(m.length>=2){ const k=m[0].trim(), v=m.slice(1).join("::").trim(); if(v && v!=="NODATA") TZ.meta.push([k,v]); }
+      continue;
+    }
+    if(ln.startsWith("######")) continue;
+    const h=ln.match(/^###(\s*\|+\s*)(.*)$/);
+    if(h){ cur={title:(h[2]||"").replace(/PageV\d+P\d+/g,"").trim()||"(Başlıksız bölüm)", parts:[]}; sections.push(cur); continue; }
+    let t=ln;
+    const cont=t.startsWith("~~");
+    if(cont) t=t.slice(2);
+    t=t.replace(/PageV\d+P\d+/g," ").replace(/ms\d+/g," ").replace(/^#\s?/,"").replace(/%~%/g," ");
+    if(!t.trim()) continue;
+    if(cont && cur.parts.length) cur.parts[cur.parts.length-1]+=" "+t.trim();
+    else cur.parts.push(t.trim());
+  }
+  TZ.sections=sections.map(s=>({title:s.title, text:s.parts.join("\n"), words:tzWords(s.parts.join(" ")).length})).filter(s=>s.words>0);
+  TZ.clean=TZ.sections.map(s=>s.text).join("\n").replace(/\s+/g," ");
+  tzBuildNorm();
+  /* künye tablosu */
+  const PICK=[["010.AuthorAKA","Yazar"],["010.AuthorNAME","Yazar"],["020.BookTITLE","Eser"],["000.BookURI","OpenITI URI"],["025.BookTITLEalt","Diğer ad"],["040.EdPUBLISHER","Neşir"],["043.EdYEAR","Neşir yılı"]];
+  const rows=[];
+  for(const [key,lab] of PICK){
+    const f=TZ.meta.find(m=>m[0].includes(key));
+    if(f && !rows.some(r=>r[0]===lab)) rows.push([lab,f[1]]);
+  }
+  if(!rows.length) rows.push(["Not","#META# künyesi bulunamadı — düz metin olarak ayrıştırıldı."]);
+  $("#tz-meta").innerHTML=rows.map(r=>"<tr><td><b>"+esc(r[0])+"</b></td><td>"+esc(r[1])+"</td></tr>").join("");
+  /* bölüm listesi */
+  $("#tz-sections").innerHTML=TZ.sections.map((s,i)=>'<button class="secrow" aria-pressed="false" data-i="'+i+'"><span>'+esc(s.title)+'</span><span class="wc">'+s.words.toLocaleString("tr-TR")+" kelime</span></button>").join("");
+  $("#tz-bookarea").style.display="";
+  $("#tz-dl-structure").disabled=false;
+  const total=tzWords(TZ.clean).length;
+  tzStatus("Yüklendi: "+label+" — "+TZ.sections.length+" bölüm, ~"+total.toLocaleString("tr-TR")+" kelime. Şimdi bölüm seçin.","ok");
+  tzUpdatePack();
+}
+function tzBuildNorm(){
+  const src=TZ.clean; let norm=""; const map=[];
+  for(let i=0;i<src.length;i++){
+    let c=src[i];
+    if(/[ً-ٰٟـۖ-ۭ]/.test(c)) continue;
+    if("أإآٱا".includes(c)) c="ا";
+    else if(c==="ؤ") c="و";
+    else if(c==="ئ"||c==="ى") c="ي";
+    else if(c==="ة") c="ه";
+    else if(c==="ء") continue;
+    else if(/[^؀-ۿ]/.test(c)) c=" ";
+    if(c===" " && norm.endsWith(" ")) continue;
+    norm+=c; map.push(i);
+  }
+  TZ.norm=norm; TZ.normMap=map;
+}
+function tzNormQ(s){
+  let out="";
+  for(let c of String(s)){
+    if(/[ً-ٰٟـۖ-ۭ]/.test(c)) continue;
+    if("أإآٱا".includes(c)) c="ا";
+    else if(c==="ؤ") c="و";
+    else if(c==="ئ"||c==="ى") c="ي";
+    else if(c==="ة") c="ه";
+    else if(c==="ء") continue;
+    else if(/[^؀-ۿ]/.test(c)) c=" ";
+    if(c===" " && out.endsWith(" ")) continue;
+    out+=c;
+  }
+  return out.trim();
+}
+function tzScopeText(){
+  if(TZ.sel<0) return null;
+  const sec=TZ.sections[TZ.sel];
+  if(TZ.chunks.length>1 && TZ.chunk>=0) return TZ.chunks[TZ.chunk].text;
+  return sec.text;
+}
+function tzChunkify(sec){
+  const w=tzWords(sec.text); const SIZE=2000, OVER=200; const chunks=[];
+  if(w.length<=SIZE+400) return [{label:"Bölümün tamamı ("+w.length+" kelime)", text:sec.text}];
+  for(let st=0; st<w.length; st+=SIZE-OVER){
+    const part=w.slice(st, st+SIZE);
+    chunks.push({label:"Parça "+(chunks.length+1)+" (kelime "+(st+1)+"–"+(st+part.length)+")", text:part.join(" ")});
+    if(st+SIZE>=w.length) break;
+  }
+  return chunks;
+}
+function tzUpdatePack(){
+  const info=$("#tz-packinfo");
+  if(TZ.sel<0){ info.textContent="Önce 2. adımda bölüm seçin; talimat o metinle paketlenecek."; return; }
+  const sec=TZ.sections[TZ.sel];
+  const scope=tzScopeText();
+  const n=tzWords(scope).length;
+  let msg="Paket hazır: \""+sec.title.slice(0,60)+"\" — "+n.toLocaleString("tr-TR")+" kelime";
+  if(TZ.chunks.length>1) msg+=" ("+TZ.chunks.length+" parçadan "+(TZ.chunk+1)+".si seçili; parçaları sırayla işleyin, sonuç listelerini birleştirin)";
+  msg+=". Ücretsiz katmanlar için ideal aralık 1.500–8.000 kelimedir.";
+  info.textContent=msg;
+}
+$("#tz-sections").addEventListener("click",e=>{
+  const b=e.target.closest(".secrow"); if(!b) return;
+  document.querySelectorAll(".secrow").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");
+  TZ.sel=+b.dataset.i;
+  TZ.chunks=tzChunkify(TZ.sections[TZ.sel]); TZ.chunk=0;
+  const cs=$("#tz-chunksel");
+  if(TZ.chunks.length>1){ cs.style.display=""; cs.innerHTML=TZ.chunks.map((c,i)=>'<option value="'+i+'">'+esc(c.label)+"</option>").join(""); }
+  else cs.style.display="none";
+  $("#tz-dl-section").disabled=false;
+  tzUpdatePack();
+});
+$("#tz-chunksel").addEventListener("change",e=>{ TZ.chunk=+e.target.value; tzUpdatePack(); });
+/* yükleme yolları */
+async function tzFetch(url){
+  tzStatus("Getiriliyor… (büyük kitaplarda birkaç saniye sürebilir)");
+  try{
+    const r=await fetch(url);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const t=await r.text();
+    tzParse(t, url.split("/").pop());
+  }catch(err){
+    tzStatus("Getirilemedi ("+err.message+"). Bu ortam dış siteye erişimi engelliyor olabilir — 'Dosya yükle' ya da 'Gömülü atölye metni' yolunu kullanın.","err");
+  }
+}
+$("#tz-fetch").addEventListener("click",()=>{ const u=$("#tz-url").value.trim(); if(u) tzFetch(u); });
+$("#tz-quick-baladhuri").addEventListener("click",()=>{ $("#tz-url").value=TZ_URLS.baladhuri; tzFetch(TZ_URLS.baladhuri); });
+$("#tz-quick-battuta").addEventListener("click",()=>{ $("#tz-url").value=TZ_URLS.battuta; tzFetch(TZ_URLS.battuta); });
+$("#tz-embedded").addEventListener("click",()=>{ tzParse(FUTUH,"Gömülü atölye metni (Belâzürî, Mısır–Mağrib)"); });
+$("#tz-file").addEventListener("change",async e=>{
+  const f=e.target.files[0]; if(!f) return;
+  tzParse(await f.text(), f.name);
+});
+/* indirmeler */
+function tzDownload(name, content, type){
+  const blob=new Blob([content],{type:type||"text/plain;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+$("#tz-dl-section").addEventListener("click",()=>{
+  const s=TZ.sections[TZ.sel]; if(!s) return;
+  tzDownload("bolum-"+(TZ.sel+1)+".txt", "### | "+s.title+"\n\n"+tzScopeText());
+});
+$("#tz-dl-structure").addEventListener("click",()=>{
+  tzDownload("yapi-ozeti.json", JSON.stringify({kunye:Object.fromEntries(TZ.meta), bolumler:TZ.sections.map((s,i)=>({no:i+1,baslik:s.title,kelime:s.words}))},null,1));
+});
+/* paketleme */
+$("#tz-copy-pack").addEventListener("click",async e=>{
+  const scope=tzScopeText();
+  if(!scope){ tzUpdatePack(); return; }
+  const tpl=TZ_TEMPLATES[$("#tz-template").value];
+  const pack=tpl.text.replace("{metin}", "\n"+scope+"\n");
+  try{ await navigator.clipboard.writeText(pack); e.target.textContent="Kopyalandı ✓ — asistanınıza yapıştırın"; }
+  catch(err){ tzDownload("talimat-paketi.txt", pack); e.target.textContent="Pano engellendi — dosya indirildi"; }
+  setTimeout(()=>{ e.target.textContent="Talimat + metni panoya kopyala"; },3000);
+});
+/* --------- mukabele --------- */
+function tzExtractList(obj){
+  if(Array.isArray(obj)) return obj;
+  if(obj && typeof obj==="object"){
+    for(const k of ["olaylar","yerler","kişiler","kisiler","events","places","persons","records","kayıtlar","kayitlar"])
+      if(Array.isArray(obj[k])) return obj[k];
+    for(const v of Object.values(obj)) if(Array.isArray(v) && v.length && typeof v[0]==="object") return v;
+  }
+  return null;
+}
+function tzField(rec, res){
+  const keys=Object.keys(rec);
+  const find=r=>keys.find(k=>r.test(k));
+  const out={};
+  const dk=find(/delil|evidence|dalil|kanıt|kanit|دليل/i);
+  if(dk) out.delil=rec[dk];
+  else{
+    let best="";
+    for(const v of Object.values(rec)){
+      if(typeof v==="string" && /[؀-ۿ]{4}/.test(v) && v.length>best.length) best=v;
+      if(Array.isArray(v)) for(const x of v) if(typeof x==="string" && /[؀-ۿ]{4}/.test(x) && x.length>best.length) best=x;
+    }
+    if(best.length>=10) out.delil=best;
+  }
+  if(Array.isArray(out.delil)) out.delil=out.delil.join(" ");
+  const lk=find(/şehir|sehir|city|yer\b|place|kişi|kisi|person|isim|name|مدينة/i);
+  out.label=lk? (typeof rec[lk]==="object"? Object.values(rec[lk]).join(" / ") : String(rec[lk])) : "(adsız kayıt)";
+  const yk=find(/yıl|yil|year|sene|hijri|hicri/i); if(yk) out.yil=String(rec[yk]);
+  const tk=find(/tür|tur\b|type|ilişki|iliski|relation|conquest/i); if(tk) out.tur=String(rec[tk]);
+  const kk=find(/komutan|commander|kumandan/i); if(kk) out.komutan=String(rec[kk]);
+  return out;
+}
+function tzLight(s){ return String(s).replace(/[^؀-ۿ]+/g," ").replace(/\s+/g," ").trim(); }
+function tzVerifyOne(delil){
+  if(!delil || !/[؀-ۿ]{4}/.test(delil)) return {st:"YOK", note:"Arapça delil alanı yok ya da çok kısa."};
+  const light=tzLight(delil), lightSrc=tzLight(TZ.clean);
+  let idx=lightSrc.indexOf(light);
+  if(light.length>=8 && idx>=0){
+    const nIdx=TZ.norm.indexOf(tzNormQ(delil));
+    return {st:"TAM", nIdx:nIdx>=0?nIdx:null, nLen:tzNormQ(delil).length};
+  }
+  const nq=tzNormQ(delil);
+  if(nq.length>=8){
+    let nIdx=TZ.norm.indexOf(nq);
+    if(nIdx>=0) return {st:"KISMÎ", nIdx, nLen:nq.length};
+    const w=nq.split(" ").filter(Boolean);
+    if(w.length>5){
+      for(let st=0; st+5<=w.length; st++){
+        const win=w.slice(st,st+5).join(" ");
+        nIdx=TZ.norm.indexOf(win);
+        if(nIdx>=0) return {st:"KISMÎ", nIdx, nLen:win.length, note:"Cümlenin tamamı değil, 5 kelimelik çekirdeği bulundu."};
+      }
+    }
+  }
+  return {st:"YOK", note:"Delil, kitabın hiçbir yerinde bulunamadı — bu kayıt sonuçlara giremez."};
+}
+function tzContext(nIdx, nLen){
+  if(nIdx==null || nIdx<0 || !TZ.normMap.length) return null;
+  const rs=TZ.normMap[Math.max(0,nIdx)], reIdx=Math.min(nIdx+nLen-1, TZ.normMap.length-1), re=TZ.normMap[reIdx];
+  const from=Math.max(0, rs-90), to=Math.min(TZ.clean.length, re+90);
+  return {pre:TZ.clean.slice(from,rs), hit:TZ.clean.slice(rs,re+1), post:TZ.clean.slice(re+1,to)};
+}
+$("#tz-verify").addEventListener("click",()=>{
+  const rep=$("#tz-report");
+  if(!TZ.clean){ rep.innerHTML='<div class="tz-status err">Önce 1. adımda kitabı yükleyin — mukabele, delili kitabın içinde arar.</div>'; return; }
+  let txt=$("#tz-json").value.trim();
+  if(!txt){ rep.innerHTML='<div class="tz-status err">Yapıştırılacak JSON yok.</div>'; return; }
+  const m=txt.match(/```(?:json)?([\s\S]*?)```/); if(m) txt=m[1];
+  const start=Math.min(...["{","["].map(c=>{const i=txt.indexOf(c); return i<0?Infinity:i;}));
+  if(start!==Infinity) txt=txt.slice(start);
+  const end=Math.max(txt.lastIndexOf("}"), txt.lastIndexOf("]"));
+  if(end>0) txt=txt.slice(0,end+1);
+  let data;
+  try{ data=JSON.parse(txt); }
+  catch(err){ rep.innerHTML='<div class="tz-status err">JSON çözümlenemedi: '+esc(err.message)+'. Modelden "yalnızca geçerli JSON döndür" diye isteyin ya da çıktının tamamını yapıştırdığınızdan emin olun.</div>'; return; }
+  const list=tzExtractList(data);
+  if(!list || !list.length){ rep.innerHTML='<div class="tz-status err">Kayıt listesi bulunamadı (olaylar/yerler/kişiler dizisi bekleniyordu).</div>'; return; }
+  const cekimser=(data && (data["çekimser"]||data.cekimser||data.abstained))||[];
+  const rows=list.map(r=>{
+    const f=tzField(r);
+    const v=tzVerifyOne(f.delil);
+    return {...f, ...v};
+  });
+  TZ.records=rows;
+  const nTam=rows.filter(r=>r.st==="TAM").length, nKis=rows.filter(r=>r.st==="KISMÎ").length, nYok=rows.filter(r=>r.st==="YOK").length;
+  const okPct=Math.round((nTam+nKis)/rows.length*100);
+  TZ.report=rows.length+" kayıttan "+(nTam+nKis)+" tanesi delille doğrulandı (TAM "+nTam+", KISMÎ "+nKis+"); "+nYok+" kayıt, delili bulunamadığı için sonuç dışı bırakıldı."+(cekimser.length? " Model "+cekimser.length+" kayıtta çekimser kaldı.":"");
+  let h='<div class="numband"><div class="st"><span class="n">'+rows.length+'</span><span class="l">kayıt</span></div><div class="st"><span class="n" style="color:var(--korpus)">'+nTam+'</span><span class="l">TAM</span></div><div class="st"><span class="n" style="color:var(--model)">'+nKis+'</span><span class="l">KISMÎ (imlâ farkı)</span></div><div class="st"><span class="n" style="color:var(--rubric)">'+nYok+'</span><span class="l">bulunamadı → dışarıda</span></div><div class="st"><span class="n">%'+okPct+'</span><span class="l">doğrulama</span></div></div>';
+  h+='<div class="tablewrap"><table><tr><th></th><th>Kayıt</th><th>Yıl</th><th>Tür</th><th>Delil (kısaltılmış)</th><th>Durum</th></tr>';
+  rows.forEach((r,i)=>{
+    const stc=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
+    h+='<tr class="tzrow" data-i="'+i+'" style="cursor:pointer"><td>'+(i+1)+'</td><td><b>'+esc(r.label)+'</b></td><td>'+esc(r.yil||"—")+'</td><td>'+esc(r.tur||"—")+'</td><td class="ar" style="font-size:1.05rem">'+esc(String(r.delil||"—").slice(0,70))+'</td><td><span class="st '+stc+'">'+r.st+'</span></td></tr>';
+  });
+  h+='</table></div><div id="tz-ctx"></div>';
+  if(cekimser.length) h+='<p class="small muted" style="margin-top:8px"><b>Çekimser listesi ('+cekimser.length+'):</b> '+esc(cekimser.map(c=>typeof c==="string"?c:JSON.stringify(c)).join(" · ").slice(0,400))+'</p>';
+  h+='<p class="small muted" style="margin-top:8px">Şimdi seminerdeki cümleyi kurabilirsiniz: <i>"'+esc(TZ.report)+'"</i> — bu tek cümle, sizi "yapay zekâya yaptırdım" diyenlerden ayırır. KISMÎ eşleşme hata değildir; çoğu hemze / tâ-i merbûta imlâsıdır. BULUNAMADI kayıtlarını silmeden işaretleyip dışarıda bırakın — üretim hattında da böyle yapılır.</p>';
+  rep.innerHTML=h;
+  $("#tz-copy-report").disabled=false; $("#tz-dl-csv").disabled=false;
+  rep.querySelectorAll(".tzrow").forEach(tr=>tr.addEventListener("click",()=>{
+    const r=rows[+tr.dataset.i];
+    const box=$("#tz-ctx");
+    if(r.nIdx==null){ box.innerHTML='<div class="ctxbox"><p class="small" style="color:var(--rubric);margin:0">'+esc(r.note||"Bağlam gösterilemiyor: delil metinde bulunamadı.")+'</p></div>'; return; }
+    const c=tzContext(r.nIdx, r.nLen);
+    box.innerHTML='<div class="ctxbox"><div class="ar">…'+esc(c.pre)+'<mark>'+esc(c.hit)+'</mark>'+esc(c.post)+'…</div>'+(r.note?'<p class="small muted" style="margin:6px 0 0">'+esc(r.note)+'</p>':'')+'</div>';
+    box.scrollIntoView({block:"nearest"});
+  }));
+});
+$("#tz-copy-report").addEventListener("click",async e=>{
+  try{ await navigator.clipboard.writeText(TZ.report); e.target.textContent="Kopyalandı ✓"; }catch(err){}
+  setTimeout(()=>{ e.target.textContent="Rapor cümlesini kopyala"; },2000);
+});
+$("#tz-dl-csv").addEventListener("click",()=>{
+  if(!TZ.records) return;
+  const q=s=>'"'+String(s??"").replace(/"/g,'""')+'"';
+  const rows=TZ.records.filter(r=>r.st!=="YOK");
+  const csv="﻿"+["kayit;yil;tur;komutan;delil;durum",...rows.map(r=>[r.label,r.yil,r.tur,r.komutan,r.delil,r.st].map(q).join(";"))].join("\n");
+  tzDownload("dogrulanmis-tablo.csv", csv, "text/csv;charset=utf-8");
+});
 
 /* ---------- verification stamp ---------- */
 (function(){
