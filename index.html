@@ -158,6 +158,23 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* fabrika turu + yol seçimi + planlayıcı */
+.mstep:not(:last-of-type)::after{content:"↓";position:absolute;left:50%;transform:translateX(-50%);bottom:-15px;font-size:1rem;color:var(--muted);font-family:var(--sans)}
+.narrator{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:1600;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.85rem;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);display:none;max-width:92%;text-align:center}
+.pathpick{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));max-width:640px;margin:0 auto 16px;width:100%}
+.path{font:inherit;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;box-shadow:var(--shadow);color:var(--ink)}
+.path b{font-family:var(--sans);font-size:1.02rem;display:block;margin-bottom:4px}
+.path span{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+.path[aria-pressed="true"]{border-color:var(--rubric);background:var(--rubric-soft)}
+.trackchips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 6px}
+.trackchips button{font-family:var(--sans);font-size:.85rem;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.trackchips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.step .when{display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--rubric-soft);color:var(--rubric);border-radius:5px;padding:2px 8px;margin-bottom:4px}
+.step a{font-family:var(--sans);font-size:.82rem}
+.gercek{background:var(--insan-soft);border-radius:10px;padding:12px 16px;font-size:.92rem;margin:14px 0}
+.merdiven{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--sans);font-size:.72rem;margin-top:8px}
+.merdiven span{background:var(--chip);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.merdiven .mx{color:var(--rubric);font-weight:700}
 /* token & embedding */
 .tokstage{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-height:96px}
 .toklabel{font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:6px 0 4px}
@@ -301,7 +318,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="makine" style="text-align:center;align-items:center">
   <div class="kicker">3 · Perde arkası</div>
   <h2>Makine bunu nasıl yapar?</h2>
-  <p class="one" style="margin:0 auto 26px">Beş adımı var; beşi de dokunmatik. Örnek: Tanca kaydı.</p>
+  <p class="one" style="margin:0 auto 14px">Beş adımı var; beşi de dokunmatik. Örnek: Tanca kaydı.</p>
+  <div class="btnrow" style="margin:0 0 26px"><button class="cta ghost" id="mak-tour">▶ Baştan sona izle (15 sn) — site senin yerine dokunsun</button></div>
 
   <div class="mstep">
     <div class="mno">1</div>
@@ -387,28 +405,41 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
   <div class="kicker">4 · Sıra sende</div>
   <h2>90 saniyede ilk mukabelen</h2>
-  <p class="one" style="margin:0 auto 26px">Model çıkarır, bu sayfa doğrular, sorumluluk sende kalır.</p>
+  <p class="one" style="margin:0 auto 26px">Model çıkarır, bu sayfa doğrular, sorumluluk sende kalır. Önce yolunu seç:</p>
+  <div class="pathpick" id="pathpick">
+    <button class="path" data-p="quick" aria-pressed="false"><b>🚀 Hemen dene</b><span>Asistansız, ~30 saniye. Hazır bir model cevabıyla mukabeleyi yaşa — içine bilerek bir uydurma kayıt koyduk.</span></button>
+    <button class="path" data-p="own" aria-pressed="false"><b>🤝 Kendi asistanımla</b><span>~90 saniye. Telefonundaki yapay zekâyla (ChatGPT/Gemini/Claude, ücretsizi yeter) gerçeğini yap.</span></button>
+  </div>
   <div class="wizard">
+    <div id="path-quick" style="display:none">
+      <div class="wstep">
+        <div class="wno">★</div>
+        <h3>Tek dokunuş yeter</h3>
+        <p class="small" style="margin:0 0 10px">Belâzürî'den gerçek bir kesit üzerinde, hazır bir model cevabını yükleyip bütün delilleri kitapta arayacağız. Bakalım gizlediğimiz uydurma şehri yakalayacak mı?</p>
+        <button class="wbtn" id="w-quick">▶ Yükle ve mukabele et</button>
+      </div>
+    </div>
+    <div id="path-own" style="display:none">
     <div class="wstep" id="w1">
       <div class="wno">1</div><div class="done">✓</div>
       <h3>Talimat + metni kopyala</h3>
       <p class="small" style="margin:0 0 10px">Belâzürî'den iki sayfa (Mısır'ın fethi) + hazır talimat, tek parça panona gider.</p>
       <button class="wbtn" id="w-copy">Panoya kopyala</button>
       <div class="applinks" id="applinks"><span class="muted">Şimdi aç:</span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
-      <p class="whint">Hangisi telefonunda varsa; ücretsizi yeter.</p>
+      <p class="whint">Yapıştır, cevabı bekle, cevabın tamamını kopyala, buraya dön.</p>
     </div>
     <div class="wstep" id="w2">
       <div class="wno">2</div><div class="done">✓</div>
       <h3>Modelin cevabını buraya yapıştır</h3>
-      <div class="samplenote" id="samplenote">Örnek cevap yüklendi — içine bilerek bir uydurma kayıt koyduk. Bakalım tezgâh yakalayacak mı? "Mukabele et"e bas.</div>
-      <textarea id="w-json" placeholder='Modelin verdiği cevabı olduğu gibi yapıştır — {"olaylar": [...]}'></textarea>
+      <div class="samplenote" id="samplenote">Örnek cevap yüklendi — içinde bilerek bir uydurma kayıt var. Bakalım tezgâh yakalayacak mı?</div>
+      <textarea id="w-json" placeholder='Cevabı olduğu gibi yapıştır — başındaki açıklamalar sorun değil. Yapıştırınca mukabele kendiliğinden başlar.'></textarea>
       <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
         <button class="wbtn" id="w-verify">Mukabele et</button>
-        <button class="wbtn alt" id="w-sample">Asistanın yok mu? Örnek cevapla dene</button>
       </div>
     </div>
+    </div>
     <div class="wstep" id="w3">
-      <div class="wno">3</div><div class="done">✓</div>
+      <div class="wno">✓</div>
       <h3>Rapor</h3>
       <p class="small muted" id="w-empty" style="margin:0">Rapor burada belirecek: her delil, kitapta tek tek aranır.</p>
       <div class="report" id="w-report"></div>
@@ -422,8 +453,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <!-- 5 · İLHAM -->
 <section class="scene wrap" id="ilham">
   <div class="kicker">5 · Sonrası</div>
-  <h2>Bu yoldan makale çıkar</h2>
-  <p class="one">Kaydır: hepsi öğrenci ölçeğinde başlar, hakemli rafta biter.</p>
+  <h2>İlk makalene giden yol</h2>
+  <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
+  <div class="trackchips" id="trackchips"></div>
+  <div class="steps" id="trackplan" style="max-width:720px"></div>
+  <div class="gercek" style="max-width:720px"><b>Gerçekçi beklenti:</b> ilk hedef "büyük makale" değil; <b>mütevazı ve bitmiş</b> bir iş — bir araştırma notu ya da veri makalesi. Veri setin Zenodo'da DOI alır; ilk hakemli satırın çoğu zaman budur. Merdiven:
+    <div class="merdiven"><span class="mx">1</span><span>araştırma notu / kitap değerlendirmesi</span><span class="mx">2</span><span>veri makalesi (JOHD)</span><span class="mx">3</span><span>ulusal tam makale</span><span class="mx">4</span><span>uluslararası</span></div>
+  </div>
+  <div class="shelfhead" style="max-width:720px;margin:18px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
   <div class="btnrow" style="justify-content:flex-start">
     <a class="cta ghost" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane: 100+ doğrulanmış kaynak, dergiler, âdâb</a>
@@ -441,6 +478,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <footer><div class="wrap">
   Rıhle 2026 semineri eşlikçisi · Veri: islamicatlas.org Seyahatnâme Katmanı v1.0.0 · Metinler: OpenITI 2025.1.9 (CC BY-NC-SA) · Belâzürî vakası: EICD-B, DSH 2026, doi:10.1093/llc/fqag093 · Kütüphanedeki her bağlantı 06.08.2026'da tek tek doğrulandı.
 </div></footer>
+<div class="narrator" id="narrator" role="status"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
@@ -681,10 +719,31 @@ $("#w-copy").addEventListener("click",async e=>{
   e.target.textContent="Kopyalandı ✓ — şimdi asistanına yapıştır";
   setTimeout(()=>{ e.target.textContent="Panoya kopyala"; },3500);
 });
-$("#w-sample").addEventListener("click",()=>{
+/* yol seçici */
+$("#pathpick").addEventListener("click",e=>{
+  const b=e.target.closest(".path"); if(!b) return;
+  document.querySelectorAll(".path").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+  const quick=b.dataset.p==="quick";
+  $("#path-quick").style.display=quick?"":"none";
+  $("#path-own").style.display=quick?"none":"";
+  (quick? $("#path-quick") : $("#path-own")).scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
+});
+/* hemen dene: tek dokunuş */
+let programmaticFill=false;
+$("#w-quick").addEventListener("click",()=>{
+  programmaticFill=true;
   $("#w-json").value=JSON.stringify(SAMPLE,null,1);
   $("#samplenote").style.display="block";
-  $("#w-json").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
+  $("#w-verify").click();
+  setTimeout(()=>{ $("#w-report").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"}); programmaticFill=false; },150);
+});
+/* yapıştırınca oto-mukabele */
+let autoT=null;
+$("#w-json").addEventListener("input",()=>{
+  if(programmaticFill) return;
+  clearTimeout(autoT);
+  const v=$("#w-json").value;
+  if(v.length>40 && v.includes("{")) autoT=setTimeout(()=>{ $("#w-verify").click(); },900);
 });
 $("#w-verify").addEventListener("click",()=>{
   let txt=$("#w-json").value.trim();
@@ -733,18 +792,45 @@ $("#w-verify").addEventListener("click",()=>{
   }));
 });
 
-/* ---------- RAIL ---------- */
+/* ---------- YOL PLANLAYICI ---------- */
 const KUT="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html";
+const L_=(t,u)=>'<a href="'+u+'" target="_blank" rel="noopener">'+esc(t)+'</a>';
+const TRACKS={
+ "Tarih & Siyer":[
+  ["Hafta 1","Minyatür atölyeyi bitir","Bu sayfadaki sihirbaz + Kütüphane'deki 90 dakikalık paket: Belâzürî'nin Mısır bölümü, cevap anahtarıyla. Çıktın: doğrulanmış ilk tablon.", L_("Atölye paketi",KUT+"#d2")],
+  ["Hafta 2-3","Kendi bölümünü seç","OpenITI'den Şam ya da Horasan bölümünü indir; aynı talimat + Tezgâh'ta mukabele; Google MyMaps'e dök.", L_("OpenITI'de kitap bulma",KUT+"#d1")+" · "+L_("Tam Tezgâh",KUT+"#tezgah")],
+  ["Ay 2","Sorunu sor","İki bölgeyi karşılaştır: sulh/anve oranı nerede, neden değişiyor? Tablo + harita + 2-3 sayfalık bulgu notu yaz.", L_("Dört soru kalıbı",KUT+"#d3")],
+  ["Ay 3+","Yayına yürü","Veri setini Zenodo'ya koy (DOI) → veri makalesi (JOHD) ya da ulusal dergi. Emsalin hazır: EICD-B.", L_("Dergi rehberi",KUT+"#d4")]],
+ "Hadis & İsnad":[
+  ["Hafta 1","Babını seç","sunnah.com'da bir bab oku; hadith-json'dan aynı babın kayıtlarını indir (50.884 hadis, hazır JSON).", L_("sunnah.com","https://sunnah.com/")+" · "+L_("hadith-json","https://github.com/AhmedBaset/hadith-json")],
+  ["Hafta 2-3","Ağını çiz","Asistanla râvi zincirlerini tabloya dök, delil şartıyla; Gephi Lite'ta (tarayıcıda) isnad ağını çiz.", L_("Gephi","https://gephi.org")],
+  ["Ay 2","Ortak halkaları bul","Hangi râvi köprü? Medâr tespiti + ağ şekli + kısa bulgu notu. Emsal makaleyle karşılaştır.", L_("JHNR isnad makalesi","https://jhnr.net/articles/10.25517/jhnr.v8i1.135")],
+  ["Ay 3+","Yayına yürü","Araştırma notu (Kader/Dîvân) ya da veri makalesi; ulusal hadis çalışmalarında YZ literatürü hızla büyüyor — Türkçe emsaller Kütüphane'de.", L_("Dergi rehberi",KUT+"#d4")]],
+ "Kur'an Çalışmaları":[
+  ["Hafta 1","Kavram ailesini seç","Quran.com'da bir kavramın (ör. fitne) bütün geçişlerini listele; iki meali yan yana koy.", L_("Quran.com","https://quran.com/")],
+  ["Hafta 2-3","Morfolojiye in","corpus.quran.com'da kelime kelime çözümleme; kök ailesinin tablosunu çıkar.", L_("corpus.quran.com","https://corpus.quran.com/")],
+  ["Ay 2","Tarihe aç","Corpus Coranicum'da erken yazmalarda aynı ayetlerin yazımını karşılaştır; farkları tablola.", L_("Corpus Coranicum","https://corpuscoranicum.de/en")],
+  ["Ay 3+","Yayına yürü","Karşılaştırma tablon veri makalesine çok uygun (JOHD); Türkçe için darulfunun ilahiyat gibi dergiler.", L_("Dergi rehberi",KUT+"#d4")]],
+ "Osmanlı & Türkçe":[
+  ["Hafta 1","Kavramını tara","Wikilala'da bir kavramı (ör. terakki) 46 bin+ kitap ve 840+ gazetede ara; yıllara göre say.", L_("Wikilala","https://www.wikilala.com/")],
+  ["Hafta 2-3","Tezlerle çerçevele","YÖK Tez'de konunun tezlerini bul; sayımlarını Datawrapper'da grafiğe dök.", L_("YÖK Tez","https://tez.yok.gov.tr/UlusalTezMerkezi/")+" · "+L_("Datawrapper","https://www.datawrapper.de")],
+  ["Ay 2","Dönemleştir","Kavramın yükseldiği/düştüğü kırılmaları belirle; 2-3 sayfalık bulgu notu. El yazması gerekirse Transkribus'un Osmanlıca modeli var.", L_("Transkribus","https://www.transkribus.org")],
+  ["Ay 3+","Yayına yürü","TR Dizin'li bir dergide kavram tarihi makalesi; grafiklerin şekil olarak hazır.", L_("Dergi rehberi",KUT+"#d4")]],
+};
 const RAIL=[
- {k:"PROJE",c:"var(--korpus)",t:"İbn Battûta Anadolu'da",p:"Antalya→Bursa→İznik→Sinop duraklarını delilleriyle haritala.",chips:["1 hafta sonu","MyMaps"],href:KUT+"#d3"},
- {k:"PROJE",c:"var(--korpus)",t:"Hoca-talebe ağı",p:"eş-Şakâik'ten bir kuşağın kimden-okudu ağını çiz.",chips:["Gephi","2-3 hafta sonu"],href:KUT+"#d3"},
- {k:"PROJE",c:"var(--korpus)",t:"Sulh mu, anve mi?",p:"Belâzürî'de iki kavramın izini bölge bölge say.",chips:["Colab","grafik"],href:KUT+"#d3"},
- {k:"PROJE",c:"var(--korpus)",t:"İsnad ağı minyatürü",p:"Bir babın râvi zincirlerini ağa dök: ortak halkalar kim?",chips:["hadith-json","Gephi"],href:KUT+"#d3"},
- {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim.",chips:["Oxford DSH 2026","ilahiyat yazarlı"],href:KUT+"#d4"},
- {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"],href:KUT+"#d4"},
+ {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim, ilahiyat yazarlı.",chips:["Oxford DSH 2026"],href:"https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428"},
+ {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"],href:"https://www.journals.uchicago.edu/doi/full/10.1086/693970"},
+ {k:"EMSAL",c:"var(--insan)",t:"İsnad ağları, hakemli",p:"Klasik isnad ağlarının ağ-bilimiyle incelenişi — Hadis rotasının emsali.",chips:["JHNR 2023"],href:"https://jhnr.net/articles/10.25517/jhnr.v8i1.135"},
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
  {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
 ];
+function renderTrack(name){
+  $("#trackplan").innerHTML=TRACKS[name].map(s=>'<div class="step" style="text-align:left"><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'</div>').join("");
+  document.querySelectorAll("#trackchips button").forEach(b=>b.setAttribute("aria-pressed", b.textContent===name?"true":"false"));
+}
+$("#trackchips").innerHTML=Object.keys(TRACKS).map(t=>'<button aria-pressed="false">'+esc(t)+'</button>').join("");
+$("#trackchips").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b) renderTrack(b.textContent); });
+renderTrack("Tarih & Siyer");
 $("#rail").innerHTML=RAIL.map(r=>'<a class="railcard" style="text-decoration:none;color:inherit" href="'+r.href+'"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+' <span class="chip" style="color:var(--insan)">→ nasıl başlarım</span></div></a>').join("");
 
 /* ---------- KADİM SÖZLÜK ---------- */
@@ -921,6 +1007,45 @@ function drawKarne(n,nT,nK,nY,pct){
     const pass=$("#m-pass"); pass.classList.remove("neutral");
     pass.querySelectorAll("span").forEach(s=>s.className="w1");
     setTimeout(()=>{ pass.classList.add("neutral"); pass.querySelectorAll("span").forEach(s=>s.className=""); }, reduced?0:1200);
+  });
+
+  /* fabrika turu kancaları */
+  window.MAK={
+    tok:s=>{ tokStage=s; renderTok(); },
+    emb:w=>{ document.querySelectorAll("#embchips button").forEach(x=>x.setAttribute("aria-pressed", x.textContent===w?"true":"false")); drawEmb(w); },
+    field:f=>{ document.querySelectorAll("#m-fields button").forEach(x=>x.setAttribute("aria-pressed","false")); const b=document.querySelector('#m-fields button[data-f="'+f+'"]'); if(b) b.click(); },
+    play:()=>{ const b=$("#m-play"); if(b.textContent.startsWith("↺")) b.click(); b.click(); },
+    doors:setDoors,
+    copy:()=>$("#m-copy").click()
+  };
+})();
+
+/* ---------- FABRİKA TURU ---------- */
+(function(){
+  let timers=[], running=false;
+  const narr=$("#narrator");
+  const steps=()=>document.querySelectorAll("#makine .mstep");
+  function say(t){ narr.textContent=t; narr.style.display="block"; }
+  function go(el){ el.scrollIntoView({behavior:reduced?"auto":"smooth", block:"center"}); }
+  function at(ms,fn){ timers.push(setTimeout(fn,ms)); }
+  function stopTour(){
+    running=false; timers.forEach(clearTimeout); timers=[];
+    narr.style.display="none";
+    $("#mak-tour").textContent="▶ Baştan sona izle (15 sn) — site senin yerine dokunsun";
+  }
+  $("#mak-tour").addEventListener("click",()=>{
+    if(running){ stopTour(); return; }
+    running=true; $("#mak-tour").textContent="⏸ Turu durdur";
+    const S=steps();
+    at(0,()=>{ go(S[0]); say("1/5 · Önce cümleyi parçalara böler…"); MAK.tok(1); });
+    at(1900,()=>{ say("…sonra her parçayı SAYIYA çevirir — model bu numaraları görür."); MAK.tok(2); });
+    at(3900,()=>{ go(S[1]); say("2/5 · Her parça, anlam haritasında bir yere düşer — فتح iki mahalleye de komşu."); MAK.emb("فتح"); });
+    at(6400,()=>{ go(S[2]); say("3/5 · Yazarken bütün pasajı tartar — tarih için ağır basanlar yanıyor."); MAK.field("tarih"); });
+    at(8900,()=>{ go(S[3]); say("4/5 · En olası devamı yazar — her adım bir yarıştır."); MAK.play(); });
+    at(12900,()=>{ go(S[4]); say("5/5 · Kapalı liste + delili metinden kopyalama: güvencenin iki vidası."); MAK.doors(true); });
+    at(14100,()=>{ MAK.copy(); });
+    at(15600,()=>{ say("Tur bitti — şimdi adımlara kendin dokun, sonra aşağıda kendin çalıştır ↓"); });
+    at(19600,stopTour);
   });
 })();
 
