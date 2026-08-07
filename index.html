@@ -158,6 +158,28 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* token & embedding */
+.tokstage{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-height:96px}
+.toklabel{font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:6px 0 4px}
+.tokrow{display:flex;flex-wrap:wrap;gap:5px;direction:rtl;justify-content:flex-start}
+.tokrow.ltr{direction:ltr}
+.tok{font-family:var(--arabic);font-size:1.15rem;padding:2px 9px;border-radius:7px;background:var(--card);border:1px solid var(--line);transition:background .3s}
+.tokrow.ltr .tok{font-family:var(--sans);font-size:.9rem}
+.tok.c0{background:var(--korpus-soft)} .tok.c1{background:var(--model-soft)} .tok.c2{background:var(--insan-soft)} .tok.c3{background:var(--rubric-soft)}
+.tok.num{font-family:var(--mono);font-size:.82rem;direction:ltr}
+.tokcnt{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-right:auto}
+.embwrap{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.embwrap svg{display:block;width:100%;height:auto}
+.embchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.embchips button{font-family:var(--arabic);font-size:1.05rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 13px;cursor:pointer}
+.embchips button[aria-pressed="true"]{background:var(--model);color:#fff;border-color:var(--model)}
+.bars{margin-top:12px;display:none}
+.bars .brow{display:flex;align-items:center;gap:10px;margin:5px 0;font-family:var(--sans);font-size:.8rem}
+.bars .bname{width:84px;font-weight:700;text-align:right}
+.bars .btrack{flex:1;height:16px;background:var(--code-bg);border-radius:8px;overflow:hidden}
+.bars .bfill{height:100%;border-radius:8px;width:0;transition:width .8s ease}
+.bars .bpct{width:44px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.temsili{font-family:var(--sans);font-size:.66rem;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:1px 7px;vertical-align:2px}
 /* story tour */
 .tourcard{position:absolute;z-index:900;left:12px;right:12px;bottom:12px;max-width:470px;margin:0 auto;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 12px;display:none;backdrop-filter:blur(6px)}
 .tourcard .tno{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rubric);font-weight:800}
@@ -279,20 +301,34 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="makine" style="text-align:center;align-items:center">
   <div class="kicker">3 · Perde arkası</div>
   <h2>Makine bunu nasıl yapar?</h2>
-  <p class="one" style="margin:0 auto 26px">Üç sırrı var; üçü de dokunmatik. Örnek: Tanca kaydı.</p>
+  <p class="one" style="margin:0 auto 26px">Beş adımı var; beşi de dokunmatik. Örnek: Tanca kaydı.</p>
 
   <div class="mstep">
     <div class="mno">1</div>
-    <h3>Cevap vermez; devam ettirir</h3>
-    <div class="term" id="m-term"><span>Talimat: metinden şehir kaydı çıkar, delili AYNEN kopyala.</span>
-<span class="tar" id="m-quote"></span>
-<span class="tout" id="m-out"></span><span class="cursor" id="m-cursor"></span></div>
-    <div style="margin-top:10px"><button class="wbtn" id="m-play">▶ Devamı yazdır</button></div>
-    <p class="mwhy">Bütün hüner, en olası devamın <b>doğru kayıt</b> olacağı bir başlangıç kurmakta — aruz kalıbı verilmiş şaire mısra tamamlatmak gibi.</p>
+    <h3>Arapça mı okur? Hayır: önce parçalar, sonra sayıya çevirir</h3>
+    <div class="tokstage">
+      <div class="toklabel">Kitaptan cümle</div>
+      <div class="tokrow" id="tok-ar"></div>
+      <div class="toklabel" style="margin-top:12px">Aynı anlam, İngilizce</div>
+      <div class="tokrow ltr" id="tok-en"></div>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <button class="wbtn" id="tok-btn">1 · Parçala</button>
+      <span class="tokcnt" id="tok-cnt"></span>
+    </div>
+    <p class="mwhy" id="tok-why">Model harf de kelime de görmez; <b>parça numaraları</b> görür. Arapça, İngilizceden daha çok parçaya bölünür — dil eşitsizliğinin mühendislik kökü. <span class="temsili">bölme temsilîdir</span> — gerçeğini <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener">tiktokenizer</a>'da kendi cümlenle dene. Ve dikkat: <span class="ar" style="display:inline;font-size:1rem">ة</span> ile <span class="ar" style="display:inline;font-size:1rem">ه</span> <b>farklı numaralardır</b> — sihirbazdaki KISMÎ eşleşmelerin kökü buraya iner.</p>
   </div>
 
   <div class="mstep">
     <div class="mno">2</div>
+    <h3>Her parçayı anlam haritasına koyar</h3>
+    <div class="embwrap"><div id="embmap"></div></div>
+    <div class="embchips" id="embchips"></div>
+    <p class="mwhy">Sözlük değil, <b>harita</b>: eğitim sırasında her parça bu uzayda bir yer edinir; yakın anlam yakın düşer. <span class="ar" style="display:inline;font-size:1.05rem">فتح</span> iki mahalleye de komşudur — "açmak" mı, "fethetmek" mi? Onu bir sonraki adım söyler. <span class="temsili">yerleşim temsilîdir</span> — gerçekte binlerce boyut vardır, biz ikisini görüyoruz.</p>
+  </div>
+
+  <div class="mstep">
+    <div class="mno">3</div>
     <h3>Her kelimeyi yazarken bütün pasajı tartar</h3>
     <div class="fchips" id="m-fields">
       <button data-f="sehir" aria-pressed="false">"şehir" yazarken</button>
@@ -300,11 +336,27 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <button data-f="niyet" aria-pressed="false">"niyet" yazarken</button>
     </div>
     <div class="wpass neutral" id="m-pass"><div class="ar" id="m-passar"></div></div>
-    <p class="mwhy">Ağır basan kelimeler yanar. Müfessir buna <b>siyak-sibak</b> der; burada aynı iş, mekanikleşmiş halde.</p>
+    <p class="mwhy">Ağır basan kelimeler yanar — <span class="ar" style="display:inline;font-size:1.05rem">فتح</span>'in hangi mahallesi kazanacaksa onu bu tartı belirler. Müfessir buna <b>siyak-sibak</b> der; burada aynı iş, mekanikleşmiş halde.</p>
   </div>
 
   <div class="mstep">
-    <div class="mno">3</div>
+    <div class="mno">4</div>
+    <h3>Cevap vermez; devam ettirir — her adım bir yarıştır</h3>
+    <div class="term" id="m-term"><span>Talimat: metinden şehir kaydı çıkar, delili AYNEN kopyala.</span>
+<span class="tar" id="m-quote"></span>
+<span class="tout" id="m-out"></span><span class="cursor" id="m-cursor"></span></div>
+    <div style="margin-top:10px"><button class="wbtn" id="m-play">▶ Devamı yazdır</button></div>
+    <div class="bars" id="m-bars">
+      <div class="toklabel">"tür" alanı yazılırken kapıların yarışı <span class="temsili">temsilî</span></div>
+      <div class="brow"><span class="bname">ÇIKIŞ</span><div class="btrack"><div class="bfill" style="background:var(--korpus)" data-w="78"></div></div><span class="bpct">%78</span></div>
+      <div class="brow"><span class="bname">ZİYARET</span><div class="btrack"><div class="bfill" style="background:var(--model)" data-w="14"></div></div><span class="bpct">%14</span></div>
+      <div class="brow"><span class="bname">ANILAN</span><div class="btrack"><div class="bfill" style="background:var(--muted)" data-w="8"></div></div><span class="bpct">%8</span></div>
+    </div>
+    <p class="mwhy">Bütün hüner, en olası devamın <b>doğru kayıt</b> olacağı bir başlangıç kurmakta — aruz kalıbı verilmiş şaire mısra tamamlatmak gibi. Canlı olasılık çubukları için: <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Transformer Explainer</a>.</p>
+  </div>
+
+  <div class="mstep">
+    <div class="mno">5</div>
     <h3>Kapıları azalt, kopyayı serbest bırak</h3>
     <div class="mtoggle" role="group"><button id="m-free" aria-pressed="true">Serbest bırakılırsa</button><button id="m-closed" aria-pressed="false">Kapalı liste verilirse</button></div>
     <div id="m-doorarea"></div>
@@ -313,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p class="mwhy">Delili ezberinden söylemesi yasak, önündekinden göstermesi serbest — <b>kopyalamak uydurmaktan kolaydır;</b> model kolaya gider, biz kolayı doğruya bağlarız.</p>
   </div>
 
-  <p class="one" style="margin:6px auto 0;font-size:.95rem">Buna "anlamak" denir mi? Felsefenin sorusu. Bizim ölçtüğümüz: <b>kısıtlanmış ve denetlenmiş davranış.</b></p>
+  <p class="one" style="margin:6px auto 0;font-size:.95rem">Beş adımın hiçbirinde "Arapça bilen bir zihin" yok — parça, sayı, harita, tartı, yarış var. Ama toplamı, Arapçayı işlek kullanan bir davranış üretiyor. Buna "anlamak" denir mi? Felsefenin sorusu. Bizim ölçtüğümüz: <b>kısıtlanmış ve denetlenmiş davranış.</b></p>
   <div class="seechips">
     <span class="muted" style="align-self:center">İçine kendi gözünle bak:</span>
     <a href="https://bbycroft.net/llm" target="_blank" rel="noopener">3B model anatomisi</a>
@@ -750,20 +802,84 @@ function drawKarne(n,nT,nK,nY,pct){
 (function(){
   const S=IBB.showcase[0]; // Tanca
   const Q=S.quote_ar||"";
+
+  /* 1 · parçalama (temsilî) */
+  const TOK_AR=[["كان",1580],["خروج",9042],["ي",610],["من",381],["طنج",44712],["ة",157]];
+  const TOK_EN=[["My",3666],["departure",25866],["from",504],["Tang",43909],["ier",811]];
+  let tokStage=0;
+  function renderTok(){
+    const ar=$("#tok-ar"), en=$("#tok-en");
+    if(tokStage===0){
+      ar.innerHTML='<span class="tok">كان خروجي من طنجة</span>';
+      en.innerHTML='<span class="tok">My departure from Tangier</span>';
+      $("#tok-cnt").textContent="";
+      $("#tok-btn").textContent="1 · Parçala";
+    }else{
+      const num=tokStage===2;
+      ar.innerHTML=TOK_AR.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
+      en.innerHTML=TOK_EN.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
+      $("#tok-cnt").textContent="Arapça: "+TOK_AR.length+" parça · İngilizce: "+TOK_EN.length+" parça";
+      $("#tok-btn").textContent= num? "↺ Baştan" : "2 · Sayılara çevir";
+    }
+  }
+  $("#tok-btn").addEventListener("click",()=>{ tokStage=(tokStage+1)%3; renderTok(); });
+  renderTok();
+
+  /* 2 · anlam haritası (temsilî) */
+  const EMB=[
+    {w:"صلح",g:"sulh",x:150,y:70,k:"s"},{w:"أمان",g:"emân",x:105,y:110,k:"s"},{w:"عهد",g:"ahd",x:195,y:118,k:"s"},{w:"جزية",g:"cizye",x:140,y:152,k:"s"},
+    {w:"عنوة",g:"kuvvetle",x:445,y:72,k:"a"},{w:"قتال",g:"savaş",x:395,y:118,k:"a"},{w:"حصار",g:"kuşatma",x:492,y:112,k:"a"},{w:"سيف",g:"kılıç",x:445,y:152,k:"a"},
+    {w:"طنجة",g:"Tanca",x:118,y:212,k:"y"},{w:"مدينة",g:"şehir",x:185,y:238,k:"y"},{w:"مصر",g:"Mısır",x:120,y:258,k:"y"},
+    {w:"فتح",g:"fetih / açmak",x:300,y:100,k:"f"},
+  ];
+  const KCOL={s:"var(--korpus)",a:"var(--rubric)",y:"var(--insan)",f:"var(--model)"};
+  function drawEmb(sel){
+    const W=560,H=290;
+    let h='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Temsilî anlam haritası">';
+    h+='<text x="150" y="34" text-anchor="middle" font-size="12" font-family="var(--sans)" fill="var(--korpus)" opacity=".8">SULH MAHALLESİ</text>';
+    h+='<text x="445" y="34" text-anchor="middle" font-size="12" font-family="var(--sans)" fill="var(--rubric)" opacity=".8">ANVE MAHALLESİ</text>';
+    h+='<text x="150" y="285" text-anchor="middle" font-size="12" font-family="var(--sans)" fill="var(--insan)" opacity=".8">YER ADLARI</text>';
+    if(sel){
+      const p=EMB.find(e=>e.w===sel);
+      const near=EMB.filter(e=>e!==p).map(e=>({e,d:Math.hypot(e.x-p.x,e.y-p.y)})).sort((a,b)=>a.d-b.d).slice(0, p.k==="f"?4:2);
+      near.forEach(n=>{ h+='<line x1="'+p.x+'" y1="'+p.y+'" x2="'+n.e.x+'" y2="'+n.e.y+'" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="4 3" opacity=".7"/>'; });
+    }
+    EMB.forEach(e=>{
+      const on=sel===e.w;
+      h+='<circle cx="'+e.x+'" cy="'+e.y+'" r="'+(on?9:6)+'" fill="'+KCOL[e.k]+'" opacity="'+(on?1:.75)+'"'+(on?' stroke="var(--ink)" stroke-width="2"':'')+'/>';
+      h+='<text x="'+e.x+'" y="'+(e.y-13)+'" text-anchor="middle" font-size="'+(on?19:16)+'" font-family="var(--arabic)" fill="var(--ink)"'+(on?' font-weight="700"':'')+'>'+esc(e.w)+'</text>';
+      if(on) h+='<text x="'+e.x+'" y="'+(e.y+24)+'" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="var(--muted)">'+esc(e.g)+'</text>';
+    });
+    h+='</svg>';
+    $("#embmap").innerHTML=h;
+  }
+  $("#embchips").innerHTML=["فتح","صلح","عنوة","طنجة","عهد","حصار"].map(w=>'<button aria-pressed="false">'+esc(w)+'</button>').join("");
+  $("#embchips").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    const on=b.getAttribute("aria-pressed")==="true";
+    document.querySelectorAll("#embchips button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    if(on){ drawEmb(null); return; }
+    b.setAttribute("aria-pressed","true"); drawEmb(b.textContent);
+  });
+  drawEmb("فتح"); document.querySelector("#embchips button").setAttribute("aria-pressed","true");
   $("#m-quote").textContent="Metin: "+Q;
   /* 1 · daktilo */
   const OUT='\n{ "şehir": "طنجة / Tanca",\n  "tarih_h": "725 Receb",\n  "tür": "çıkış — hac niyeti",\n  "delil": "'+Q.slice(0,34)+'…" }';
   let typed=false, typeTimer=null;
+  function showBars(){
+    const b=$("#m-bars"); b.style.display="block";
+    setTimeout(()=>b.querySelectorAll(".bfill").forEach(f=>{ f.style.width=f.dataset.w+"%"; }),60);
+  }
   $("#m-play").addEventListener("click",e=>{
-    if(typed){ clearInterval(typeTimer); $("#m-out").textContent=""; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
+    if(typed){ clearInterval(typeTimer); $("#m-out").textContent=""; $("#m-bars").style.display="none"; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
     typed=true; e.target.textContent="↺ Sıfırla";
     const el=$("#m-out"); el.textContent="";
-    if(reduced){ el.textContent=OUT; return; }
+    if(reduced){ el.textContent=OUT; showBars(); return; }
     const t0=performance.now();
     typeTimer=setInterval(()=>{
       const n=Math.min(OUT.length, Math.round((performance.now()-t0)/22));
       el.textContent=OUT.slice(0,n);
-      if(n>=OUT.length) clearInterval(typeTimer);
+      if(n>=OUT.length){ clearInterval(typeTimer); showBars(); }
     },40);
   });
   /* 2 · tartı */
