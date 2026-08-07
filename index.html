@@ -177,6 +177,40 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .tanis-cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:640px;margin:14px auto 0;width:100%}
 .warncard{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rubric);border-radius:12px;padding:13px 15px;font-family:var(--sans);font-size:.88rem;text-align:left}
 .warncard b{display:block;margin-bottom:3px}
+/* çekirdeğe iniş */
+.deep{max-width:680px;margin:26px auto 0;width:100%;text-align:left}
+.deep>summary{font-family:var(--sans);font-weight:700;font-size:1rem;cursor:pointer;background:var(--insan-soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px;list-style:none}
+.deep>summary::-webkit-details-marker{display:none}
+.deep>summary::after{content:" ▸";color:var(--insan)}
+.deep[open]>summary::after{content:" ▾"}
+.dpanel{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--insan);border-radius:12px;padding:16px 18px;margin-top:12px;box-shadow:var(--shadow)}
+.dpanel h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
+.dpanel .mwhy{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-top:10px}
+.wordchips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.wordchips button{font-family:var(--sans);font-size:.82rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+.wordchips button[aria-pressed="true"]{background:var(--insan);color:#fff;border-color:var(--insan)}
+.vecrow{display:flex;gap:3px;align-items:center;margin:6px 0;font-family:var(--mono);font-size:.68rem}
+.vecrow .vlab{width:64px;font-family:var(--sans);font-weight:700;font-size:.8rem}
+.vcell{flex:1;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-variant-numeric:tabular-nums;min-width:34px}
+.simwrap{margin-top:10px;font-family:var(--sans);font-size:.8rem}
+.simtrack{height:14px;background:var(--code-bg);border-radius:7px;overflow:hidden;margin-top:4px}
+.simfill{height:100%;background:var(--korpus);border-radius:7px;transition:width .5s}
+.attsvg{width:100%;height:auto;display:block}
+.headbtns{display:flex;gap:6px;margin-bottom:6px}
+.headbtns button{font-family:var(--sans);font-size:.78rem;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
+.headbtns button[aria-pressed="true"]{background:var(--model);color:#fff;border-color:var(--model)}
+.tempwrap{font-family:var(--sans);font-size:.8rem;margin:8px 0}
+.tempwrap input[type=range]{width:100%}
+.probrow{display:flex;align-items:center;gap:8px;margin:4px 0;font-family:var(--sans);font-size:.8rem}
+.probrow .pw{width:80px;text-align:right;font-weight:600}
+.probrow .ptrack{flex:1;height:15px;background:var(--code-bg);border-radius:7px;overflow:hidden}
+.probrow .pfill{height:100%;background:var(--insan);border-radius:7px;transition:width .25s}
+.probrow .ppct{width:52px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.drawhist{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;font-family:var(--sans);font-size:.76rem}
+.drawhist span{background:var(--chip);border-radius:999px;padding:2px 9px}
+.lossbox{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:8px}
+.lossbox canvas{width:100%;height:110px;display:block}
+.losscnt{font-family:var(--mono);font-size:.82rem;margin-top:6px;font-variant-numeric:tabular-nums}
 /* fabrika turu + yol seçimi + planlayıcı */
 .mstep:not(:last-of-type)::after{content:"↓";position:absolute;left:50%;transform:translateX(-50%);bottom:-15px;font-size:1rem;color:var(--muted);font-family:var(--sans)}
 .narrator{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:1600;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.85rem;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);display:none;max-width:92%;text-align:center}
@@ -316,6 +350,48 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="warncard"><b>Neden uydurur?</b> Boş bırakmanın puan getirmediği sınavdaki öğrenci gibi: sallamak, susmaktan kârlıdır. Uydurma (halüsinasyon) arıza değil, <b>yapısal risktir</b> — panzehiri az sonra göreceğin mukabeledir.</div>
     <div class="warncard"><b>Neden hep sana katılır?</b> Beğenilmek üzere ayarlandı. Güzel söz, doğru sözün alameti değildir — itiraz etmeyen danışmana temkinli yaklaş.</div>
   </div>
+  <details class="deep" id="deep">
+    <summary>🔬 Meraklısına: çekirdeğe iniş — makinenin içindeki dört mekanizma</summary>
+
+    <div class="dpanel">
+      <h4>Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h4>
+      <p class="small" style="margin:0 0 6px">İki kelime seç; sayı şeritlerini ve aralarındaki benzerliği gör:</p>
+      <div class="wordchips" id="vw-a"></div>
+      <div class="wordchips" id="vw-b"></div>
+      <div id="vecarea"></div>
+      <div class="simwrap"><span id="simlab"></span><div class="simtrack"><div class="simfill" id="simfill"></div></div></div>
+      <p class="mwhy">Gerçek modelde her kelime <b>binlerce sayı</b>dır (biz 8'ini gösteriyoruz; değerler temsilî, <b>benzerlik hesabı gerçek</b> — kosinüs). Yakın anlam, yakın sayılar demektir: <i>rıhle</i> ile <i>sefer</i>in şeritleri neredeyse aynı. "Anlam haritası" dediğimiz şey bu sayıların uzayıdır.</p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 2 · Dikkat kafaları: aynı cümleye aynı anda farklı gözler bakar</h4>
+      <div class="headbtns" id="headbtns">
+        <button data-h="0" aria-pressed="true">Kafa 1 — "kim?"</button>
+        <button data-h="1" aria-pressed="false">Kafa 2 — "ne zaman?"</button>
+      </div>
+      <div id="attarea"></div>
+      <p class="mwhy" id="attnote"></p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 3 · Son karar bir zar atışıdır — sıcaklığı sen ayarla</h4>
+      <p class="small" style="margin:0 0 4px">"Bugün hava çok güzel …" — sıradaki kelimenin yarışı:</p>
+      <div id="probarea"></div>
+      <div class="tempwrap">Sıcaklık (temperature): <b id="tval">1.0</b> — düşükte hep favori kazanır, yüksekte sürprizler artar<br>
+        <input type="range" id="tslider" min="0.2" max="2" step="0.1" value="1" aria-label="Sıcaklık"></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="wbtn alt" id="rollbtn">🎲 Zar at</button><div class="drawhist" id="drawhist"></div></div>
+      <p class="mwhy">Adaylar ve puanları temsilî; <b>hesap gerçek softmax</b>: p = e^(puan/T) / Σ. "Aynı soruya dün başka cevap verdi" şikâyetinin matematiği budur — her cevap bu zarın bir atışıdır.</p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 4 · Peki bu sayıları kim ayarladı? Milyarlarca küçük düzeltme</h4>
+      <div class="lossbox"><canvas id="losscv" width="600" height="220"></canvas></div>
+      <div class="losscnt" id="losscnt">düzeltme: 0</div>
+      <div style="margin-top:8px"><button class="wbtn alt" id="trainbtn">▶ Eğitimi izle</button></div>
+      <p class="mwhy">Eğitimde model sıradaki kelimeyi tahmin eder, yanılır, <b>hatası ölçülür</b> ve bütün sayılar hatayı azaltacak yönde kıl payı kaydırılır. Bunu trilyonlarca kez tekrarla: klavye şairi doğar. Eğri temsilîdir; ilke gerçektir. Gerçeğinin içinde gezmek için: <a href="https://bbycroft.net/llm" target="_blank" rel="noopener">bbycroft.net/llm</a>.</p>
+    </div>
+  </details>
+
   <div class="btnrow"><a class="cta" href="#harita">Şimdi bu makineyi kitaplarımızla tanıştır ↓</a></div>
 </section>
 
@@ -656,6 +732,116 @@ else window.addEventListener("load", initMap, {once:true});
     const b=e.target.closest(".drawer>button"); if(!b) return;
     const dr=b.parentElement; const open=dr.classList.toggle("open");
     b.setAttribute("aria-expanded",open); b.querySelector(".dhint").textContent=open?"kapat":"aç";
+  });
+})();
+
+/* ---------- ÇEKİRDEĞE İNİŞ ---------- */
+(function(){
+  /* Kat 1: vektörler (değerler temsilî, kosinüs hesabı gerçek) */
+  const VECS={
+    "hava":[.9,.1,.8,-.2,.3,.7,-.5,.2],
+    "yağmur":[.8,.2,.9,-.1,.4,.6,-.4,.1],
+    "güneş":[.7,0,.6,-.3,.5,.8,-.6,.3],
+    "kitap":[-.6,.9,-.2,.8,-.7,.1,.4,.9],
+    "rıhle":[-.4,.8,.1,.9,-.5,.3,.6,.7],
+    "sefer":[-.3,.7,.2,.9,-.4,.2,.7,.6],
+  };
+  let wa="hava", wb="yağmur";
+  const cos=(a,b)=>{let d=0,na=0,nb=0;for(let i=0;i<a.length;i++){d+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i];}return d/Math.sqrt(na*nb);};
+  function cellColor(v){
+    return v>=0? "rgba(30,122,70,"+(0.25+0.75*Math.min(1,v))+")" : "rgba(185,28,28,"+(0.25+0.75*Math.min(1,-v))+")";
+  }
+  function vecRow(w){
+    return '<div class="vecrow"><span class="vlab">'+esc(w)+'</span>'+VECS[w].map(v=>'<span class="vcell" style="background:'+cellColor(v)+'">'+v.toFixed(1)+'</span>').join("")+'</div>';
+  }
+  function renderVec(){
+    $("#vecarea").innerHTML=vecRow(wa)+vecRow(wb);
+    const s=cos(VECS[wa],VECS[wb]);
+    $("#simlab").innerHTML="<b>"+esc(wa)+"</b> ile <b>"+esc(wb)+"</b> benzerliği: <b>"+s.toFixed(2)+"</b> (−1…+1)";
+    $("#simfill").style.width=Math.max(0,(s+1)/2*100)+"%";
+    $("#simfill").style.background = s>0.5? "var(--korpus)" : s>0? "var(--model)" : "var(--rubric)";
+    document.querySelectorAll("#vw-a button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===wa));
+    document.querySelectorAll("#vw-b button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===wb));
+  }
+  const chipHtml=Object.keys(VECS).map(w=>'<button aria-pressed="false">'+esc(w)+'</button>').join("");
+  $("#vw-a").innerHTML=chipHtml; $("#vw-b").innerHTML=chipHtml;
+  $("#vw-a").addEventListener("click",e=>{const b=e.target.closest("button"); if(b){wa=b.textContent; renderVec();}});
+  $("#vw-b").addEventListener("click",e=>{const b=e.target.closest("button"); if(b){wb=b.textContent; renderVec();}});
+  renderVec();
+
+  /* Kat 2: dikkat kafaları */
+  const AW=["kervan","sabah","erken","yola","çıkacak"];
+  const HEADS=[
+    {w:[.85,.12,.08,.30], note:'Bu kafa "KİM çıkacak?" diye bakıyor: ok kalınlığı = dikkat ağırlığı; <b>kervan</b> ağır basıyor.'},
+    {w:[.10,.78,.62,.15], note:'Aynı cümle, başka kafa: "NE ZAMAN?" — <b>sabah</b> ve <b>erken</b> ağır basıyor. Gerçek modelde yüzlerce kafa aynı anda, her katta yeniden bakar.'},
+  ];
+  function renderAtt(h){
+    const W=560,H=170,y=120,xs=AW.map((_,i)=>60+i*((W-120)/(AW.length-1)));
+    let s='<svg class="attsvg" viewBox="0 0 '+W+' '+H+'">';
+    HEADS[h].w.forEach((wt,i)=>{
+      const x1=xs[4],x2=xs[i],mx=(x1+x2)/2;
+      s+='<path d="M'+x1+' '+(y-14)+' Q'+mx+' '+(y-14-70*wt-18)+' '+x2+' '+(y-14)+'" fill="none" stroke="var(--model)" stroke-width="'+(1+wt*7)+'" opacity="'+(0.3+wt*0.7)+'"/>';
+    });
+    AW.forEach((w,i)=>{
+      const bold=i===4||HEADS[h].w[i]>0.5;
+      s+='<text x="'+xs[i]+'" y="'+y+'" text-anchor="middle" font-size="17" font-family="var(--sans)" fill="var(--ink)"'+(bold?' font-weight="700"':'')+'>'+esc(w)+'</text>';
+      if(i<4) s+='<text x="'+xs[i]+'" y="'+(y+22)+'" text-anchor="middle" font-size="11" font-family="var(--mono)" fill="var(--muted)">'+HEADS[h].w[i].toFixed(2)+'</text>';
+    });
+    s+='</svg>';
+    $("#attarea").innerHTML=s;
+    $("#attnote").innerHTML=HEADS[h].note+' <span class="temsili">ağırlıklar temsilî</span>';
+    document.querySelectorAll("#headbtns button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.h==String(h)));
+  }
+  $("#headbtns").addEventListener("click",e=>{const b=e.target.closest("button"); if(b) renderAtt(+b.dataset.h);});
+  renderAtt(0);
+
+  /* Kat 3: gerçek softmax + sıcaklık */
+  const CANDS=[["olacak",4.2],["görünüyor",3.1],["olur",2.6],["değil",1.2],["kitap",-1.5]];
+  function probs(T){
+    const ex=CANDS.map(c=>Math.exp(c[1]/T)), s=ex.reduce((a,b)=>a+b,0);
+    return ex.map(e=>e/s);
+  }
+  function renderProbs(){
+    const T=parseFloat($("#tslider").value); $("#tval").textContent=T.toFixed(1);
+    const p=probs(T);
+    $("#probarea").innerHTML=CANDS.map((c,i)=>'<div class="probrow"><span class="pw">'+esc(c[0])+'</span><div class="ptrack"><div class="pfill" style="width:'+(p[i]*100).toFixed(1)+'%"></div></div><span class="ppct">%'+(p[i]*100).toFixed(1)+'</span></div>').join("");
+  }
+  $("#tslider").addEventListener("input",renderProbs);
+  $("#rollbtn").addEventListener("click",()=>{
+    const p=probs(parseFloat($("#tslider").value));
+    let r=Math.random(),i=0; while(r>p[i]&&i<p.length-1){ r-=p[i]; i++; }
+    const h=$("#drawhist");
+    h.insertAdjacentHTML("afterbegin","<span>"+esc(CANDS[i][0])+"</span>");
+    while(h.children.length>7) h.lastChild.remove();
+  });
+  renderProbs();
+
+  /* Kat 4: eğitim eğrisi (temsilî) */
+  let training=false;
+  $("#trainbtn").addEventListener("click",()=>{
+    if(training) return; training=true;
+    const cv=$("#losscv"), x=cv.getContext("2d"), W=cv.width, H=cv.height;
+    const ink=getComputedStyle(document.body).color;
+    const t0=performance.now(), DUR=reduced?0:4200;
+    const tick=setInterval(()=>{
+      const el=Math.min(1,(performance.now()-t0)/(DUR||1));
+      x.clearRect(0,0,W,H);
+      x.strokeStyle="rgba(107,114,128,.4)"; x.lineWidth=1;
+      x.beginPath(); x.moveTo(36,10); x.lineTo(36,H-26); x.lineTo(W-10,H-26); x.stroke();
+      x.fillStyle="rgba(107,114,128,.9)"; x.font="12px system-ui";
+      x.fillText("hata",4,20); x.fillText("düzeltme sayısı →",W-130,H-8);
+      x.strokeStyle="#B91C1C"; x.lineWidth=2.5; x.beginPath();
+      const n=Math.max(2,Math.floor(el*260));
+      for(let i=0;i<n;i++){
+        const fx=i/260, px=36+fx*(W-52);
+        const base=Math.exp(-fx*3.1), noise=(Math.sin(i*7.3)+Math.sin(i*2.9))*0.035*Math.exp(-fx*2);
+        const py=14+(1-(base+noise))* (H-46);
+        i? x.lineTo(px,py) : x.moveTo(px,py);
+      }
+      x.stroke();
+      $("#losscnt").textContent="düzeltme: "+Math.floor(Math.pow(el,1.6)*1.8e9).toLocaleString("tr-TR")+(el>=1?" — ve gerçekte bunun binlerce katı":"…");
+      if(el>=1){ clearInterval(tick); training=false; }
+    },40);
   });
 })();
 
