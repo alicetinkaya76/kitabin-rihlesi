@@ -162,7 +162,20 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .phone{max-width:400px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;text-align:left}
 .phone .pbar{height:5px;width:110px;background:var(--line);border-radius:3px;margin:0 auto 14px}
 .bubble{background:var(--insan-soft);border-radius:14px 14px 14px 4px;padding:12px 16px;font-family:var(--sans);font-size:1.02rem;min-height:3.2em}
-.bubble .typedw{color:var(--insan);font-weight:700}
+.bubble .typedw{color:var(--insan);font-weight:700;display:inline-block}
+.bubble .typedw.pop{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(1.6);opacity:.3}100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){ .bubble .typedw.pop{animation:none} }
+.scalebar{transition:width 1.1s ease}
+.step.done{opacity:.55}
+.step .chk{position:absolute;right:12px;top:12px;font-family:var(--sans);font-size:.74rem;display:flex;align-items:center;gap:5px;cursor:pointer;color:var(--muted)}
+.step .chk input{width:17px;height:17px;accent-color:var(--korpus);cursor:pointer}
+.planbar{font-family:var(--sans);font-size:.82rem;margin:6px 0 2px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.planbar .ptrack{flex:1;min-width:140px;height:9px;background:var(--code-bg);border-radius:5px;overflow:hidden}
+.planbar .pfill2{height:100%;background:var(--korpus);border-radius:5px;transition:width .4s}
+.tokseg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:.8rem}
+.tokseg button{all:unset;padding:8px 15px;cursor:pointer;font-weight:600}
+.tokseg button[aria-pressed="true"]{background:var(--model);color:#fff}
 .sugg{display:flex;gap:8px;margin-top:12px}
 .sugg button{flex:1;font-family:var(--sans);font-size:.88rem;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:9px 6px 6px;cursor:pointer;display:flex;flex-direction:column;gap:4px;align-items:center}
 .sugg button:hover{border-color:var(--insan)}
@@ -337,8 +350,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div style="margin-top:10px;text-align:center"><button class="wbtn alt" id="klv-reset" style="display:none">↺ Baştan oyna</button></div>
   </div>
   <div class="scalebox">
-    <div class="scalerow"><div class="slab">Klavyen şu kadar metinden öğrendi (senin mesajların):</div><div class="scaletrack"><div class="scalebar" style="width:26px;background:var(--insan)"></div></div></div>
-    <div class="scalerow"><div class="slab">Model şu kadar metinden öğrendi (trilyonlarca kelime):</div><div class="scaletrack"><div class="scalebar" style="width:300%;background:var(--rubric)"></div></div><div class="slab" style="margin-top:3px">…çubuk ekrana sığmadı; gerçek oranı çizsek sayfa kilometrelerce sürerdi.</div></div>
+    <div class="scalerow"><div class="slab">Klavyen şu kadar metinden öğrendi (senin mesajların):</div><div class="scaletrack"><div class="scalebar" data-w="26px" style="width:0;background:var(--insan)"></div></div></div>
+    <div class="scalerow"><div class="slab">Model şu kadar metinden öğrendi (trilyonlarca kelime):</div><div class="scaletrack"><div class="scalebar" data-w="300%" style="width:0;background:var(--rubric)"></div></div><div class="slab" style="margin-top:3px">…çubuk ekrana sığmadı; gerçek oranı çizsek sayfa kilometrelerce sürerdi.</div></div>
   </div>
   <p class="one" style="margin:26px auto 10px">Bu ölçekte iyi tahmin için dilbilgisini, üslupları, olgu kalıplarını <b>sıkıştırmak</b> zorunda kaldı. Üstüne iki kat daha giydi — çekmeceleri aç:</p>
   <div class="dresser" style="max-width:640px">
@@ -454,8 +467,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="toklabel" style="margin-top:12px">Aynı anlam, İngilizce</div>
       <div class="tokrow ltr" id="tok-en"></div>
     </div>
-    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-      <button class="wbtn" id="tok-btn">1 · Parçala</button>
+    <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <div class="tokseg" role="group" aria-label="Görünüm">
+        <button data-s="0" aria-pressed="true">Cümle</button>
+        <button data-s="1" aria-pressed="false">Parçalar</button>
+        <button data-s="2" aria-pressed="false">Sayılar</button>
+      </div>
       <span class="tokcnt" id="tok-cnt"></span>
     </div>
     <p class="mwhy" id="tok-why">Model harf de kelime de görmez; <b>parça numaraları</b> görür. Arapça, İngilizceden daha çok parçaya bölünür — dil eşitsizliğinin mühendislik kökü. <span class="temsili">bölme temsilîdir</span> — gerçeğini <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener">tiktokenizer</a>'da kendi cümlenle dene. Ve dikkat: <span class="ar" style="display:inline;font-size:1rem">ة</span> ile <span class="ar" style="display:inline;font-size:1rem">ه</span> <b>farklı numaralardır</b> — sihirbazdaki KISMÎ eşleşmelerin kökü buraya iner.</p>
@@ -476,6 +493,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <button data-f="sehir" aria-pressed="false">"şehir" yazarken</button>
       <button data-f="tarih" aria-pressed="false">"tarih" yazarken</button>
       <button data-f="niyet" aria-pressed="false">"niyet" yazarken</button>
+      <button id="m-cycle" style="border-style:dashed">▶ sırayla göster</button>
     </div>
     <div class="wpass neutral" id="m-pass"><div class="ar" id="m-passar"></div></div>
     <p class="mwhy">Ağır basan kelimeler yanar — <span class="ar" style="display:inline;font-size:1.05rem">فتح</span>'in hangi mahallesi kazanacaksa onu bu tartı belirler. Müfessir buna <b>siyak-sibak</b> der; burada aynı iş, mekanikleşmiş halde.</p>
@@ -489,7 +507,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <span class="tout" id="m-out"></span><span class="cursor" id="m-cursor"></span></div>
     <div style="margin-top:10px"><button class="wbtn" id="m-play">▶ Devamı yazdır</button></div>
     <div class="bars" id="m-bars">
-      <div class="toklabel">"tür" alanı yazılırken kapıların yarışı <span class="temsili">temsilî</span></div>
+      <div class="toklabel">Yazım tam burada duraksadı: "tür" kapılarının yarışı — kazanan yazılacak <span class="temsili">temsilî</span></div>
       <div class="brow"><span class="bname">ÇIKIŞ</span><div class="btrack"><div class="bfill" style="background:var(--korpus)" data-w="78"></div></div><span class="bpct">%78</span></div>
       <div class="brow"><span class="bname">ZİYARET</span><div class="btrack"><div class="bfill" style="background:var(--model)" data-w="14"></div></div><span class="bpct">%14</span></div>
       <div class="brow"><span class="bname">ANILAN</span><div class="btrack"><div class="bfill" style="background:var(--muted)" data-w="8"></div></div><span class="bpct">%8</span></div>
@@ -523,6 +541,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <h2>Bu dünya sana yabancı değil</h2>
   <p class="one" style="margin:0 auto">Kartlara dokun: her teknik kavramın bin yıllık bir karşılığı var.</p>
   <div class="flipgrid" id="flipgrid"></div>
+  <div class="btnrow"><button class="wbtn alt" id="flipall">Hepsini çevir</button></div>
 </section>
 
 <!-- 4 · DENE -->
@@ -580,6 +599,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <h2>İlk makalene giden yol</h2>
   <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
   <div class="trackchips" id="trackchips"></div>
+  <div class="planbar" style="max-width:720px;margin-left:auto;margin-right:auto;width:100%">
+    <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
+    <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.78rem">📄 Planı indir</button>
+  </div>
   <div class="steps" id="trackplan" style="max-width:720px"></div>
   <div class="gercek" style="max-width:720px"><b>Gerçekçi beklenti:</b> ilk hedef "büyük makale" değil; <b>mütevazı ve bitmiş</b> bir iş — bir araştırma notu ya da veri makalesi. Veri setin Zenodo'da DOI alır; ilk hakemli satırın çoğu zaman budur. Merdiven:
     <div class="merdiven"><span class="mx">1</span><span>araştırma notu / kitap değerlendirmesi</span><span class="mx">2</span><span>veri makalesi (JOHD)</span><span class="mx">3</span><span>ulusal tam makale</span><span class="mx">4</span><span>uluslararası</span></div>
@@ -712,7 +735,7 @@ else window.addEventListener("load", initMap, {once:true});
   ];
   let picked=[];
   function render(){
-    $("#klv-text").innerHTML="Bugün hava çok"+picked.map(w=>' <span class="typedw">'+esc(w)+'</span>').join("")+' <span class="cursor" style="background:var(--insan)"></span>';
+    $("#klv-text").innerHTML="Bugün hava çok"+picked.map((w,i)=>' <span class="typedw'+(i===picked.length-1?' pop':'')+'">'+esc(w)+'</span>').join("")+' <span class="cursor" style="background:var(--insan)"></span>';
     const sg=$("#klv-sugg");
     if(picked.length>=ROUNDS.length){
       sg.innerHTML=""; $("#klv-punch").style.display="block"; $("#klv-reset").style.display="inline-block";
@@ -727,6 +750,8 @@ else window.addEventListener("load", initMap, {once:true});
   });
   $("#klv-reset").addEventListener("click",()=>{ picked=[]; render(); });
   render();
+  /* ölçek çubukları: sahne görünür olunca dolar */
+  setTimeout(()=>{ document.querySelectorAll(".scalebar").forEach(b=>{ b.style.width=b.dataset.w; }); }, 900);
   /* tanış çekmeceleri */
   document.querySelector("#tanis .dresser").addEventListener("click",e=>{
     const b=e.target.closest(".drawer>button"); if(!b) return;
@@ -1090,12 +1115,38 @@ const RAIL=[
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
  {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
 ];
+let curTrack="Tarih & Siyer";
+function planState(){ try{ return JSON.parse(localStorage.getItem("rihle_plan")||"{}"); }catch(e){ return {}; } }
+function planSave(st){ try{ localStorage.setItem("rihle_plan", JSON.stringify(st)); }catch(e){} }
+function planProg(){
+  const st=planState();
+  const done=TRACKS[curTrack].filter((_,i)=>st[curTrack+":"+i]).length;
+  $("#planprog").innerHTML="<b>"+done+"/"+TRACKS[curTrack].length+"</b> adım tamam";
+  $("#planfill").style.width=(done/TRACKS[curTrack].length*100)+"%";
+  document.querySelectorAll("#trackplan .step").forEach((el,i)=>el.classList.toggle("done", !!st[curTrack+":"+i]));
+}
 function renderTrack(name){
-  $("#trackplan").innerHTML=TRACKS[name].map(s=>'<div class="step" style="text-align:left"><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'</div>').join("");
+  curTrack=name;
+  const st=planState();
+  $("#trackplan").innerHTML=TRACKS[name].map((s,i)=>'<div class="step" style="text-align:left"><label class="chk"><input type="checkbox" data-i="'+i+'"'+(st[name+":"+i]?" checked":"")+'> yaptım</label><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'</div>').join("");
   document.querySelectorAll("#trackchips button").forEach(b=>b.setAttribute("aria-pressed", b.textContent===name?"true":"false"));
+  planProg();
 }
 $("#trackchips").innerHTML=Object.keys(TRACKS).map(t=>'<button aria-pressed="false">'+esc(t)+'</button>').join("");
 $("#trackchips").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b) renderTrack(b.textContent); });
+$("#trackplan").addEventListener("change",e=>{
+  const c=e.target.closest("input[type=checkbox]"); if(!c) return;
+  const st=planState(); st[curTrack+":"+c.dataset.i]=c.checked; planSave(st); planProg();
+});
+$("#plandl").addEventListener("click",()=>{
+  const md=["# İlk makaleme giden yol — "+curTrack,"", "Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",""].concat(
+    TRACKS[curTrack].map(s=>"## "+s[0]+" · "+s[1]+"\n"+s[2]+"\nBağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")+"\n")
+  ).concat(["---","Merdiven: araştırma notu → veri makalesi (JOHD) → ulusal tam makale → uluslararası","Üret (kendin) · Doğrula (dışarıda) · Beyan et"]).join("\n");
+  const blob=new Blob([md],{type:"text/markdown;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="yol-haritasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+});
 renderTrack("Tarih & Siyer");
 $("#rail").innerHTML=RAIL.map(r=>'<a class="railcard" style="text-decoration:none;color:inherit" href="'+r.href+'"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+' <span class="chip" style="color:var(--insan)">→ nasıl başlarım</span></div></a>').join("");
 
@@ -1107,12 +1158,22 @@ const FLIPS=[
  ["Provenans","Sened","Her kaydın nereden geldiğinin zinciri."],
  ["Doğrulama","Mukabele","Çıktıyı kaynakla karşılaştırma; işin kalbi."],
  ["\"Bilmiyorum\" kanalı","İmam Mâlik'in lā edrī'si","Modele çekimser kalma yeri açmak — rica değil, mühendislik."],
+ ["Prompt (talimat)","Suâlin edebi","İyi soru cevabın yarısıdır: bağlam + görev + kaynak sınırı + ölçüt."],
+ ["Halüsinasyon","Vehim","Senedi olmayan ezber; mukabele görmedikçe yok hükmündedir."],
 ];
 $("#flipgrid").innerHTML=FLIPS.map((f,i)=>'<button class="flip" data-i="'+i+'" aria-pressed="false"><span class="inner"><span class="face front"><b>'+esc(f[0])+'</b><span>dokun ↻</span></span><span class="face back"><b>'+esc(f[1])+'</b><span>'+esc(f[2])+'</span></span></span></button>').join("");
 $("#flipgrid").addEventListener("click",e=>{
   const c=e.target.closest(".flip"); if(!c) return;
   const on=c.classList.toggle("flipped");
   c.setAttribute("aria-pressed",on);
+});
+$("#flipall").addEventListener("click",e=>{
+  const cards=[...document.querySelectorAll(".flip")];
+  const anyClosed=cards.some(c=>!c.classList.contains("flipped"));
+  cards.forEach((c,i)=>setTimeout(()=>{
+    c.classList.toggle("flipped",anyClosed); c.setAttribute("aria-pressed",anyClosed);
+  }, reduced?0:i*110));
+  e.target.textContent=anyClosed? "Hepsini geri çevir" : "Hepsini çevir";
 });
 
 /* ---------- MUKABELE KARNESİ ---------- */
@@ -1165,16 +1226,15 @@ function drawKarne(n,nT,nK,nY,pct){
       ar.innerHTML='<span class="tok">كان خروجي من طنجة</span>';
       en.innerHTML='<span class="tok">My departure from Tangier</span>';
       $("#tok-cnt").textContent="";
-      $("#tok-btn").textContent="1 · Parçala";
     }else{
       const num=tokStage===2;
       ar.innerHTML=TOK_AR.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
       en.innerHTML=TOK_EN.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
-      $("#tok-cnt").textContent="Arapça: "+TOK_AR.length+" parça · İngilizce: "+TOK_EN.length+" parça";
-      $("#tok-btn").textContent= num? "↺ Baştan" : "2 · Sayılara çevir";
+      $("#tok-cnt").textContent="Arapça: "+TOK_AR.length+" parça · İngilizce: "+TOK_EN.length+" parça"+(num?" — model yalnız sağdaki numaraları görür":"");
     }
+    document.querySelectorAll(".tokseg button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.s==String(tokStage)));
   }
-  $("#tok-btn").addEventListener("click",()=>{ tokStage=(tokStage+1)%3; renderTok(); });
+  document.querySelector(".tokseg").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b){ tokStage=+b.dataset.s; renderTok(); } });
   renderTok();
 
   /* 2 · anlam haritası (temsilî) */
@@ -1194,11 +1254,12 @@ function drawKarne(n,nT,nK,nY,pct){
     if(sel){
       const p=EMB.find(e=>e.w===sel);
       const near=EMB.filter(e=>e!==p).map(e=>({e,d:Math.hypot(e.x-p.x,e.y-p.y)})).sort((a,b)=>a.d-b.d).slice(0, p.k==="f"?4:2);
-      near.forEach(n=>{ h+='<line x1="'+p.x+'" y1="'+p.y+'" x2="'+n.e.x+'" y2="'+n.e.y+'" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="4 3" opacity=".7"/>'; });
+      near.forEach(n=>{ h+='<line x1="'+p.x+'" y1="'+p.y+'" x2="'+n.e.x+'" y2="'+n.e.y+'" stroke="'+(KCOL[n.e.k]||"var(--muted)")+'" stroke-width="1.6" stroke-dasharray="4 3" opacity=".8"/>'; });
     }
     EMB.forEach(e=>{
       const on=sel===e.w;
-      h+='<circle cx="'+e.x+'" cy="'+e.y+'" r="'+(on?9:6)+'" fill="'+KCOL[e.k]+'" opacity="'+(on?1:.75)+'"'+(on?' stroke="var(--ink)" stroke-width="2"':'')+'/>';
+      h+='<circle cx="'+e.x+'" cy="'+e.y+'" r="'+(on?9:6)+'" fill="'+KCOL[e.k]+'" opacity="'+(on?1:.75)+'"'+(on?' stroke="var(--ink)" stroke-width="2"':'')+'>'+(on&&!reduced?'<animate attributeName="r" values="9;12;9" dur="1.6s" repeatCount="indefinite"/>':'')+'</circle>';
+      if(false) h+='';
       h+='<text x="'+e.x+'" y="'+(e.y-13)+'" text-anchor="middle" font-size="'+(on?19:16)+'" font-family="var(--arabic)" fill="var(--ink)"'+(on?' font-weight="700"':'')+'>'+esc(e.w)+'</text>';
       if(on) h+='<text x="'+e.x+'" y="'+(e.y+24)+'" text-anchor="middle" font-size="11" font-family="var(--sans)" fill="var(--muted)">'+esc(e.g)+'</text>';
     });
@@ -1217,22 +1278,31 @@ function drawKarne(n,nT,nK,nY,pct){
   $("#m-quote").textContent="Metin: "+Q;
   /* 1 · daktilo */
   const OUT='\n{ "şehir": "طنجة / Tanca",\n  "tarih_h": "725 Receb",\n  "tür": "çıkış — hac niyeti",\n  "delil": "'+Q.slice(0,34)+'…" }';
-  let typed=false, typeTimer=null;
+  let typed=false, typeTimer=null, typeTimer2=null;
   function showBars(){
     const b=$("#m-bars"); b.style.display="block";
+    b.querySelectorAll(".bfill").forEach(f=>{ f.style.width="0"; });
     setTimeout(()=>b.querySelectorAll(".bfill").forEach(f=>{ f.style.width=f.dataset.w+"%"; }),60);
   }
+  const SPLIT=OUT.indexOf('"tür": "')+'"tür": "'.length;
+  function typeRange(el,from,to,done){
+    const t0=performance.now();
+    typeTimer=setInterval(()=>{
+      const n=Math.min(to, from+Math.round((performance.now()-t0)/22));
+      el.textContent=OUT.slice(0,n);
+      if(n>=to){ clearInterval(typeTimer); done&&done(); }
+    },40);
+  }
   $("#m-play").addEventListener("click",e=>{
-    if(typed){ clearInterval(typeTimer); $("#m-out").textContent=""; $("#m-bars").style.display="none"; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
+    if(typed){ clearInterval(typeTimer); clearTimeout(typeTimer2); $("#m-out").textContent=""; $("#m-bars").style.display="none"; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
     typed=true; e.target.textContent="↺ Sıfırla";
     const el=$("#m-out"); el.textContent="";
     if(reduced){ el.textContent=OUT; showBars(); return; }
-    const t0=performance.now();
-    typeTimer=setInterval(()=>{
-      const n=Math.min(OUT.length, Math.round((performance.now()-t0)/22));
-      el.textContent=OUT.slice(0,n);
-      if(n>=OUT.length){ clearInterval(typeTimer); showBars(); }
-    },40);
+    /* yazım "tür" kapısında duraksar: yarış koşulur, kazanan yazılır */
+    typeRange(el,0,SPLIT,()=>{
+      showBars();
+      typeTimer2=setTimeout(()=>{ typeRange(el,SPLIT,OUT.length); },1800);
+    });
   });
   /* 2 · tartı */
   const W={
@@ -1241,8 +1311,15 @@ function drawKarne(n,nT,nK,nY,pct){
     niyet:{ "معتمدا":1,"حج":1,"بيت":1,"الحرام":1 }
   };
   $("#m-passar").innerHTML=Q.split(/\s+/).map(w=>'<span data-w="'+esc(w)+'">'+esc(w)+'</span>').join(" ");
+  let cycleT=[];
+  $("#m-cycle")?.addEventListener("click",()=>{
+    cycleT.forEach(clearTimeout); cycleT=[];
+    ["sehir","tarih","niyet"].forEach((f,i)=>{
+      cycleT.push(setTimeout(()=>{ window.MAK && MAK.field(f); }, i*1500));
+    });
+  });
   $("#m-fields").addEventListener("click",e=>{
-    const b=e.target.closest("button"); if(!b) return;
+    const b=e.target.closest("button"); if(!b||b.id==="m-cycle") return;
     const on=b.getAttribute("aria-pressed")==="true";
     document.querySelectorAll("#m-fields button").forEach(x=>x.setAttribute("aria-pressed","false"));
     const pass=$("#m-pass");
