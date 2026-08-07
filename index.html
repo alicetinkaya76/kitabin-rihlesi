@@ -158,6 +158,25 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* tanış sahnesi */
+.phone{max-width:400px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;text-align:left}
+.phone .pbar{height:5px;width:110px;background:var(--line);border-radius:3px;margin:0 auto 14px}
+.bubble{background:var(--insan-soft);border-radius:14px 14px 14px 4px;padding:12px 16px;font-family:var(--sans);font-size:1.02rem;min-height:3.2em}
+.bubble .typedw{color:var(--insan);font-weight:700}
+.sugg{display:flex;gap:8px;margin-top:12px}
+.sugg button{flex:1;font-family:var(--sans);font-size:.88rem;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:9px 6px 6px;cursor:pointer;display:flex;flex-direction:column;gap:4px;align-items:center}
+.sugg button:hover{border-color:var(--insan)}
+.sugg .sbar{height:4px;border-radius:2px;background:var(--insan);opacity:.85;align-self:stretch}
+.sugg .spct{font-size:.62rem;color:var(--muted);font-weight:400}
+.punch{display:none;background:var(--ink);color:var(--paper);border-radius:12px;padding:14px 16px;font-family:var(--sans);font-size:.95rem;margin-top:12px;text-align:center}
+.scalebox{max-width:520px;margin:18px auto 0;text-align:left;font-family:var(--sans)}
+.scalerow{margin:10px 0}
+.scalerow .slab{font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.scaletrack{overflow:hidden;border-radius:6px}
+.scalebar{height:18px;border-radius:6px}
+.tanis-cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:640px;margin:14px auto 0;width:100%}
+.warncard{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rubric);border-radius:12px;padding:13px 15px;font-family:var(--sans);font-size:.88rem;text-align:left}
+.warncard b{display:block;margin-bottom:3px}
 /* fabrika turu + yol seçimi + planlayıcı */
 .mstep:not(:last-of-type)::after{content:"↓";position:absolute;left:50%;transform:translateX(-50%);bottom:-15px;font-size:1rem;color:var(--muted);font-family:var(--sans)}
 .narrator{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:1600;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.85rem;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);display:none;max-width:92%;text-align:center}
@@ -251,12 +270,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <a class="skip" href="#harita">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
-  <a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#makine">Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
+  <a href="#tanis">Tanış</a><a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#makine">Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
   <a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
 </div></nav>
 
 <div class="dots" id="dots" aria-hidden="true">
-  <a href="#top"></a><a href="#harita"></a><a href="#kayit"></a><a href="#makine"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
+  <a href="#top"></a><a href="#tanis"></a><a href="#harita"></a><a href="#kayit"></a><a href="#makine"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
 </div>
 
 <!-- 1 · KAPAK -->
@@ -266,11 +285,40 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="sub">İbn Battûta 21 yaşında yola çıktı. Kitabı bugün telefonunda: dokun, oynat, dene.</p>
   <div class="stats" id="hstats"></div>
   <div class="btnrow">
-    <a class="cta" href="#harita">Yolculuğu başlat ↓</a>
+    <a class="cta" href="#tanis">Yolculuğu başlat ↓</a>
   </div>
 </header>
 
 <main>
+<!-- 0 · TANIŞ -->
+<section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
+  <div class="kicker">0 · Yola çıkmadan</div>
+  <h2>Bu makine aslında ne yapıyor?</h2>
+  <p class="one" style="margin:0 auto 22px">Cevap cebinde. Telefonunun klavyesi yıllardır aynı oyunu oynuyor — öneriye dokun:</p>
+  <div class="phone">
+    <div class="pbar"></div>
+    <div class="bubble" id="klv-text"></div>
+    <div class="sugg" id="klv-sugg"></div>
+    <div class="punch" id="klv-punch">Bütün sır bu: <b>SIRADAKİ KELİMEYİ TAHMİN ET.</b><br>ChatGPT = aynı fikir × trilyonlarca kelime × dev bir bağlam.<br><span style="opacity:.7;font-size:.8rem">Yüzdeler temsilîdir — klavyeniz de böyle bir yarış tutar.</span></div>
+    <div style="margin-top:10px;text-align:center"><button class="wbtn alt" id="klv-reset" style="display:none">↺ Baştan oyna</button></div>
+  </div>
+  <div class="scalebox">
+    <div class="scalerow"><div class="slab">Klavyen şu kadar metinden öğrendi (senin mesajların):</div><div class="scaletrack"><div class="scalebar" style="width:26px;background:var(--insan)"></div></div></div>
+    <div class="scalerow"><div class="slab">Model şu kadar metinden öğrendi (trilyonlarca kelime):</div><div class="scaletrack"><div class="scalebar" style="width:300%;background:var(--rubric)"></div></div><div class="slab" style="margin-top:3px">…çubuk ekrana sığmadı; gerçek oranı çizsek sayfa kilometrelerce sürerdi.</div></div>
+  </div>
+  <p class="one" style="margin:26px auto 10px">Bu ölçekte iyi tahmin için dilbilgisini, üslupları, olgu kalıplarını <b>sıkıştırmak</b> zorunda kaldı. Üstüne iki kat daha giydi — çekmeceleri aç:</p>
+  <div class="dresser" style="max-width:640px">
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 1 · Temel model</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Trilyonlarca kelimeden tek hedefle öğrenir: sıradaki kelimeyi tahmin et. "Sadece istatistik" — doğru; ama bu ölçekte istatistik gerçekten güçlü. Küçümsemek de abartmak kadar yanıltır.</div></div></div>
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 2 · İnce ayar</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">İnsanlar cevapları puanlar; model beğenilene doğru ayarlanır. Nezaketin de, <b>kendinden emin tonun da</b> kaynağı burası — emin görünmek puan toplar.</div></div></div>
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 3 · Harici katman</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Arama, belge yükleme, araç bağlantıları. Araçların birbirinden farkı çoğu zaman bu katmandır — bu sitenin sihirbazı da modele <b>kaynağı önüne koyarak</b> çalışır.</div></div></div>
+  </div>
+  <div class="tanis-cards">
+    <div class="warncard"><b>Neden uydurur?</b> Boş bırakmanın puan getirmediği sınavdaki öğrenci gibi: sallamak, susmaktan kârlıdır. Uydurma (halüsinasyon) arıza değil, <b>yapısal risktir</b> — panzehiri az sonra göreceğin mukabeledir.</div>
+    <div class="warncard"><b>Neden hep sana katılır?</b> Beğenilmek üzere ayarlandı. Güzel söz, doğru sözün alameti değildir — itiraz etmeyen danışmana temkinli yaklaş.</div>
+  </div>
+  <div class="btnrow"><a class="cta" href="#harita">Şimdi bu makineyi kitaplarımızla tanıştır ↓</a></div>
+</section>
+
 <!-- 2 · HARİTA -->
 <section class="scene wrap" id="harita">
   <div class="kicker">1 · Kitap</div>
@@ -578,6 +626,38 @@ function stopPlay(){
 }
 if(document.readyState==="complete") initMap();
 else window.addEventListener("load", initMap, {once:true});
+
+/* ---------- TANIŞ: klavye oyunu ---------- */
+(function(){
+  const ROUNDS=[
+    [["güzel",62],["sıcak",23],["yağışlı",9]],
+    [["olacak",48],["görünüyor",27],["değil",11]],
+    [["inşallah",41],["bugün",22],["yine",14]],
+  ];
+  let picked=[];
+  function render(){
+    $("#klv-text").innerHTML="Bugün hava çok"+picked.map(w=>' <span class="typedw">'+esc(w)+'</span>').join("")+' <span class="cursor" style="background:var(--insan)"></span>';
+    const sg=$("#klv-sugg");
+    if(picked.length>=ROUNDS.length){
+      sg.innerHTML=""; $("#klv-punch").style.display="block"; $("#klv-reset").style.display="inline-block";
+      return;
+    }
+    $("#klv-punch").style.display="none"; $("#klv-reset").style.display=picked.length?"inline-block":"none";
+    sg.innerHTML=ROUNDS[picked.length].map(([w,p])=>'<button data-w="'+esc(w)+'"><span>'+esc(w)+'</span><span class="sbar" style="width:'+p+'%"></span><span class="spct">%'+p+'</span></button>').join("");
+  }
+  $("#klv-sugg").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    picked.push(b.dataset.w); render();
+  });
+  $("#klv-reset").addEventListener("click",()=>{ picked=[]; render(); });
+  render();
+  /* tanış çekmeceleri */
+  document.querySelector("#tanis .dresser").addEventListener("click",e=>{
+    const b=e.target.closest(".drawer>button"); if(!b) return;
+    const dr=b.parentElement; const open=dr.classList.toggle("open");
+    b.setAttribute("aria-expanded",open); b.querySelector(".dhint").textContent=open?"kapat":"aç";
+  });
+})();
 
 /* ---------- HİKÂYE TURU ---------- */
 const TOUR=[...IBB.showcase].sort((a,b)=>a.id-b.id);
@@ -1113,7 +1193,7 @@ function drawWizMap(rows){
 
 /* ---------- GÖZLEMCİLER: noktalar + sahne geçişi ---------- */
 (function(){
-  const ids=["top","harita","kayit","makine","sozluk","dene","ilham"];
+  const ids=["top","tanis","harita","kayit","makine","sozluk","dene","ilham"];
   const dots=[...document.querySelectorAll("#dots a")];
   const io=new IntersectionObserver(es=>{
     es.forEach(en=>{
