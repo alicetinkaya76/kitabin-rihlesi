@@ -123,6 +123,43 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .ctx{background:var(--code-bg);border-radius:10px;padding:10px 14px;margin-top:8px}
 .ctx .ar{font-size:1.1rem}
 .ctx mark{background:var(--model-soft);color:inherit;border-radius:3px;padding:0 2px}
+/* story tour */
+.tourcard{position:absolute;z-index:900;left:12px;right:12px;bottom:12px;max-width:470px;margin:0 auto;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 12px;display:none;backdrop-filter:blur(6px)}
+.tourcard .tno{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rubric);font-weight:800}
+.tourcard h3{font-family:var(--sans);font-size:1.15rem;margin:2px 0 6px}
+.tourcard .ar{font-size:1.25rem;max-height:5.2em;overflow:hidden}
+.tourcard .ttr{font-size:.88rem;color:var(--muted);margin-top:6px}
+.tournav{display:flex;align-items:center;gap:8px;margin-top:12px;font-family:var(--sans)}
+.tournav button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;cursor:pointer;font-size:1rem;width:40px;height:40px;font-weight:700}
+.tournav .tclose{margin-left:auto;width:auto;padding:0 14px;font-size:.8rem;height:34px}
+.tournav .tprog{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+/* flip cards */
+.flipgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));max-width:720px;margin:20px auto 0;width:100%}
+.flip{perspective:900px;cursor:pointer;height:130px;border:none;background:none;padding:0;font:inherit;color:inherit}
+.flip .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .inner{transform:rotateY(180deg)}
+@media (prefers-reduced-motion:reduce){ .flip .inner{transition:none} }
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px;box-shadow:var(--shadow)}
+.flip .front{background:var(--card);border:1px solid var(--line)}
+.flip .front b{font-family:var(--sans);font-size:.98rem}
+.flip .front span{font-family:var(--sans);font-size:.66rem;color:var(--muted)}
+.flip .back{background:var(--ink);color:var(--paper);transform:rotateY(180deg)}
+.flip .back b{font-family:var(--serif);font-size:1.02rem}
+.flip .back span{font-family:var(--sans);font-size:.68rem;opacity:.75;text-align:center;line-height:1.35}
+/* progress dots */
+.dots{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:1500;display:flex;flex-direction:column;gap:10px}
+.dots a{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;transition:transform .2s,background .2s}
+.dots a.on{background:var(--rubric);transform:scale(1.5)}
+@media (max-width:760px){ .dots{display:none} }
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} }
+/* wizard extras */
+.applinks{display:none;gap:8px;flex-wrap:wrap;margin-top:12px;font-family:var(--sans);font-size:.85rem;align-items:center}
+.applinks a{border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none;color:var(--ink);font-weight:600}
+.samplenote{display:none;font-family:var(--sans);font-size:.78rem;background:var(--model-soft);color:var(--model);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-weight:600}
+.flybtn{font-family:var(--sans);font-size:.78rem;border:1px solid var(--line);background:var(--card);color:var(--insan);border-radius:999px;padding:5px 12px;cursor:pointer;margin-top:8px}
 /* rail */
 .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 16px;-webkit-overflow-scrolling:touch}
 .railcard{scroll-snap-align:start;flex:0 0 250px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 16px 12px;text-align:left;display:flex;flex-direction:column;gap:6px}
@@ -140,9 +177,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <a class="skip" href="#harita">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
-  <a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
+  <a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
   <a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
 </div></nav>
+
+<div class="dots" id="dots" aria-hidden="true">
+  <a href="#top"></a><a href="#harita"></a><a href="#kayit"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
+</div>
 
 <!-- 1 · KAPAK -->
 <header class="scene hero wrap" id="top">
@@ -165,8 +206,21 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div id="gmap" role="application" aria-label="İbn Battûta'nın yolculuk haritası"></div>
     <div class="mapui">
       <button class="playbtn" id="play">▶ Yolculuğu oynat</button>
+      <button class="playbtn" id="tour" style="background:var(--rubric)">📖 Durak durak tur</button>
     </div>
     <div class="nowchip" id="nowchip"></div>
+    <div class="tourcard" id="tourcard">
+      <div class="tno" id="t-no"></div>
+      <h3 id="t-title"></h3>
+      <div class="ar" id="t-ar"></div>
+      <div class="ttr" id="t-tr"></div>
+      <div class="tournav">
+        <button id="t-prev" aria-label="Önceki durak">‹</button>
+        <span class="tprog" id="t-prog"></span>
+        <button id="t-next" aria-label="Sonraki durak">›</button>
+        <button class="tclose" id="t-close">Kapat ✕</button>
+      </div>
+    </div>
   </div>
   <div class="vchips below" id="vchips"></div>
   <p class="mapnote" id="mapnote">Rihle'nin 317 durağı · islamicatlas.org verisi · harita: OpenStreetMap</p>
@@ -186,6 +240,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div id="machinejson"></div>
 </section>
 
+<!-- 3b · SÖZLÜK -->
+<section class="scene wrap" id="sozluk" style="text-align:center;align-items:center;min-height:60vh">
+  <div class="kicker">Ara durak</div>
+  <h2>Bu dünya sana yabancı değil</h2>
+  <p class="one" style="margin:0 auto">Kartlara dokun: her teknik kavramın bin yıllık bir karşılığı var.</p>
+  <div class="flipgrid" id="flipgrid"></div>
+</section>
+
 <!-- 4 · DENE -->
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
   <div class="kicker">3 · Sıra sende</div>
@@ -197,13 +259,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <h3>Talimat + metni kopyala</h3>
       <p class="small" style="margin:0 0 10px">Belâzürî'den iki sayfa (Mısır'ın fethi) + hazır talimat, tek parça panona gider.</p>
       <button class="wbtn" id="w-copy">Panoya kopyala</button>
-      <p class="whint">Sonra ChatGPT, Gemini ya da Claude'a yapıştır — hangisi telefonunda varsa; ücretsizi yeter.</p>
+      <div class="applinks" id="applinks"><span class="muted">Şimdi aç:</span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
+      <p class="whint">Hangisi telefonunda varsa; ücretsizi yeter.</p>
     </div>
     <div class="wstep" id="w2">
       <div class="wno">2</div><div class="done">✓</div>
       <h3>Modelin cevabını buraya yapıştır</h3>
+      <div class="samplenote" id="samplenote">Örnek cevap yüklendi — içine bilerek bir uydurma kayıt koyduk. Bakalım tezgâh yakalayacak mı? "Mukabele et"e bas.</div>
       <textarea id="w-json" placeholder='Modelin verdiği cevabı olduğu gibi yapıştır — {"olaylar": [...]}'></textarea>
-      <div style="margin-top:10px"><button class="wbtn" id="w-verify">Mukabele et</button></div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="wbtn" id="w-verify">Mukabele et</button>
+        <button class="wbtn alt" id="w-sample">Asistanın yok mu? Örnek cevapla dene</button>
+      </div>
     </div>
     <div class="wstep" id="w3">
       <div class="wno">3</div><div class="done">✓</div>
@@ -243,6 +310,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 "use strict";
 const IBB = {"traveler":{"name":"İbn Battûta","ar":"ابن بطوطة","birth":1304,"death":1369,"km":117000,"years":29,"countries":44,"stops":317,"voyages":7,"work_ar":"تحفة النظار في غرائب الأمصار وعجائب الأسفار"},"voyages":[{"id":1,"title":"İlk Hac Yolculuğu: Mağrib → Mekke","years":"1325–1326","color":"#e63946","stops":65},{"id":2,"title":"Irak, İran ve Doğu Afrika: Büyük Güney Turu","years":"1326–1332","color":"#2a9d8f","stops":47},{"id":3,"title":"Anadolu, Deşt-i Kıpçak ve Hindistan Yolu","years":"1330–1333","color":"#e9c46a","stops":65},{"id":4,"title":"Hindistan Dönemi: Delhi Sultanatı","years":"1334–1341","color":"#264653","stops":41},{"id":5,"title":"Maldivler, Seylan, Güneydoğu Asya ve Çin","years":"1343–1347","color":"#a855f7","stops":43},{"id":6,"title":"Dönüş ve Endülüs: Eve Yolculuk","years":"1347–1350","color":"#f4a261","stops":34},{"id":7,"title":"Batı Afrika / Sudan: Sahra Ötesi","years":"1351–1354","color":"#06b6d4","stops":22}],"stops_min":[[1,35.76,-5.834,"Tanca"],[1,34.883,-1.317,"Tlemsen"],[1,36.305,2.233,"Milyana"],[1,36.754,3.059,"Cezayir"],[1,36.751,5.057,"Becâye"],[1,36.365,6.615,"Kostantîne"],[1,36.9,7.767,"Bône (Annâbe)"],[1,36.806,10.181,"Tunus"],[1,35.826,10.637,"Sûse"],[1,34.741,10.76,"Sfaks"],[1,33.882,10.098,"Gābes"],[1,32.902,13.18,"Trablus (Libya)"],[1,31.2,29.919,"İskenderiye"],[1,31.034,30.467,"Dimenhûr"],[1,31.2,30.55,"Fuvva"],[1,30.95,30.85,"Nahrâriyye"],[1,30.044,31.236,"Kahire"],[1,28.087,30.762,"Minyâ"],[1,27.178,31.186,"Asyût"],[1,26.562,31.747,"İhmîm"],[1,26.155,32.716,"Kınâ"],[1,25.917,32.767,"Kûs"],[1,25.687,32.64,"Uksur"],[1,24.978,32.873,"İdfû"],[1,22.333,36.433,"Ayzâb"],[1,30.044,31.236,"Kahire (2. ziyaret)"],[1,30.417,31.567,"Bilbîs"],[1,30.95,32.8,"Katiyâ"],[1,31.5,34.467,"Gazze"],[1,31.533,35.1,"Halîl (Hebron)"],[1,31.705,35.202,"Beytülahm"],[1,31.768,35.214,"Kudüs"],[1,31.669,34.566,"Askalân"],[1,31.927,34.867,"Ramle"],[1,32.221,35.254,"Nâbulus"],[1,32.333,35.75,"Aclûn"],[1,32.921,35.076,"Akkâ"],[1,33.27,35.196,"Sûr"],[1,33.56,35.371,"Saydâ"],[1,33.894,35.502,"Beyrut"],[1,32.79,35.531,"Taberiyye"],[1,34.437,35.85,"Trablus (Şam)"],[1,34.73,36.71,"Humus"],[1,35.132,36.751,"Hama"],[1,35.644,36.672,"Maarratü'n-Nu'mân"],[1,36.202,37.134,"Halep"],[1,36.2,36.15,"Antakya"],[1,35.361,35.925,"Cebele"],[1,35.517,35.783,"Lâzkiye"],[1,34.007,36.208,"Ba'lebek"],[1,33.514,36.276,"Şam (Dımaşk)"],[1,33.35,36.233,"Kisve"],[1,32.517,36.483,"Busrâ"],[1,31.185,35.705,"Kerek"],[1,30.196,35.734,"Ma'ân"],[1,28.384,36.555,"Tebük"],[1,26.785,37.953,"el-Hicr (Medâin Sâlih)"],[1,26.617,37.919,"el-Ulâ"],[1,24.469,39.614,"Medîne-i Münevvere"],[1,24.413,39.542,"Zülhuleyfe"],[1,23.783,38.783,"Bedir"],[1,22.797,39.035,"Râbiğ"],[1,22.155,39.321,"Hulays"],[1,21.917,39.35,"Usfân"],[1,21.422,39.826,"Mekke-i Mükerreme"],[2,24.467,39.602,"Medîne"],[2,25.45,39.85,"Vâdî el-Arûs"],[2,26.1,40.5,"Asîle"],[2,27.12,42.52,"Feyd"],[2,32.01,44.21,"Kâdisiye"],[2,32.0,44.335,"Necef"],[2,32.05,44.42,"Havarnâk"],[2,32.19,46.33,"Vâsıt"],[2,31.95,46.45,"Ümmü Ubeyde"],[2,30.509,47.78,"Basra"],[2,30.339,48.304,"Abbâdân"],[2,31.278,49.604,"Râmiz"],[2,32.046,48.857,"Tüster"],[2,31.839,49.869,"Îzec"],[2,32.655,51.668,"İsfahan"],[2,29.592,52.584,"Şîrâz"],[2,29.619,51.655,"Kâzirûn"],[2,32.03,44.4,"Kûfe"],[2,32.616,44.024,"Kerbelâ"],[2,33.315,44.366,"Bağdat"],[2,38.096,46.274,"Tebrîz"],[2,34.596,43.679,"Tikrît"],[2,36.335,43.119,"Musul"],[2,37.328,42.196,"Cezîretü İbn Ömer"],[2,37.074,41.217,"Nusaybin"],[2,36.32,41.83,"Sincâr"],[2,37.312,40.735,"Mârdîn"],[2,21.422,39.826,"Mekke (mücâveret)"],[2,21.543,39.173,"Cidde"],[2,19.104,37.33,"Sevâkin"],[2,18.52,41.32,"Halî"],[2,14.195,43.315,"Zebîd"],[2,13.579,44.022,"Ta'iz"],[2,15.369,44.191,"San'â"],[2,12.786,45.019,"Aden"],[2,11.354,43.479,"Zeyla"],[2,2.047,45.318,"Mogadişu"],[2,-8.957,39.52,"Kilva"],[2,17.015,54.092,"Zafâr"],[2,22.694,59.371,"Kalhât"],[2,27.085,56.46,"Hürmüz"],[2,25.57,52.34,"Sîrâf / Kays"],[2,26.067,50.558,"Bahreyn"],[2,26.52,50.01,"Katîf"],[2,25.38,49.59,"Hecer / el-Ahsâ"],[2,24.63,46.72,"Yemâme / Hicr"],[2,21.422,39.826,"Mekke (4. hac, 732 AH)"],[3,21.486,39.193,"Cidde"],[3,22.333,36.433,"Aydâb"],[3,30.044,31.236,"Kahire"],[3,35.52,35.777,"Lâzkiye"],[3,36.544,31.998,"Alanya"],[3,36.897,30.713,"Antalya"],[3,37.721,30.288,"Burdur"],[3,37.765,30.557,"Isparta"],[3,37.883,30.855,"Eğirdir"],[3,37.133,29.5,"Gölhisar"],[3,37.776,29.086,"Denizli"],[3,37.571,29.075,"Tavas"],[3,37.215,28.364,"Muğla"],[3,37.315,27.784,"Milas"],[3,37.3,27.833,"Peçin"],[3,37.875,32.493,"Konya"],[3,37.175,33.229,"Karaman"],[3,38.369,34.029,"Aksaray"],[3,37.967,34.683,"Niğde"],[3,38.731,35.479,"Kayseri"],[3,39.748,37.018,"Sivas"],[3,40.65,35.835,"Amasya"],[3,40.867,35.233,"Gümüşhacıköy"],[3,39.75,39.5,"Erzincan"],[3,39.906,41.266,"Erzurum"],[3,38.233,28.083,"Birgi"],[3,38.083,27.733,"Tire"],[3,37.95,27.37,"Selçuk"],[3,38.419,27.129,"İzmir"],[3,38.619,27.429,"Manisa"],[3,39.122,27.18,"Bergama"],[3,39.648,27.883,"Balıkesir"],[3,40.183,29.067,"Bursa"],[3,40.429,29.721,"İznik"],[3,40.39,30.79,"Göynük"],[3,40.47,31.17,"Mudurnu"],[3,40.8,32.2,"Gerede"],[3,40.736,31.606,"Bolu"],[3,41.389,33.783,"Kastamonu"],[3,42.023,35.153,"Sinop"],[3,45.353,36.468,"Kerç"],[3,45.032,35.383,"Kefe"],[3,45.005,35.077,"Kırım"],[3,47.111,39.42,"Azak"],[3,44.1,43.6,"Macar"],[3,44.048,43.059,"Beş Dağ"],[3,48.531,44.513,"Saray (Özbek Han Ordugahı)"],[3,54.983,49.067,"Bulgar"],[3,46.35,48.041,"Hacı Tarhan"],[3,51.533,45.983,"Ukek"],[3,44.85,34.97,"Sudak"],[3,44.9,28.88,"Baba Saltuk"],[3,42.48,26.5,"Mahtuli"],[3,41.28,28.23,"Finiqa"],[3,41.008,28.978,"Konstantinopolis"],[3,48.531,44.513,"Saray (Saray Berke)"],[3,47.033,51.767,"Sarayçık"],[3,42.297,59.15,"Hârezm"],[3,39.768,64.456,"Buhâra"],[3,39.654,66.96,"Semerkant"],[3,34.353,62.204,"Herat"],[3,37.224,67.278,"Tirmiz"],[3,36.758,66.897,"Belh"],[3,34.555,69.207,"Kâbil"],[3,28.614,77.209,"Delhi"],[4,29.38,71.68,"Pencâb (İndus Nehri)"],[4,26.42,68.38,"Cenânî"],[4,26.425,67.86,"Sivistân (Sehwan)"],[4,24.65,67.73,"Lâherî (Lahari Bandar)"],[4,27.69,68.95,"Bekkâr (Bukkar)"],[4,29.22,69.17,"Ûce (Uch)"],[4,30.198,71.471,"Mültân"],[4,30.145,74.195,"Ebûher (Abohar)"],[4,30.35,73.39,"Ecûdhen (Pakpattan)"],[4,30.0,73.5,"Emcerî"],[4,29.533,75.017,"Sirsutî (Sirsa)"],[4,29.1,75.97,"Hânsî (Hansi)"],[4,28.75,77.0,"Mes'ûdâbâd"],[4,28.614,77.209,"Delhi (Varış)"],[4,28.47,77.25,"Tilpat"],[4,28.614,77.209,"Delhi (Kadılık Tayini)"],[4,28.614,77.209,"Delhi (Saray Hayatı)"],[4,28.524,77.186,"Delhi (Kutbüddîn Türbesi İdaresi)"],[4,29.392,78.135,"Bicnûr (Bijnor)"],[4,28.9,78.47,"Emrûha (Amroha)"],[4,27.18,79.98,"Ganj Nehri (Sultan'ın Karargâhı)"],[4,28.614,77.209,"Delhi (Gözden Düşüş)"],[4,28.614,77.209,"Delhi (Zühd Dönemi)"],[4,26.425,67.86,"Sivistân (Sultan Ziyareti)"],[4,28.614,77.209,"Delhi (İnzivâ)"],[4,28.614,77.209,"Delhi (Çin Elçiliği)"],[4,26.92,77.29,"Beyâne (Bayana)"],[4,27.88,78.08,"Kûl (Aligarh)"],[4,27.05,79.92,"Kannevc (Kanauj)"],[4,26.22,78.18,"Kâlyûr (Gwalior)"],[4,25.5,78.5,"Berûn (Paron)"],[4,19.94,75.22,"Devletâbâd (Daulatabad)"],[4,21.37,74.26,"Nezerbar (Nandurbar)"],[4,22.32,72.62,"Kenbâye (Khambhat/Cambay)"],[4,15.5,73.87,"Kundahâr (Goa Bölgesi)"],[4,15.5,73.91,"Sindâbûr (Goa)"],[4,14.28,74.44,"Hünûr (Honavar)"],[4,13.99,74.56,"Fâkenûr (Bhatkal)"],[4,12.87,74.88,"Mencülûr (Mangalore)"],[4,11.87,75.37,"Hîlî (Cannanore)"],[4,11.25,75.77,"Kâlikût (Calicut/Kozhikode)"],[5,11.25,75.77,"Kâlikût (Gemi Kazası)"],[5,8.88,76.6,"Kûlam (Quilon)"],[5,14.28,74.44,"Honavar (İnziva)"],[5,14.8,74.12,"Sindâbûr (Fetih)"],[5,11.18,75.8,"Şâliyât (Chaliyam)"],[5,4.17,73.51,"Maldivler (Varış)"],[5,3.88,73.41,"Kannalûs Adası"],[5,3.5,73.1,"Tîm Atolü"],[5,4.175,73.509,"Mehl Adası (Malé)"],[5,2.93,73.55,"Mulûk Adası"],[5,7.47,80.35,"Battâle (Seylan)"],[5,7.2,80.25,"Mânâr Mendelî"],[5,7.16,80.58,"Kunkâr"],[5,6.81,80.5,"Serendîb Dağı (Âdem Tepesi)"],[5,5.92,80.59,"Dînevr (Devinuvara)"],[5,6.03,80.22,"Kâlî (Galle)"],[5,6.93,79.84,"Kolombû"],[5,10.5,79.15,"Harkâtû Kalesi (Ma'bar)"],[5,10.78,79.13,"Sultan Gıyâsüddîn'in Sarayı"],[5,9.23,78.79,"Fattan"],[5,9.92,78.12,"Mütre (Madurai)"],[5,8.88,76.6,"Kûlam (Dönüş)"],[5,14.0,74.5,"Honavar-Fâkânûr (Korsanlık)"],[5,4.17,73.51,"Maldivler (İkinci Dönüş)"],[5,22.34,91.78,"Südkâvân (Çittagong)"],[5,24.89,91.87,"Kâmrû Dağları (Sylhet)"],[5,24.9,91.85,"Şeyh Celâlüddîn'in Mağarası"],[5,24.38,91.42,"Habnâk (Habiganj?)"],[5,23.65,90.61,"Sünerkâvân (Sonargaon)"],[5,20.15,92.9,"Bürhankâr Sahili (Arakan?)"],[5,5.54,95.32,"Câva / Sumatra"],[5,2.0,103.0,"Mül Câva (Malay Yarımadası?)"],[5,1.5,110.35,"Kâkule"],[5,15.88,108.33,"Tavâlisî"],[5,24.9,118.58,"Zeytûn (Quanzhou)"],[5,23.13,113.26,"Sîn Kelân (Guangzhou/Kanton)"],[5,26.07,119.3,"Kuncunfû (Fuzhou?)"],[5,30.27,120.15,"el-Hansâ (Hangzhou)"],[5,35.0,117.0,"Hatâ Ülkesi"],[5,39.91,116.4,"Hân Bâlık (Pekin)"],[5,24.9,118.58,"Zeytûn (Dönüş)"],[5,-5.0,100.0,"Ruhh Kuşu (Açık Deniz)"],[5,5.54,95.32,"Sumatra (Dönüş)"],[6,8.88,76.59,"Kûlam (Dönüş)"],[6,11.25,75.77,"Kâlikût (Dönüş)"],[6,17.02,54.09,"Zafâr (Dönüş)"],[6,23.59,58.54,"Muskat"],[6,27.09,56.46,"Hürmüz (Dönüş)"],[6,29.59,52.58,"Şîrâz (Dönüş)"],[6,30.51,47.81,"Basra (Dönüş)"],[6,32.0,44.34,"Necef ve Kûfe"],[6,33.31,44.37,"Bağdat (Dönüş)"],[6,34.45,41.18,"Fırat Güzergâhı: Enbâr'dan Rahbe'ye"],[6,34.56,38.27,"Tedmür"],[6,33.51,36.29,"Şam (Dönüş — Şahsî Keşif)"],[6,36.2,37.15,"Halep"],[6,33.51,36.29,"Şam (Kara Veba)"],[6,31.78,35.23,"Kudüs (Dönüş)"],[6,31.5,34.47,"Gazze (Veba)"],[6,31.2,29.92,"İskenderiye (Dönüş)"],[6,30.04,31.24,"Kahire (Dönüş)"],[6,21.42,39.83,"Mekke (Altıncı Hac)"],[6,24.47,39.61,"Medine (Dönüş)"],[6,33.87,10.1,"Cerbe ve Gâbes"],[6,36.8,10.17,"Tunus (Dönüş)"],[6,39.22,9.12,"Sardunya Adası"],[6,34.88,-1.32,"Tilimsân (Dönüş)"],[6,34.21,-4.01,"Tâzâ"],[6,34.03,-5.0,"Fas (Eve Dönüş — 24 Yıl Sonra)"],[6,35.76,-5.83,"Tanca (Anne Kabri Ziyareti)"],[6,35.89,-5.31,"Sebte"],[6,36.14,-5.35,"Cebelitârık (Cebel-i Feth)"],[6,36.74,-5.17,"Runde"],[6,36.72,-4.42,"Mâleka"],[6,37.18,-3.6,"Gırnata"],[6,31.63,-8.0,"Merâkeş"],[6,34.03,-5.0,"Fas (Yerleşim)"],[7,31.28,-4.27,"Sicilmâse (Hareket)"],[7,23.65,-5.36,"Tağâzâ"],[7,22.0,-6.0,"Tâserhlâ"],[7,17.3,-7.03,"İvâlâtân (Oualata)"],[7,15.5,-7.5,"Zâğarî"],[7,14.5,-7.0,"Kârshû"],[7,11.38,-8.23,"Mali (Nyânî)"],[7,14.5,-4.5,"Mîme"],[7,14.8,-3.8,"Kûrî Mansâ"],[7,16.77,-3.01,"Timbüktü"],[7,16.3,-1.5,"Ferbâ Süleyman'ın Kasabası"],[7,16.27,-0.05,"Kûkû (Gao)"],[7,17.5,4.0,"Berdemâ Toprakları"],[7,17.43,7.1,"Tekeddâ"],[7,17.6,7.5,"Sultan İzar'ın Kampı"],[7,19.0,7.0,"Kâhir"],[7,23.0,7.0,"Ğât Kavşağı"],[7,23.5,5.5,"Hakkâr Toprakları"],[7,27.19,2.48,"Bûdâ (Tuvât)"],[7,31.28,-4.27,"Sicilmâse (Dönüş)"],[7,32.5,-4.5,"Dârü't-Tama'"],[7,34.03,-5.0,"Fas (Nihaî Dönüş)"]],"showcase":[{"id":1,"tr":"Tanca","en":"Tangier","ar":"طنجة","lat":35.7595,"lon":-5.834,"arr":"1325-06-14","arr_ah":"725-07-02","region_tr":"Mağrib","country":"Morocco","type":"departure","quote_ar":"كان خروجي من طنجة مسقط رأسي في يوم الخميس الثاني من شهر الله رجب الفرد عام خمسة وعشرين وسبعمائة معتمدا حج بيت الحرام","quote_tr":"Doğduğum yer Tanca'dan çıkışım, yedi yüz yirmi beş yılı Receb'in ikinci Perşembe günü Beytü'l-Harâm'ı haccetmek niyetiyle oldu."},{"id":65,"tr":"Mekke-i Mükerreme","en":"Mecca","ar":"مكة المكرمة","lat":21.4225,"lon":39.8262,"arr":"1326-12-12","arr_ah":"726-12-12","region_tr":"Hicaz","country":"Saudi Arabia","type":"destination","quote_ar":"فوصلنا عند الصباح إلى البلد الأمين مكة شرفها الله تعالى ودخلنا البيت الحرام الشريف الذي من دخله كان آمنا","quote_tr":"Sabah vakti Mekke-i Mükerreme'ye — emin belde — vardık; Allah şerefini artırsın. Beytü'l-Harâm'a girdik — 'Kim oraya girerse güvende olur.'"},{"id":167,"tr":"Konstantinopolis","en":"Constantinople","ar":"القسطنطينية","lat":41.0082,"lon":28.9784,"region_tr":"Bizans","country":"Turkey","type":"capital","quote_ar":"وكان دخولنا عند الزوال أو بعده إلى القسطنطينية العظمى وقد ضربوا نواقيسهم حتى ارتجت الآفاق لاختلاط أصواتها","quote_tr":"Öğle vakti veya sonrasında Konstantinopolis el-Uzmâ'ya girdik; çanlarını öyle çaldılar ki seslerinin karışımından ufuklar titredi."},{"id":146,"tr":"İznik","en":"Iznik (Nicaea)","ar":"يزنيك","lat":40.4292,"lon":29.7208,"region_tr":"Anadolu","country":"Turkey","type":"major_city","quote_ar":"والبحيرة محيطة بها من جميع الجهات وهي خاوية على عروشها لا يسكن بها الا أناس قليلون من خدام السلطان وبها زوجته بيلون خاتون","quote_tr":"Göl şehri her tarafından kuşatmıştır; neredeyse boş, sadece sultanın birkaç hizmetkarı yaşar. Sultanın eşi Bayalun Hatun burada hükmeder."},{"id":191,"tr":"Delhi (Varış)","en":"Delhi (Arrival)","ar":"دهلي","lat":28.6139,"lon":77.209,"arr":"1334-01-01","arr_ah":"734-04-15","region_tr":"Hindistan","country":"India","type":"capital","quote_ar":"وصلنا إلى حضرة دهلي قاعدة بلاد الهند وهي المدينة العظيمة الشأن الضخمة الجامعة بين الحسن والحصانة وعليها السور الذي لا يعلم له في بلاد الدنيا نظير وهي أعظم مدن الهند بل مدن الإسلام كلها بالمشرق","quote_tr":"Hindistan'ın başkenti Delhi'ye ulaştık. Büyük, ihtişamlı, güzelliği ve sağlamlığı bir arada barındıran bu şehrin dünyada eşi benzeri olmayan bir suru vardır. Hindistan'ın değil, bütün doğu İslâm dünyasının en büyük şehridir."},{"id":253,"tr":"Zeytûn (Quanzhou)","en":"Zaytun (Quanzhou)","ar":"الزيتون (泉州 Quanzhou)","lat":24.9,"lon":118.58,"arr":"1346-10-15","arr_ah":"747-02-15","region_tr":"Çin","country":"China","type":"port","quote_ar":"لما قطعنا البحر كانت أول مدينة وصلنا اليها مدينة الزيتون وهي مدينة عظيمة كبيرة تصنع بها ثياب الكمخا والأطلس ومرساها من أعظم مراسي الدنيا أو هو أعظمها","quote_tr":"Denizi geçince vardığımız ilk şehir Zeytûn idi — kamha ve atlas kumaşların dokunduğu büyük bir şehir; limanı dünyanın en büyüğü ya da en büyüklerinden."},{"id":293,"tr":"Gırnata","en":"Granada","ar":"غرناطة","lat":37.18,"lon":-3.6,"arr":"1351-05-20","arr_ah":"751-05-20","region_tr":"Endülüs","country":"Spain","type":"capital","quote_ar":"ثم سافرت منها إلى مدينة غرناطة قاعدة بلاد الاندلس وعروس مدنها وخارجها لا نظير له في بلاد الدنيا","quote_tr":"Oradan Endülüs'ün başkenti ve şehirlerinin gelini Gırnata'ya gittim; dışı dünyada eşsizdir."},{"id":305,"tr":"Timbüktü","en":"Timbuktu","ar":"تنبكتو","lat":16.77,"lon":-3.01,"arr":"1354-04-01","arr_ah":"754-03-01","region_tr":"Batı Afrika","country":"Mali","type":"city","quote_ar":"ثم سافرنا منها إلى مدينة تنبكتو وبينها وبين النيل أربعة أميال وأكثر سكانها مسوفة أهل اللثام","quote_tr":"Timbüktü şehrine yolculuk ettik; şehir ile Nil [Niger] arasında dört mil var, halkının çoğunluğu peçeli Mesûfe'dir."}]};
 const EXCERPT = "قالوا: وكان عمرو بن العاصي حاصر قيسارية بعد انصراف الناس من حرب اليرموك ثم استخلف عليها ابنه حين ولى يزيد بن أبي سفيان ومضى إلى مصر من تلقاء نفسه في ثلاثة آلاف وخمسمائة، فغضب عمر لذلك وكتب إليه يوبخه ويعنفه على افتتانه عليه برأيه وأمره بالرجوع إلى موضعه إن وافاه كتابه دون مصر، فورد الكتاب عليه وهو بالعريش، وقيل أيضا: إن عمر كتب إلى عمرو بن العاصي يأمره بالشخوص إلى مصر فوافاه كتابه وهو محاصر قيسارية وكان الذي أتاه شريك بن عبدة فأعطاه ألف دينار فأبى شريك قبولها فسأله أن يستر ذلك ولا يخبر به عمر.\nقالوا: وكان مسير عمرو إلى مصر في سنة تسع عشرة فنزل العريش ثم أتى الفرماء وبها قوم مستعدون للقتال فحاربهم فهزمهم وحوى عسكرهم ومضى قدما إلى الفسطاط فنزل جنان الريحان وقد خندق أهل الفسطاط، وكان اسم المدينة اليونة فسماها المسلمون  فسطاطا لأنهم قالوا: هذا فسطاط القوم ومجمعهم، وقوم يقولون: إن عمرا ضرب بها فسطاطا فسميت بذلك.\nقالوا: ولم يلبث عمرو بن العاصي وهو محاصر أهل الفسطاط أن ورد عليه الزبير بن العوام بن خويلد في عشرة آلاف، ويقال: في اثني عشر ألفا فيهم خارجة بن حذافة العدوي وعمير بن وهب الجمحي، وكان الزبير قد هم بالغزو وأراد إتيان انطاكية فقال له عمر: يا أبا عبد الله هل لك في ولاية مصر، فقال: لا حاجة لي فيها ولكني أخرج مجاهدا وللمسلمين معاونا فإن وجدت عمرا قد فتحها لم أعرض لعمله وقصدت إلى بعض السواحل فرابطت به وإن وجدته في جهاد كنت معه فسار على ذلك.\nقالوا: وكان الزبير يقاتل من وجه وعمرو بن العاصي من وجه، ثم أن الزبير أتى بسلم فصعد عليه حتى أوفى على الحصن وهو مجرد سيفه فكبر وكبر المسلمون واتبعوه ففتح الحصن عنوة واستباح المسلمون ما فيه وأفر عمرو أهله على أنهم ذمة موضع عليهم الجزية في رقابهم والخراج في أرضهم وكتب بذلك إلى عمر بن الخطاب رضي الله عنه فأجازه واختط الزبير بمصر وابنتى دارا معروفة، وإياها نزل عبد الله بن الزبير حين غزا أفريقية مع ابن أبي سرح وسلم الزبير باق في مصر.\nوحدثنا عفان بن مسلم، قال حدثنا حماد بن سلمة عن هشام بن عروة أن الزبير بن العوام بعث إلى مصر فقيل له أن بها الطعن والطاعون، فقال: إنما جئنا للطعن والطاعون، قال: فوضعوا السلاليم فصعدوا عليها.\nوحدثني عمرو الناقد، قال: حدثني عبد الله بن وهب المصري عن ابن لهيعة عن يزيد بن أبي حبيب: أن عمرو بن العاصي دخل مصر ومعه ثلاثة آلاف وخمسمائة، وكان عمر بن الخطاب قد أشفق لما أخبر به من أمرها فأرسل الزبير بن العوام في اثني عشر ألفا فشهد الزبير فتح مصر واختط بها.\nوحدثني عمرو الناقد، عن عبد الله بن وهب المصري عن ابن لهيعة عن يزيد بن أبي حبيب عن عبد الله بن المغيرة بن  أبي بردة عن سفيان بن وهب الخولاني، قال: لما فتحنا مصر بغير عهد قام الزبير فقال: أقسمها يا عمرو فأبى فقال الزبير: والله لتقسمنها كما قسم رسول صلى الله عليه وسلم خيبر: فكتب عمرو إلى عمر في ذلك فكتب إليه عمر أقرها حتى يغزو منها حبل الحبلة، قال: وقال عبد الله بن وهب: وحدثني ابن لهيعة عن خالد بن ميمون عن عبد الله ابن المغيرة عن سفيان بن وهب بنحوه.\nوحدثني القاسم بن سلام، قال: حدثنا أبو الأسود عن ابن لهيعة عن يزيد ابن أبي حبيب أن عمرو بن العاصي دخل مصر في ثلاثة آلاف وخمسمائة، وكان عمر قد أشفق من ذلك فأرسل الزبير بن العوام في اثني عشر ألفا فشهد معه فح مصر، قال: فاختط الزبير بمصر والإسكندرية خطتين.\nوحدثني إبراهيم بن مسلم الخوارزمي، عن عبد الله بن المبارك عن ابن لهيعة عن يزيد بن أبي حبيب عن أبي فراس عن عبد الله بن عمرو بن العاص، قال: اشتبه على الناس أمر مصر، فقال قوم: فتحت عنوة، وقال آخرون: فتحت صلحا، والثلج في أمرها أن أبي قدمها فقاتله أهل اليونة ففتحها قهرا وأدخلها المسلمين وكان الزبير أول من على حصنها، فقال صاحبها لأبي: أنه قد بلغنا فعلكم بالشام ووضعكم الجزية على النصارى واليهود وإقراركم الأرض في أيدي أهلها يعمرونها ويؤدون خراجها فإن فعلتم بنا مثل ذلك كان أرد عليكم من قتلنا وسبينا وإجلائنا، قال: فاستشار أبي المسلمين فأشاروا عليه";
+const SAMPLE = {"olaylar":[{"şehir":"حصن بابليون / Bâbilyûn Kalesi","hicri_yil":20,"tur":"SUBJUGATION","komutan":"Amr b. el-Âs","delil":"وكبر المسلمون واتبعوه ففتح الحصن عنوة واستباح المسلمون ما"},{"şehir":"الإسكندرية / İskenderiye","hicri_yil":21,"tur":"SUBJUGATION","komutan":"Amr b. el-Âs","delil":"إن عمر كتب إلى عمرو بن العاصي يامره"},{"şehir":"مدينة النور / Nûr Şehri","hicri_yil":23,"tur":"CAPITULATION","komutan":"Ukbe b. Nâfi","delil":"فصالح أهل مدينة النور على ألف دينار من الذهب الخالص"}],"çekimser":[{"not":"Bir kayıtta yıl, mektup aktarımından geliyordu; emin olamadım."}]};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -336,12 +404,45 @@ function stopPlay(){
 if(document.readyState==="complete") initMap();
 else window.addEventListener("load", initMap, {once:true});
 
+/* ---------- HİKÂYE TURU ---------- */
+const TOUR=[...IBB.showcase].sort((a,b)=>a.id-b.id);
+let tIdx=0, tourOpen=false;
+function flyStop(s, zoom){
+  if(!map) return;
+  if(reduced) map.setView([s.lat,s.lon], zoom||6);
+  else map.flyTo([s.lat,s.lon], zoom||6, {duration:1.1});
+}
+function showTour(i){
+  tIdx=(i+TOUR.length)%TOUR.length;
+  const s=TOUR[tIdx];
+  const yil=(s.arr||"").split("-")[0];
+  $("#t-no").textContent=(s.region_tr||s.country||"")+(yil?" · "+yil:"");
+  $("#t-title").textContent=s.tr;
+  $("#t-ar").textContent=s.quote_ar||"";
+  $("#t-tr").textContent=s.quote_tr||"";
+  $("#t-prog").textContent=(tIdx+1)+" / "+TOUR.length;
+  $("#tourcard").style.display="block";
+  tourOpen=true;
+  flyStop(s);
+}
+function closeTour(){ $("#tourcard").style.display="none"; tourOpen=false; }
+$("#tour").addEventListener("click",()=>{ if(playing) stopPlay(); tourOpen? closeTour() : showTour(0); });
+$("#t-next").addEventListener("click",()=>showTour(tIdx+1));
+$("#t-prev").addEventListener("click",()=>showTour(tIdx-1));
+$("#t-close").addEventListener("click",closeTour);
+document.addEventListener("keydown",e=>{
+  if(!tourOpen) return;
+  if(e.key==="ArrowRight") showTour(tIdx+1);
+  if(e.key==="ArrowLeft") showTour(tIdx-1);
+  if(e.key==="Escape") closeTour();
+});
+
 /* ---------- DRESSER ---------- */
 const DRAWERS=[
  ["Şehir", s=>"<div class='dval'>"+esc(s.tr)+" · <span class='muted'>"+esc(s.en||"")+"</span> · <span class='ar' style='display:inline'>"+esc(s.ar||"")+"</span></div>", "Üç yazım birden: Türkçe okuma, uluslararası yayın, kaynak metinde arama."],
  ["Tarih", s=>"<div class='dval'>hicrî <b>"+esc(s.arr_ah||"—")+"</b> · milâdî "+esc(s.arr||"—")+"</div>", "Kaynağın kendi takvimi + çevirisi. Çift kayıt, mukabeleyi mümkün kılar."],
  ["Koordinat", s=>"<div class='dval'>"+s.lat+" K, "+s.lon+" D</div>", "Haritadaki nokta buradan gelir. Tarihî adı modern harita bilmez; koordinatı tarihî atlas verir."],
- ["DELİL — kitaptan cümle", s=>"<div class='dval'><div class='ar'>"+esc(s.quote_ar||"")+"</div><div class='small muted' style='margin-top:6px'>"+esc(s.quote_tr||"")+"</div></div>", "En kıymetli çekmece: kayıt, kaynağına bu iple bağlı. Delilsiz kayıt yok hükmündedir."],
+ ["DELİL — kitaptan cümle", s=>"<div class='dval'><div class='ar'>"+esc(s.quote_ar||"")+"</div><div class='small muted' style='margin-top:6px'>"+esc(s.quote_tr||"")+"</div><button class='flybtn' data-fly='1'>🗺 Bu durağı haritada gör</button></div>", "En kıymetli çekmece: kayıt, kaynağına bu iple bağlı. Delilsiz kayıt yok hükmündedir."],
 ];
 let curStop=IBB.showcase[0];
 function renderDresser(){
@@ -350,6 +451,13 @@ function renderDresser(){
   $("#machinejson").textContent=JSON.stringify({tr:curStop.tr,en:curStop.en,ar:curStop.ar,arr_ah:curStop.arr_ah,arr:curStop.arr,lat:curStop.lat,lon:curStop.lon,quote_ar:curStop.quote_ar,quote_tr:curStop.quote_tr},null,1);
 }
 $("#dresser").addEventListener("click",e=>{
+  const fly=e.target.closest(".flybtn");
+  if(fly){
+    document.querySelector("#harita").scrollIntoView({behavior:reduced?"auto":"smooth"});
+    const i=TOUR.findIndex(x=>x.id===curStop.id);
+    setTimeout(()=>showTour(i<0?0:i), reduced?100:650);
+    return;
+  }
   const b=e.target.closest(".drawer>button"); if(!b) return;
   const dr=b.parentElement; const open=dr.classList.toggle("open");
   b.setAttribute("aria-expanded",open); b.querySelector(".dhint").textContent=open?"kapat":"aç";
@@ -432,8 +540,14 @@ $("#w-copy").addEventListener("click",async e=>{
     const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="talimat-paketi.txt"; a.click();
   }
   $("#w1").classList.add("completed");
+  $("#applinks").style.display="flex";
   e.target.textContent="Kopyalandı ✓ — şimdi asistanına yapıştır";
   setTimeout(()=>{ e.target.textContent="Panoya kopyala"; },3500);
+});
+$("#w-sample").addEventListener("click",()=>{
+  $("#w-json").value=JSON.stringify(SAMPLE,null,1);
+  $("#samplenote").style.display="block";
+  $("#w-json").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
 });
 $("#w-verify").addEventListener("click",()=>{
   let txt=$("#w-json").value.trim();
@@ -465,12 +579,14 @@ $("#w-verify").addEventListener("click",()=>{
   let h='<div class="ringrow"><svg class="ring" viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="55" cy="55" r="44" fill="none" stroke="var(--korpus)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(CIRC*pct/100).toFixed(1)+' '+CIRC.toFixed(1)+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle">%'+pct+'</text></svg>';
   h+='<div class="rstats"><div><b style="color:var(--korpus)">'+nT+'</b><span>TAM</span></div><div><b style="color:var(--model)">'+nK+'</b><span>KISMÎ</span></div><div><b style="color:var(--rubric)">'+nY+'</b><span>dışarıda</span></div></div></div>';
   h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı." — Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
+  h+='<div style="margin-top:12px"><button class="wbtn alt" id="w-karne">🖼 Mukabele karneni indir</button></div>';
   h+='<details class="rdetail"><summary>Kayıt kayıt ayrıntı (satıra dokun: delili kitapta gör)</summary><div class="rtable"><table><tr><th>Kayıt</th><th>Yıl</th><th>Durum</th></tr>';
   rows.forEach((r,i)=>{ const c=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
     h+='<tr data-i="'+i+'" style="cursor:pointer"><td><b>'+esc(r.label)+'</b></td><td>'+esc(r.yil||"—")+'</td><td><span class="st '+c+'">'+r.st+'</span></td></tr>'; });
   h+='</table></div><div id="w-ctx"></div></details>';
   rep.innerHTML=h; rep.style.display="block"; empty.style.display="none";
   $("#w2").classList.add("completed"); $("#w3").classList.add("completed");
+  rep.querySelector("#w-karne").addEventListener("click",()=>drawKarne(rows.length,nT,nK,nY,pct));
   rep.querySelectorAll("tr[data-i]").forEach(tr=>tr.addEventListener("click",()=>{
     const r=rows[+tr.dataset.i]; const box=rep.querySelector("#w-ctx");
     if(r.n==null||r.n<0){ box.innerHTML='<div class="ctx"><span class="small" style="color:var(--rubric)">Delil kitapta bulunamadı — kayıt sonuçlara giremez.</span></div>'; return; }
@@ -480,15 +596,88 @@ $("#w-verify").addEventListener("click",()=>{
 });
 
 /* ---------- RAIL ---------- */
+const KUT="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html";
 const RAIL=[
- {k:"PROJE",c:"var(--korpus)",t:"İbn Battûta Anadolu'da",p:"Antalya→Bursa→İznik→Sinop duraklarını delilleriyle haritala.",chips:["1 hafta sonu","MyMaps"]},
- {k:"PROJE",c:"var(--korpus)",t:"Hoca-talebe ağı",p:"eş-Şakâik'ten bir kuşağın kimden-okudu ağını çiz.",chips:["Gephi","2-3 hafta sonu"]},
- {k:"PROJE",c:"var(--korpus)",t:"Sulh mu, anve mi?",p:"Belâzürî'de iki kavramın izini bölge bölge say.",chips:["Colab","grafik"]},
- {k:"PROJE",c:"var(--korpus)",t:"İsnad ağı minyatürü",p:"Bir babın râvi zincirlerini ağa dök: ortak halkalar kim?",chips:["hadith-json","Gephi"]},
- {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim.",chips:["Oxford DSH 2026","ilahiyat yazarlı"]},
- {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"]},
- {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"]},
- {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"]},
+ {k:"PROJE",c:"var(--korpus)",t:"İbn Battûta Anadolu'da",p:"Antalya→Bursa→İznik→Sinop duraklarını delilleriyle haritala.",chips:["1 hafta sonu","MyMaps"],href:KUT+"#d3"},
+ {k:"PROJE",c:"var(--korpus)",t:"Hoca-talebe ağı",p:"eş-Şakâik'ten bir kuşağın kimden-okudu ağını çiz.",chips:["Gephi","2-3 hafta sonu"],href:KUT+"#d3"},
+ {k:"PROJE",c:"var(--korpus)",t:"Sulh mu, anve mi?",p:"Belâzürî'de iki kavramın izini bölge bölge say.",chips:["Colab","grafik"],href:KUT+"#d3"},
+ {k:"PROJE",c:"var(--korpus)",t:"İsnad ağı minyatürü",p:"Bir babın râvi zincirlerini ağa dök: ortak halkalar kim?",chips:["hadith-json","Gephi"],href:KUT+"#d3"},
+ {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim.",chips:["Oxford DSH 2026","ilahiyat yazarlı"],href:KUT+"#d4"},
+ {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"],href:KUT+"#d4"},
+ {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
+ {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
 ];
-$("#rail").innerHTML=RAIL.map(r=>'<article class="railcard"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+'</div></article>').join("");
+$("#rail").innerHTML=RAIL.map(r=>'<a class="railcard" style="text-decoration:none;color:inherit" href="'+r.href+'"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+' <span class="chip" style="color:var(--insan)">→ nasıl başlarım</span></div></a>').join("");
+
+/* ---------- KADİM SÖZLÜK ---------- */
+const FLIPS=[
+ ["JSON","Etiketli çekmeceli dolap","Çekmecenin üstünde adı, içinde değeri. Not Defteri'nde açılır."],
+ ["Korpus","Kütüphane + katalogu","Aranabilir, sayılabilir, bütün halinde işlenebilir metin koleksiyonu."],
+ ["Sürüm geçmişi","Nüsha şeceresi","Kim, ne zaman, neyi değiştirdi — hepsi kayıtlı."],
+ ["Provenans","Sened","Her kaydın nereden geldiğinin zinciri."],
+ ["Doğrulama","Mukabele","Çıktıyı kaynakla karşılaştırma; işin kalbi."],
+ ["\"Bilmiyorum\" kanalı","İmam Mâlik'in lā edrī'si","Modele çekimser kalma yeri açmak — rica değil, mühendislik."],
+];
+$("#flipgrid").innerHTML=FLIPS.map((f,i)=>'<button class="flip" data-i="'+i+'" aria-pressed="false"><span class="inner"><span class="face front"><b>'+esc(f[0])+'</b><span>dokun ↻</span></span><span class="face back"><b>'+esc(f[1])+'</b><span>'+esc(f[2])+'</span></span></span></button>').join("");
+$("#flipgrid").addEventListener("click",e=>{
+  const c=e.target.closest(".flip"); if(!c) return;
+  const on=c.classList.toggle("flipped");
+  c.setAttribute("aria-pressed",on);
+});
+
+/* ---------- MUKABELE KARNESİ ---------- */
+function drawKarne(n,nT,nK,nY,pct){
+  const W=1200,H=750, cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const x=cv.getContext("2d");
+  x.fillStyle="#FAF7F0"; x.fillRect(0,0,W,H);
+  x.fillStyle="#1F2937"; x.fillRect(0,0,W,10); x.fillRect(0,H-64,W,64);
+  x.fillStyle="#B91C1C"; x.font="700 26px system-ui,sans-serif"; x.fillText("RIHLE 2026 · DİJİTAL İSLAMİ İLİMLER VE YAPAY ZEKÂ",70,90);
+  x.fillStyle="#1F2937"; x.font="650 64px Georgia,serif"; x.fillText("Mukabele Karnesi",70,175);
+  x.font="400 30px Georgia,serif"; x.fillStyle="#6B7280";
+  x.fillText("Model çıkardı · tezgâh doğruladı · sorumluluk bende",70,225);
+  /* halka */
+  const cx=990,cy=330,r=130;
+  x.lineWidth=34; x.strokeStyle="#E5E7EB"; x.beginPath(); x.arc(cx,cy,r,0,2*Math.PI); x.stroke();
+  x.strokeStyle="#1E7A46"; x.lineCap="round"; x.beginPath(); x.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+2*Math.PI*pct/100); x.stroke();
+  x.fillStyle="#1F2937"; x.font="800 72px system-ui,sans-serif"; x.textAlign="center"; x.fillText("%"+pct,cx,cy+25); x.textAlign="left";
+  /* sayılar */
+  const rows=[["Kayıt",n,"#1F2937"],["TAM eşleşme",nT,"#1E7A46"],["KISMÎ (imlâ farkı)",nK,"#B45309"],["Bulunamadı → dışarıda",nY,"#B91C1C"]];
+  let yy=330;
+  rows.forEach(rw=>{
+    x.font="800 44px system-ui,sans-serif"; x.fillStyle=rw[2]; x.fillText(String(rw[1]),70,yy);
+    x.font="400 28px system-ui,sans-serif"; x.fillStyle="#6B7280"; x.fillText(rw[0],170,yy);
+    yy+=78;
+  });
+  x.font="400 26px system-ui,sans-serif"; x.fillStyle="#6B7280";
+  const d=new Date(); x.fillText(d.toLocaleDateString("tr-TR")+" · Belâzürî, Fütûhu'l-Büldân kesiti (OpenITI)",70,660);
+  x.fillStyle="#FAF7F0"; x.font="700 26px system-ui,sans-serif";
+  x.fillText("ÜRET (kendin) • DOĞRULA (dışarıda) • BEYAN ET",70,H-24);
+  x.textAlign="right"; x.fillText("alicetinkaya76.github.io/kitabin-rihlesi",W-70,H-24); x.textAlign="left";
+  cv.toBlob(b=>{
+    const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="mukabele-karnesi.png";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  },"image/png");
+}
+
+/* ---------- GÖZLEMCİLER: noktalar + sahne geçişi ---------- */
+(function(){
+  const ids=["top","harita","kayit","sozluk","dene","ilham"];
+  const dots=[...document.querySelectorAll("#dots a")];
+  const io=new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const i=ids.indexOf(en.target.id);
+      if(i>=0) dots.forEach((d,j)=>d.classList.toggle("on",j===i));
+    });
+  },{threshold:.4});
+  ids.forEach(id=>{ const el=document.getElementById(id); if(el) io.observe(el); });
+  if(!reduced){
+    document.querySelectorAll(".scene > *:not(script)").forEach(el=>el.classList.add("rv"));
+    const ro=new IntersectionObserver(es=>{
+      es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); ro.unobserve(en.target); } });
+    },{threshold:.12});
+    document.querySelectorAll(".rv").forEach(el=>ro.observe(el));
+  }
+})();
 </script>
