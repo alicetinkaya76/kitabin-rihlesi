@@ -126,6 +126,38 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 #wmap{height:260px;border-radius:12px;border:1px solid var(--line);margin-top:12px;display:none}
 .wmapnote{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px;display:none}
 .wmapnote b{color:var(--rubric)}
+/* makine sahnesi */
+.mstep{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin-bottom:14px;text-align:left;max-width:640px;width:100%;margin-left:auto;margin-right:auto;position:relative}
+.mstep .mno{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--model);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.mstep h3{font-family:var(--sans);font-size:1.02rem;margin:4px 0 8px}
+.mstep .mwhy{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:10px}
+.term{background:#171A1F;color:#E8E3D8;border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:.76rem;line-height:1.7;overflow-x:auto;white-space:pre-wrap}
+.term .tar{font-family:var(--arabic);font-size:1.05rem;direction:rtl;display:block;text-align:right}
+.term .tout{color:#7FD1A0}
+.cursor{display:inline-block;width:.55em;height:1.05em;background:#E8E3D8;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){ .cursor{animation:none} }
+.wpass{background:var(--korpus-soft);border-radius:10px;padding:14px 16px}
+.wpass .ar{font-size:1.3rem}
+.wpass span{opacity:.32;transition:opacity .3s,text-shadow .3s;border-radius:3px}
+.wpass.neutral span{opacity:1}
+.wpass span.w1{opacity:1;background:var(--model-soft)}
+.wpass span.w2{opacity:.75}
+.fchips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.fchips button{font-family:var(--sans);font-size:.8rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer;font-weight:600}
+.fchips button[aria-pressed="true"]{background:var(--model);color:#fff;border-color:var(--model)}
+.doorrow{display:flex;gap:10px;align-items:stretch;margin-top:8px;min-height:74px}
+.door{flex:1;border:2px solid var(--line);border-radius:10px 10px 4px 4px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:800;font-size:.85rem;padding:14px 6px;text-align:center}
+.door.on{border-color:var(--korpus);background:var(--korpus-soft);color:var(--korpus)}
+.chaos{font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.9;word-break:break-all;filter:blur(.4px);opacity:.8}
+.mtoggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:.8rem;margin-bottom:10px}
+.mtoggle button{all:unset;padding:7px 15px;cursor:pointer;font-weight:600}
+.mtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.dbox{border-left:6px solid var(--korpus);background:var(--korpus-soft);border-radius:8px;padding:10px 14px;margin-top:10px;display:none}
+.dbox .ar{font-size:1.1rem}
+.dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
+.seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
+.seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
 /* story tour */
 .tourcard{position:absolute;z-index:900;left:12px;right:12px;bottom:12px;max-width:470px;margin:0 auto;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 12px;display:none;backdrop-filter:blur(6px)}
 .tourcard .tno{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rubric);font-weight:800}
@@ -180,12 +212,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <a class="skip" href="#harita">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
-  <a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
+  <a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#makine">Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
   <a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
 </div></nav>
 
 <div class="dots" id="dots" aria-hidden="true">
-  <a href="#top"></a><a href="#harita"></a><a href="#kayit"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
+  <a href="#top"></a><a href="#harita"></a><a href="#kayit"></a><a href="#makine"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
 </div>
 
 <!-- 1 · KAPAK -->
@@ -243,6 +275,54 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div id="machinejson"></div>
 </section>
 
+<!-- 3 · MAKİNE -->
+<section class="scene wrap" id="makine" style="text-align:center;align-items:center">
+  <div class="kicker">3 · Perde arkası</div>
+  <h2>Makine bunu nasıl yapar?</h2>
+  <p class="one" style="margin:0 auto 26px">Üç sırrı var; üçü de dokunmatik. Örnek: Tanca kaydı.</p>
+
+  <div class="mstep">
+    <div class="mno">1</div>
+    <h3>Cevap vermez; devam ettirir</h3>
+    <div class="term" id="m-term"><span>Talimat: metinden şehir kaydı çıkar, delili AYNEN kopyala.</span>
+<span class="tar" id="m-quote"></span>
+<span class="tout" id="m-out"></span><span class="cursor" id="m-cursor"></span></div>
+    <div style="margin-top:10px"><button class="wbtn" id="m-play">▶ Devamı yazdır</button></div>
+    <p class="mwhy">Bütün hüner, en olası devamın <b>doğru kayıt</b> olacağı bir başlangıç kurmakta — aruz kalıbı verilmiş şaire mısra tamamlatmak gibi.</p>
+  </div>
+
+  <div class="mstep">
+    <div class="mno">2</div>
+    <h3>Her kelimeyi yazarken bütün pasajı tartar</h3>
+    <div class="fchips" id="m-fields">
+      <button data-f="sehir" aria-pressed="false">"şehir" yazarken</button>
+      <button data-f="tarih" aria-pressed="false">"tarih" yazarken</button>
+      <button data-f="niyet" aria-pressed="false">"niyet" yazarken</button>
+    </div>
+    <div class="wpass neutral" id="m-pass"><div class="ar" id="m-passar"></div></div>
+    <p class="mwhy">Ağır basan kelimeler yanar. Müfessir buna <b>siyak-sibak</b> der; burada aynı iş, mekanikleşmiş halde.</p>
+  </div>
+
+  <div class="mstep">
+    <div class="mno">3</div>
+    <h3>Kapıları azalt, kopyayı serbest bırak</h3>
+    <div class="mtoggle" role="group"><button id="m-free" aria-pressed="true">Serbest bırakılırsa</button><button id="m-closed" aria-pressed="false">Kapalı liste verilirse</button></div>
+    <div id="m-doorarea"></div>
+    <div style="margin-top:12px"><button class="wbtn alt" id="m-copy">Delili metinden kopyala</button></div>
+    <div class="dbox" id="m-dbox"><span class="ok">✓ METİNDEN AYNEN</span><div class="ar" id="m-dar"></div></div>
+    <p class="mwhy">Delili ezberinden söylemesi yasak, önündekinden göstermesi serbest — <b>kopyalamak uydurmaktan kolaydır;</b> model kolaya gider, biz kolayı doğruya bağlarız.</p>
+  </div>
+
+  <p class="one" style="margin:6px auto 0;font-size:.95rem">Buna "anlamak" denir mi? Felsefenin sorusu. Bizim ölçtüğümüz: <b>kısıtlanmış ve denetlenmiş davranış.</b></p>
+  <div class="seechips">
+    <span class="muted" style="align-self:center">İçine kendi gözünle bak:</span>
+    <a href="https://bbycroft.net/llm" target="_blank" rel="noopener">3B model anatomisi</a>
+    <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Olasılık çubukları</a>
+    <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener">عنوة kaç parça?</a>
+  </div>
+  <div class="btnrow"><a class="cta" href="#dene">Şimdi kendin çalıştır ↓</a></div>
+</section>
+
 <!-- 3b · SÖZLÜK -->
 <section class="scene wrap" id="sozluk" style="text-align:center;align-items:center;min-height:60vh">
   <div class="kicker">Ara durak</div>
@@ -253,7 +333,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 4 · DENE -->
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
-  <div class="kicker">3 · Sıra sende</div>
+  <div class="kicker">4 · Sıra sende</div>
   <h2>90 saniyede ilk mukabelen</h2>
   <p class="one" style="margin:0 auto 26px">Model çıkarır, bu sayfa doğrular, sorumluluk sende kalır.</p>
   <div class="wizard">
@@ -289,7 +369,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 5 · İLHAM -->
 <section class="scene wrap" id="ilham">
-  <div class="kicker">4 · Sonrası</div>
+  <div class="kicker">5 · Sonrası</div>
   <h2>Bu yoldan makale çıkar</h2>
   <p class="one">Kaydır: hepsi öğrenci ölçeğinde başlar, hakemli rafta biter.</p>
   <div class="rail" id="rail"></div>
@@ -666,6 +746,68 @@ function drawKarne(n,nT,nK,nY,pct){
   },"image/png");
 }
 
+/* ---------- MAKİNE SAHNESİ ---------- */
+(function(){
+  const S=IBB.showcase[0]; // Tanca
+  const Q=S.quote_ar||"";
+  $("#m-quote").textContent="Metin: "+Q;
+  /* 1 · daktilo */
+  const OUT='\n{ "şehir": "طنجة / Tanca",\n  "tarih_h": "725 Receb",\n  "tür": "çıkış — hac niyeti",\n  "delil": "'+Q.slice(0,34)+'…" }';
+  let typed=false, typeTimer=null;
+  $("#m-play").addEventListener("click",e=>{
+    if(typed){ clearInterval(typeTimer); $("#m-out").textContent=""; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
+    typed=true; e.target.textContent="↺ Sıfırla";
+    const el=$("#m-out"); el.textContent="";
+    if(reduced){ el.textContent=OUT; return; }
+    const t0=performance.now();
+    typeTimer=setInterval(()=>{
+      const n=Math.min(OUT.length, Math.round((performance.now()-t0)/22));
+      el.textContent=OUT.slice(0,n);
+      if(n>=OUT.length) clearInterval(typeTimer);
+    },40);
+  });
+  /* 2 · tartı */
+  const W={
+    sehir:{ "طنجة":1, "مسقط":2, "رأسي":2 },
+    tarih:{ "يوم":1,"الخميس":1,"الثاني":1,"شهر":1,"رجب":1,"عام":1,"خمسة":1,"وعشرين":1,"وسبعمائة":1,"الفرد":2 },
+    niyet:{ "معتمدا":1,"حج":1,"بيت":1,"الحرام":1 }
+  };
+  $("#m-passar").innerHTML=Q.split(/\s+/).map(w=>'<span data-w="'+esc(w)+'">'+esc(w)+'</span>').join(" ");
+  $("#m-fields").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    const on=b.getAttribute("aria-pressed")==="true";
+    document.querySelectorAll("#m-fields button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    const pass=$("#m-pass");
+    if(on){ pass.classList.add("neutral"); pass.querySelectorAll("span").forEach(s=>s.className=""); return; }
+    b.setAttribute("aria-pressed","true"); pass.classList.remove("neutral");
+    const map=W[b.dataset.f]||{};
+    pass.querySelectorAll("span").forEach(s=>{
+      const w=s.dataset.w.replace(/[،.]/g,"");
+      s.className = map[w]===1? "w1" : map[w]===2? "w2" : "";
+    });
+  });
+  /* 3 · kapılar */
+  const CHAOS="مدينة؟ قرية؟ فتح؟ خروج؟ 725؟ 1325؟ hac? sefer? rıhle? … binlerce kelime, binlerce kapı — model serbest metinde kaybolabilir ve en akıcı olanı seçer; akıcı, doğru demek değildir.";
+  const DOORS='<div class="doorrow"><div class="door on">ÇIKIŞ</div><div class="door">ZİYARET</div><div class="door">YALNIZ ANILAN</div></div><p class="mwhy" style="margin-top:8px">Üç değerli kapalı liste: cevap ancak bu kapılardan çıkar; pasajdaki işaret hangi kapıyı destekliyorsa o yanar.</p>';
+  const area=$("#m-doorarea");
+  function setDoors(closed){
+    area.innerHTML = closed? DOORS : '<div class="chaos">'+esc(CHAOS)+'</div>';
+    $("#m-closed").setAttribute("aria-pressed",closed?"true":"false");
+    $("#m-free").setAttribute("aria-pressed",closed?"false":"true");
+  }
+  $("#m-free").addEventListener("click",()=>setDoors(false));
+  $("#m-closed").addEventListener("click",()=>setDoors(true));
+  setDoors(false);
+  /* delil kopyala */
+  $("#m-copy").addEventListener("click",()=>{
+    $("#m-dar").textContent=Q;
+    $("#m-dbox").style.display="block";
+    const pass=$("#m-pass"); pass.classList.remove("neutral");
+    pass.querySelectorAll("span").forEach(s=>s.className="w1");
+    setTimeout(()=>{ pass.classList.add("neutral"); pass.querySelectorAll("span").forEach(s=>s.className=""); }, reduced?0:1200);
+  });
+})();
+
 /* ---------- SİHİRBAZ MİNİ HARİTASI ---------- */
 /* Mini gazetteer: kesitin coğrafyası (Mısır-Mağrib-Endülüs hattı). Tam liste değildir;
    bulunamayan şehir, tarihî gazetteer'in neden var olduğunu öğretir. */
@@ -730,7 +872,7 @@ function drawWizMap(rows){
 
 /* ---------- GÖZLEMCİLER: noktalar + sahne geçişi ---------- */
 (function(){
-  const ids=["top","harita","kayit","sozluk","dene","ilham"];
+  const ids=["top","harita","kayit","makine","sozluk","dene","ilham"];
   const dots=[...document.querySelectorAll("#dots a")];
   const io=new IntersectionObserver(es=>{
     es.forEach(en=>{
@@ -746,6 +888,13 @@ function drawWizMap(rows){
       es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); ro.unobserve(en.target); } });
     },{threshold:.12});
     document.querySelectorAll(".rv").forEach(el=>ro.observe(el));
+    /* emniyet: IO kısılırsa görünürdekileri elle aç */
+    const sweep=()=>document.querySelectorAll(".rv:not(.in)").forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<innerHeight*1.05 && r.bottom>-40) el.classList.add("in");
+    });
+    addEventListener("scroll",sweep,{passive:true});
+    setTimeout(sweep,1500);
   }
 })();
 </script>
