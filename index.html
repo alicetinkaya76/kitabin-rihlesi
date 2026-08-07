@@ -123,6 +123,9 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .ctx{background:var(--code-bg);border-radius:10px;padding:10px 14px;margin-top:8px}
 .ctx .ar{font-size:1.1rem}
 .ctx mark{background:var(--model-soft);color:inherit;border-radius:3px;padding:0 2px}
+#wmap{height:260px;border-radius:12px;border:1px solid var(--line);margin-top:12px;display:none}
+.wmapnote{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px;display:none}
+.wmapnote b{color:var(--rubric)}
 /* story tour */
 .tourcard{position:absolute;z-index:900;left:12px;right:12px;bottom:12px;max-width:470px;margin:0 auto;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 12px;display:none;backdrop-filter:blur(6px)}
 .tourcard .tno{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rubric);font-weight:800}
@@ -277,6 +280,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <h3>Rapor</h3>
       <p class="small muted" id="w-empty" style="margin:0">Rapor burada belirecek: her delil, kitapta tek tek aranır.</p>
       <div class="report" id="w-report"></div>
+      <div id="wmap" aria-label="Doğrulanan kayıtların haritası"></div>
+      <p class="wmapnote" id="wmapnote"></p>
     </div>
   </div>
   <p class="whint" style="margin-top:14px">Tam kitaplarla çalışan büyük tezgâh (parçalama, 3 şablon, CSV) → <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#tezgah">Kütüphane'de</a>.</p>
@@ -579,7 +584,7 @@ $("#w-verify").addEventListener("click",()=>{
   let h='<div class="ringrow"><svg class="ring" viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="55" cy="55" r="44" fill="none" stroke="var(--korpus)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(CIRC*pct/100).toFixed(1)+' '+CIRC.toFixed(1)+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle">%'+pct+'</text></svg>';
   h+='<div class="rstats"><div><b style="color:var(--korpus)">'+nT+'</b><span>TAM</span></div><div><b style="color:var(--model)">'+nK+'</b><span>KISMÎ</span></div><div><b style="color:var(--rubric)">'+nY+'</b><span>dışarıda</span></div></div></div>';
   h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı." — Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
-  h+='<div style="margin-top:12px"><button class="wbtn alt" id="w-karne">🖼 Mukabele karneni indir</button></div>';
+  h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Mukabele karneni indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button></div>';
   h+='<details class="rdetail"><summary>Kayıt kayıt ayrıntı (satıra dokun: delili kitapta gör)</summary><div class="rtable"><table><tr><th>Kayıt</th><th>Yıl</th><th>Durum</th></tr>';
   rows.forEach((r,i)=>{ const c=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
     h+='<tr data-i="'+i+'" style="cursor:pointer"><td><b>'+esc(r.label)+'</b></td><td>'+esc(r.yil||"—")+'</td><td><span class="st '+c+'">'+r.st+'</span></td></tr>'; });
@@ -587,6 +592,7 @@ $("#w-verify").addEventListener("click",()=>{
   rep.innerHTML=h; rep.style.display="block"; empty.style.display="none";
   $("#w2").classList.add("completed"); $("#w3").classList.add("completed");
   rep.querySelector("#w-karne").addEventListener("click",()=>drawKarne(rows.length,nT,nK,nY,pct));
+  rep.querySelector("#w-harita").addEventListener("click",()=>drawWizMap(rows));
   rep.querySelectorAll("tr[data-i]").forEach(tr=>tr.addEventListener("click",()=>{
     const r=rows[+tr.dataset.i]; const box=rep.querySelector("#w-ctx");
     if(r.n==null||r.n<0){ box.innerHTML='<div class="ctx"><span class="small" style="color:var(--rubric)">Delil kitapta bulunamadı — kayıt sonuçlara giremez.</span></div>'; return; }
@@ -658,6 +664,68 @@ function drawKarne(n,nT,nK,nY,pct){
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(()=>URL.revokeObjectURL(a.href),4000);
   },"image/png");
+}
+
+/* ---------- SİHİRBAZ MİNİ HARİTASI ---------- */
+/* Mini gazetteer: kesitin coğrafyası (Mısır-Mağrib-Endülüs hattı). Tam liste değildir;
+   bulunamayan şehir, tarihî gazetteer'in neden var olduğunu öğretir. */
+const WGAZ=[
+ {tr:"Bâbilyûn (Eski Kahire)", names:["بابليون","الحصن","babil","fustat","الفسطاط","fustât"], lat:30.006, lon:31.233},
+ {tr:"İskenderiye", names:["الاسكندرية","الإسكندرية","iskenderiye","alexandria"], lat:31.199, lon:29.919},
+ {tr:"Ayn Şems", names:["عين شمس","ayn şems","ayn sems"], lat:30.129, lon:31.318},
+ {tr:"Kaysâriye (Filistin)", names:["قيسارية","kaysariye","caesarea"], lat:32.500, lon:34.892},
+ {tr:"Hulvân", names:["حلوان","hulvan"], lat:29.841, lon:31.301},
+ {tr:"Feyyûm", names:["الفيوم","feyyum","fayyum"], lat:29.310, lon:30.841},
+ {tr:"Berka", names:["برقة","berka","barka"], lat:32.489, lon:20.833},
+ {tr:"Trablus (Mağrib)", names:["طرابلس","trablus","tripoli"], lat:32.887, lon:13.191},
+ {tr:"Kayravan", names:["القيروان","kayravan","qayrawan"], lat:35.678, lon:10.096},
+ {tr:"Tanca", names:["طنجة","tanca","tangier"], lat:35.760, lon:-5.834},
+ {tr:"Sebte (Ceuta)", names:["سبتة","sebte","ceuta"], lat:35.889, lon:-5.320},
+ {tr:"Kurtuba", names:["قرطبة","kurtuba","cordoba"], lat:37.884, lon:-4.779},
+ {tr:"Endülüs", names:["الأندلس","الاندلس","endülüs","endulus"], lat:37.884, lon:-4.779},
+ {tr:"Tuleytula (Toledo)", names:["طليطلة","tuleytula","toledo"], lat:39.862, lon:-4.027},
+ {tr:"İşbîliye (Sevilla)", names:["إشبيلية","اشبيلية","işbiliye","sevilla"], lat:37.389, lon:-5.984},
+ {tr:"Rodos", names:["رودس","rodos","rhodes"], lat:36.440, lon:28.222},
+ {tr:"Ervâd", names:["أرواد","ارواد","ervad","arwad"], lat:34.856, lon:35.858},
+ {tr:"Kıbrıs", names:["قبرص","kıbrıs","kibris","cyprus"], lat:35.126, lon:33.430},
+ {tr:"Nûbe", names:["النوبة","nube","nubia"], lat:19.170, lon:30.475},
+ {tr:"Zevîle (Fizan)", names:["زويلة","zevile","zawila"], lat:26.170, lon:15.119},
+];
+let wmapObj=null, wmapLayer=null;
+function wGeocode(label){
+  const n=wNorm(label), lite=String(label).toLowerCase();
+  for(const g of WGAZ)
+    for(const v of g.names){
+      const nv=/[؀-ۿ]/.test(v)? wNorm(v) : null;
+      if((nv && nv.length>2 && n.includes(nv)) || (!nv && lite.includes(v))) return g;
+    }
+  return null;
+}
+function drawWizMap(rows){
+  const note=$("#wmapnote");
+  if(typeof L==="undefined"){ note.style.display="block"; note.textContent="Harita çevrimdışı yüklenemedi."; return; }
+  const ok=rows.filter(r=>r.st!=="YOK");
+  const hits=[], misses=[];
+  ok.forEach(r=>{ const g=wGeocode(r.label); if(g) hits.push({r,g}); else misses.push(r.label); });
+  $("#wmap").style.display="block";
+  if(!wmapObj){
+    wmapObj=L.map("wmap",{scrollWheelZoom:false});
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{attribution:'© OpenStreetMap © CARTO',maxZoom:10,subdomains:"abcd"}).addTo(wmapObj);
+  }
+  if(wmapLayer) wmapObj.removeLayer(wmapLayer);
+  wmapLayer=L.layerGroup(hits.map(({r,g})=>{
+    const col=r.st==="TAM"?"#1E7A46":"#B45309";
+    return L.circleMarker([g.lat,g.lon],{radius:9,color:col,weight:2.5,fillColor:col,fillOpacity:.65})
+      .bindPopup("<b>"+esc(g.tr)+"</b><div class='pd'>"+esc(r.label)+" · "+r.st+"</div>");
+  })).addTo(wmapObj);
+  requestAnimationFrame(()=>{ wmapObj.invalidateSize();
+    if(hits.length) wmapObj.fitBounds(L.latLngBounds(hits.map(h=>[h.g.lat,h.g.lon])),{padding:[30,30],maxZoom:6});
+    else wmapObj.setView([31,20],4);
+  });
+  note.style.display="block";
+  note.innerHTML=(hits.length? hits.length+" kayıt haritalandı (yeşil=TAM, kehribar=KISMÎ). " : "")+
+    (misses.length? "<b>Konumlanamadı:</b> "+esc(misses.join(", "))+" — modern araçlar tarihî adı bilmez; üretim hattı bu yüzden tarihî gazetteer kullanır (el-Süreyyâ → <a href='https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2'>Kütüphane</a>)." : "Bütün kayıtlar konumlandı — üretim hattında bu işi 2.070 yerlik el-Süreyyâ gazetteer'i yapar.");
+  $("#wmap").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
 }
 
 /* ---------- GÖZLEMCİLER: noktalar + sahne geçişi ---------- */

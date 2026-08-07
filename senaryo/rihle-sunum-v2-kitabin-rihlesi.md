@@ -174,17 +174,22 @@ Dijital İslami ilimler kuruluş aşamasında; en çok, ilahiyat bilen ele ihtiy
 
 # EK A — SİTE ↔ SUNUM EŞLEMESİ (prodüksiyonda birebir kullanılacak)
 
+Site iki sayfadır: **Deneyim** (`alicetinkaya76.github.io/kitabin-rihlesi/` — az metin, dokunmatik) ve **Kütüphane** (`…/kutuphane.html` — bütün envanter). Sunumda perdeye ve katılımcı telefonuna DENEYİM açılır; Kütüphane "eve götürülecek adres" olarak tek cümleyle işaret edilir.
+
 | Sunum durağı | Sitedeki karşılığı |
 |---|---|
-| B0 çift ekran | Ana sayfa "yöntem" bandı |
-| B2 erişim rafları | "Kitaplar Nerede?" rafı (ilk-10-dakika tarifleriyle) |
-| B3 Belâzürî hattı | "Yayımlanmış İspat" bölümü + minyatür atölye paketi (indirilebilir) |
-| B4 JSON dokunuşu | CANLI JSON↔pasaj görüntüleyici (İbn Battûta 8 durak) |
-| B4 harita | SVG rota haritası (7 yolculuk, 317 durak) |
-| B5 emsal galerisi | "Örnek Makale & Projeler" galerisi (doğrulanmış künye + DOI) |
-| B5 dergi rehberi | "Nerede Yayımlarım?" rehberi (açık erişim/dil/kapsam notlarıyla) |
-| B5 dürüstlük matrisi | "Âdâb & Beyan" sayfası (10 madde + örnek beyan paragrafı) |
-| B4/B6 minyatür | "90 Dakikalık Atölye" sayfası (metin+talimat+cevap anahtarı) |
+| B0 çift ekran | (Sunum malzemesi; sitede karşılığı Deneyim kapağı + 4 kural, Kütüphane'de) |
+| B2 erişim rafları | Kütüphane → "Kitabı Bul" rafları (ilk-10-dakika tarifleriyle) |
+| B3 Belâzürî hattı | Kütüphane → "Yayımlanmış ispat" + tam Tezgâh + minyatür atölye paketi |
+| B4 kitap sahneye | Deneyim → GERÇEK HARİTA: "▶ Yolculuğu oynat" (sahnede oynatılacak an) + "📖 Durak durak tur" |
+| B4 JSON dokunuşu | Deneyim → "Kitap nasıl veri olur?" çekmeceli dolap + "makinenin gördüğü" geçişi |
+| B4 minyatür daveti | Deneyim → "90 saniyede ilk mukabelen" sihirbazı (örnek cevap + karne + mini harita); tam 90 dk'lık paket Kütüphane'de |
+| B5 dört soru kalıbı + emsaller | Deneyim → İlham şeridi; tam galeri Kütüphane → Durak 4 (künye + DOI) |
+| B5 dergi rehberi | Kütüphane → "Nerede yayımlarım?" tabloları + yayın merdiveni |
+| B5 dürüstlük matrisi | Kütüphane → Âdâb & Beyan (10 madde + beyan şablonu + YÖK rehberi) |
+| B1 kadim karşılıklar | Deneyim → "Sözlük" çevirmeli kartlar (sahnede 15 saniyelik gösterim adayı) |
+
+**Sahne önerisi (B4 için):** perdede canlı site — önce "▶ Yolculuğu oynat" (30 sn), sonra sihirbazda "Örnek cevapla dene" → mukabele → uydurma kaydın yakalanışı (%67 halkası) → "🗺 Doğrulananları haritala". Bu 90 saniyelik zincir, sunumun D0'daki vaadinin ("iki ekran arasındaki mesafe") gözle görülür kapanışıdır. Yedek: aynı akışın ekran kaydı statik slayt olarak hazır tutulur (canlı internet riski).
 
 # EK B — SAHNE APARATI
 
