@@ -186,6 +186,18 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
 .shelfmap .mt{font-family:var(--sans);font-size:.8rem;font-weight:700;line-height:1.25}
 .shelfmap .mc{font-family:var(--sans);font-size:.68rem;color:var(--muted)}
 .card.hidden{display:none}
+.card h4 mark{background:var(--model-soft);color:inherit;border-radius:3px;padding:0 2px}
+.niyet{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.niyet button{font:inherit;font-family:var(--sans);font-size:.85rem;font-weight:600;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow)}
+.niyet button:hover{border-color:var(--rubric)}
+.sugchips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;font-family:var(--sans);font-size:.76rem;align-items:center}
+.sugchips button{border:1px dashed var(--line);background:transparent;color:var(--insan);border-radius:999px;padding:4px 11px;cursor:pointer;font-weight:600}
+.firstvisit{margin:16px 0 4px}
+.firstvisit .fvh{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fvrail{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+.fvcard{scroll-snap-align:start;flex:0 0 200px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink)}
+.fvcard b{font-family:var(--sans);font-size:.85rem;display:block;margin-bottom:3px}
+.fvcard span{font-family:var(--sans);font-size:.72rem;color:var(--muted);display:block;line-height:1.4}
 .noresult{display:none;background:var(--rubric-soft);border-radius:10px;padding:12px 16px;font-family:var(--sans);font-size:.88rem;margin:8px 0}
 #totop{position:fixed;right:14px;bottom:14px;z-index:1500;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--ink);color:var(--paper);font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow);display:none}
 /* ---------- raf akordeonu ---------- */
@@ -235,8 +247,14 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
     <button data-f="turkce" aria-pressed="false">Türkçe</button>
     <button data-f="hesapsiz" aria-pressed="false">Hesap gerektirmez</button>
   </div>
+  <div class="sugchips" id="sugchips"><span class="muted" style="font-weight:400">Deneyin:</span></div>
   <div class="librescnt" id="librescnt"></div>
   <div class="noresult" id="noresult">Sonuç çıkmadı. Yazımı sadeleştirin (ör. "hadis", "harita") ya da filtreleri kaldırın — aradığınız kaynak farklı bir adla kayıtlı olabilir.</div>
+  <div class="niyet" id="niyet" aria-label="Ne yapmak istiyorsun?"></div>
+  <div class="firstvisit">
+    <div class="fvh">İlk ziyaretin mi? Bu altısıyla başla</div>
+    <div class="fvrail" id="fvrail"></div>
+  </div>
   <div class="shelfmap" id="shelfmap" aria-label="Raf haritası"></div>
   <div class="fiil"><span>ÜRET (kendin)</span><span>•</span><span>DOĞRULA (dışarıda)</span><span>•</span><span>BEYAN ET</span></div>
 </header>
@@ -1209,9 +1227,43 @@ $("#tz-dl-csv").addEventListener("click",()=>{
     grids.forEach(g=>setOpen(g,true));
     if(grids[0]) shelfParts(grids[0]).head?.scrollIntoView({behavior:"smooth",block:"start"});
   });
+  /* niyet kapıları */
+  const NIYET=[
+    ["📖 Bir kitabın metnini arıyorum", ["openiti","kutuphane","kuran_hadis"], "openiti"],
+    ["📊 Hazır veri seti istiyorum", ["veri_setleri"], "veri_setleri"],
+    ["🧰 Bana uygun aleti seçeceğim", [], "#aletraf"],
+    ["🧭 Nereden başlayacağımı bilmiyorum", [], "#rotalar"],
+    ["📰 Nerede yayımlarım?", ["dergi_int","dergi_tr"], "dergi_int"],
+    ["⚖️ Yapay zekâyı dürüstçe nasıl kullanırım?", ["adab_docs"], "#adab"],
+  ];
+  $("#niyet").innerHTML=NIYET.map((n,i)=>'<button data-i="'+i+'">'+esc(n[0])+'</button>').join("");
+  $("#niyet").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    const [,keys,target]=NIYET[+b.dataset.i];
+    keys.forEach(k=>document.querySelectorAll('.grid[data-shelf="'+k+'"]').forEach(g=>setOpen(g,true)));
+    if(target.startsWith("#")) document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});
+    else { const g=document.querySelector('.grid[data-shelf="'+target+'"]'); g && shelfParts(g).head?.scrollIntoView({behavior:"smooth",block:"start"}); }
+  });
+  /* ilk ziyaret seti */
+  const FV_URLS=["https://shamela.ws","https://kitab-project.org/metadata","https://tez.yok.gov.tr/UlusalTezMerkezi","https://github.com/AhmedBaset/hadith-json","https://www.wikilala.com","https://www.zotero.org"];
+  const allItems=[...Object.values(SITE.shelves).flat(), ...Object.values(SITE.aletler).flat()];
+  $("#fvrail").innerHTML=FV_URLS.map(u=>{
+    const it=allItems.find(x=>(x.url||"").replace(/\/$/,"").toLowerCase()===u.toLowerCase()) || allItems.find(x=>(x.url||"").toLowerCase().startsWith(u.toLowerCase()));
+    if(!it) return "";
+    return '<a class="fvcard" href="'+esc(it.url)+'" target="_blank" rel="noopener"><b>'+esc(it.name.split("—")[0].split("(")[0].trim())+'</b><span>'+esc((it.tr_summary||"").split(".")[0].slice(0,90))+'.</span></a>';
+  }).join("");
   /* arama + filtre */
   const cards=[...document.querySelectorAll('.grid[data-shelf] .card, #aletraf .grid .card')];
-  cards.forEach(c=>{ c.dataset.q=T(c.textContent); });
+  cards.forEach(c=>{ c.dataset.q=T(c.textContent); const h=c.querySelector("h4 a"); if(h) c.dataset.name=h.textContent; });
+  /* öneri çipleri */
+  ["hadis","Osmanlıca","harita","Kur'an","dergi","tez"].forEach(s=>{
+    $("#sugchips").insertAdjacentHTML("beforeend",'<button>'+esc(s)+'</button>');
+  });
+  $("#sugchips").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    $("#libsearch").value=b.textContent; apply();
+    $("#librescnt").scrollIntoView({behavior:"smooth",block:"center"});
+  });
   const grids=[...document.querySelectorAll('.grid[data-shelf], #aletraf .grid')];
   const filters={ucretsiz:false,turkce:false,hesapsiz:false};
   let debT=null;
@@ -1219,7 +1271,7 @@ $("#tz-dl-csv").addEventListener("click",()=>{
     const q=T($("#libsearch").value.trim());
     const anyF=filters.ucretsiz||filters.turkce||filters.hesapsiz;
     if(!q && !anyF){
-      cards.forEach(c=>c.classList.remove("hidden"));
+      cards.forEach(c=>{ c.classList.remove("hidden"); const a=c.querySelector("h4 a"); if(a&&c.dataset.name) a.textContent=c.dataset.name; });
       grids.forEach(g=>setOpen(g,false));
       $("#librescnt").textContent=""; $("#noresult").style.display="none";
       return;
@@ -1233,6 +1285,16 @@ $("#tz-dl-csv").addEventListener("click",()=>{
       if(ok&&filters.hesapsiz) ok=!s.includes("hesap ister");
       c.classList.toggle("hidden",!ok);
       if(ok) total++;
+    });
+    /* eşleşme vurgusu (yalnız kart adında) */
+    cards.forEach(c=>{
+      const a=c.querySelector("h4 a"); if(!a||!c.dataset.name) return;
+      const nm=c.dataset.name;
+      if(q && !c.classList.contains("hidden")){
+        const idx=T(nm).indexOf(q);
+        if(idx>=0){ a.innerHTML=esc(nm.slice(0,idx))+"<mark>"+esc(nm.slice(idx,idx+q.length))+"</mark>"+esc(nm.slice(idx+q.length)); return; }
+      }
+      a.textContent=nm;
     });
     grids.forEach(g=>{
       const vis=[...g.querySelectorAll(".card")].some(c=>!c.classList.contains("hidden"));
