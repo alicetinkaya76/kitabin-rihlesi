@@ -129,8 +129,15 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 /* makine sahnesi */
 .mstep{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin-bottom:14px;text-align:left;max-width:640px;width:100%;margin-left:auto;margin-right:auto;position:relative}
 .mstep .mno{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--model);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
-.mstep h3{font-family:var(--sans);font-size:1.02rem;margin:4px 0 8px}
+.mstep h3{font-family:var(--sans);font-size:1.02rem;margin:4px 0 8px;padding-right:2px}
 .mstep .mwhy{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:10px}
+.termtag{float:right;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;background:var(--chip);color:var(--muted);border-radius:5px;padding:3px 8px;margin-left:8px;margin-top:2px}
+.ioline{font-family:var(--sans);font-size:.74rem;color:var(--muted);background:var(--code-bg);border-radius:7px;padding:6px 11px;margin:0 0 10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ioline b{color:var(--ink);font-weight:600}
+.ioline .arr{color:var(--rubric);font-weight:800}
+.mdeep{margin-top:10px}
+.mdeep>summary{font-family:var(--sans);font-size:.76rem;color:var(--insan);cursor:pointer;font-weight:600}
+.mdeep>p{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin:6px 0 0;line-height:1.55;background:var(--insan-soft);border-radius:8px;padding:9px 12px}
 .term{background:#171A1F;color:#E8E3D8;border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:.76rem;line-height:1.7;overflow-x:auto;white-space:pre-wrap}
 .term .tar{font-family:var(--arabic);font-size:1.05rem;direction:rtl;display:block;text-align:right}
 .term .tout{color:#7FD1A0}
@@ -460,7 +467,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">1</div>
-    <h3>Arapça mı okur? Hayır: önce parçalar, sonra sayıya çevirir</h3>
+    <h3><span class="termtag">tokenization</span>Arapça mı okur? Hayır: önce parçalar, sonra sayıya çevirir</h3>
+    <div class="ioline"><b>Girdi:</b> harfler <span class="arr">→</span> <b>Çıktı:</b> parça numaraları</div>
     <div class="tokstage">
       <div class="toklabel">Kitaptan cümle</div>
       <div class="tokrow" id="tok-ar"></div>
@@ -476,19 +484,23 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <span class="tokcnt" id="tok-cnt"></span>
     </div>
     <p class="mwhy" id="tok-why">Model harf de kelime de görmez; <b>parça numaraları</b> görür. Arapça, İngilizceden daha çok parçaya bölünür — dil eşitsizliğinin mühendislik kökü. <span class="temsili">bölme temsilîdir</span> — gerçeğini <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener">tiktokenizer</a>'da kendi cümlenle dene. Ve dikkat: <span class="ar" style="display:inline;font-size:1rem">ة</span> ile <span class="ar" style="display:inline;font-size:1rem">ه</span> <b>farklı numaralardır</b> — sihirbazdaki KISMÎ eşleşmelerin kökü buraya iner.</p>
+    <details class="mdeep"><summary>Meraklısına: bu bölme nasıl seçildi?</summary><p>Yöntemin adı <b>alt-kelime parçalama</b>dır (BPE ailesi): sözlük, eğitim metinlerinde en sık geçen harf dizilerinden kendiliğinden kurulur ve tipik olarak 100–250 bin parçadır. Arapçanın zengin çekimi yüzünden aynı anlam daha çok parçaya bölünür — bu, hem maliyeti hem bağlam penceresinin doluşunu etkiler. Aynı parçanın numarası her zaman aynıdır; "anlam" bu numarada değil, bir sonraki katta başlar.</p></details>
   </div>
 
   <div class="mstep">
     <div class="mno">2</div>
-    <h3>Her parçayı anlam haritasına koyar</h3>
+    <h3><span class="termtag">embedding</span>Her parçayı anlam haritasına koyar</h3>
+    <div class="ioline"><b>Girdi:</b> parça numaraları <span class="arr">→</span> <b>Çıktı:</b> anlam uzayında noktalar</div>
     <div class="embwrap"><div id="embmap"></div></div>
     <div class="embchips" id="embchips"></div>
     <p class="mwhy">Sözlük değil, <b>harita</b>: eğitim sırasında her parça bu uzayda bir yer edinir; yakın anlam yakın düşer. <span class="ar" style="display:inline;font-size:1.05rem">فتح</span> iki mahalleye de komşudur — "açmak" mı, "fethetmek" mi? Onu bir sonraki adım söyler. <span class="temsili">yerleşim temsilîdir</span> — gerçekte binlerce boyut vardır, biz ikisini görüyoruz.</p>
+    <details class="mdeep"><summary>Meraklısına: "nokta" dediğin nedir?</summary><p>Her parça bir <b>vektördür</b>: binlerce sayılık bir liste (gömme/embedding). "Yakınlık", bu listelerin benzerliğidir ve kosinüsle ölçülür. Aşağıda <a href="#deep">Çekirdeğe iniş · Kat 1</a>'de iki kelimenin sayı şeritlerini yan yana koyup benzerliği kendin hesaplatabilirsin — <i>rıhle</i> ile <i>sefer</i> 0,99 çıkar.</p></details>
   </div>
 
   <div class="mstep">
     <div class="mno">3</div>
-    <h3>Her kelimeyi yazarken bütün pasajı tartar</h3>
+    <h3><span class="termtag">attention</span>Her kelimeyi yazarken bütün pasajı tartar</h3>
+    <div class="ioline"><b>Girdi:</b> noktalar <span class="arr">→</span> <b>Çıktı:</b> bağlama göre tartılmış anlam</div>
     <div class="fchips" id="m-fields">
       <button data-f="sehir" aria-pressed="false">"şehir" yazarken</button>
       <button data-f="tarih" aria-pressed="false">"tarih" yazarken</button>
@@ -497,11 +509,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
     <div class="wpass neutral" id="m-pass"><div class="ar" id="m-passar"></div></div>
     <p class="mwhy">Ağır basan kelimeler yanar — <span class="ar" style="display:inline;font-size:1.05rem">فتح</span>'in hangi mahallesi kazanacaksa onu bu tartı belirler. Müfessir buna <b>siyak-sibak</b> der; burada aynı iş, mekanikleşmiş halde.</p>
+    <details class="mdeep"><summary>Meraklısına: bu ağırlıkları kim yazdı?</summary><p>Kimse. Mekanizmanın adı <b>öz-dikkat</b>tir (self-attention): her parça, pasajdaki diğer bütün parçalara "sana ne kadar bakayım?" diye sorar; ağırlıklar elle yazılmış kural değil, eğitimde kendiliğinden oluşmuş değerlerdir. Ve tek tartı yoktur: her katta <b>onlarca "kafa"</b> aynı cümleye farklı gözle bakar — <a href="#deep">Çekirdeğe iniş · Kat 2</a>'de "kim?" kafası ile "ne zaman?" kafasını yan yana dene.</p></details>
   </div>
 
   <div class="mstep">
     <div class="mno">4</div>
-    <h3>Cevap vermez; devam ettirir — her adım bir yarıştır</h3>
+    <h3><span class="termtag">softmax</span>Cevap vermez; devam ettirir — her adım bir yarıştır</h3>
+    <div class="ioline"><b>Girdi:</b> tartılmış bağlam <span class="arr">→</span> <b>Çıktı:</b> sıradaki parçanın yarışı, kazanan yazılır</div>
     <div class="term" id="m-term"><span>Talimat: metinden şehir kaydı çıkar, delili AYNEN kopyala.</span>
 <span class="tar" id="m-quote"></span>
 <span class="tout" id="m-out"></span><span class="cursor" id="m-cursor"></span></div>
@@ -512,17 +526,26 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="brow"><span class="bname">ZİYARET</span><div class="btrack"><div class="bfill" style="background:var(--model)" data-w="14"></div></div><span class="bpct">%14</span></div>
       <div class="brow"><span class="bname">ANILAN</span><div class="btrack"><div class="bfill" style="background:var(--muted)" data-w="8"></div></div><span class="bpct">%8</span></div>
     </div>
+    <div class="bars" id="m-bars2">
+      <div class="toklabel">Sıradaki karar — "delil" alanı nereden dolacak? <span class="temsili">temsilî</span></div>
+      <div class="brow"><span class="bname">KOPYALA</span><div class="btrack"><div class="bfill" style="background:var(--korpus)" data-w="96"></div></div><span class="bpct">%96</span></div>
+      <div class="brow"><span class="bname">EZBERDEN</span><div class="btrack"><div class="bfill" style="background:var(--rubric)" data-w="4"></div></div><span class="bpct">%4</span></div>
+      <div class="toklabel" style="margin-top:6px;color:var(--korpus);font-weight:700">Kopyalamak uydurmaktan kolaydır → 5. adım bu eğilimi disipline bağlar ↓</div>
+    </div>
     <p class="mwhy">Bütün hüner, en olası devamın <b>doğru kayıt</b> olacağı bir başlangıç kurmakta — aruz kalıbı verilmiş şaire mısra tamamlatmak gibi. Canlı olasılık çubukları için: <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Transformer Explainer</a>.</p>
+    <details class="mdeep"><summary>Meraklısına: yarışın matematiği</summary><p>Üretimin adı <b>otoregresyondur</b>: her seferinde TEK parça seçilir, cümleye eklenir ve bütün hesap yeniden koşar. Yarışın puanları (logit) <b>softmax</b>la olasılığa çevrilir; "sıcaklık" bu dağılımı yayar ya da sivriltir. <a href="#deep">Çekirdeğe iniş · Kat 3</a>'te sürgüyü çekip GERÇEK softmax'la oyna: T=0,2'de favori %99,6; T=2'de %43.</p></details>
   </div>
 
   <div class="mstep">
     <div class="mno">5</div>
-    <h3>Kapıları azalt, kopyayı serbest bırak</h3>
+    <h3><span class="termtag">constrained decoding</span>Kapıları azalt, kopyayı serbest bırak</h3>
+    <div class="ioline"><b>Girdi:</b> serbest yarış <span class="arr">→</span> <b>Çıktı:</b> şemaya bağlanmış, delilli karar</div>
     <div class="mtoggle" role="group"><button id="m-free" aria-pressed="true">Serbest bırakılırsa</button><button id="m-closed" aria-pressed="false">Kapalı liste verilirse</button></div>
     <div id="m-doorarea"></div>
     <div style="margin-top:12px"><button class="wbtn alt" id="m-copy">Delili metinden kopyala</button></div>
-    <div class="dbox" id="m-dbox"><span class="ok">✓ METİNDEN AYNEN</span><div class="ar" id="m-dar"></div></div>
+    <div class="dbox" id="m-dbox"><span class="ok">✓ METİNDEN AYNEN</span><div class="ar" id="m-dar"></div><div style="margin-top:8px;font-family:var(--sans);font-size:.78rem">Kopyalanan cümle artık <b>sınanabilir</b>: kitapta Ctrl+F ile aranır, bulunur ya da kayıt düşer. <a href="#dene">Az sonra sihirbazda bunu SEN yapacaksın ↓</a></div></div>
     <p class="mwhy">Delili ezberinden söylemesi yasak, önündekinden göstermesi serbest — <b>kopyalamak uydurmaktan kolaydır;</b> model kolaya gider, biz kolayı doğruya bağlarız.</p>
+    <details class="mdeep"><summary>Meraklısına: kapıları kim kapatır?</summary><p>Tekniğin adı <b>kısıtlı çözümleme / şemalı çıktı</b>dır (constrained decoding): yarışa yalnız izinli parçaların katılmasına izin verilir — üç değerli sözlük, geçerli JSON, zorunlu "delil" alanı hep bu ailedendir. Delil şartı ayrıca modelin en güçlü içgüdüsünü (bağlamdan kopyalamayı) doğruluğun hizmetine koşar; EICD-B hattının %91,6'lık şehir doğrulaması bu iki vidanın eseridir.</p></details>
   </div>
 
   <p class="one" style="margin:6px auto 0;font-size:.95rem">Beş adımın hiçbirinde "Arapça bilen bir zihin" yok — parça, sayı, harita, tartı, yarış var. Ama toplamı, Arapçayı işlek kullanan bir davranış üretiyor. Buna "anlamak" denir mi? Felsefenin sorusu. Bizim ölçtüğümüz: <b>kısıtlanmış ve denetlenmiş davranış.</b></p>
@@ -1283,6 +1306,11 @@ function drawKarne(n,nT,nK,nY,pct){
     const b=$("#m-bars"); b.style.display="block";
     b.querySelectorAll(".bfill").forEach(f=>{ f.style.width="0"; });
     setTimeout(()=>b.querySelectorAll(".bfill").forEach(f=>{ f.style.width=f.dataset.w+"%"; }),60);
+    setTimeout(()=>{
+      const b2=$("#m-bars2"); b2.style.display="block";
+      b2.querySelectorAll(".bfill").forEach(f=>{ f.style.width="0"; });
+      setTimeout(()=>b2.querySelectorAll(".bfill").forEach(f=>{ f.style.width=f.dataset.w+"%"; }),60);
+    }, reduced? 80 : 2400);
   }
   const SPLIT=OUT.indexOf('"tür": "')+'"tür": "'.length;
   function typeRange(el,from,to,done){
@@ -1294,7 +1322,7 @@ function drawKarne(n,nT,nK,nY,pct){
     },40);
   }
   $("#m-play").addEventListener("click",e=>{
-    if(typed){ clearInterval(typeTimer); clearTimeout(typeTimer2); $("#m-out").textContent=""; $("#m-bars").style.display="none"; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
+    if(typed){ clearInterval(typeTimer); clearTimeout(typeTimer2); $("#m-out").textContent=""; $("#m-bars").style.display="none"; $("#m-bars2").style.display="none"; typed=false; e.target.textContent="▶ Devamı yazdır"; return; }
     typed=true; e.target.textContent="↺ Sıfırla";
     const el=$("#m-out"); el.textContent="";
     if(reduced){ el.textContent=OUT; showBars(); return; }
