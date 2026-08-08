@@ -187,6 +187,11 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
 .shelfmap .mc{font-family:var(--sans);font-size:.68rem;color:var(--muted)}
 .card.hidden{display:none}
 .card h4 mark{background:var(--model-soft);color:inherit;border-radius:3px;padding:0 2px}
+.card{position:relative}
+.card .star{position:absolute;top:10px;right:10px;border:none;background:none;font-size:1.15rem;cursor:pointer;color:var(--muted);padding:2px 4px;line-height:1}
+.card .star.on{color:var(--model)}
+.card.spot{outline:3px solid var(--model);outline-offset:3px;border-radius:12px}
+.card h4{padding-right:26px}
 .niyet{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
 .niyet button{font:inherit;font-family:var(--sans);font-size:.85rem;font-weight:600;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow)}
 .niyet button:hover{border-color:var(--rubric)}
@@ -536,6 +541,22 @@ Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}</pre>
     <p class="sum">Derlediğiniz temiz, belgeli veri setinin <b>kendisi</b> başlı başına bir yayındır. <i>Journal of Open Humanities Data</i> gibi dergiler yalnız bunu yayımlar: verinizi anlatırsınız, hakem denetiminden geçer, DOI alır, alıntılanır. Öğrencinin ilk hakemli yayını için çoğu zaman en ulaşılabilir kapı budur. Yol: veriyi Zenodo'ya koy (DOI al) → veri makalesini yaz → dergiye gönder.</p>
   </div>
 
+  <div class="card pv i" id="dergisec" style="margin:20px 0">
+    <span class="pvlabel">Dergi seçici — iki soruda hedefini bul</span>
+    <p class="sum small" style="margin:4px 0 8px">Cevapla, doğrulanmış listeden sana uygun kapıları önerelim:</p>
+    <div class="libfilters" id="ds-dil">
+      <button data-v="tr" aria-pressed="true">Türkçe yazacağım</button>
+      <button data-v="en" aria-pressed="false">İngilizce yazacağım</button>
+    </div>
+    <div class="libfilters" id="ds-tur">
+      <button data-v="ilk" aria-pressed="true">İlk yayınım (not / değerlendirme)</button>
+      <button data-v="veri" aria-pressed="false">Veri makalesi</button>
+      <button data-v="yontem" aria-pressed="false">Yöntemli DH makalesi</button>
+      <button data-v="alan" aria-pressed="false">Alan makalesi</button>
+    </div>
+    <div class="grid" id="ds-out" style="margin:12px 0 0"></div>
+    <p class="small muted" id="ds-note" style="margin:8px 0 0"></p>
+  </div>
   <div class="shelfhead"><h3>Nerede yayımlarım? — Uluslararası dergiler</h3><span class="cnt" data-cnt="dergi_int"></span></div>
   <div class="grid" data-shelf="dergi_int"></div>
   <div class="shelfhead"><h3>Ulusal dergiler</h3><span class="cnt" data-cnt="dergi_tr"></span></div>
@@ -1233,7 +1254,7 @@ $("#tz-dl-csv").addEventListener("click",()=>{
     ["📊 Hazır veri seti istiyorum", ["veri_setleri"], "veri_setleri"],
     ["🧰 Bana uygun aleti seçeceğim", [], "#aletraf"],
     ["🧭 Nereden başlayacağımı bilmiyorum", [], "#rotalar"],
-    ["📰 Nerede yayımlarım?", ["dergi_int","dergi_tr"], "dergi_int"],
+    ["📰 Nerede yayımlarım?", ["dergi_int","dergi_tr"], "#dergisec"],
     ["⚖️ Yapay zekâyı dürüstçe nasıl kullanırım?", ["adab_docs"], "#adab"],
   ];
   $("#niyet").innerHTML=NIYET.map((n,i)=>'<button data-i="'+i+'">'+esc(n[0])+'</button>').join("");
@@ -1269,7 +1290,7 @@ $("#tz-dl-csv").addEventListener("click",()=>{
   let debT=null;
   function apply(){
     const q=T($("#libsearch").value.trim());
-    const anyF=filters.ucretsiz||filters.turkce||filters.hesapsiz;
+    const anyF=filters.ucretsiz||filters.turkce||filters.hesapsiz||filters.rafim;
     if(!q && !anyF){
       cards.forEach(c=>{ c.classList.remove("hidden"); const a=c.querySelector("h4 a"); if(a&&c.dataset.name) a.textContent=c.dataset.name; });
       grids.forEach(g=>setOpen(g,false));
@@ -1283,6 +1304,7 @@ $("#tz-dl-csv").addEventListener("click",()=>{
       if(ok&&filters.ucretsiz) ok=s.includes("ücretsiz");
       if(ok&&filters.turkce) ok=s.includes("türkçe");
       if(ok&&filters.hesapsiz) ok=!s.includes("hesap ister");
+      if(ok&&filters.rafim) ok=raf.has(c.dataset.url);
       c.classList.toggle("hidden",!ok);
       if(ok) total++;
     });
@@ -1313,6 +1335,101 @@ $("#tz-dl-csv").addEventListener("click",()=>{
   /* başa dön */
   addEventListener("scroll",()=>{ $("#totop").style.display= scrollY>900? "block":"none"; },{passive:true});
   $("#totop").addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+  /* ---------- ⭐ RAFIM ---------- */
+  function rafGet(){ try{ return new Set(JSON.parse(localStorage.getItem("rihle_raf")||"[]")); }catch(e){ return new Set(); } }
+  function rafSave(s){ try{ localStorage.setItem("rihle_raf", JSON.stringify([...s])); }catch(e){} }
+  let raf=rafGet();
+  cards.forEach(c=>{
+    const a=c.querySelector("h4 a"); if(!a) return;
+    c.dataset.url=a.getAttribute("href");
+    c.insertAdjacentHTML("afterbegin",'<button class="star'+(raf.has(c.dataset.url)?" on":"")+'" aria-label="Rafıma ekle/çıkar" title="Rafıma ekle">'+(raf.has(c.dataset.url)?"★":"☆")+'</button>');
+  });
+  filters.rafim=false;
+  $("#libfilters").insertAdjacentHTML("beforeend",
+    '<button data-f="rafim" aria-pressed="false">⭐ Rafım (<span id="rafcnt">'+raf.size+'</span>)</button><button id="rafdl" style="display:'+(raf.size?"":"none")+'">Rafımı indir</button>');
+  function rafUpdate(){
+    $("#rafcnt").textContent=raf.size;
+    $("#rafdl").style.display=raf.size?"":"none";
+  }
+  document.addEventListener("click",e=>{
+    const s=e.target.closest(".star"); if(!s) return;
+    const c=s.closest(".card"), u=c.dataset.url;
+    if(raf.has(u)){ raf.delete(u); s.classList.remove("on"); s.textContent="☆"; }
+    else{ raf.add(u); s.classList.add("on"); s.textContent="★"; }
+    rafSave(raf); rafUpdate();
+    if(filters.rafim) apply();
+  });
+  $("#rafdl").addEventListener("click",e=>{
+    e.stopPropagation();
+    const rows=cards.filter(c=>raf.has(c.dataset.url)).map(c=>{
+      const sum=(c.querySelector(".sum")?.textContent||"").split(".")[0];
+      return "- **"+c.dataset.name+"** — "+sum+".\n  <"+c.dataset.url+">";
+    });
+    const md="# Rafım — Bir Kitabın Rıhlesi Kütüphanesi\n\n"+rows.join("\n")+"\n\n_"+rows.length+" kaynak · alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html_\n";
+    const b=new Blob([md],{type:"text/markdown;charset=utf-8"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="rafim.md";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  });
+
+  /* ---------- DERGİ SEÇİCİ ---------- */
+  const DS={dil:"tr", tur:"ilk"};
+  const DSU={
+    kader:"https://dergipark.org.tr/tr/pub/kaderdergi", divan:"https://dergipark.org.tr/tr/pub/divan",
+    cuid:"https://dergipark.org.tr/tr/pub/cuid", isad:"https://dergipark.org.tr/tr/pub/isad",
+    darul:"https://dergipark.org.tr/tr/pub/darulfunun",
+    johd:"https://openhumanitiesdata.metajnl.com/", dsh:"https://academic.oup.com/dsh",
+    dhq:"https://dhq.digitalhumanities.org/", usur:"https://journals.library.columbia.edu/index.php/alusur/index",
+    jais:"https://journals.uio.no/JAIS", jis:"https://academic.oup.com/jis",
+  };
+  function dsRec(){
+    if(DS.tur==="veri") return {u:[DSU.johd], n:"Veri makalesi dilden bağımsız en ulaşılabilir kapıdır: veriyi önce Zenodo'ya koy (DOI al), sonra JOHD'a kısa veri makalesi yaz. Dergi İngilizcedir ama şablonu kısadır — ilk uluslararası adım için idealdir."};
+    if(DS.dil==="tr"){
+      if(DS.tur==="ilk") return {u:[DSU.kader,DSU.divan], n:"Araştırma notu ve kitap değerlendirmesi, hakem sürecini tanımanın en yumuşak yolu. İkisi de TR Dizin'li; başvuru pencerelerini kontrol et."};
+      if(DS.tur==="yontem") return {u:[DSU.cuid,DSU.isad], n:"Yöntemli çalışmaya açık, titiz hakemli iki Türkçe kapı. Şekillerin (harita/ağ/grafik) hazır olsun; İSNAD atıf stilini kullan."};
+      return {u:[DSU.isad,DSU.darul], n:"Alan ağırlıklı Türkçe çalışma için saygın iki adres. Dijital yöntem, bulgunun hizmetinde sunulmalı — yöntem bölümünde hattını dürüstçe anlat."};
+    }
+    if(DS.tur==="ilk") return {u:[DSU.usur,DSU.jais], n:"İkisi de açık erişimli ve APC'siz — İngilizce ilk deneme için dostane kapılar."};
+    if(DS.tur==="yontem") return {u:[DSU.dsh,DSU.dhq], n:"Dijital beşerî bilimlerin iki ana kapısı: DSH (Oxford; EICD-B burada çıktı) ve tamamen açık erişimli DHQ."};
+    return {u:[DSU.usur,DSU.jis], n:"Alan makalesi için: açık erişimli Al-ʿUṣūr al-Wusṭā ve Oxford'un Journal of Islamic Studies'i."};
+  }
+  const dsAll=[...(SITE.shelves.dergi_int||[]),...(SITE.shelves.dergi_tr||[])];
+  function dsRender(){
+    document.querySelectorAll("#ds-dil button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===DS.dil));
+    document.querySelectorAll("#ds-tur button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===DS.tur));
+    const r=dsRec();
+    $("#ds-out").innerHTML=r.u.map(u=>{
+      const it=dsAll.find(x=>(x.url||"").replace(/\/$/,"")===u.replace(/\/$/,""));
+      return it? card(it,false) : "";
+    }).join("");
+    $("#ds-note").textContent=r.n+" (Dizin/ücret bilgisi kartta — gönderim öncesi derginin güncel sayfasından teyit et.)";
+  }
+  $("#ds-dil").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b){ DS.dil=b.dataset.v; dsRender(); } });
+  $("#ds-tur").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b){ DS.tur=b.dataset.v; dsRender(); } });
+  dsRender();
+
+  /* ---------- derin bağlantı + kısayol + keşfet ---------- */
+  if(location.hash.startsWith("#q=")){
+    $("#libsearch").value=decodeURIComponent(location.hash.slice(3));
+    setTimeout(apply,50);
+  }
+  const _apply=apply;
+  apply=function(){ _apply();
+    const q=$("#libsearch").value.trim();
+    history.replaceState(null,"", q? "#q="+encodeURIComponent(q) : location.pathname+location.search);
+  };
+  document.addEventListener("keydown",e=>{
+    if(e.key==="/" && !/input|textarea|select/i.test(document.activeElement.tagName)){
+      e.preventDefault(); $("#libsearch").focus();
+    }
+  });
+  $("#sugchips").insertAdjacentHTML("beforeend",'<button id="lucky" title="Rastgele bir kaynak aç">🎲 keşfet</button>');
+  $("#lucky").addEventListener("click",()=>{
+    const c=cards[Math.floor(Math.random()*cards.length)];
+    const g=c.closest(".grid"); if(g) setOpen(g,true);
+    c.scrollIntoView({behavior:"smooth",block:"center"});
+    c.classList.add("spot"); setTimeout(()=>c.classList.remove("spot"),2600);
+  });
 })();
 
 /* ---------- verification stamp ---------- */
