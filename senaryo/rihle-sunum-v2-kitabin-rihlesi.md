@@ -191,6 +191,32 @@ Site iki sayfadır: **Deneyim** (`alicetinkaya76.github.io/kitabin-rihlesi/` —
 
 **Sahne önerisi (B4 için):** perdede canlı site — önce "▶ Yolculuğu oynat" (30 sn), sonra sihirbazda "Örnek cevapla dene" → mukabele → uydurma kaydın yakalanışı (%67 halkası) → "🗺 Doğrulananları haritala". Bu 90 saniyelik zincir, sunumun D0'daki vaadinin ("iki ekran arasındaki mesafe") gözle görülür kapanışıdır. Yedek: aynı akışın ekran kaydı statik slayt olarak hazır tutulur (canlı internet riski).
 
+# EK C — 50 DAKİKA GERÇEĞİ: SİTENİN SAHNE PLANI (v3.11 sonrası; EK A'yı tamamlar)
+
+**İlke:** Sunum fragmandır, site filmdir. Sitedeki hiçbir zenginlik sahneye süre eklemez; tersine, sunumdan anlatım yükü alır. Sahnede site yalnız ÜÇ kez açılır — toplam ≤ 2,5 dakika. Gerisi tek cümlelik işaretlerle siteye havale edilir ve bu, bu sunumda kusur değil, tasarımdır.
+
+## Üç canlı an
+
+| Yer | An | Süre | Yapılacak | Patlarsa yedek |
+|---|---|---|---|---|
+| B4 başı (~28:30) | **Harita** | ~40 sn | "▶ Yolculuğu oynat" — yürüyücü Tanca'dan çıkarken konuşmaya devam; Delhi civarında durdur | haritanın ekran görüntüsü (slaytta hazır) |
+| B4 sonu (~35:30) | **Sihirbaz** | ~90 sn | "🚀 Hemen dene" → mukabele → uydurma "Nûr Şehri"nin yakalanışı → %67 halkası → "🖼 karne" gösterilir (indirilmez) | akışın 4 ekran görüntüsü sırayla |
+| B6 (~46:30) | **Kütüphane vitrini** | ~20 sn | kutuphane.html açılır, aramaya "hadis" yazılır, rafların kendiliğinden açılışı görünürken QR perdede | tek ekran görüntüsü + QR |
+
+## Sahnede BİLEREK açılmayacaklar (işaret cümleleriyle)
+
+- **Tanış sahnesi + klavye oyunu** → B1 kapanışında: *"Bu anlattığımın oynanabilir hali sitenin girişinde — akşam telefonunuzda oynayın."*
+- **Çekirdeğe iniş** (vektörler, dikkat kafaları, gerçek softmax) → B1'de tek cümle: *"Meraklısı için makinenin çekirdeğine inen katlanır bir bölüm var; sıcaklık sürgüsüyle gerçek softmax'la oynuyorsunuz."*
+- **Makine boru hattı + fabrika turu** → B3'ün Belâzürî anlatımı bu içeriği sözlü taşıyor; ek olarak: *"Beş adımı site size kendisi gezdiriyor — 'baştan sona izle' düğmesi."*
+- **Sözlük kartları, yol planlayıcısı, ⭐ Rafım, dergi seçici** → B5'te tek cümle: *"Alanınızı seçince yol haritanızı çıkaran, derginizi iki soruda öneren, beğendiklerinizi kişisel rafınıza indiren araçlar — hepsi sitede."*
+- **Tam Tezgâh** (OpenITI'den tam kitap + CSV) → B4 minyatür davetinin dipnotu: *"Büyüğü Kütüphane'de."*
+
+## Zaman disiplini
+
+- Üç canlı anın toplamı sert kapıları (16 · 28 · 45) OYNATMAZ; senaryonun omurgası ve taşma merdiveni aynen geçerli.
+- Prova notu: üç an tek sekmede önceden açık dursun (harita sekmesi + sihirbaz kaydırılmış + kütüphane sekmesi); yakınlaştırma ~%125; salon projektöründe açık/karanlık temanın hangisinin iyi okunduğu önceden denensin.
+- İnternet yoksa: üç yedek görsel pakette — "bunu siz kendi telefonunuzda yapacaksınız" cümlesiyle geçilir.
+
 # EK B — SAHNE APARATI
 
 **Kırmızı rota (taşarsa, sırayla feda edilir):** B3'ün 6. ekranı (Kennedy+ihtilaf) sözlü tek cümleye iner (−1,5 dk) → B4'ün 5. slaydı (sonraki basamaklar) tek cümleye iner (−1 dk) → B5 emsal galerisi tek örneğe iner (−1,5 dk). B0, B2, B4'ün JSON dokunuşu ve B6 feda edilmez.
