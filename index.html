@@ -333,102 +333,56 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <a class="skip" href="#harita">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
-  <a href="#tanis">Tanış</a><a href="#harita">Harita</a><a href="#kayit">Kayıt</a><a href="#makine">Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">Dene</a><a href="#ilham">İlham</a>
+  <a href="#tanis">1 Temeller</a><a href="#arastirmaci">2 Yol</a><a href="#makine">3 Makine</a><a href="#dene">4 Dene</a><a href="#ilham">5 Makale</a><a href="#sozluk">Sözlük</a>
   <a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
 </div></nav>
 
 <div class="dots" id="dots" aria-hidden="true">
-  <a href="#top"></a><a href="#tanis"></a><a href="#harita"></a><a href="#kayit"></a><a href="#makine"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
+  <a href="#top"></a><a href="#tanis"></a><a href="#harita"></a><a href="#kayit"></a><a href="#arastirmaci"></a><a href="#makine"></a><a href="#sozluk"></a><a href="#dene"></a><a href="#ilham"></a>
 </div>
 
 <!-- 1 · KAPAK -->
 <header class="scene hero wrap" id="top">
   <div class="kicker">Rıhle 2026 · Dijital İslami İlimler ve Yapay Zekâ</div>
   <h1>Bir Kitabın Rıhlesi</h1>
-  <p class="sub">İbn Battûta 21 yaşında yola çıktı. Kitabı bugün telefonunda: dokun, oynat, dene.</p>
+  <p class="sub">Raftaki kitaptan hakemli makaleye — dijital beşerî bilimler, en basitinden.</p>
+  <p class="sub" style="font-size:.85rem;margin-top:6px"><b>1</b> Temeller · <b>2</b> Araştırmacının yolu · <b>3</b> Makinenin içi · <b>4</b> Sıra sende · <b>5</b> İlk makalen</p>
   <div class="stats" id="hstats"></div>
   <div class="btnrow">
-    <a class="cta" href="#tanis">Yolculuğu başlat ↓</a>
+    <a class="cta" href="#tanis">Başla ↓</a>
   </div>
 </header>
 
 <main>
 <!-- 0 · TANIŞ -->
 <section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
-  <div class="kicker">0 · Yola çıkmadan</div>
-  <h2>Bu makine aslında ne yapıyor?</h2>
-  <p class="one" style="margin:0 auto 22px">Cevap cebinde. Telefonunun klavyesi yıllardır aynı oyunu oynuyor — öneriye dokun:</p>
-  <div class="phone">
-    <div class="pbar"></div>
-    <div class="bubble" id="klv-text"></div>
-    <div class="sugg" id="klv-sugg"></div>
-    <div class="punch" id="klv-punch">Bütün sır bu: <b>SIRADAKİ KELİMEYİ TAHMİN ET.</b><br>ChatGPT = aynı fikir × trilyonlarca kelime × dev bir bağlam.<br><span style="opacity:.7;font-size:.8rem">Yüzdeler temsilîdir — klavyeniz de böyle bir yarış tutar.</span></div>
-    <div style="margin-top:10px;text-align:center"><button class="wbtn alt" id="klv-reset" style="display:none">↺ Baştan oyna</button></div>
+  <div class="kicker">1 · Temeller</div>
+  <h2>Dijital beşerî bilimler nedir?</h2>
+  <p class="one" style="margin:0 auto 22px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir, aranabilir</b> malzemeyle sormak. Dört temel kavram — sırayla, dokuna dokuna:</p>
+  <div class="mstep" style="text-align:left">
+    <div class="mno" style="background:var(--korpus)">a</div>
+    <h3><span class="termtag">distant reading</span>Uzak okuma: metni okumadan önce saymak</h3>
+    <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Yakın okuma</button><button id="uz-uzak" aria-pressed="true">Uzak okuma</button></div>
+    <div id="uz-body"></div>
+    <p class="mwhy">Yakın okuma tek pasajın derinliğidir; uzak okuma bin sayfanın kuşbakışıdır. Rakip değiller — dürbünün iki ucu. <span class="temsili">sayım gerçek: Belâzürî kesitinden canlı sayılıyor</span></p>
   </div>
-  <div class="scalebox">
-    <div class="scalerow"><div class="slab">Klavyen şu kadar metinden öğrendi (senin mesajların):</div><div class="scaletrack"><div class="scalebar" data-w="26px" style="width:0;background:var(--insan)"></div></div></div>
-    <div class="scalerow"><div class="slab">Model şu kadar metinden öğrendi (trilyonlarca kelime):</div><div class="scaletrack"><div class="scalebar" data-w="300%" style="width:0;background:var(--rubric)"></div></div><div class="slab" style="margin-top:3px">…çubuk ekrana sığmadı; gerçek oranı çizsek sayfa kilometrelerce sürerdi.</div></div>
+  <div class="mstep" style="text-align:left">
+    <div class="mno" style="background:var(--korpus)">b</div>
+    <h3><span class="termtag">network analysis</span>Ağ: kim kimden okudu?</h3>
+    <div class="embwrap"><div id="netmini"></div></div>
+    <p class="mwhy">Tabakāt edebiyatının sorusu grafiğe döner: düğüm = âlim, çizgi = hoca-talebe bağı. "Köprü" kişiler bir bakışta görünür. <span class="temsili">şema temsilî</span> — canlısını Gephi ile kendin çizersin (Kütüphane'de tarifi var).</p>
   </div>
-  <p class="one" style="margin:26px auto 10px">Bu ölçekte iyi tahmin için dilbilgisini, üslupları, olgu kalıplarını <b>sıkıştırmak</b> zorunda kaldı. Üstüne iki kat daha giydi — çekmeceleri aç:</p>
-  <div class="dresser" style="max-width:640px">
-    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 1 · Temel model</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Trilyonlarca kelimeden tek hedefle öğrenir: sıradaki kelimeyi tahmin et. "Sadece istatistik" — doğru; ama bu ölçekte istatistik gerçekten güçlü. Küçümsemek de abartmak kadar yanıltır.</div></div></div>
-    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 2 · İnce ayar</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">İnsanlar cevapları puanlar; model beğenilene doğru ayarlanır. Nezaketin de, <b>kendinden emin tonun da</b> kaynağı burası — emin görünmek puan toplar.</div></div></div>
-    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 3 · Harici katman</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Arama, belge yükleme, araç bağlantıları. Araçların birbirinden farkı çoğu zaman bu katmandır — bu sitenin sihirbazı da modele <b>kaynağı önüne koyarak</b> çalışır.</div></div></div>
-  </div>
-  <div class="tanis-cards">
-    <div class="warncard"><b>Neden uydurur?</b> Boş bırakmanın puan getirmediği sınavdaki öğrenci gibi: sallamak, susmaktan kârlıdır. Uydurma (halüsinasyon) arıza değil, <b>yapısal risktir</b> — panzehiri az sonra göreceğin mukabeledir.</div>
-    <div class="warncard"><b>Neden hep sana katılır?</b> Beğenilmek üzere ayarlandı. Güzel söz, doğru sözün alameti değildir — itiraz etmeyen danışmana temkinli yaklaş.</div>
-  </div>
-  <details class="deep" id="deep">
-    <summary>🔬 Meraklısına: çekirdeğe iniş — makinenin içindeki dört mekanizma</summary>
+  <p class="one" style="margin:18px auto 0">Sıradaki iki kavram kendi duraklarında: <b>CBS</b> (harita) ve <b>veri seti</b> ↓</p>
 
-    <div class="dpanel">
-      <h4>Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h4>
-      <p class="small" style="margin:0 0 6px">İki kelime seç; sayı şeritlerini ve aralarındaki benzerliği gör:</p>
-      <div class="wordchips" id="vw-a"></div>
-      <div class="wordchips" id="vw-b"></div>
-      <div id="vecarea"></div>
-      <div class="simwrap"><span id="simlab"></span><div class="simtrack"><div class="simfill" id="simfill"></div></div></div>
-      <p class="mwhy">Gerçek modelde her kelime <b>binlerce sayı</b>dır (biz 8'ini gösteriyoruz; değerler temsilî, <b>benzerlik hesabı gerçek</b> — kosinüs). Yakın anlam, yakın sayılar demektir: <i>rıhle</i> ile <i>sefer</i>in şeritleri neredeyse aynı. "Anlam haritası" dediğimiz şey bu sayıların uzayıdır.</p>
-    </div>
 
-    <div class="dpanel">
-      <h4>Kat 2 · Dikkat kafaları: aynı cümleye aynı anda farklı gözler bakar</h4>
-      <div class="headbtns" id="headbtns">
-        <button data-h="0" aria-pressed="true">Kafa 1 — "kim?"</button>
-        <button data-h="1" aria-pressed="false">Kafa 2 — "ne zaman?"</button>
-      </div>
-      <div id="attarea"></div>
-      <p class="mwhy" id="attnote"></p>
-    </div>
-
-    <div class="dpanel">
-      <h4>Kat 3 · Son karar bir zar atışıdır — sıcaklığı sen ayarla</h4>
-      <p class="small" style="margin:0 0 4px">"Bugün hava çok güzel …" — sıradaki kelimenin yarışı:</p>
-      <div id="probarea"></div>
-      <div class="tempwrap">Sıcaklık (temperature): <b id="tval">1.0</b> — düşükte hep favori kazanır, yüksekte sürprizler artar<br>
-        <input type="range" id="tslider" min="0.2" max="2" step="0.1" value="1" aria-label="Sıcaklık"></div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="wbtn alt" id="rollbtn">🎲 Zar at</button><div class="drawhist" id="drawhist"></div></div>
-      <p class="mwhy">Adaylar ve puanları temsilî; <b>hesap gerçek softmax</b>: p = e^(puan/T) / Σ. "Aynı soruya dün başka cevap verdi" şikâyetinin matematiği budur — her cevap bu zarın bir atışıdır.</p>
-    </div>
-
-    <div class="dpanel">
-      <h4>Kat 4 · Peki bu sayıları kim ayarladı? Milyarlarca küçük düzeltme</h4>
-      <div class="lossbox"><canvas id="losscv" width="600" height="220"></canvas></div>
-      <div class="losscnt" id="losscnt">düzeltme: 0</div>
-      <div style="margin-top:8px"><button class="wbtn alt" id="trainbtn">▶ Eğitimi izle</button></div>
-      <p class="mwhy">Eğitimde model sıradaki kelimeyi tahmin eder, yanılır, <b>hatası ölçülür</b> ve bütün sayılar hatayı azaltacak yönde kıl payı kaydırılır. Bunu trilyonlarca kez tekrarla: klavye şairi doğar. Eğri temsilîdir; ilke gerçektir. Gerçeğinin içinde gezmek için: <a href="https://bbycroft.net/llm" target="_blank" rel="noopener">bbycroft.net/llm</a>.</p>
-    </div>
-  </details>
-
-  <div class="btnrow"><a class="cta" href="#harita">Şimdi bu makineyi kitaplarımızla tanıştır ↓</a></div>
+  <div class="btnrow"><a class="cta" href="#harita">Sıradaki kavram: CBS — harita ↓</a></div>
 </section>
 
 <!-- 2 · HARİTA -->
 <section class="scene wrap" id="harita">
-  <div class="kicker">1 · Kitap</div>
-  <h2>29 yıl, tek haritada</h2>
-  <p class="one">Her nokta, kitaptan bir cümleye bağlı. Bir noktaya dokun; cümlesini gör.</p>
+  <div class="kicker">1b · Kavram: CBS (coğrafi bilgi sistemi)</div>
+  <h2>Koordinat verilince kitap haritaya döner</h2>
+  <p class="one">Örnek katman: islamicatlas.org'un seyahat verisi — 317 koordinatlı durak; her nokta kaynağındaki cümlesine bağlı. Noktaya dokun.</p>
   <div class="mapshell" style="margin-top:18px">
     <div id="gmap" role="application" aria-label="İbn Battûta'nın yolculuk haritası"></div>
     <div class="mapui">
@@ -455,10 +409,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 3 · KAYIT -->
 <section class="scene dresser-scene wrap" id="kayit">
-  <div class="kicker">2 · Veri</div>
-  <h2>Kitap nasıl veri olur?</h2>
-  <p class="one" style="margin:0 auto">Her durak, etiketli bir çekmeceli dolap. Çekmeceleri aç.</p>
-  <div class="stopchips" id="stopchips"></div>
+  <div class="kicker">1c · Kavram: Veri seti</div>
+  <h2>Veri seti: etiketli çekmeceli dolap</h2>
+  <p class="one" style="margin:0 auto 16px">Yayımlanmış EICD-B veri setinden <b>gerçek bir kayıt</b>. Çekmeceleri aç; en kıymetlisi en alttaki.</p>
   <div class="dresser" id="dresser"></div>
   <div class="machine-toggle" role="group" aria-label="Görünüm">
     <button id="mt-human" aria-pressed="true">Senin gördüğün</button>
@@ -468,10 +421,49 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <!-- 3 · MAKİNE -->
+<!-- 2 · ARAŞTIRMACI -->
+<section class="scene wrap" id="arastirmaci">
+  <div class="kicker">2 · Yol</div>
+  <h2>Araştırmacı nasıl çalışır: malzemeden ürüne</h2>
+  <p class="one">Beş istasyon. Her satırın sonunda, aynı yolun yayımlanmış bir örnekte (EICD-B, Oxford DSH 2026) nasıl yüründüğü var.</p>
+  <div class="steps" style="max-width:760px">
+    <div class="step"><span class="when">1 · Malzeme</span><br><b>Elinde ne var?</b> Bir kitap, bir defter koleksiyonu, bir dergi arşivi. — <i>Örnek: Belâzürî'nin Fütûhu'l-Büldân'ı, OpenITI'de makine-okur halde.</i></div>
+    <div class="step"><span class="when">2 · Soru</span><br><b>Sayılabilir/haritalanabilir bir soru kur.</b> "Ne anlatıyor?" değil; "kaçı, nerede, hangi türde?" — <i>Örnek: şehirler antlaşmayla mı (sulhan), kuvvetle mi (anveten) alındı?</i></div>
+    <div class="step"><span class="when">3 · Veri</span><br><b>Malzemeyi veri setine çevir.</b> Her kayıt aynı çekmecelerle: şehir · yıl · tür · delil. — <i>Örnek: 226 kayıt.</i></div>
+    <div class="step"><span class="when">4 · Denetim</span><br><b>Her delili kaynakla karşılaştır</b> — geleneğin diliyle <b>mukabele</b>. Bulunamayan kayıt sonuç dışı kalır. — <i>Örnek: %35 harfiyen, %57 imlâ farkıyla bulundu; %8 elendi.</i></div>
+    <div class="step"><span class="when">5 · Ürün</span><br><b>Şekil + makale + veri setinin kendisi.</b> Veri seti de bir yayındır. — <i>Örnek: DSH makalesi + açık veri, doi:10.1093/llc/fqag093.</i></div>
+  </div>
+  <p class="one" style="margin-top:14px">3. istasyondaki o dönüşümü yapan makinenin içine bakalım ↓</p>
+  <div class="btnrow"><a class="cta" href="#makine">Makinenin içi ↓</a></div>
+</section>
+
 <section class="scene wrap" id="makine" style="text-align:center;align-items:center">
-  <div class="kicker">3 · Perde arkası</div>
+  <div class="kicker">3 · Makinenin içi</div>
   <h2>Makine bunu nasıl yapar?</h2>
-  <p class="one" style="margin:0 auto 14px">Beş adımı var; beşi de dokunmatik. Örnek: Tanca kaydı.</p>
+  <p class="one" style="margin:0 auto 14px">Önce cebindeki ipucu — telefonunun klavyesi yıllardır aynı oyunu oynuyor:</p>
+  <div class="phone">
+    <div class="pbar"></div>
+    <div class="bubble" id="klv-text"></div>
+    <div class="sugg" id="klv-sugg"></div>
+    <div class="punch" id="klv-punch">Bütün sır bu: <b>SIRADAKİ KELİMEYİ TAHMİN ET.</b><br>ChatGPT = aynı fikir × trilyonlarca kelime × dev bir bağlam.<br><span style="opacity:.7;font-size:.8rem">Yüzdeler temsilîdir — klavyeniz de böyle bir yarış tutar.</span></div>
+    <div style="margin-top:10px;text-align:center"><button class="wbtn alt" id="klv-reset" style="display:none">↺ Baştan oyna</button></div>
+  </div>
+  <div class="scalebox">
+    <div class="scalerow"><div class="slab">Klavyen şu kadar metinden öğrendi (senin mesajların):</div><div class="scaletrack"><div class="scalebar" data-w="26px" style="width:0;background:var(--insan)"></div></div></div>
+    <div class="scalerow"><div class="slab">Model şu kadar metinden öğrendi (trilyonlarca kelime):</div><div class="scaletrack"><div class="scalebar" data-w="300%" style="width:0;background:var(--rubric)"></div></div><div class="slab" style="margin-top:3px">…çubuk ekrana sığmadı; gerçek oranı çizsek sayfa kilometrelerce sürerdi.</div></div>
+  </div>
+  <p class="one" style="margin:26px auto 10px">Bu ölçekte iyi tahmin için dilbilgisini, üslupları, olgu kalıplarını <b>sıkıştırmak</b> zorunda kaldı. Üstüne iki kat daha giydi — çekmeceleri aç:</p>
+  <div class="dresser" style="max-width:640px">
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 1 · Temel model</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Trilyonlarca kelimeden tek hedefle öğrenir: sıradaki kelimeyi tahmin et. "Sadece istatistik" — doğru; ama bu ölçekte istatistik gerçekten güçlü. Küçümsemek de abartmak kadar yanıltır.</div></div></div>
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 2 · İnce ayar</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">İnsanlar cevapları puanlar; model beğenilene doğru ayarlanır. Nezaketin de, <b>kendinden emin tonun da</b> kaynağı burası — emin görünmek puan toplar.</div></div></div>
+    <div class="drawer"><button aria-expanded="false"><span class="knob"></span><span class="dlabel">KAT 3 · Harici katman</span><span class="dhint">aç</span></button><div class="dbody"><div class="dval" style="font-size:.95rem;font-family:var(--sans)">Arama, belge yükleme, araç bağlantıları. Araçların birbirinden farkı çoğu zaman bu katmandır — bu sitenin sihirbazı da modele <b>kaynağı önüne koyarak</b> çalışır.</div></div></div>
+  </div>
+  <div class="tanis-cards">
+    <div class="warncard"><b>Neden uydurur?</b> Boş bırakmanın puan getirmediği sınavdaki öğrenci gibi: sallamak, susmaktan kârlıdır. Uydurma (halüsinasyon) arıza değil, <b>yapısal risktir</b> — panzehiri az sonra göreceğin mukabeledir.</div>
+    <div class="warncard"><b>Neden hep sana katılır?</b> Beğenilmek üzere ayarlandı. Güzel söz, doğru sözün alameti değildir — itiraz etmeyen danışmana temkinli yaklaş.</div>
+  </div>
+
+  <p class="one" style="margin:26px auto 14px">Şimdi bu ipuçlarını mühendisliğe çevirelim: beş adım, beşi de dokunmatik. Örnek cümle: klasik bir seyahat kaydı.</p>
   <div class="btnrow" style="margin:0 0 26px"><button class="cta ghost" id="mak-tour">▶ Baştan sona izle (15 sn) — site senin yerine dokunsun</button></div>
 
   <div class="mstep">
@@ -557,6 +549,47 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <details class="mdeep"><summary>Meraklısına: kapıları kim kapatır?</summary><p>Tekniğin adı <b>kısıtlı çözümleme / şemalı çıktı</b>dır (constrained decoding): yarışa yalnız izinli parçaların katılmasına izin verilir — üç değerli sözlük, geçerli JSON, zorunlu "delil" alanı hep bu ailedendir. Delil şartı ayrıca modelin en güçlü içgüdüsünü (bağlamdan kopyalamayı) doğruluğun hizmetine koşar; EICD-B hattının %91,6'lık şehir doğrulaması bu iki vidanın eseridir.</p></details>
   </div>
 
+  <details class="deep" id="deep">
+    <summary>🔬 Meraklısına: çekirdeğe iniş — makinenin içindeki dört mekanizma</summary>
+
+    <div class="dpanel">
+      <h4>Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h4>
+      <p class="small" style="margin:0 0 6px">İki kelime seç; sayı şeritlerini ve aralarındaki benzerliği gör:</p>
+      <div class="wordchips" id="vw-a"></div>
+      <div class="wordchips" id="vw-b"></div>
+      <div id="vecarea"></div>
+      <div class="simwrap"><span id="simlab"></span><div class="simtrack"><div class="simfill" id="simfill"></div></div></div>
+      <p class="mwhy">Gerçek modelde her kelime <b>binlerce sayı</b>dır (biz 8'ini gösteriyoruz; değerler temsilî, <b>benzerlik hesabı gerçek</b> — kosinüs). Yakın anlam, yakın sayılar demektir: <i>rıhle</i> ile <i>sefer</i>in şeritleri neredeyse aynı. "Anlam haritası" dediğimiz şey bu sayıların uzayıdır.</p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 2 · Dikkat kafaları: aynı cümleye aynı anda farklı gözler bakar</h4>
+      <div class="headbtns" id="headbtns">
+        <button data-h="0" aria-pressed="true">Kafa 1 — "kim?"</button>
+        <button data-h="1" aria-pressed="false">Kafa 2 — "ne zaman?"</button>
+      </div>
+      <div id="attarea"></div>
+      <p class="mwhy" id="attnote"></p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 3 · Son karar bir zar atışıdır — sıcaklığı sen ayarla</h4>
+      <p class="small" style="margin:0 0 4px">"Bugün hava çok güzel …" — sıradaki kelimenin yarışı:</p>
+      <div id="probarea"></div>
+      <div class="tempwrap">Sıcaklık (temperature): <b id="tval">1.0</b> — düşükte hep favori kazanır, yüksekte sürprizler artar<br>
+        <input type="range" id="tslider" min="0.2" max="2" step="0.1" value="1" aria-label="Sıcaklık"></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="wbtn alt" id="rollbtn">🎲 Zar at</button><div class="drawhist" id="drawhist"></div></div>
+      <p class="mwhy">Adaylar ve puanları temsilî; <b>hesap gerçek softmax</b>: p = e^(puan/T) / Σ. "Aynı soruya dün başka cevap verdi" şikâyetinin matematiği budur — her cevap bu zarın bir atışıdır.</p>
+    </div>
+
+    <div class="dpanel">
+      <h4>Kat 4 · Peki bu sayıları kim ayarladı? Milyarlarca küçük düzeltme</h4>
+      <div class="lossbox"><canvas id="losscv" width="600" height="220"></canvas></div>
+      <div class="losscnt" id="losscnt">düzeltme: 0</div>
+      <div style="margin-top:8px"><button class="wbtn alt" id="trainbtn">▶ Eğitimi izle</button></div>
+      <p class="mwhy">Eğitimde model sıradaki kelimeyi tahmin eder, yanılır, <b>hatası ölçülür</b> ve bütün sayılar hatayı azaltacak yönde kıl payı kaydırılır. Bunu trilyonlarca kez tekrarla: klavye şairi doğar. Eğri temsilîdir; ilke gerçektir. Gerçeğinin içinde gezmek için: <a href="https://bbycroft.net/llm" target="_blank" rel="noopener">bbycroft.net/llm</a>.</p>
+    </div>
+  </details>
   <p class="one" style="margin:6px auto 0;font-size:.95rem">Beş adımın hiçbirinde "Arapça bilen bir zihin" yok — parça, sayı, harita, tartı, yarış var. Ama toplamı, Arapçayı işlek kullanan bir davranış üretiyor. Buna "anlamak" denir mi? Felsefenin sorusu. Bizim ölçtüğümüz: <b>kısıtlanmış ve denetlenmiş davranış.</b></p>
   <div class="seechips">
     <span class="muted" style="align-self:center">İçine kendi gözünle bak:</span>
@@ -579,8 +612,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <!-- 4 · DENE -->
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
   <div class="kicker">4 · Sıra sende</div>
-  <h2>90 saniyede ilk mukabelen</h2>
-  <p class="one" style="margin:0 auto 26px">Model çıkarır, bu sayfa doğrular, sorumluluk sende kalır. Önce yolunu seç:</p>
+  <h2>90 saniyede ilk denetimin</h2>
+  <p class="one" style="margin:0 auto 26px">Model çıkarır; delilleri SEN denetlersin — geleneğin verdiği adla: <b>mukabele</b>. Önce yolunu seç:</p>
   <div class="pathpick" id="pathpick">
     <button class="path" data-p="quick" aria-pressed="false"><b>🚀 Hemen dene</b><span>Asistansız, ~30 saniye. Hazır bir model cevabıyla mukabeleyi yaşa — içine bilerek bir uydurma kayıt koyduk.</span></button>
     <button class="path" data-p="own" aria-pressed="false"><b>🤝 Kendi asistanımla</b><span>~90 saniye. Telefonundaki yapay zekâyla (ChatGPT/Gemini/Claude, ücretsizi yeter) gerçeğini yap.</span></button>
@@ -591,7 +624,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         <div class="wno">★</div>
         <h3>Tek dokunuş yeter</h3>
         <p class="small" style="margin:0 0 10px">Belâzürî'den gerçek bir kesit üzerinde, hazır bir model cevabını yükleyip bütün delilleri kitapta arayacağız. Bakalım gizlediğimiz uydurma şehri yakalayacak mı?</p>
-        <button class="wbtn" id="w-quick">▶ Yükle ve mukabele et</button>
+        <button class="wbtn" id="w-quick">▶ Yükle ve delilleri denetle</button>
       </div>
     </div>
     <div id="path-own" style="display:none">
@@ -609,7 +642,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="samplenote" id="samplenote">Örnek cevap yüklendi — içinde bilerek bir uydurma kayıt var. Bakalım tezgâh yakalayacak mı?</div>
       <textarea id="w-json" placeholder='Cevabı olduğu gibi yapıştır — başındaki açıklamalar sorun değil. Yapıştırınca mukabele kendiliğinden başlar.'></textarea>
       <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <button class="wbtn" id="w-verify">Mukabele et</button>
+        <button class="wbtn" id="w-verify">Delilleri denetle</button>
       </div>
     </div>
     </div>
@@ -627,7 +660,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 5 · İLHAM -->
 <section class="scene wrap" id="ilham">
-  <div class="kicker">5 · Sonrası</div>
+  <div class="kicker">5 · Makale yolu</div>
   <h2>İlk makalene giden yol</h2>
   <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
   <div class="trackchips" id="trackchips"></div>
@@ -671,8 +704,7 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* hero stats */
 (function(){
-  const t=IBB.traveler;
-  $("#hstats").innerHTML=[[t.years+" yıl","yolda"],["117.000 km","mesafe"],[t.stops,"durak"],[t.countries,"ülke"]]
+  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["101","doğrulanmış kaynak"],["3-4 ay","ilk makale yolu"]]
     .map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span></div>").join("");
 })();
 
@@ -785,7 +817,7 @@ else window.addEventListener("load", initMap, {once:true});
   /* ölçek çubukları: sahne görünür olunca dolar */
   setTimeout(()=>{ document.querySelectorAll(".scalebar").forEach(b=>{ b.style.width=b.dataset.w; }); }, 900);
   /* tanış çekmeceleri */
-  document.querySelector("#tanis .dresser").addEventListener("click",e=>{
+  document.querySelector("#makine .dresser").addEventListener("click",e=>{
     const b=e.target.closest(".drawer>button"); if(!b) return;
     const dr=b.parentElement; const open=dr.classList.toggle("open");
     b.setAttribute("aria-expanded",open); b.querySelector(".dhint").textContent=open?"kapat":"aç";
@@ -935,37 +967,23 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Escape") closeTour();
 });
 
-/* ---------- DRESSER ---------- */
+/* ---------- DRESSER: EICD kaydı ---------- */
+const DREC={sehir_ar:"حصن بابليون", sehir_tr:"Bâbilyûn Kalesi (Eski Kahire)", yil:20, tur:"ANVETEN — kuvvetle", delil:"ففتح الحصن عنوة", delil_tr:"…kaleyi kuvvet yoluyla (anveten) fethetti.", kaynak:"Belâzürî, Fütûhu'l-Büldân (OpenITI) → EICD-B veri seti, DSH 2026"};
 const DRAWERS=[
- ["Şehir", s=>"<div class='dval'>"+esc(s.tr)+" · <span class='muted'>"+esc(s.en||"")+"</span> · <span class='ar' style='display:inline'>"+esc(s.ar||"")+"</span></div>", "Üç yazım birden: Türkçe okuma, uluslararası yayın, kaynak metinde arama."],
- ["Tarih", s=>"<div class='dval'>hicrî <b>"+esc(s.arr_ah||"—")+"</b> · milâdî "+esc(s.arr||"—")+"</div>", "Kaynağın kendi takvimi + çevirisi. Çift kayıt, mukabeleyi mümkün kılar."],
- ["Koordinat", s=>"<div class='dval'>"+s.lat+" K, "+s.lon+" D</div>", "Haritadaki nokta buradan gelir. Tarihî adı modern harita bilmez; koordinatı tarihî atlas verir."],
- ["DELİL — kitaptan cümle", s=>"<div class='dval'><div class='ar'>"+esc(s.quote_ar||"")+"</div><div class='small muted' style='margin-top:6px'>"+esc(s.quote_tr||"")+"</div><button class='flybtn' data-fly='1'>🗺 Bu durağı haritada gör</button></div>", "En kıymetli çekmece: kayıt, kaynağına bu iple bağlı. Delilsiz kayıt yok hükmündedir."],
+ ["Şehir", "<div class='dval'>"+esc(DREC.sehir_tr)+" · <span class='ar' style='display:inline'>"+esc(DREC.sehir_ar)+"</span></div>", "İki yazım birden: okumak için Türkçe, kaynakta aramak için Arapça."],
+ ["Hicrî yıl", "<div class='dval'><b>"+DREC.yil+"</b></div>", "Sayı olarak tutulur ki sayılabilsin, sıralanabilsin, çizilebilsin."],
+ ["Tür", "<div class='dval'>"+esc(DREC.tur)+"</div>", "Serbest metin değil: üç değerli kapalı listeden (sulhan / anveten / karma) seçilir."],
+ ["DELİL — kitaptan cümle", "<div class='dval'><div class='ar'>"+esc(DREC.delil)+"</div><div class='small muted' style='margin-top:6px'>"+esc(DREC.delil_tr)+"</div></div>", "En kıymetli çekmece: kayıt, kaynağına bu iple bağlı. Delilsiz kayıt yok hükmündedir."],
+ ["Kaynak (sened)", "<div class='dval' style='font-size:.95rem;font-family:var(--sans)'>"+esc(DREC.kaynak)+"</div>", "Hangi kitap, hangi dijital sürüm, hangi veri seti — zincirin tamamı."],
 ];
-let curStop=IBB.showcase[0];
 function renderDresser(){
-  $("#dresser").innerHTML=DRAWERS.map((d,i)=>
-    '<div class="drawer'+(i===3?' open':'')+'"><button aria-expanded="'+(i===3)+'"><span class="knob"></span><span class="dlabel">'+esc(d[0])+'</span><span class="dhint">'+(i===3?'kapat':'aç')+'</span></button><div class="dbody">'+d[1](curStop)+'<div class="dwhy">'+esc(d[2])+'</div></div></div>').join("");
-  $("#machinejson").textContent=JSON.stringify({tr:curStop.tr,en:curStop.en,ar:curStop.ar,arr_ah:curStop.arr_ah,arr:curStop.arr,lat:curStop.lat,lon:curStop.lon,quote_ar:curStop.quote_ar,quote_tr:curStop.quote_tr},null,1);
+  $("#dresser").innerHTML=DRAWERS.map((d,i)=>'<div class="drawer'+(i===3?' open':'')+'"><button aria-expanded="'+(i===3)+'"><span class="knob"></span><span class="dlabel">'+esc(d[0])+'</span><span class="dhint">'+(i===3?'kapat':'aç')+'</span></button><div class="dbody">'+d[1]+'<div class="dwhy">'+esc(d[2])+'</div></div></div>').join("");
+  $("#machinejson").textContent=JSON.stringify({"şehir":DREC.sehir_ar+" / Babilyun","hicri_yil":DREC.yil,"tur":"SUBJUGATION","delil":DREC.delil},null,1);
 }
 $("#dresser").addEventListener("click",e=>{
-  const fly=e.target.closest(".flybtn");
-  if(fly){
-    document.querySelector("#harita").scrollIntoView({behavior:reduced?"auto":"smooth"});
-    const i=TOUR.findIndex(x=>x.id===curStop.id);
-    setTimeout(()=>showTour(i<0?0:i), reduced?100:650);
-    return;
-  }
   const b=e.target.closest(".drawer>button"); if(!b) return;
   const dr=b.parentElement; const open=dr.classList.toggle("open");
   b.setAttribute("aria-expanded",open); b.querySelector(".dhint").textContent=open?"kapat":"aç";
-});
-$("#stopchips").innerHTML=IBB.showcase.map((s,i)=>'<button aria-pressed="'+(i===0)+'" data-i="'+i+'">'+esc(s.tr.replace(/\s*\(.*\)/,""))+'</button>').join("");
-$("#stopchips").addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b) return;
-  document.querySelectorAll("#stopchips button").forEach(x=>x.setAttribute("aria-pressed","false"));
-  b.setAttribute("aria-pressed","true");
-  curStop=IBB.showcase[+b.dataset.i]; renderDresser();
 });
 $("#mt-human").addEventListener("click",()=>{ $("#mt-human").setAttribute("aria-pressed","true"); $("#mt-machine").setAttribute("aria-pressed","false"); $("#machinejson").style.display="none"; $("#dresser").style.display=""; });
 $("#mt-machine").addEventListener("click",()=>{ $("#mt-machine").setAttribute("aria-pressed","true"); $("#mt-human").setAttribute("aria-pressed","false"); $("#machinejson").style.display="block"; $("#dresser").style.display="none"; });
@@ -1098,7 +1116,7 @@ $("#w-verify").addEventListener("click",()=>{
   let h='<div class="ringrow"><svg class="ring" viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="55" cy="55" r="44" fill="none" stroke="var(--korpus)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(CIRC*pct/100).toFixed(1)+' '+CIRC.toFixed(1)+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle">%'+pct+'</text></svg>';
   h+='<div class="rstats"><div><b style="color:var(--korpus)">'+nT+'</b><span>TAM</span></div><div><b style="color:var(--model)">'+nK+'</b><span>KISMÎ</span></div><div><b style="color:var(--rubric)">'+nY+'</b><span>dışarıda</span></div></div></div>';
   h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı." — Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
-  h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Mukabele karneni indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button></div>';
+  h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Sonuç kartını indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button></div>';
   h+='<details class="rdetail"><summary>Kayıt kayıt ayrıntı (satıra dokun: delili kitapta gör)</summary><div class="rtable"><table><tr><th>Kayıt</th><th>Yıl</th><th>Durum</th></tr>';
   rows.forEach((r,i)=>{ const c=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
     h+='<tr data-i="'+i+'" style="cursor:pointer"><td><b>'+esc(r.label)+'</b></td><td>'+esc(r.yil||"—")+'</td><td><span class="st '+c+'">'+r.st+'</span></td></tr>'; });
@@ -1114,6 +1132,39 @@ $("#w-verify").addEventListener("click",()=>{
     box.innerHTML='<div class="ctx"><div class="ar">…'+esc(CLEANX.slice(Math.max(0,rs-70),rs))+'<mark>'+esc(CLEANX.slice(rs,re+1))+'</mark>'+esc(CLEANX.slice(re+1,re+70))+'…</div></div>';
   }));
 });
+
+/* ---------- UZAK OKUMA (gerçek sayım) ---------- */
+(function(){
+  const PASS=EXCERPT.replace(/\s+/g," ").slice(0,400);
+  const N=wNorm(EXCERPT);
+  const ROOTS=[["صلح","sulh ailesi","var(--korpus)"],["عنوة","anve","var(--rubric)"],["فتح","fetih kökü","var(--model)"],["جزية","cizye","var(--insan)"]];
+  const cnt=r=>{ const n=wNorm(r); let c=0,i=0; while((i=N.indexOf(n,i))>=0){c++;i+=n.length;} return c; };
+  const C=ROOTS.map(r=>[r[1],cnt(r[0]),r[2],r[0]]);
+  const mx=Math.max(...C.map(x=>x[1]),1);
+  function show(uzak){
+    $("#uz-yakin").setAttribute("aria-pressed",String(!uzak)); $("#uz-uzak").setAttribute("aria-pressed",String(uzak));
+    $("#uz-body").innerHTML = uzak
+      ? C.map(c=>'<div class="probrow"><span class="pw">'+esc(c[0])+' <span class="ar" style="display:inline;font-size:1rem">'+esc(c[3])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+c[2]+';width:'+(c[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+c[1]+'×</span></div>').join("")
+        + '<p class="mwhy" style="margin-top:8px">656 kelimelik gerçek kesitte kök sayımı: bölümün "imzası", tek satır okumadan görünüyor.</p>'
+      : '<div class="wpass neutral"><div class="ar" style="font-size:1.15rem">'+esc(PASS)+'…</div></div><p class="mwhy" style="margin-top:8px">Tek pasaj, tam dikkat — yakın okuma budur ve hiçbir sayım onun yerini tutmaz.</p>';
+  }
+  $("#uz-yakin").addEventListener("click",()=>show(false));
+  $("#uz-uzak").addEventListener("click",()=>show(true));
+  show(true);
+})();
+
+/* ---------- AĞ MİNİ ---------- */
+(function(){
+  const nd=[["Şeyh",280,42],["Talebe 1",110,120],["Talebe 2",280,120],["Talebe 3",450,120],["T2a",190,205],["T2b",370,205],["Köprü",280,282]];
+  const ln=[[0,1],[0,2],[0,3],[2,4],[2,5],[4,6],[5,6],[1,6]];
+  let h='<svg viewBox="0 0 560 330" class="attsvg" role="img" aria-label="Temsilî hoca-talebe ağı">';
+  ln.forEach(l=>{const a=nd[l[0]],b=nd[l[1]];h+='<line x1="'+a[1]+'" y1="'+a[2]+'" x2="'+b[1]+'" y2="'+b[2]+'" stroke="var(--line)" stroke-width="2"/>';});
+  nd.forEach((n,i)=>{const hot=i===6;
+    h+='<circle cx="'+n[1]+'" cy="'+n[2]+'" r="'+(hot?18:14)+'" fill="'+(hot?'var(--model)':'var(--insan)')+'" opacity=".88"/>';
+    h+='<text x="'+n[1]+'" y="'+(n[2]+4)+'" text-anchor="middle" font-size="10.5" fill="#fff" font-family="var(--sans)" font-weight="700">'+n[0]+'</text>';});
+  h+='</svg>';
+  $("#netmini").innerHTML=h;
+})();
 
 /* ---------- YOL PLANLAYICI ---------- */
 const KUT="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html";
@@ -1493,7 +1544,7 @@ function drawWizMap(rows){
 
 /* ---------- GÖZLEMCİLER: noktalar + sahne geçişi ---------- */
 (function(){
-  const ids=["top","tanis","harita","kayit","makine","sozluk","dene","ilham"];
+  const ids=["top","tanis","harita","kayit","arastirmaci","makine","sozluk","dene","ilham"];
   const dots=[...document.querySelectorAll("#dots a")];
   const io=new IntersectionObserver(es=>{
     es.forEach(en=>{

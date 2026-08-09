@@ -1,3 +1,5 @@
+> ⚠️ **REVİZYON NOTU — 09.08.2026, Hüseyin hoca geri bildirimi üzerine site v4.0 oldu:** Yeni sayfa akışı: **1 Temeller** (DH nedir · uzak okuma [canlı sayım] · ağ · CBS · veri seti) → **2 Araştırmacının yolu** (malzemeden ürüne 5 istasyon, EICD-B örneğiyle) → **3 Makinenin içi** (klavye oyunu buraya taşındı) → **4 Sıra sende** → **5 İlk makalene giden yol**. **İbn Battûta merkezî vaka olmaktan çıkarıldı:** kapaktan, kayıt anatomisinden (artık gerçek EICD/Bâbilyûn kaydı) ve anlatıdan alındı; haritası yalnız "örnek CBS katmanı" olarak Temeller'de duruyor. Merkez vaka baştan sona **Belâzürî/EICD-B**. Dil sadeleşti ("Mukabele et"→"Delilleri denetle"; mukabele terimi ilk geçtiği yerde tanıtılıyor). **Bu senaryonun B4 durağı buna göre revize edilmelidir:** "sizin yapacağınız" anlatısı İbn Battûta yerine Belâzürî'nin başka bölümü + sihirbaz canlı anı üzerinden kurulmalı; EK C'deki 1. canlı an (harita) korunabilir ama sahnede "örnek veri katmanı" diye sunulur, vaka diye değil. Tam senaryo revizyonu ayrı oturumda yapılacak.
+
 # DİJİTAL İSLAMİ İLİMLER VE YAPAY ZEKÂ: YÖNTEM VE UYGULAMALAR
 ## Sunum Senaryosu v2.0 — "BİR KİTABIN RIHLESİ" omurgası
 
