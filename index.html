@@ -408,6 +408,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Nesep şeridi</b> — bu alanın soyu bizim raflardan geçer; taşlara dokun:</p>
   <div class="timeline" id="nesep"></div>
   <div class="tpanel" id="nesep-panel"></div>
+  <p class="one" style="margin:10px auto 0;font-size:.9rem;color:var(--muted)">Şeridin tek cümlesi: <b>biz bu işi hep yapıyorduk.</b> Makine mesaiyi devraldı; usûl bizde kaldı.</p>
 
   <p class="one" style="margin:26px auto 6px;font-size:.98rem"><b>Aynı malzemeye dört mercek</b> — malzememiz hep aynı: Belâzürî'nin <i>Fütûhu'l-Büldân</i>'ı. Merceğe dokun, ne gösterdiğini gör:</p>
   <div class="lensrow" id="lensrow"></div>
@@ -749,6 +750,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <h2>İlk makalene giden yol</h2>
   <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
   <div class="trackchips" id="trackchips"></div>
+  <div id="trackhead" style="max-width:720px;margin:0 auto;width:100%"></div>
   <div class="planbar" style="max-width:720px;margin-left:auto;margin-right:auto;width:100%">
     <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
     <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.78rem">📄 Planı indir</button>
@@ -764,6 +766,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="warncard"><b>İSAM Kütüphanesi.</b> Çalışma salonu + veritabanları; bu alandaki Türkçe çalışmanın doğal karargâhı. <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=İSAM">Kütüphane'de kartı var.</a></div>
       <div class="warncard"><b>Sürekli beslenme.</b> The Digital Orientalist'i takip et; Programming Historian'dan dönemde bir ders bitir — <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">ikisi de Öğrenme rafında.</a></div>
     </div>
+  </div>
+  <div class="card pv i" style="max-width:720px;margin:14px auto 0;text-align:left">
+    <span class="pvlabel">Danışmana ilk e-posta — şablon (alanına göre dolar)</span>
+    <pre id="ep-text" style="white-space:pre-wrap;font-family:var(--serif);font-size:.9rem;background:none;border:none;padding:6px 0 0"></pre>
+    <div class="btnrow" style="justify-content:flex-start;margin:8px 0 0"><button class="wbtn alt" id="ep-copy">Şablonu kopyala</button></div>
+    <p class="small muted" style="margin:6px 0 0">[köşeli] alanları kendine göre doldur; planın tek sayfalık halini "Planı indir"den al, ekle.</p>
   </div>
   <div class="shelfhead" style="max-width:720px;margin:18px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
@@ -1040,21 +1048,22 @@ else window.addEventListener("load", initMap, {once:true});
 /* ---------- NESEP ŞERİDİ + DÖRT MERCEK ---------- */
 (function(){
   const NESEP=[
-    ["1916","İsnad şemaları çağı","Zâhirü'r-rivâye'den Wensinck'e: rical ve etrâf literatürü, isnadları elle 'veritabanı' gibi işliyordu zaten — kart, cetvel, çapraz atıf."],
-    ["1936–88","Hadis Konkordansı","Wensinck ve ekibinin el-Muʿcemü'l-müfehres li-elfâẓi'l-ḥadîs'i: sekiz cilt, iki kuşak emek. 'Uzak okuma'nın atası bizim rafta durur."],
-    ["1945","Kur'an Mu'cemi","Muhammed Fuâd Abdülbâkî'nin el-Muʿcemü'l-müfehres'i: her lafız, her geçtiği ayetle — elle kurulmuş bir arama motoru."],
-    ["1949","Index Thomisticus","Cizvit âlim Roberto Busa, Aquinas külliyatını delikli kartlara döktü — dijital beşerî bilimlerin kuruluş anı sayılır. Kurucu, bir din âlimiydi."],
-    ["2000'ler","Şâmile","Klasik kütüphane tek programda, aranabilir: mu'cem geleneği yazılıma taşındı; Ctrl+F, fihristin torunu."],
-    ["2016","OpenITI","Makine-okur, sürümlü, atıf verilebilir akademik korpus — bu sitedeki metinlerin kaynağı. Nüsha şeceresinin dijitali."],
-    ["2022","Sohbet modelleri","Okuma ve çıkarma hızı el değiştirdi; delil ve denetim hâlâ bizde. İşte bu sitenin konusu."],
+    ["987","el-Fihrist","İbnü'n-Nedîm, Bağdat kitap çarşısının bütün bilgisini tek cilde dizdi: eser adı, müellif, hacim, konu — on binlerce kitabın künyesi.","Ne yaptı: çağının bütün yazılı üretimini KÜNYELEDİ. Kitapların kendisi kayboldu, künyeleri bilimi taşıdı — bugün 'kayıp eser' bilgimizin iyi bir kısmı ondan.","metadata / katalog"],
+    ["1341","Tuhfetü'l-eşrâf","el-Mizzî, Kütüb-i Sitte'nin TAMAMINI isnad uçlarına göre yeniden dizdi: her hadis, hangi sahâbîden, hangi kitapta, hangi senedle — çapraz başvuru dev tablosu.","Ne yaptı: iki ayrı diziyi (sahâbî ↔ kitap) birbirine bağladı. Bugün buna ilişkisel indeks/JOIN diyoruz; el-Mizzî bunu kalemle yaptı.","ilişkisel veritabanı"],
+    ["1936–88","Hadis Konkordansı","Wensinck'in başlattığı el-Muʿcemü'l-müfehres: uluslararası ekip, sekiz cilt, yarım asır — hadis literatürünün her lafzı kök sırasıyla dizildi.","Ne yaptı: 'bu kelime nerede geçiyor?' sorusunu OKUMADAN cevaplanır kıldı. Uzak okumanın atası bizim rafta durur.","uzak okuma / dizin"],
+    ["1945","Kur'an Mu'cemi","Muhammed Fuâd Abdülbâkî, Kur'an'ın her lafzını kök sırasıyla, sûre-âyet adresiyle dizdi — tek adam, tek cilt, tam kapsam.","Ne yaptı: elle kurulmuş bir ARAMA MOTORU. Bugün corpus.quran.com'un yaptığının kâğıt atası.","tam metin arama"],
+    ["1949","Index Thomisticus","Cizvit âlim Roberto Busa, IBM'i ikna edip Aquinas külliyatını — yaklaşık 11 milyon kelime — delikli kartlara döktü; her kelimeyi köküne bağladı.","Ne yaptı: ilk büyük LEMMALI korpus. Dijital beşerî bilimlerin kuruluş anı sayılır — ve kurucusu bir din âlimiydi.","lemmalı korpus"],
+    ["2000'ler","Şâmile","Binlerce klasik eser tek programda, tam metin aranabilir halde — mu'cem geleneği yazılıma taşındı; Ctrl+F, fihristin torunu oldu.","Ne yaptı: erişimi demokratikleştirdi. Kusuru da dersimiz: künye/neşir titizliği zayıf — bu yüzden akademik atıf için tek başına yetmez.","dijital kütüphane"],
+    ["2016","OpenITI","Uluslararası ekip, klasik metinleri MAKİNE-OKUR ve SÜRÜMLÜ hale getirdi: her metnin kaynağı, her değişikliğin kaydı — atıf verilebilir korpus.","Ne yaptı: Şâmile'nin eksiğini kapattı: sürüm numarası = nüsha şeceresi. Bu sitedeki metinlerin kaynağı.","sürümlü korpus"],
+    ["2022","Sohbet modelleri","Sonraki-kelime tahmini trilyon kelimeye ölçeklendi; okuma-çıkarma hızı el değiştirdi.","Ne yaptı: mesaiyi devraldı. Devralamadığı şey bu şeridin geri kalanının konusu: DELİL ve DENETİM hâlâ bizde. İşte bu sitenin derdi.","çıkarım (denetim sende)"],
   ];
-  $("#nesep").innerHTML=NESEP.map((n,i)=>'<button class="tstop" data-i="'+i+'" aria-pressed="'+(i===3)+'"><b>'+esc(n[0])+'</b><span>'+esc(n[1])+'</span></button>').join("");
+  $("#nesep").innerHTML=NESEP.map((n,i)=>'<button class="tstop" data-i="'+i+'" aria-pressed="'+(i===1)+'"><b>'+esc(n[0])+'</b><span>'+esc(n[1])+'</span></button>').join("");
   function showN(i){
     document.querySelectorAll("#nesep .tstop").forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
-    $("#nesep-panel").innerHTML="<b>"+esc(NESEP[i][0])+" · "+esc(NESEP[i][1])+"</b> — "+esc(NESEP[i][2]);
+    $("#nesep-panel").innerHTML="<b>"+esc(NESEP[i][0])+" · "+esc(NESEP[i][1])+"</b> — "+esc(NESEP[i][2])+"<br><span style='display:block;margin-top:6px'>"+esc(NESEP[i][3])+"</span><span class='termtag' style='float:none;display:inline-block;margin:8px 0 0'>bugünkü adı: "+esc(NESEP[i][4])+"</span>";
   }
   $("#nesep").addEventListener("click",e=>{ const b=e.target.closest(".tstop"); if(b) showN(+b.dataset.i); });
-  showN(3);
+  showN(1);
 
   const LENS=[
     ["🔢 SAYIM","Fütûh'un tek bölümünde fetih kökü 7, anve 2, cizye 2, sulh 1 kez — bölümün 'imzası' tek satır okumadan görünür. Hemen altında canlı dene.","#uzakb","aşağıda dene ↓"],
@@ -1425,6 +1434,28 @@ const RAIL=[
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
  {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
 ];
+const TRACKMETA={
+ "Tarih & Siyer":{urun:"bölgesel bir fetih veri seti + iki bölgeyi karşılaştıran kısa not",
+  emsal:'<a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">EICD-B (DSH 2026, açık erişim)</a>',
+  hedef:"İslam Araştırmaları · Cumhuriyet İlahiyat; veri makalesi için JOHD",
+  ilk60:["Kütüphane'den 90 dakikalık atölye paketini indir (5 dk).","Talimat + metni kendi asistanına yapıştır, JSON cevabını al (25 dk).","Cevabı 4. duraktaki tezgâha yapıştır; raporunu ve doğrulama cümleni not et (30 dk)."]},
+ "Hadis & İsnad":{urun:"bab ölçekli bir isnad ağı + delilli râvi tablosu",
+  emsal:'<a href="https://jhnr.net/articles/10.25517/jhnr.v8i1.135" target="_blank" rel="noopener">JHNR 2023 isnad ağı makalesi</a>',
+  hedef:"ilk adım için Kader · Dîvân; sonrası dergi seçicide",
+  ilk60:["sunnah.com'da babını seç; kitap/bab künyesini not et (15 dk).","hadith-json'dan ilgili kitabın dosyasını indir; babın kayıtlarını asistan yardımıyla ayıkla (25 dk).","İlk 10 rivayetin isnad zincirini tabloya dök — delil sütunu şart (20 dk)."]},
+ "Kur'an Çalışmaları":{urun:"bir kavram ailesinin morfoloji tablosu + erken yazım karşılaştırması",
+  emsal:'<a href="https://aclanthology.org/L10-1190/" target="_blank" rel="noopener">Dukes &amp; Habash — Kur\'an morfoloji derlemi bildirisi</a>',
+  hedef:"darulfunun ilahiyat; veri makalesi için JOHD",
+  ilk60:["Quran.com'da kavramını ara; tam geçiş listesini kopyala (15 dk).","corpus.quran.com'da üç örnek ayetin kelime kelime çözümlemesine bak (20 dk).","Kök-form tablonun ilk 10 satırını doldur (25 dk)."]},
+ "Osmanlı & Türkçe":{urun:"bir kavramın on yıllara göre grafiği + dönemlendirme notu",
+  emsal:'<a href="https://dergipark.org.tr/en/pub/iuislamtd/article/1123964" target="_blank" rel="noopener">Saraçoğlu 2022 — DH &amp; ilahiyat (DergiPark)</a>',
+  hedef:"TR Dizin'li bir ilahiyat/sosyal bilim dergisi; dergi seçici yardım eder",
+  ilk60:["Wikilala'da kavramını ara; toplam sayıyı ve üç örnek sayfayı not et (20 dk).","İki farklı on yıldan birer sayfayı elle aç, OCR'ı doğrula (20 dk).","Yıl-sayı tablonun ilk sürümünü çıkar (20 dk)."]},
+};
+function epostaText(){
+  const m=TRACKMETA[curTrack];
+  return "Hocam merhaba,\n\n"+curTrack+" alanında küçük ölçekli bir dijital çalışma denemek istiyorum: hedefim "+m.urun+". Yöntemi Rıhle 2026 semineri ve eşlik eden açık siteden öğrendim (alicetinkaya76.github.io/kitabin-rihlesi); dört evreli, ders yüküyle yürünebilir bir plan çıkardım — tek sayfalık halini ekte paylaşıyorum.\n\nİlk evrenin çıktısını [tarih]e kadar getirebilirim. Uygun görürseniz kısa bir görüşmede yol haritasını birlikte gözden geçirmek isterim.\n\nSaygılarımla,\n[Ad Soyad]";
+}
 let curTrack="Tarih & Siyer";
 function planState(){ try{ return JSON.parse(localStorage.getItem("rihle_plan")||"{}"); }catch(e){ return {}; } }
 function planSave(st){ try{ localStorage.setItem("rihle_plan", JSON.stringify(st)); }catch(e){} }
@@ -1440,6 +1471,12 @@ function renderTrack(name){
   const st=planState();
   $("#trackplan").innerHTML=TRACKS[name].map((s,i)=>'<div class="step" style="text-align:left"><label class="chk"><input type="checkbox" data-i="'+i+'"'+(st[name+":"+i]?" checked":"")+'> yaptım</label><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'<span class="cikti">✅ Bitti sayılır: '+esc(s[4])+'</span><span class="tuzakl">⚠️ Tuzak: '+esc(s[5])+'</span></div>').join("");
   document.querySelectorAll("#trackchips button").forEach(b=>b.setAttribute("aria-pressed", b.textContent===name?"true":"false"));
+  const m=TRACKMETA[name];
+  $("#trackhead").innerHTML='<div class="card pv k" style="margin:0 0 10px"><span class="pvlabel">Bu yolun kimliği</span>'
+    +'<p class="sum" style="margin:4px 0 0"><b>Ürün:</b> '+esc(m.urun)+'</p>'
+    +'<p class="sum" style="margin:2px 0 0"><b>Emsal:</b> '+m.emsal+' · <b>Hedef raf:</b> '+esc(m.hedef)+'</p>'
+    +'<details class="mdeep ustanotu" style="margin-top:8px"><summary>⚡ İlk 60 dakika — bugün başla</summary><p>'+m.ilk60.map((x,j)=>(j+1)+". "+esc(x)).join("<br>")+'</p></details></div>';
+  const ep=$("#ep-text"); if(ep) ep.textContent=epostaText();
   planProg();
 }
 $("#trackchips").innerHTML=Object.keys(TRACKS).map(t=>'<button aria-pressed="false">'+esc(t)+'</button>').join("");
@@ -1447,6 +1484,11 @@ $("#trackchips").addEventListener("click",e=>{ const b=e.target.closest("button"
 $("#trackplan").addEventListener("change",e=>{
   const c=e.target.closest("input[type=checkbox]"); if(!c) return;
   const st=planState(); st[curTrack+":"+c.dataset.i]=c.checked; planSave(st); planProg();
+});
+$("#ep-copy").addEventListener("click",async e=>{
+  try{ await navigator.clipboard.writeText(epostaText()); e.target.textContent="Kopyalandı ✓"; }
+  catch(err){ e.target.textContent="Pano engellendi — metni elle seç"; }
+  setTimeout(()=>{ e.target.textContent="Şablonu kopyala"; },2500);
 });
 $("#plandl").addEventListener("click",()=>{
   const md=["# İlk makaleme giden yol — "+curTrack,"", "Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",""].concat(
