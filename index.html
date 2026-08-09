@@ -208,6 +208,16 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .stepchips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
 .stepchips a{font-family:var(--sans);font-size:.7rem;font-style:normal;border:1px dashed var(--line);border-radius:999px;padding:3px 10px;text-decoration:none;color:var(--insan)}
 .dongu{max-width:720px;margin:12px auto 0;background:var(--insan-soft);border-radius:10px;padding:11px 16px;font-family:var(--sans);font-size:.86rem;text-align:center}
+.uzseg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:.76rem;margin:2px 0 10px}
+.uzseg button{all:unset;padding:6px 13px;cursor:pointer;font-weight:600}
+.uzseg button[aria-pressed="true"]{background:var(--korpus);color:#fff}
+.uzseg button:focus-visible{outline:2px solid var(--insan);outline-offset:2px}
+.imza{background:var(--korpus-soft);border-radius:9px;padding:9px 13px;font-family:var(--sans);font-size:.8rem;margin-top:10px}
+#netinfo{font-family:var(--sans);font-size:.84rem;background:var(--model-soft);border-radius:9px;padding:9px 13px;margin-top:8px;min-height:2.6em}
+.cikti{display:block;font-family:var(--sans);font-size:.76rem;color:var(--korpus);margin-top:6px;font-style:normal}
+.tuzakl{display:block;font-family:var(--sans);font-size:.76rem;color:var(--rubric);margin-top:2px;font-style:normal}
+.yoldas{max-width:720px;margin:14px auto 0;text-align:left}
+.yoldas .warncard{border-left-color:var(--korpus)}
 /* tanış sahnesi */
 .phone{max-width:400px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;text-align:left}
 .phone .pbar{height:5px;width:110px;background:var(--line);border-radius:3px;margin:0 auto 14px}
@@ -413,9 +423,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div class="mstep" style="text-align:left" id="netb">
     <div class="mno" style="background:var(--korpus)">b</div>
-    <h3><span class="termtag">network analysis</span>Ağ: kim kimden okudu?</h3>
+    <h3><span class="termtag">network analysis</span>Ağ: kim kimden okudu? — mezhep imamları örneği</h3>
     <div class="embwrap"><div id="netmini"></div></div>
-    <p class="mwhy">Tabakāt edebiyatının sorusu grafiğe döner: düğüm = âlim, çizgi = hoca-talebe bağı. "Köprü" kişiler bir bakışta görünür. <span class="temsili">şema temsilî</span> — canlısını Gephi ile kendin çizersin (Kütüphane'de tarifi var).</p>
+    <div id="netinfo"></div>
+    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. <b>Şeybânî</b> ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>Muvatta'</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendin çizersin (Kütüphane'de tarifi var).</p>
   </div>
   <p class="one" style="margin:22px auto 6px;font-size:.98rem"><b>Üç yanlış anlamayı baştan sökelim</b> — dijital beşerî bilimler:</p>
   <div class="degildir">
@@ -745,6 +756,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="steps" id="trackplan" style="max-width:720px"></div>
   <div class="gercek" style="max-width:720px"><b>Gerçekçi beklenti:</b> ilk hedef "büyük makale" değil; <b>mütevazı ve bitmiş</b> bir iş — bir araştırma notu ya da veri makalesi. Veri setin Zenodo'da DOI alır; ilk hakemli satırın çoğu zaman budur. Merdiven:
     <div class="merdiven"><span class="mx">1</span><span>araştırma notu / kitap değerlendirmesi</span><span class="mx">2</span><span>veri makalesi (JOHD)</span><span class="mx">3</span><span>ulusal tam makale</span><span class="mx">4</span><span>uluslararası</span></div>
+  </div>
+  <div class="yoldas">
+    <p class="one" style="margin:0 0 8px;font-size:.98rem;text-align:left"><b>Yol arkadaşları</b> — bu yolda yalnız yürünmez:</p>
+    <div class="degildir" style="margin:0">
+      <div class="warncard"><b>Danışmanın.</b> "Planı indir"in çıktısı tek sayfadır — ilk randevuya onunla git. Somut plan, soyut hevesten her zaman iyi karşılanır; alan seçimini birlikte gözden geçirin.</div>
+      <div class="warncard"><b>İSAM Kütüphanesi.</b> Çalışma salonu + veritabanları; bu alandaki Türkçe çalışmanın doğal karargâhı. <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=İSAM">Kütüphane'de kartı var.</a></div>
+      <div class="warncard"><b>Sürekli beslenme.</b> The Digital Orientalist'i takip et; Programming Historian'dan dönemde bir ders bitir — <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">ikisi de Öğrenme rafında.</a></div>
+    </div>
   </div>
   <div class="shelfhead" style="max-width:720px;margin:18px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
@@ -1263,37 +1282,83 @@ $("#w-verify").addEventListener("click",()=>{
   }));
 });
 
-/* ---------- UZAK OKUMA (gerçek sayım) ---------- */
+/* ---------- UZAK OKUMA (gerçek sayım, iki kip) ---------- */
 (function(){
   const PASS=EXCERPT.replace(/\s+/g," ").slice(0,400);
   const N=wNorm(EXCERPT);
+  const TOKENS=N.split(" ").filter(Boolean);
   const ROOTS=[["صلح","sulh ailesi","var(--korpus)"],["عنوة","anve","var(--rubric)"],["فتح","fetih kökü","var(--model)"],["جزية","cizye","var(--insan)"]];
-  const cnt=r=>{ const n=wNorm(r); let c=0,i=0; while((i=N.indexOf(n,i))>=0){c++;i+=n.length;} return c; };
-  const C=ROOTS.map(r=>[r[1],cnt(r[0]),r[2],r[0]]);
-  const mx=Math.max(...C.map(x=>x[1]),1);
-  function show(uzak){
-    $("#uz-yakin").setAttribute("aria-pressed",String(!uzak)); $("#uz-uzak").setAttribute("aria-pressed",String(uzak));
-    $("#uz-body").innerHTML = uzak
-      ? C.map(c=>'<div class="probrow"><span class="pw">'+esc(c[0])+' <span class="ar" style="display:inline;font-size:1rem">'+esc(c[3])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+c[2]+';width:'+(c[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+c[1]+'×</span></div>').join("")
-        + '<p class="mwhy" style="margin-top:8px">656 kelimelik gerçek kesitte kök sayımı: bölümün "imzası", tek satır okumadan görünüyor.</p>'
-      : '<div class="wpass neutral"><div class="ar" style="font-size:1.15rem">'+esc(PASS)+'…</div></div><p class="mwhy" style="margin-top:8px">Tek pasaj, tam dikkat — yakın okuma budur ve hiçbir sayım onun yerini tutmaz.</p>';
+  const cntKok=r=>{ const n=wNorm(r); let c=0,i=0; while((i=N.indexOf(n,i))>=0){c++;i+=n.length;} return c; };
+  const cntTam=r=>{ const n=wNorm(r); return TOKENS.filter(t=>t===n).length; };
+  let uzak=true, mode="kok";
+  function bars(){
+    const C=ROOTS.map(r=>[r[1], (mode==="kok"?cntKok:cntTam)(r[0]), r[2], r[0]]);
+    const mx=Math.max(...C.map(x=>x[1]),1);
+    return C.map(c=>'<div class="probrow"><span class="pw">'+esc(c[0])+' <span class="ar" style="display:inline;font-size:1rem">'+esc(c[3])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+c[2]+';width:'+(c[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+c[1]+'×</span></div>').join("");
   }
-  $("#uz-yakin").addEventListener("click",()=>show(false));
-  $("#uz-uzak").addEventListener("click",()=>show(true));
-  show(true);
+  function show(){
+    $("#uz-yakin").setAttribute("aria-pressed",String(!uzak)); $("#uz-uzak").setAttribute("aria-pressed",String(uzak));
+    if(!uzak){
+      $("#uz-body").innerHTML='<div class="wpass neutral"><div class="ar" style="font-size:1.15rem">'+esc(PASS)+'…</div></div><p class="mwhy" style="margin-top:8px">Tek pasaj, tam dikkat — yakın okuma budur ve hiçbir sayım onun yerini tutmaz.</p>';
+      return;
+    }
+    $("#uz-body").innerHTML=
+      '<div class="uzseg" role="group" aria-label="Sayım kipi"><button data-m="kok" aria-pressed="'+(mode==="kok")+'">Kök ailesiyle say</button><button data-m="tam" aria-pressed="'+(mode==="tam")+'">Birebir yazımla say</button></div>'
+      + bars()
+      + '<p class="mwhy" style="margin-top:8px">'+(mode==="kok"
+        ? 'Kök ailesiyle: <span class="ar" style="display:inline;font-size:1rem">فتح</span> ailesi (فتح، فتوح، افتتح…) tek kalemde sayılır — Arapçada saymak <b>kök</b> işidir.'
+        : 'Birebir yazımla: yalnız bağımsız kelime sayılır — sayıların nasıl düştüğüne bak. Ders: sayım tasarımı (kök mü, yazım mı?) bulgunun kendisini değiştirir; makalende hangisini seçtiğini <b>beyan et</b>.')
+      +'</p>'
+      + '<div class="imza"><b>İmza karşılaştırması:</b> kitabın GENELİNDE fetihlerin %52,2\'si sulhan, %42,5\'i anveten (EICD-B, 226 kayıt). Bu kesitte ise anve ve fetih kökü öne geçiyor — <b>bölge imzası</b>. Uzak okumanın meyvesi budur: fark gördüğün yerde soru doğar. Wensinck\'in konkordansı da tam bunun içindi: önce say, sonra oku.</div>';
+  }
+  $("#uz-yakin").addEventListener("click",()=>{ uzak=false; show(); });
+  $("#uz-uzak").addEventListener("click",()=>{ uzak=true; show(); });
+  $("#uz-body").addEventListener("click",e=>{
+    const b=e.target.closest(".uzseg button"); if(!b) return;
+    mode=b.dataset.m; show();
+  });
+  show();
 })();
 
-/* ---------- AĞ MİNİ ---------- */
+/* ---------- AĞ: MEZHEP İMAMLARI (gerçek bağlar) ---------- */
 (function(){
-  const nd=[["Şeyh",280,42],["Talebe 1",110,120],["Talebe 2",280,120],["Talebe 3",450,120],["T2a",190,205],["T2b",370,205],["Köprü",280,282]];
-  const ln=[[0,1],[0,2],[0,3],[2,4],[2,5],[4,6],[5,6],[1,6]];
-  let h='<svg viewBox="0 0 560 330" class="attsvg" role="img" aria-label="Temsilî hoca-talebe ağı">';
-  ln.forEach(l=>{const a=nd[l[0]],b=nd[l[1]];h+='<line x1="'+a[1]+'" y1="'+a[2]+'" x2="'+b[1]+'" y2="'+b[2]+'" stroke="var(--line)" stroke-width="2"/>';});
-  nd.forEach((n,i)=>{const hot=i===6;
-    h+='<circle cx="'+n[1]+'" cy="'+n[2]+'" r="'+(hot?18:14)+'" fill="'+(hot?'var(--model)':'var(--insan)')+'" opacity=".88"/>';
-    h+='<text x="'+n[1]+'" y="'+(n[2]+4)+'" text-anchor="middle" font-size="10.5" fill="#fff" font-family="var(--sans)" font-weight="700">'+n[0]+'</text>';});
-  h+='</svg>';
-  $("#netmini").innerHTML=h;
+  const ND={
+    EH:{n:"Ebû Hanîfe",d:"ö. 150/767",x:415,y:60, note:"Irak (rey) havzasının imamı. İki büyük talebesi üzerinden mezhep külliyata döndü."},
+    MA:{n:"Mâlik",d:"ö. 179/795",x:125,y:60, note:"Medine'nin imamı; Muvatta'. Hicaz havzasının merkezi düğümü."},
+    EY:{n:"Ebû Yûsuf",d:"ö. 182/798",x:315,y:150, note:"Ebû Hanîfe'nin talebesi; kādı'l-kudât — mezhebin devlete taşınışı."},
+    SB:{n:"Şeybânî",d:"ö. 189/805",x:505,y:150, note:"Hanefî külliyatın yazıcısı — ve Mâlik'ten Muvatta' râvisi: Irak ile Medine arasında İLK köprü."},
+    SF:{n:"Şâfiî",d:"ö. 204/820",x:315,y:255, note:"Mâlik'ten VE Şeybânî'den okudu: iki havzayı birleştiren KÖPRÜ düğüm. er-Risâle bu köprünün kitabıdır. Ağ diliyle: en yüksek 'aradalık' burada."},
+    AH:{n:"Ahmed b. Hanbel",d:"ö. 241/855",x:315,y:350, note:"Şâfiî'den usûl dinledi; Müsned'in sahibi. Zincir hadis havzasına bağlanır."},
+  };
+  const ED=[["EH","EY"],["EH","SB"],["MA","SB"],["MA","SF"],["SB","SF"],["SF","AH"]];
+  let sel="SF";
+  function draw(){
+    const W=630,H=400;
+    let h='<svg viewBox="0 0 '+W+' '+H+'" class="attsvg" role="img" aria-label="Mezhep imamları hoca-talebe ağı"><defs><marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker><marker id="okhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--model)"/></marker></defs>';
+    h+='<text x="125" y="24" text-anchor="middle" font-size="12" font-family="var(--sans)" fill="var(--korpus)" opacity=".85">HİCAZ HAVZASI</text>';
+    h+='<text x="440" y="24" text-anchor="middle" font-size="12" font-family="var(--sans)" fill="var(--rubric)" opacity=".85">IRAK HAVZASI</text>';
+    ED.forEach(([a,b])=>{
+      const A=ND[a],B=ND[b], hot=(a===sel||b===sel);
+      const dx=B.x-A.x, dy=B.y-A.y, L=Math.hypot(dx,dy), r1=30, r2=34;
+      const x1=A.x+dx/L*r1, y1=A.y+dy/L*r1, x2=B.x-dx/L*r2, y2=B.y-dy/L*r2;
+      h+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(hot?'var(--model)':'var(--line)')+'" stroke-width="'+(hot?3.5:2)+'" marker-end="url(#'+(hot?'okhot':'ok')+')"/>';
+    });
+    for(const [id,v] of Object.entries(ND)){
+      const hot=id===sel;
+      h+='<g data-id="'+id+'" style="cursor:pointer"><circle cx="'+v.x+'" cy="'+v.y+'" r="'+(hot?30:26)+'" fill="'+(hot?'var(--model)':'var(--insan)')+'" opacity="'+(hot?1:.85)+'"'+(hot?' stroke="var(--ink)" stroke-width="2.5"':'')+'/>';
+      h+='<text x="'+v.x+'" y="'+(v.y-2)+'" text-anchor="middle" font-size="11" fill="#fff" font-family="var(--sans)" font-weight="800">'+esc(v.n.split(" ")[0])+'</text>';
+      h+='<text x="'+v.x+'" y="'+(v.y+11)+'" text-anchor="middle" font-size="9" fill="#fff" font-family="var(--sans)" opacity=".9">'+esc(v.n.split(" ").slice(1).join(" ")||"")+'</text></g>';
+    }
+    h+='</svg>';
+    $("#netmini").innerHTML=h;
+    const v=ND[sel];
+    $("#netinfo").innerHTML='<b>'+esc(v.n)+'</b> ('+esc(v.d)+') — '+esc(v.note);
+  }
+  $("#netmini").addEventListener("click",e=>{
+    const g=e.target.closest("[data-id]"); if(!g) return;
+    sel=g.dataset.id; draw();
+  });
+  draw();
 })();
 
 /* ---------- YOL PLANLAYICI ---------- */
@@ -1301,25 +1366,57 @@ const KUT="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html";
 const L_=(t,u)=>'<a href="'+u+'" target="_blank" rel="noopener">'+esc(t)+'</a>';
 const TRACKS={
  "Tarih & Siyer":[
-  ["Hafta 1","Minyatür atölyeyi bitir","Bu sayfadaki tezgâh (4. durak) + Kütüphane'deki 90 dakikalık paket: Belâzürî'nin Mısır bölümü, cevap anahtarıyla. Çıktın: doğrulanmış ilk tablon.", L_("Atölye paketi",KUT+"#d2")],
-  ["Hafta 2-3","Kendi bölümünü seç","OpenITI'den Şam ya da Horasan bölümünü indir; aynı talimat + Tezgâh'ta mukabele; Google MyMaps'e dök.", L_("OpenITI'de kitap bulma",KUT+"#d1")+" · "+L_("Tam Tezgâh",KUT+"#tezgah")],
-  ["Ay 2","Sorunu sor","İki bölgeyi karşılaştır: sulh/anve oranı nerede, neden değişiyor? Tablo + harita + 2-3 sayfalık bulgu notu yaz.", L_("Dört soru kalıbı",KUT+"#d3")],
-  ["Ay 3+","Yayına yürü","Veri setini Zenodo'ya koy (DOI) → veri makalesi (JOHD) ya da ulusal dergi. Emsalin hazır: EICD-B.", L_("Dergi rehberi",KUT+"#d4")]],
+  ["Hafta 1","Minyatür atölyeyi bitir","Bu sayfadaki tezgâh (4. durak) + Kütüphane'deki 90 dakikalık paket: Belâzürî'nin Mısır bölümü, cevap anahtarıyla.", L_("Atölye paketi",KUT+"#d2"),
+   "Delil sütunu dolu bir tablo + tek cümlelik doğrulama raporu ('X kayıttan Y'si delille doğrulandı').",
+   "Cevap anahtarına erken bakmak — önce kendi listen, sonra anahtar; ders sırada gizli."],
+  ["Hafta 2-3","Kendi bölümünü seç","OpenITI'den Şam ya da Horasan bölümünü indir; aynı talimat + Tezgâh'ta denetim; Google MyMaps'e dök.", L_("OpenITI'de kitap bulma",KUT+"#d1")+" · "+L_("Tam Tezgâh",KUT+"#tezgah"),
+   "8-15 kayıtlık kendi tablon + MyMaps haritanın ekran görüntüsü.",
+   "Bölümü büyük seçmek — 3.000 kelimeyi geçme; küçük ve bitmiş, büyük ve yarımdan iyidir."],
+  ["Ay 2","Sorunu sor","İki bölgeyi karşılaştır: sulh/anve oranı nerede, neden değişiyor? Tablo + harita + 2-3 sayfalık bulgu notu.", L_("Dört soru kalıbı",KUT+"#d3"),
+   "İki bölgeyi yan yana koyan TEK grafik + kısa not; sayılar tablodan yeniden üretilebilir.",
+   "Farkı hemen 'sebeb'e bağlamak — önce betimle, ihtimalleri say; yorum, betimden sonra gelir."],
+  ["Ay 3+","Yayına yürü","Veri setini Zenodo'ya koy (DOI) → veri makalesi (JOHD) ya da ulusal dergi. Emsalin hazır: EICD-B.", L_("Dergi rehberi",KUT+"#d4"),
+   "Zenodo DOI'n + hedef derginin şablonuna dökülmüş taslak.",
+   "'Büyük makale' beklentisiyle bekletmek — mütevazı ve bitmiş işi gönder; merdiven böyle çıkılır."]],
  "Hadis & İsnad":[
-  ["Hafta 1","Babını seç","sunnah.com'da bir bab oku; hadith-json'dan aynı babın kayıtlarını indir (50.884 hadis, hazır JSON).", L_("sunnah.com","https://sunnah.com/")+" · "+L_("hadith-json","https://github.com/AhmedBaset/hadith-json")],
-  ["Hafta 2-3","Ağını çiz","Asistanla râvi zincirlerini tabloya dök, delil şartıyla; Gephi Lite'ta (tarayıcıda) isnad ağını çiz.", L_("Gephi","https://gephi.org")],
-  ["Ay 2","Ortak halkaları bul","Hangi râvi köprü? Medâr tespiti + ağ şekli + kısa bulgu notu. Emsal makaleyle karşılaştır.", L_("JHNR isnad makalesi","https://jhnr.net/articles/10.25517/jhnr.v8i1.135")],
-  ["Ay 3+","Yayına yürü","Araştırma notu (Kader/Dîvân) ya da veri makalesi; ulusal hadis çalışmalarında YZ literatürü hızla büyüyor — Türkçe emsaller Kütüphane'de.", L_("Dergi rehberi",KUT+"#d4")]],
+  ["Hafta 1","Babını seç","sunnah.com'da bir bab oku; hadith-json'dan aynı babın kayıtlarını indir (50.884 hadis, hazır JSON).", L_("sunnah.com","https://sunnah.com/")+" · "+L_("hadith-json","https://github.com/AhmedBaset/hadith-json"),
+   "Seçili babın 15-30 rivayetlik ham dosyası elinde, açılmış ve göz gezdirilmiş.",
+   "Bütün Sahîh'i çekmeye kalkmak — tek bab, tam iş; külliyat sonranın işi."],
+  ["Hafta 2-3","Ağını çiz","Asistanla râvi zincirlerini tabloya dök (delil şartıyla); Gephi Lite'ta isnad ağını çiz.", L_("Gephi","https://gephi.org"),
+   "Râvi tablosu (isim · tabaka · hocası · delil) + Gephi'de ilk ağ görüntüsü.",
+   "Künye/lakap birleştirmeden saymak — aynı râvi iki yazımla iki düğüm olur; normalizasyon burada da farzdır."],
+  ["Ay 2","Ortak halkaları bul","Hangi râvi köprü? Medâr tespiti + ağ şekli + kısa bulgu notu; emsal makaleyle karşılaştır.", L_("JHNR isnad makalesi","https://jhnr.net/articles/10.25517/jhnr.v8i1.135"),
+   "Düğüm boyutu dereceye bağlanmış ağ + medâr adayının işaretlendiği not.",
+   "Grafiği süs sanmak — görselleştirme sonuç değildir; sayı (derece, aradalık) olmadan şekil iddia taşımaz."],
+  ["Ay 3+","Yayına yürü","Araştırma notu (Kader/Dîvân) ya da veri makalesi; Türkçe hadis+YZ literatürü hızla büyüyor.", L_("Dergi rehberi",KUT+"#d4"),
+   "Ağ şekli + râvi tablon (Zenodo'da) + kısa notun dergi şablonunda.",
+   "Ağdan hüküm çıkarmak — ağ betimler; sıhhat hükmünü usûl verir, grafik vermez."]],
  "Kur'an Çalışmaları":[
-  ["Hafta 1","Kavram ailesini seç","Quran.com'da bir kavramın (ör. fitne) bütün geçişlerini listele; iki meali yan yana koy.", L_("Quran.com","https://quran.com/")],
-  ["Hafta 2-3","Morfolojiye in","corpus.quran.com'da kelime kelime çözümleme; kök ailesinin tablosunu çıkar.", L_("corpus.quran.com","https://corpus.quran.com/")],
-  ["Ay 2","Tarihe aç","Corpus Coranicum'da erken yazmalarda aynı ayetlerin yazımını karşılaştır; farkları tablola.", L_("Corpus Coranicum","https://corpuscoranicum.de/en")],
-  ["Ay 3+","Yayına yürü","Karşılaştırma tablon veri makalesine çok uygun (JOHD); Türkçe için darulfunun ilahiyat gibi dergiler.", L_("Dergi rehberi",KUT+"#d4")]],
+  ["Hafta 1","Kavram ailesini seç","Quran.com'da bir kavramın (ör. fitne) bütün geçişlerini listele; iki meali yan yana koy.", L_("Quran.com","https://quran.com/"),
+   "Kavramın tam geçiş listesi (sûre:âyet) + iki mealin farklılaştığı yerlerin işaretli hali.",
+   "Sadece Türkçe kelimeyle aramak — kök ve türevleriyle tara; meal, lafzı örter."],
+  ["Hafta 2-3","Morfolojiye in","corpus.quran.com'da kelime kelime çözümleme; kök ailesinin tablosunu çıkar.", L_("corpus.quran.com","https://corpus.quran.com/"),
+   "Kök-form tablosu: hangi kalıp, kaç kez, hangi bağlamda.",
+   "Çeviriyi veri sanmak — morfoloji Arapça metinden gelir; meal yalnız yol gösterir."],
+  ["Ay 2","Tarihe aç","Corpus Coranicum'da erken yazmalarda aynı ayetlerin yazımını karşılaştır; farkları tablola.", L_("Corpus Coranicum","https://corpuscoranicum.de/en"),
+   "İki erken yazımın yan yana karşılaştırma tablosu + ihtiyat notların.",
+   "İmlâ farkını hemen kıraat farkı sanmak — resm meselesi ayrıdır; iddia etme, kaydet ve sor."],
+  ["Ay 3+","Yayına yürü","Karşılaştırma tablon veri makalesine çok uygun (JOHD); Türkçe için darulfunun gibi dergiler.", L_("Dergi rehberi",KUT+"#d4"),
+   "JOHD tarzı kısa veri makalesi taslağı + tablonun DOI'li kopyası.",
+   "Tefsir tartışmasına girmek — bu makale verinin makalesidir; yorumu sonraki makaleye sakla."]],
  "Osmanlı & Türkçe":[
-  ["Hafta 1","Kavramını tara","Wikilala'da bir kavramı (ör. terakki) 46 bin+ kitap ve 840+ gazetede ara; yıllara göre say.", L_("Wikilala","https://www.wikilala.com/")],
-  ["Hafta 2-3","Tezlerle çerçevele","YÖK Tez'de konunun tezlerini bul; sayımlarını Datawrapper'da grafiğe dök.", L_("YÖK Tez","https://tez.yok.gov.tr/UlusalTezMerkezi/")+" · "+L_("Datawrapper","https://www.datawrapper.de")],
-  ["Ay 2","Dönemleştir","Kavramın yükseldiği/düştüğü kırılmaları belirle; 2-3 sayfalık bulgu notu. El yazması gerekirse Transkribus'un Osmanlıca modeli var.", L_("Transkribus","https://www.transkribus.org")],
-  ["Ay 3+","Yayına yürü","TR Dizin'li bir dergide kavram tarihi makalesi; grafiklerin şekil olarak hazır.", L_("Dergi rehberi",KUT+"#d4")]],
+  ["Hafta 1","Kavramını tara","Wikilala'da bir kavramı (ör. terakki) kitap ve gazetelerde ara; yıllara göre say.", L_("Wikilala","https://www.wikilala.com/"),
+   "Kavramın yıl-yıl geçiş sayıları (basit tablo/CSV).",
+   "OCR hatasını sinyal sanmak — birkaç sayfayı elle aç, sayının gerçekten o kavram olduğunu doğrula."],
+  ["Hafta 2-3","Tezlerle çerçevele","YÖK Tez'de konunun tezlerini bul; sayımlarını Datawrapper'da grafiğe dök.", L_("YÖK Tez","https://tez.yok.gov.tr/UlusalTezMerkezi/")+" · "+L_("Datawrapper","https://www.datawrapper.de"),
+   "Konunun tez listesi + ilk zaman grafiğin (kaynağı altında yazılı).",
+   "Grafiği kaynaksız paylaşmak — altına 'Wikilala taraması, tarih' notunu şimdi yaz, sonra unutulur."],
+  ["Ay 2","Dönemleştir","Kavramın yükseldiği/düştüğü kırılmaları belirle; 2-3 sayfalık not. El yazması gerekirse Transkribus'un Osmanlıca modeli var.", L_("Transkribus","https://www.transkribus.org"),
+   "Dönemlendirme önerin + her kırılmaya bir örnek pasaj.",
+   "Tek yayından genelleme — en az iki-üç farklı süreli yayında aynı deseni ara."],
+  ["Ay 3+","Yayına yürü","TR Dizin'li bir dergide kavram tarihi makalesi; grafiklerin şekil olarak hazır.", L_("Dergi rehberi",KUT+"#d4"),
+   "İSNAD kaynakçalı taslak + dergi seçiciyle belirlenmiş hedef.",
+   "Kapsam dışı dergiye göndermek — iki dokunuşluk dergi seçici tam bunun için var."]],
 };
 const RAIL=[
  {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim, ilahiyat yazarlı.",chips:["Oxford DSH 2026"],href:"https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428"},
@@ -1341,7 +1438,7 @@ function planProg(){
 function renderTrack(name){
   curTrack=name;
   const st=planState();
-  $("#trackplan").innerHTML=TRACKS[name].map((s,i)=>'<div class="step" style="text-align:left"><label class="chk"><input type="checkbox" data-i="'+i+'"'+(st[name+":"+i]?" checked":"")+'> yaptım</label><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'</div>').join("");
+  $("#trackplan").innerHTML=TRACKS[name].map((s,i)=>'<div class="step" style="text-align:left"><label class="chk"><input type="checkbox" data-i="'+i+'"'+(st[name+":"+i]?" checked":"")+'> yaptım</label><span class="when">'+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'<span class="cikti">✅ Bitti sayılır: '+esc(s[4])+'</span><span class="tuzakl">⚠️ Tuzak: '+esc(s[5])+'</span></div>').join("");
   document.querySelectorAll("#trackchips button").forEach(b=>b.setAttribute("aria-pressed", b.textContent===name?"true":"false"));
   planProg();
 }
@@ -1353,7 +1450,7 @@ $("#trackplan").addEventListener("change",e=>{
 });
 $("#plandl").addEventListener("click",()=>{
   const md=["# İlk makaleme giden yol — "+curTrack,"", "Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",""].concat(
-    TRACKS[curTrack].map(s=>"## "+s[0]+" · "+s[1]+"\n"+s[2]+"\nBağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")+"\n")
+    TRACKS[curTrack].map(s=>"## "+s[0]+" · "+s[1]+"\n"+s[2]+"\nBitti sayılır: "+s[4]+"\nTuzak: "+s[5]+"\nBağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")+"\n")
   ).concat(["---","Merdiven: araştırma notu → veri makalesi (JOHD) → ulusal tam makale → uluslararası","Üret (kendin) · Doğrula (dışarıda) · Beyan et"]).join("\n");
   const blob=new Blob([md],{type:"text/markdown;charset=utf-8"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="yol-haritasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md";
