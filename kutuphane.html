@@ -1394,6 +1394,16 @@ $("#tz-dl-csv").addEventListener("click",()=>{
   });
 })();
 
+
+/* ---------- Deneyim dönüş çipleri ---------- */
+(function(){
+  const MAP={d0:["#makine","3 · Makinenin içi"],d1:["#tanis","1 · Temeller"],d2:["#kayit","1d · Veri seti + 4 · Tezgâh"],d3:["#ilham","5 · İlk makalene giden yol"],d4:["#ilham","5 · İlk makalene giden yol"]};
+  for(const [id,[href,label]] of Object.entries(MAP)){
+    const h=document.querySelector("#"+id+" h2"); if(!h) continue;
+    h.insertAdjacentHTML("afterend",'<p class="small" style="margin:4px 0 0"><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/'+href+'" style="font-family:var(--sans)">🧭 Deneyimdeki karşılığı: '+label+'</a></p>');
+  }
+})();
+
 /* ---------- verification stamp ---------- */
 (function(){
   let n=0,v=0;

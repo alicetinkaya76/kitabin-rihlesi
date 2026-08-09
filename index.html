@@ -179,6 +179,35 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* nesep şeridi + mercekler + kütüphane kapıları */
+.timeline{display:flex;gap:10px;overflow-x:auto;padding:6px 4px 12px;scroll-snap-type:x proximity;max-width:760px;margin:0 auto}
+.tstop{scroll-snap-align:start;flex:0 0 148px;font:inherit;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px;cursor:pointer;box-shadow:var(--shadow);color:var(--ink)}
+.tstop b{font-family:var(--sans);font-size:1rem;color:var(--rubric);display:block}
+.tstop span{font-family:var(--sans);font-size:.78rem;font-weight:600;line-height:1.3;display:block;margin-top:2px}
+.tstop[aria-pressed="true"]{border-color:var(--rubric);background:var(--rubric-soft)}
+.tpanel{max-width:640px;margin:4px auto 0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rubric);border-radius:10px;padding:12px 16px;font-family:var(--sans);font-size:.88rem;text-align:left;min-height:3.4em}
+.lensrow{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));max-width:640px;margin:10px auto 0}
+.lensrow button{font:inherit;font-family:var(--sans);font-weight:800;font-size:.82rem;letter-spacing:.04em;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:12px 8px;cursor:pointer;color:var(--ink)}
+.lensrow button[aria-pressed="true"]{border-color:var(--model);background:var(--model-soft)}
+.lenspanel{max-width:640px;margin:8px auto 0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--model);border-radius:10px;padding:12px 16px;font-family:var(--sans);font-size:.88rem;text-align:left}
+.lenspanel a{font-weight:700}
+.degildir{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:720px;margin:14px auto 0}
+.libgate{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;font-family:var(--sans);font-size:.78rem;color:var(--muted);margin:18px auto 0;max-width:720px}
+.libgate a{border:1px dashed var(--line);border-radius:999px;padding:5px 13px;text-decoration:none;color:var(--insan);font-weight:600;background:var(--card)}
+.vitrin{max-width:640px;margin:20px auto 0;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;text-align:left}
+.vitrin .vh{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rubric);font-weight:800;margin-bottom:8px}
+.vitrin form{display:flex;gap:8px}
+.vitrin input{flex:1;font-family:var(--sans);font-size:.95rem;padding:11px 16px;border:2px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);min-width:0}
+.vitrin input:focus{border-color:var(--insan);outline:none}
+.vitrin button{font-family:var(--sans);font-weight:700;border:none;background:var(--ink);color:var(--paper);border-radius:999px;padding:0 20px;cursor:pointer}
+.vitrin .vchipsrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;font-family:var(--sans);font-size:.76rem}
+.vitrin .vchipsrow a{border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);background:var(--paper)}
+.vitrin .vfoot{font-family:var(--sans);font-size:.74rem;color:var(--muted);margin-top:10px}
+.ustanotu>summary{color:var(--korpus)!important}
+.ikinci{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-style:italic;display:block;margin-top:6px}
+.stepchips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.stepchips a{font-family:var(--sans);font-size:.7rem;font-style:normal;border:1px dashed var(--line);border-radius:999px;padding:3px 10px;text-decoration:none;color:var(--insan)}
+.dongu{max-width:720px;margin:12px auto 0;background:var(--insan-soft);border-radius:10px;padding:11px 16px;font-family:var(--sans);font-size:.86rem;text-align:center}
 /* tanış sahnesi */
 .phone{max-width:400px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;text-align:left}
 .phone .pbar{height:5px;width:110px;background:var(--line);border-radius:3px;margin:0 auto 14px}
@@ -364,23 +393,38 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
   <div class="kicker">1 · Temeller</div>
   <h2>Dijital beşerî bilimler nedir?</h2>
-  <p class="one" style="margin:0 auto 22px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir, aranabilir</b> malzemeyle sormak. Dört temel kavram — sırayla, dokuna dokuna:</p>
-  <div class="mstep" style="text-align:left">
+  <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin bin yıllık sorularını <b>sayılabilir, haritalanabilir, aranabilir</b> malzemeyle sormak. Yeni bir bilim değil: raflarımızdaki <b>mu'cem, fihrist ve tabakat</b> geleneğinin makineyle buluşması.</p>
+
+  <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Nesep şeridi</b> — bu alanın soyu bizim raflardan geçer; taşlara dokun:</p>
+  <div class="timeline" id="nesep"></div>
+  <div class="tpanel" id="nesep-panel"></div>
+
+  <p class="one" style="margin:26px auto 6px;font-size:.98rem"><b>Aynı malzemeye dört mercek</b> — malzememiz hep aynı: Belâzürî'nin <i>Fütûhu'l-Büldân</i>'ı. Merceğe dokun, ne gösterdiğini gör:</p>
+  <div class="lensrow" id="lensrow"></div>
+  <div class="lenspanel" id="lenspanel"></div>
+
+  <p class="one" style="margin:26px auto 0;font-size:.98rem">İki merceği hemen şimdi, bu sayfada dene:</p>
+  <div class="mstep" style="text-align:left" id="uzakb">
     <div class="mno" style="background:var(--korpus)">a</div>
     <h3><span class="termtag">distant reading</span>Uzak okuma: metni okumadan önce saymak</h3>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Yakın okuma</button><button id="uz-uzak" aria-pressed="true">Uzak okuma</button></div>
     <div id="uz-body"></div>
     <p class="mwhy">Yakın okuma tek pasajın derinliğidir; uzak okuma bin sayfanın kuşbakışıdır. Rakip değiller — dürbünün iki ucu. <span class="temsili">sayım gerçek: Belâzürî kesitinden canlı sayılıyor</span></p>
   </div>
-  <div class="mstep" style="text-align:left">
+  <div class="mstep" style="text-align:left" id="netb">
     <div class="mno" style="background:var(--korpus)">b</div>
     <h3><span class="termtag">network analysis</span>Ağ: kim kimden okudu?</h3>
     <div class="embwrap"><div id="netmini"></div></div>
     <p class="mwhy">Tabakāt edebiyatının sorusu grafiğe döner: düğüm = âlim, çizgi = hoca-talebe bağı. "Köprü" kişiler bir bakışta görünür. <span class="temsili">şema temsilî</span> — canlısını Gephi ile kendin çizersin (Kütüphane'de tarifi var).</p>
   </div>
+  <p class="one" style="margin:22px auto 6px;font-size:.98rem"><b>Üç yanlış anlamayı baştan sökelim</b> — dijital beşerî bilimler:</p>
+  <div class="degildir">
+    <div class="warncard"><b>Bilgisayarcılık değildir.</b> Soru yine bizim sorumuz, hüküm yine bizim hükmümüz; makine yalnız eldir. Kod bilmek şart değil — bu sitenin tamamı kodsuz yürür.</div>
+    <div class="warncard"><b>Yakın okumanın rakibi değildir.</b> Şerh ve dikkat geleneği yerinde duruyor; sayım, o dikkatin nereye bakacağını söyler. Dürbünün iki ucu, tek göz.</div>
+    <div class="warncard"><b>Hazır cevap makinesi değildir.</b> Cevabı hızlandırır; delil yükünü kaldırmaz. Delilsiz hız, sadece hatanın hızıdır.</div>
+  </div>
   <p class="one" style="margin:18px auto 0">Sıradaki iki kavram kendi duraklarında: <b>CBS</b> (harita) ve <b>veri seti</b> ↓</p>
-
-
+  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🎓 Öğrenme rehberleri (<span data-lib="ogrenme"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=uzak">Kütüphanede "uzak okuma" ara</a></div>
   <div class="btnrow"><a class="cta" href="#harita">Sıradaki kavram: CBS — harita ↓</a></div>
 </section>
 
@@ -412,6 +456,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="vchips below" id="vchips"></div>
   <p class="mapnote" id="mapnote">Rihle'nin 317 durağı · islamicatlas.org verisi · harita: OpenStreetMap</p>
   <p class="one" style="margin:16px auto 0">Haritadaki her nokta aslında bir <b>kayıttır</b>: şehir, tarih ve kaynağındaki cümle. Sıradaki kavram, o kaydın konduğu yer ↓</p>
+  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🧰 Harita aletleri</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=gazetteer">el-Süreyyâ &amp; gazetteer ara</a></div>
   <div class="btnrow"><a class="cta" href="#kayit">Sıradaki kavram: veri seti ↓</a></div>
 </section>
 
@@ -428,6 +473,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div id="machinejson"></div>
   <p class="one small" style="margin:12px auto 0">"Makinenin gördüğü" düz metnin adı <b>JSON</b>'dur: aynı çekmeceli dolabın makine için yazılmış hali. 4. durakta modelden tam bu biçimi isteyeceksin.</p>
   <p class="one" style="margin:18px auto 0">Dört kavram tamam: <b>uzak okuma · ağ · CBS · veri seti</b>. Şimdi bir araştırmacının bunları hangi sırayla kullandığına bakalım ↓</p>
+  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2">🗃 Hazır veri setleri (<span data-lib="veri"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=veri%20seti">Kütüphanede "veri seti" ara</a></div>
   <div class="btnrow"><a class="cta" href="#arastirmaci">2 · Araştırmacının yolu ↓</a></div>
 </section>
 
@@ -436,14 +482,30 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="arastirmaci">
   <div class="kicker">2 · Araştırmacının yolu</div>
   <h2>Araştırmacı nasıl çalışır: malzemeden ürüne</h2>
-  <p class="one">Beş istasyon. Her satırın sonunda, aynı yolun yayımlanmış bir örnekte (EICD-B, Oxford DSH 2026) nasıl yüründüğü var.</p>
+  <p class="one">Beş istasyon; her birinde üç katman var — <b>ilke</b> · yürünmüş <b>gerçek örnek</b> (EICD-B, Oxford DSH 2026) · meraklısına <b>usta notu</b>. İkinci bir yol daha eşlik ediyor: aynı istasyonların bir hadis çalışmasında nasıl görüneceği (tasarım şablonu — henüz yürünmemiş, yol genellensin diye).</p>
   <div class="steps" style="max-width:760px">
-    <div class="step"><span class="when">1 · Malzeme</span><br><b>Elinde ne var?</b> Bir kitap, bir defter koleksiyonu, bir dergi arşivi. — <i>Örnek: Belâzürî'nin Fütûhu'l-Büldân'ı, OpenITI'de makine-okur halde.</i></div>
-    <div class="step"><span class="when">2 · Soru</span><br><b>Sayılabilir/haritalanabilir bir soru kur.</b> "Ne anlatıyor?" değil; "kaçı, nerede, hangi türde?" — <i>Örnek: şehirler antlaşmayla mı (sulhan), kuvvetle mi (anveten) alındı?</i></div>
-    <div class="step"><span class="when">3 · Veri</span><br><b>Malzemeyi veri setine çevir.</b> Her kayıt aynı çekmecelerle: şehir · yıl · tür · delil. — <i>Örnek: 226 kayıt.</i></div>
-    <div class="step"><span class="when">4 · Denetim</span><br><b>Her delili kaynakla karşılaştır</b> — geleneğin diliyle <b>mukabele</b>. Bulunamayan kayıt sonuç dışı kalır. — <i>Örnek: %35,0 harfiyen, %56,6 imlâ farkıyla bulundu; %8,4 elendi.</i></div>
-    <div class="step"><span class="when">5 · Ürün</span><br><b>Şekil + makale + veri setinin kendisi.</b> Veri seti de bir yayındır. — <i>Örnek: DSH makalesi + açık veri, doi:10.1093/llc/fqag093.</i></div>
+    <div class="step"><span class="when">1 · Malzeme</span><br><b>Elinde ne var?</b> Bir kitap, bir defter koleksiyonu, bir dergi arşivi. — <i>Örnek: Belâzürî'nin Fütûhu'l-Büldân'ı, OpenITI'de makine-okur halde.</i>
+      <span class="ikinci">İkinci yol (tasarım şablonu): Buhârî'den tek bir bab — küçük ama tam.</span>
+      <details class="mdeep ustanotu"><summary>Usta notu: malzemenin üç sorusu</summary><p>(1) <b>Makine-okur mu?</b> Değilse OCR/HTR maliyetini baştan hesapla — el yazması güzeldir ama ilk projeyi taş yokuşta başlatma. (2) <b>Hakları açık mı?</b> Ürettiğin veri setini yayımlayamayacaksan emeğin yarısı kilitli kalır; OpenITI gibi açık kaynaklar bu yüzden altın. (3) <b>Soruyu taşıyacak kadar zengin mi?</b> Kitaba âşık olma; soruyu taşıyan malzemeyi seç. Küçük ve tam, büyük ve yarımdan iyidir.</p></details>
+      <span class="stepchips"><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d1">📚 Kütüphane: Kitabı Bul rafları</a></span></div>
+    <div class="step"><span class="when">2 · Soru</span><br><b>Sayılabilir/haritalanabilir bir soru kur.</b> "Ne anlatıyor?" değil; "kaçı, nerede, hangi türde?" — <i>Örnek: şehirler antlaşmayla mı (sulhan), kuvvetle mi (anveten) alındı?</i>
+      <span class="ikinci">İkinci yol: bu babın rivayetleri hangi râvide düğümleniyor — medâr kim?</span>
+      <details class="mdeep ustanotu"><summary>Usta notu: iyi sorunun üç testi</summary><p><b>Tablo testi:</b> cevabın bir tablo çizilebiliyor mu? Çizemiyorsan soru henüz sohbettir. <b>Delil testi:</b> tablonun her satırı kaynaktan tek bir cümleye bağlanabiliyor mu? <b>Ölçek testi:</b> elle 10 örnekte deneyince yürüyor mu? — 10'da yürümeyen, 10.000'de hiç yürümez. Dönüşüm alıştırması: "Belâzürî fetihleri nasıl anlatır?" (sohbet) → "hangi şehir, hangi yıl, hangi tür; delili hangi cümle?" (araştırma).</p></details>
+      <span class="stepchips"><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">📚 Kütüphane: dört soru kalıbı</a></span></div>
+    <div class="step"><span class="when">3 · Veri</span><br><b>Malzemeyi veri setine çevir.</b> Her kayıt aynı çekmecelerle: şehir · yıl · tür · delil. — <i>Örnek: 226 kayıt.</i>
+      <span class="ikinci">İkinci yol: râvi tablosu — isim · tabaka · hocası · delil (isnad cümlesi aynen).</span>
+      <details class="mdeep ustanotu"><summary>Usta notu: şema, tezinin ilk taslağıdır</summary><p>Hangi çekmeceleri açtığın, neyi soru saydığını ele verir. Üç vida: <b>kapalı liste</b> (türü üç değere indirmek tartışmayı disipline eder; serbest metin sayılamaz), <b>çekimser kanalı</b> (dürüstlüğü şemaya yaz — modele de kendine de "bilmiyorum" hakkı tanı), <b>zorunlu delil</b> (delilsiz alan doldurulamıyorsa dolap zan biriktiremez). Ve altın pratik: önce <b>10 kayıtlık pilot</b>, şema oturunca ölçek.</p></details>
+      <span class="stepchips"><a href="#kayit">Sayfada: 1d dolap</a><a href="#dene">Sayfada: 4. durak tezgâhı</a></span></div>
+    <div class="step"><span class="when">4 · Denetim</span><br><b>Her delili kaynakla karşılaştır</b> — geleneğin diliyle <b>mukabele</b>. Bulunamayan kayıt sonuç dışı kalır. — <i>Örnek: %35,0 harfiyen, %56,6 imlâ farkıyla bulundu; %8,4 elendi.</i>
+      <span class="ikinci">İkinci yol: tahrîc ile dış karşılaştırma; tabakat ile kronoloji denetimi.</span>
+      <details class="mdeep ustanotu"><summary>Usta notu: üç mukabele türü</summary><p><b>İç:</b> delil, kaynak metinde gerçekten var mı? (Bu sitenin tezgâhı bunu otomatik yapar.) <b>Dış:</b> bulguların, bağımsız bir listeyle örtüşüyor mu? (EICD, 22 şehirlik dış listeyle sınandı: 18 eşleşme.) <b>Tutarlılık:</b> kayıtlar birbirini yalanlıyor mu? — hicrî 21'de vefat etmiş komutana 25 yılı fethi yazılamaz; bu bekçiyi kur. Ve altın kural: <b>hata analizi de ilimdir</b> — EICD'nin iki "hatası", Mısır'ın sulhan mı anveten mi alındığı asırlık ihtilafının röntgeni çıktı.</p></details>
+      <span class="stepchips"><a href="#dene">Sayfada: canlı dene</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#tezgah">📚 Tam Tezgâh</a></span></div>
+    <div class="step"><span class="when">5 · Ürün</span><br><b>Şekil + makale + veri setinin kendisi.</b> Veri seti de bir yayındır. — <i>Örnek: DSH makalesi + açık veri, doi:10.1093/llc/fqag093.</i>
+      <span class="ikinci">İkinci yol: isnad ağı şekli + kısa araştırma notu; râvi tablosu Zenodo'da DOI ile.</span>
+      <details class="mdeep ustanotu"><summary>Usta notu: üç ürün birden</summary><p><b>Şekil</b> hakemin ilk baktığıdır — elle çizme, doğrulanmış veriden ürettir ki yeniden üretilebilsin. <b>Makale</b> iddiandır — yöntem bölümünde hattını dürüstçe anlat. <b>Veri seti</b> başkasının başlangıcıdır — sürüm numarası ve DOI ile yayımla; ilk hakemli satırın çoğu zaman budur. Ve beyan: hangi araç, hangi aşamada, nasıl denetlendi — tek paragraf yeter, sitede şablonu var.</p></details>
+      <span class="stepchips"><a href="#ilham">Sayfada: 5. durak planı</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#dergisec">📚 Dergi seçici</a></span></div>
   </div>
+  <div class="dongu">↺ Yol düz değildir: <b>Denetim'de yakalanan her hata, Soru'yu keskinleştirir.</b> EICD'de çekimser kanalı da, kronoloji bekçisi de ilk turda yoktu — hatalar ekletti. Geri dönmek gerilemek değildir; yolun kendisidir.</div>
   <p class="one" style="margin-top:14px">3. istasyondaki o dönüşümü yapan makinenin içine bakalım ↓</p>
   <div class="btnrow"><a class="cta" href="#makine">Makinenin içi ↓</a></div>
 </section>
@@ -608,6 +670,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Olasılık çubukları</a>
     <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener">عنوة kaç parça?</a>
   </div>
+  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d0">👁 Makineyi gözle gör (<span data-lib="gozle"></span>)</a></div>
   <div class="btnrow"><a class="cta" href="#sozluk">Devam: kadim sözlük (ara durak) ↓</a><a class="cta ghost" href="#dene">Atla — kendin çalıştır ↓</a></div>
 </section>
 
@@ -685,8 +748,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div class="shelfhead" style="max-width:720px;margin:18px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
-  <div class="btnrow" style="justify-content:flex-start">
-    <a class="cta ghost" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane: 101 kaynak (100'ü doğrulandı), dergiler, âdâb</a>
+  <div class="vitrin" id="vitrin">
+    <div class="vh">📚 Kütüphane — bu sitenin ambarı</div>
+    <form id="vitrin-form"><input id="vitrin-q" type="search" placeholder="Kütüphanede ara: hadis, harita, dergi, Osmanlıca…" aria-label="Kütüphanede ara"><button type="submit">Ara</button></form>
+    <div class="vchipsrow">
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2">🗃 Veri setleri (<span data-lib="veri"></span>)</a>
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🧰 Aletler (<span data-lib="alet"></span>)</a>
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#dergisec">📰 Dergi seçici (<span data-lib="dergi"></span> dergi)</a>
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d4">🏆 Emsaller (<span data-lib="emsal"></span>)</a>
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#tezgah">⚒ Tam Tezgâh</a>
+      <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#adab">⚖️ Âdâb &amp; Beyan</a>
+    </div>
+    <div class="vfoot">101 kaynak · 100'ü tek tek doğrulandı (06.08.2026) · yazdığın kelime doğrudan Kütüphane aramasında açılır</div>
   </div>
 </section>
 
@@ -942,6 +1015,52 @@ else window.addEventListener("load", initMap, {once:true});
       $("#losscnt").textContent="düzeltme: "+Math.floor(Math.pow(el,1.6)*1.8e9).toLocaleString("tr-TR")+(el>=1?" — ve gerçekte bunun binlerce katı":"…");
       if(el>=1){ clearInterval(tick); training=false; }
     },40);
+  });
+})();
+
+/* ---------- NESEP ŞERİDİ + DÖRT MERCEK ---------- */
+(function(){
+  const NESEP=[
+    ["1916","İsnad şemaları çağı","Zâhirü'r-rivâye'den Wensinck'e: rical ve etrâf literatürü, isnadları elle 'veritabanı' gibi işliyordu zaten — kart, cetvel, çapraz atıf."],
+    ["1936–88","Hadis Konkordansı","Wensinck ve ekibinin el-Muʿcemü'l-müfehres li-elfâẓi'l-ḥadîs'i: sekiz cilt, iki kuşak emek. 'Uzak okuma'nın atası bizim rafta durur."],
+    ["1945","Kur'an Mu'cemi","Muhammed Fuâd Abdülbâkî'nin el-Muʿcemü'l-müfehres'i: her lafız, her geçtiği ayetle — elle kurulmuş bir arama motoru."],
+    ["1949","Index Thomisticus","Cizvit âlim Roberto Busa, Aquinas külliyatını delikli kartlara döktü — dijital beşerî bilimlerin kuruluş anı sayılır. Kurucu, bir din âlimiydi."],
+    ["2000'ler","Şâmile","Klasik kütüphane tek programda, aranabilir: mu'cem geleneği yazılıma taşındı; Ctrl+F, fihristin torunu."],
+    ["2016","OpenITI","Makine-okur, sürümlü, atıf verilebilir akademik korpus — bu sitedeki metinlerin kaynağı. Nüsha şeceresinin dijitali."],
+    ["2022","Sohbet modelleri","Okuma ve çıkarma hızı el değiştirdi; delil ve denetim hâlâ bizde. İşte bu sitenin konusu."],
+  ];
+  $("#nesep").innerHTML=NESEP.map((n,i)=>'<button class="tstop" data-i="'+i+'" aria-pressed="'+(i===3)+'"><b>'+esc(n[0])+'</b><span>'+esc(n[1])+'</span></button>').join("");
+  function showN(i){
+    document.querySelectorAll("#nesep .tstop").forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
+    $("#nesep-panel").innerHTML="<b>"+esc(NESEP[i][0])+" · "+esc(NESEP[i][1])+"</b> — "+esc(NESEP[i][2]);
+  }
+  $("#nesep").addEventListener("click",e=>{ const b=e.target.closest(".tstop"); if(b) showN(+b.dataset.i); });
+  showN(3);
+
+  const LENS=[
+    ["🔢 SAYIM","Fütûh'un tek bölümünde fetih kökü 7, anve 2, cizye 2, sulh 1 kez — bölümün 'imzası' tek satır okumadan görünür. Hemen altında canlı dene.","#uzakb","aşağıda dene ↓"],
+    ["🗺 HARİTA","226 fetih kaydı koordinat alınca desen coğrafyaya döner: sahilin şehirli batısında sulh, dağlık doğuda anve. Desen edebî değil, coğrafî.","#harita","CBS durağında gör ↓"],
+    ["🕸 AĞ","Komutan–şehir bağları çizilince köprü düğümler belirir: EICD-B'de en çok fetih İyâd b. Ganm'da (21). Tabakātın işi, grafiğin diliyle.","#netb","aşağıda şemasını gör ↓"],
+    ["🗄 DOLAP","Her olay beş çekmeceli bir kayıt olur: şehir · yıl · tür · delil · sened. Dolap dolunca üç mercek birden çalışır — sayım da harita da ağ da bu dolaptan beslenir.","#kayit","1d durağında aç ↓"],
+  ];
+  $("#lensrow").innerHTML=LENS.map((l,i)=>'<button data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(l[0])+'</button>').join("");
+  function showL(i){
+    document.querySelectorAll("#lensrow button").forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
+    $("#lenspanel").innerHTML=esc(LENS[i][1])+' <a href="'+LENS[i][2]+'">'+esc(LENS[i][3])+'</a>';
+  }
+  $("#lensrow").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b) showL(+b.dataset.i); });
+  showL(0);
+})();
+
+/* ---------- KÜTÜPHANE KÖPRÜSÜ ---------- */
+const LIBSUM = {"ogrenme":2,"veri":14,"alet":15,"dergi":17,"emsal":15,"gozle":3};
+(function(){
+  if(LIBSUM) document.querySelectorAll("[data-lib]").forEach(el=>{ el.textContent=LIBSUM[el.dataset.lib] ?? ""; });
+  const f=$("#vitrin-form");
+  if(f) f.addEventListener("submit",e=>{
+    e.preventDefault();
+    const q=$("#vitrin-q").value.trim();
+    location.href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html"+(q?("#q="+encodeURIComponent(q)):"");
   });
 })();
 
