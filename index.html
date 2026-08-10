@@ -179,6 +179,24 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* DH tanımı: üç kapasite + alan soruları */
+.kapasite{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));max-width:860px;margin:18px auto 0;text-align:left}
+.kap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px}
+.kap .kico{font-size:1.5rem;line-height:1}
+.kap h4{font-family:var(--sans);font-size:.95rem;margin:0;letter-spacing:.02em}
+.kap .ksoru{font-family:var(--serif);font-size:1.02rem;font-style:italic;color:var(--ink)}
+.kap .kklasik{font-family:var(--sans);font-size:.74rem;background:var(--korpus-soft);color:var(--korpus);border-radius:8px;padding:5px 10px;font-weight:600}
+.kap .kornek{font-family:var(--sans);font-size:.8rem;color:var(--muted);line-height:1.5}
+.kap .kornek b{color:var(--ink);font-weight:600}
+.kap a{font-family:var(--sans);font-size:.76rem;margin-top:auto;padding-top:4px}
+.yenilik{max-width:720px;margin:20px auto 0;background:var(--model-soft);border-left:5px solid var(--model);border-radius:10px;padding:13px 17px;text-align:left;font-family:var(--sans);font-size:.9rem;line-height:1.6}
+.yenilik b{color:var(--model)}
+.alanlar{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));max-width:860px;margin:14px auto 0;text-align:left}
+.alan{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.alan .ad{font-family:var(--sans);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--rubric);font-weight:800}
+.alan .kl{font-family:var(--serif);font-size:.95rem;margin:4px 0 6px;display:block}
+.alan .dj{font-family:var(--sans);font-size:.79rem;color:var(--muted);line-height:1.5}
+.alan .dj b{color:var(--korpus)}
 /* düz-metin kırıcı bileşenler */
 .dou{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:8px}
 .ornekbox,.ikincibox{border-radius:9px;padding:8px 12px;font-family:var(--sans);font-size:.78rem;line-height:1.45}
@@ -515,7 +533,47 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
   <div class="kicker">1 · Temeller</div>
   <h2>Dijital beşerî bilimler nedir?</h2>
-  <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir ve aranabilir</b> malzemeyle sormak. Müstakil yeni bir ilim değil; <b>mu'cem, fihrist ve tabakat</b> geleneğinin dijital araçlarla sürdürülmesi.</p>
+  <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir ve aranabilir</b> malzemeyle sormak. Müstakil yeni bir ilim değil; <b>mu'cem, fihrist ve tabakat</b> geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
+
+  <div class="kapasite">
+    <div class="kap">
+      <span class="kico">📊</span>
+      <h4>SAYILABİLİR</h4>
+      <span class="ksoru">"Kaç kez, hangi oranda, hangi dönemde?"</span>
+      <span class="kklasik">Klasik karşılığı: mu'cem / konkordans</span>
+      <span class="kornek">Metnin tamamı tek tek okunmadan da bir eğilim ölçülebilir. <b>Örnek:</b> Fütûhu'l-büldân'ın bir bölümünde sulh ve kuvvet ifadelerinin oranı — kitabın genelinde antlaşmayla giriş %52,2 iken bu bölümde tersine dönüyor.</span>
+      <a href="#uzakb">Aşağıda canlı sayacı dene ↓</a>
+    </div>
+    <div class="kap">
+      <span class="kico">🗺</span>
+      <h4>HARİTALANABİLİR</h4>
+      <span class="ksoru">"Nerede, hangi güzergâhla, hangi yoğunlukta?"</span>
+      <span class="kklasik">Klasik karşılığı: mesâlik ve memâlik literatürü</span>
+      <span class="kornek">Yer adı koordinata bağlanınca desen görünür hâle gelir. <b>Örnek:</b> 226 fetih kaydı haritaya döküldüğünde, sahil şehirlerinde antlaşma, dağlık bölgelerde kuvvet yoluyla giriş yoğunlaşıyor — desen edebî değil, coğrafî.</span>
+      <a href="#harita">CBS durağında haritayı gör ↓</a>
+    </div>
+    <div class="kap">
+      <span class="kico">🔍</span>
+      <h4>ARANABİLİR</h4>
+      <span class="ksoru">"Bu ibare nerede geçiyor, hangi bağlamda?"</span>
+      <span class="kklasik">Klasik karşılığı: fihrist / etrâf tasnifi</span>
+      <span class="kornek">Bir cümle, binlerce sayfa içinde saniyeler içinde bulunur ve bağlamıyla gösterilir. <b>Örnek:</b> bu sitedeki tezgâh, her delil cümlesini kaynak metinde arayıp bulduğu yeri çevresindeki satırlarla birlikte önünüze koyar.</span>
+      <a href="#dene">4. durakta kendin dene ↓</a>
+    </div>
+  </div>
+
+  <div class="yenilik"><b>Peki yeni olan ne?</b> Soru değil, <b>ölçek ve hız</b>. A. J. Wensinck'in heyeti hadis lafızlarının dizinini yarım asırda tamamladı; Muhammed Fuâd Abdülbâkī Kur'ân-ı Kerîm mu'cemini yıllar süren bir emekle hazırladı. Bugün bir öğrenci, kendi seçtiği bir eserin benzer bir dizinini bir hafta sonunda çıkarabiliyor. Emek azalmadı; <b>yer değiştirdi</b>: dizin çıkarmaktan, çıkanı denetlemeye ve yorumlamaya geçti.</div>
+
+  <p class="one" style="margin:24px auto 4px;font-size:.98rem"><b>Hangi sorulara cevap verir?</b> Solda klasik soru, sağda dijital ölçekte alacağı biçim:</p>
+  <div class="alanlar">
+    <div class="alan"><span class="ad">Tefsir</span><span class="kl">"Bu kavram Kur'ân-ı Kerîm'de hangi kalıplarda geçiyor?"</span><span class="dj">→ <b>Kök-kalıp tablosu:</b> her türev, geçtiği âyet ve bağlamıyla listelenir; iki mealin tercih farkları yan yana konur.</span></div>
+    <div class="alan"><span class="ad">Hadis</span><span class="kl">"Bu babın rivayetleri hangi râvide düğümleniyor?"</span><span class="dj">→ <b>İsnad ağı:</b> râviler düğüm, rivayet zincirleri kenar olur; ortak halka (medâr) ölçümle görünür hâle gelir.</span></div>
+    <div class="alan"><span class="ad">İslâm tarihi</span><span class="kl">"Şehirler antlaşmayla mı, kuvvetle mi alındı?"</span><span class="dj">→ <b>Delilli kayıt seti:</b> 226 olay; her birinde şehir, hicrî yıl, tür ve metinden alınmış delil cümlesi. <i>Bu sitenin merkez örneği.</i></span></div>
+    <div class="alan"><span class="ad">Fıkıh</span><span class="kl">"Bir mesele fetva mecmualarında zaman içinde nasıl değişti?"</span><span class="dj">→ <b>Zaman serisi:</b> aynı meselenin farklı dönem fetvalarındaki gerekçeleri tasnif edilip yıllara göre karşılaştırılır.</span></div>
+    <div class="alan"><span class="ad">Tasavvuf</span><span class="kl">"Bir silsile hangi coğrafyaya, hangi kuşakta yayıldı?"</span><span class="dj">→ <b>Ağ + harita birlikte:</b> şeyh-mürid bağları ağ olarak çizilir, tekke ve dergâhlar koordinatlanır.</span></div>
+    <div class="alan"><span class="ad">Osmanlı & Türkçe</span><span class="kl">"Bir kavram matbuatta ne zaman yükseldi?"</span><span class="dj">→ <b>Frekans grafiği:</b> kavramın gazete ve dergilerdeki geçiş sayısı yıllara göre çizilir; kırılmalar dönemlendirilir.</span></div>
+  </div>
+  <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve <b>denetlenebilirliği</b> — çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
 
   <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Kısa bir tarihçe</b> — bu yöntemin kökleri kendi ilim geleneğimizde; künyelere dokunun:</p>
   <div class="timeline" id="nesep"></div>
