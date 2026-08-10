@@ -500,6 +500,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .kbox.ko{background:var(--model-soft)} .kbox.ko b{color:var(--model)}
 .kbox.kd{background:var(--rubric-soft)} .kbox.kd b{color:var(--rubric)}
 .kbox.kk2{background:var(--korpus-soft)} .kbox.kk2 b{color:var(--korpus)}
+.kbox.kkay{background:var(--chip)} .kbox.kkay b{color:var(--ink)}
 .krow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.74rem;color:var(--muted)}
 .krel{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:3px 10px;font-size:.74rem;font-weight:600}
 .krel:hover{background:var(--insan);color:#fff}
@@ -562,6 +563,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
   </div>
 
+  <p class="one small" style="margin:12px auto 0;color:var(--muted)">Bu üçlü tasnif keyfî değil: Franco Moretti, <i>Graphs, Maps, Trees</i> (Verso, 2005) adlı kitabında edebiyat tarihine bakmanın üç soyut modelini —<b> grafikler, haritalar, ağaçlar </b>— aynı sırayla önermişti; biz aynı üçlüyü klasik metin geleneğine uyguluyoruz. Kitabın kavramsal çerçevesini toplayan derlemenin Türkçesi de var: <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a>, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021.</p>
+
   <div class="yenilik"><b>Peki yeni olan ne?</b> Soru değil, <b>ölçek ve hız</b>. A. J. Wensinck'in heyeti hadis lafızlarının dizinini yarım asırda tamamladı; Muhammed Fuâd Abdülbâkī Kur'ân-ı Kerîm mu'cemini yıllar süren bir emekle hazırladı. Bugün bir öğrenci, kendi seçtiği bir eserin benzer bir dizinini bir hafta sonunda çıkarabiliyor. Emek azalmadı; <b>yer değiştirdi</b>: dizin çıkarmaktan, çıkanı denetlemeye ve yorumlamaya geçti.</div>
 
   <p class="one" style="margin:24px auto 4px;font-size:.98rem"><b>Hangi sorulara cevap verir?</b> Solda klasik soru, sağda dijital ölçekte alacağı biçim:</p>
@@ -588,7 +591,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="mstep" style="text-align:left" id="uzakb">
     <div class="mno" style="background:var(--korpus)">a</div>
     <h3><span class="termtag">distant reading</span>Uzak okuma (İng. <i>distant reading</i>)</h3>
-    <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>yakın okuma</b> (İng. <i>close reading</i>) tek metnin ayrıntılı tahlilidir; ikisi rakip değil, tamamlayıcıdır."></div>
+    <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>yakın okuma</b> (İng. <i>close reading</i>) tek metnin ayrıntılı tahlilidir; ikisi rakip değil, tamamlayıcıdır. Kavramın kaynağı Türkçede de okunabilir: Franco Moretti, <a href='https://www.bilgiyay.com/kitap/uzak-okuma/' target='_blank' rel='noopener'>Uzak Okuma</a>, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021."></div>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Yakın okuma</button><button id="uz-uzak" aria-pressed="true">Uzak okuma</button></div>
     <div id="uz-body"></div>
     <details class="mdeep"><summary>Meraklısına: sayaç metni tam olarak nasıl sayıyor?</summary>
@@ -615,7 +618,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="fiiller"><span>أخذ عن</span><span>تفقه على</span><span>سمع من</span><span>قرأ على</span><span style="opacity:.65">روى عن — rivayet kenarı, ayrı tutulur</span></div>
       <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">Kural, delil şartımızın ağdaki hâlidir: <b>ibaresiz ok çizilmez</b> — her kenarın delili, kaynağından bir cümledir. (Kalıplar gerçek; örnek cümle temsilîdir.) Elle 6 âlimde yaptığımızı, Gephi binlerce âlimde yapar — kural aynı kalır.</p>
     </details>
-    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. <b>Şeybânî</b> ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendin çizersin (Kütüphane'de tarifi var).</p>
+    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. <b>Şeybânî</b> ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
   </div>
   <p class="one" style="margin:22px auto 6px;font-size:.98rem"><b>Sınırları baştan çizelim</b> — üç yaygın zan, üç cevap:</p>
   <div class="degildir">
@@ -624,7 +627,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="warncard"><b style="color:var(--rubric)">✗ Zan: "Sorarsın, cevabı verir."</b><b style="color:var(--korpus);margin-top:6px">✓ Aslı:</b> Cevap otomatı değildir; hızlandırdığı şey cevap değil, <b>delile giden yol</b>dur. Delilsiz hız, hatanın hızıdır.</div>
   </div>
   <p class="one" style="margin:18px auto 0">Sıradaki iki kavram kendi duraklarında: <b>CBS</b> (harita) ve <b>veri seti</b> ↓</p>
-  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🎓 Öğrenme rehberleri (<span data-lib="ogrenme"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=uzak">Kütüphanede "uzak okuma" ara</a></div>
+  <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🎓 Öğrenme rehberleri + Moretti kitapları (<span data-lib="ogrenme"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=uzak">Kütüphanede "uzak okuma" ara</a></div>
   <div class="btnrow"><a class="cta" href="#harita">Sıradaki kavram: CBS — harita ↓</a></div>
 </section>
 
@@ -1298,7 +1301,7 @@ else window.addEventListener("load", initMap, {once:true});
 })();
 
 /* ---------- KÜTÜPHANE KÖPRÜSÜ ---------- */
-const LIBSUM = {"ogrenme":2,"veri":14,"alet":15,"dergi":17,"emsal":15,"gozle":3};
+const LIBSUM = {"ogrenme":4,"veri":14,"alet":15,"dergi":17,"emsal":15,"gozle":3};
 (function(){
   if(LIBSUM) document.querySelectorAll("[data-lib]").forEach(el=>{ el.textContent=LIBSUM[el.dataset.lib] ?? ""; });
   const f=$("#vitrin-form");
@@ -2070,7 +2073,7 @@ function TERIM_SISTEMI(){
    {a:"veri seti",en:"dataset",v:["veri setleri","veri setine","veri setinden","veri setinin","veri setini"],k:"neşredilmiş defter",
     d:"Aynı alanlarla — yani aynı çekmece düzeniyle — tutulmuş kayıtların bütünü. Tablo, JSON dosyası veya veritabanı hâlinde saklanır; eser gibi sürüm numarası alır, arşivlenir ve kaynak gösterilir. Bir veri seti, üzerine makale yazılmasa dahi başlı başına yayın sayılabilir.",
     n:[[K+"#kayit","1d · Veri seti"],[KUTU+"#d2","Kütüphane: veri setleri"]],o:"EICD-B: Fütûhu'l-büldân'dan çıkarılmış 226 kayıt; her kayıtta şehir, hicrî yıl, fetih türü ve metinden alınmış delil cümlesi bulunur.",dk:"Alanları ve değer listesi yazılı olmayan bir tablo veri seti sayılmaz; şema, verinin kendisi kadar önemlidir.",il:["JSON","şemalı çıktı","veri makalesi","DOI"]},
-   {a:"uzak okuma",en:"distant reading",v:["uzak okumanın","uzak okumada","uzak okumayı"],k:"mu'cem ve fihrist usulü",
+   {a:"uzak okuma",en:"distant reading",v:["uzak okumanın","uzak okumada","uzak okumayı"],k:"mu'cem ve fihrist usulü",kaynak:"Franco Moretti, Uzak Okuma, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021 (özgün: Distant Reading, Verso, 2013); ayrıca Graphs, Maps, Trees, Verso, 2005.",
     d:"Metinleri tek tek okumak yerine, çok sayıda metni bir arada sayarak ve ölçerek incelemek. Franco Moretti'nin 2000 yılındaki adlandırmasıyla yaygınlaştı. Okumanın yerine geçmez; hangi metne, nereye bakılacağını tespit eder.",
     n:[[K+"#uzakb","1 · Temeller: canlı sayaç"]],o:"Fütûhu'l-büldân'ın Mısır bölümünde fetih kökü 7, anve 2 kez geçiyor; bu oran bölümün eğilimini tek satır okumadan gösterir.",dk:"Sayım tek başına yorum değildir: neyin sayıldığı (kök mü, birebir yazım mı) beyan edilmeden sonuç savunulamaz.",il:["yakın okuma","normalizasyon","korpus"]},
    {a:"yakın okuma",en:"close reading",v:["yakın okumanın","yakın okumayı"],k:"şerh ve tahlil geleneği",
@@ -2169,6 +2172,7 @@ function TERIM_SISTEMI(){
       var ch=x.il.map(function(a){ var j=IDX[a.toLocaleLowerCase("tr")]; return j==null?"":'<button class="krel" data-i="'+j+'">'+esc2(T[j].a)+'</button>'; }).join("");
       if(ch) h+='<div class="krow"><span>İlgili terimler:</span>'+ch+'</div>';
     }
+    if(x.kaynak) h+='<div class="kbox kkay"><b>Kavramın kaynağı</b>'+esc2(x.kaynak)+'</div>';
     if(x.n&&x.n.length) h+='<div class="tp-nerede">'+x.n.map(function(p){return '<a href="'+p[0]+'">'+esc2(p[1])+'</a>';}).join("")+'</div>';
     return h;
   }
