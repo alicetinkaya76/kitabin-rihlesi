@@ -43,7 +43,7 @@
 
 **PERDEDE (iki slayt):**
 1. **Beş istasyon şeridi** (tek slayt, beş kutu + altlarında EICD-B'nin gerçek adımı):
-   `1 MALZEME — elinde ne var?` → *Belâzürî, Fütûhu'l-Büldân (OpenITI'de makine-okur)*
+   `1 MALZEME — elinde ne var?` → *Belâzürî, Fütûhu'l-büldân (OpenITI'de makine-okur)*
    `2 SORU — sayılabilir bir soru kur` → *şehirler sulhan mı, anveten mi?*
    `3 VERİ — malzemeyi dolaba çevir` → *226 kayıt: şehir · yıl · tür · delil*
    `4 DENETİM — her delili kaynakla karşılaştır (MUKABELE)` → *%35 harfiyen · %57 imlâ farkıyla · %8 elendi*
@@ -51,7 +51,7 @@
 2. **"Soru makale yapar" slaytı:** Dört soru kalıbı tablosu: `SAYIM (ne, ne kadar?) · AĞ (kim kiminle?) · HARİTA (nerede?) · KARŞILAŞTIRMA (ne değişti?)` + alt satır: `Dördü de şekil üretir; şekil, makalenin çekirdeğidir.`
 
 **KONUŞMA:**
-> "Araştırmacının yolu beş istasyondur ve bu perdedeki örnek varsayım değil — yayımlanmış bir çalışmanın gerçek güzergâhı. Bir: **malzeme.** Elinizde ne var? Bir kitap, bir defter koleksiyonu, bir dergi arşivi. Bizim örnekte Belâzürî'nin Fütûhu'l-Büldân'ı — bin yüz yıllık kitap, bugün makine-okur halde. İki: **soru.** 'Bu kitap ne anlatıyor?' bir sohbet sorusudur; 'kaç şehir, hangi yolla, hangi yılda?' bir araştırma sorusudur. Sayılabilir soru kurmak, yolun en zor ve en kıymetli adımıdır. Üç: **veri.** Malzeme, az önce tanıdığınız dolaba çevrilir — iki yüz yirmi altı kayıt. Dört, işin kalbi: **denetim.** Her kaydın delili kaynakta tek tek arandı: yüzde otuz beşi harfiyen bulundu, yüzde elli yedisi imlâ farkıyla — hemze, tâ-i merbûta; yüzde sekizi bulunamadı ve **sonuçlara giremedi**. Bu karşılaştırmanın geleneğinizdeki adı **mukabele**dir — nüshayı nüshayla karşılaştıran müstensihin işi. Rivayet râvisi kadar sağlamdır; veri de delili kadar. Beş: **ürün.** Harita, grafik, makale — ve veri setinin kendisi, sürüm numarasıyla, alıntılanabilir halde. Peki veri ne zaman makaleye döner? Soru sorunca. Dört kalıp yeter: sayım, ağ, harita, karşılaştırma. Dördü de şekil üretir ve hakemin ilk baktığı şey çoğu zaman şekildir."
+> "Araştırmacının yolu beş istasyondur ve bu perdedeki örnek varsayım değil — yayımlanmış bir çalışmanın gerçek güzergâhı. Bir: **malzeme.** Elinizde ne var? Bir kitap, bir defter koleksiyonu, bir dergi arşivi. Bizim örnekte Belâzürî'nin Fütûhu'l-büldân'ı — bin yüz yıllık kitap, bugün makine-okur halde. İki: **soru.** 'Bu kitap ne anlatıyor?' bir sohbet sorusudur; 'kaç şehir, hangi yolla, hangi yılda?' bir araştırma sorusudur. Sayılabilir soru kurmak, yolun en zor ve en kıymetli adımıdır. Üç: **veri.** Malzeme, az önce tanıdığınız dolaba çevrilir — iki yüz yirmi altı kayıt. Dört, işin kalbi: **denetim.** Her kaydın delili kaynakta tek tek arandı: yüzde otuz beşi harfiyen bulundu, yüzde elli yedisi imlâ farkıyla — hemze, tâ-i merbûta; yüzde sekizi bulunamadı ve **sonuçlara giremedi**. Bu karşılaştırmanın geleneğinizdeki adı **mukabele**dir — nüshayı nüshayla karşılaştıran müstensihin işi. Rivayet râvisi kadar sağlamdır; veri de delili kadar. Beş: **ürün.** Harita, grafik, makale — ve veri setinin kendisi, sürüm numarasıyla, alıntılanabilir halde. Peki veri ne zaman makaleye döner? Soru sorunca. Dört kalıp yeter: sayım, ağ, harita, karşılaştırma. Dördü de şekil üretir ve hakemin ilk baktığı şey çoğu zaman şekildir."
 
 **CEP SLAYTI:** `MALZEME → SORU → VERİ → DENETİM (mukabele) → ÜRÜN — ve veri seti de bir yayındır.`
 **GEÇİŞ:** "Üçüncü istasyonda bir dönüşüm var: metin nasıl dolaba giriyor? Onu yapan makineyi tanımadan güvenmek olmaz. İçine giriyoruz."
@@ -170,4 +170,4 @@ Dijital İslami ilimler kuruluş aşamasında; en çok, İLAHİYAT BİLEN ele ih
 - [ ] QR yalnız B0 ve B6'da; kapanış karesi QR ile sabit biter
 - [ ] Sunum haftası: 101 bağlantı için "linkleri tazele" turu + üç canlı anın provası
 
-**Künye:** Gökalp & Çetinkaya (2026), *EICD-B*, Digital Scholarship in the Humanities, doi:10.1093/llc/fqag093 (açık erişim) · Belâzürî, Fütûhu'l-Büldân, de Goeje neşri (Leiden 1866) · OpenITI 2025.1.9 · islamicatlas.org Seyahatnâme Katmanı v1.0.0 · Site: alicetinkaya76.github.io/kitabin-rihlesi
+**Künye:** Gökalp & Çetinkaya (2026), *EICD-B*, Digital Scholarship in the Humanities, doi:10.1093/llc/fqag093 (açık erişim) · Belâzürî, Fütûhu'l-büldân, de Goeje neşri (Leiden 1866) · OpenITI 2025.1.9 · islamicatlas.org Seyahatnâme Katmanı v1.0.0 · Site: alicetinkaya76.github.io/kitabin-rihlesi
