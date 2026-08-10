@@ -410,13 +410,48 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .fiil{display:inline-flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:var(--sans);font-weight:700;letter-spacing:.05em;font-size:.9rem;background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:10px;margin:16px 0}
 footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sans);font-size:.78rem;color:var(--muted)}
 .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--card);padding:8px 14px;z-index:2000;border-radius:8px}
+
+/* ---------- terim paneli ---------- */
+.terim{all:unset;cursor:help;border-bottom:1.5px dotted var(--insan);color:inherit;font:inherit;padding-bottom:.5px}
+.terim:hover{background:var(--insan-soft);border-radius:3px}
+.terim:focus-visible{outline:2px solid var(--insan);outline-offset:2px;border-radius:3px}
+.terim::after{content:"ⓘ";font-size:.62em;color:var(--insan);vertical-align:super;margin-left:1px;font-family:var(--sans)}
+#tpanel{position:fixed;top:0;right:0;width:min(420px,92vw);height:100dvh;background:var(--card);border-left:1px solid var(--line);box-shadow:-14px 0 44px -20px rgba(0,0,0,.45);z-index:3000;transform:translateX(101%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;font-family:var(--sans)}
+#tpanel.open{transform:none}
+@media (prefers-reduced-motion:reduce){#tpanel{transition:none}}
+@media (max-width:640px){#tpanel{width:100vw;height:82dvh;top:auto;bottom:0;border-left:none;border-top:1px solid var(--line);border-radius:18px 18px 0 0;transform:translateY(101%)}#tpanel.open{transform:none}}
+#tpanel .tp-head{display:flex;align-items:center;gap:10px;padding:16px 18px 10px;border-bottom:1px solid var(--line)}
+#tpanel .tp-head b{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rubric)}
+#tpanel .tp-close{all:unset;margin-left:auto;cursor:pointer;font-size:1.2rem;line-height:1;padding:4px 8px;border-radius:8px;color:var(--muted)}
+#tpanel .tp-close:hover{background:var(--chip)}
+#tpanel .tp-search{padding:10px 18px 0}
+#tpanel .tp-search input{width:100%;font-family:var(--sans);font-size:.88rem;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink)}
+#tpanel .tp-search input:focus{border-color:var(--insan);outline:none}
+#tpanel .tp-body{overflow-y:auto;padding:14px 18px 26px;flex:1}
+.tp-card{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--insan);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.tp-card h3{font-family:var(--serif);font-size:1.22rem;margin:0 0 2px}
+.tp-card .en{font-size:.78rem;color:var(--muted);font-style:italic;display:block;margin-bottom:8px}
+.tp-card p{font-size:.9rem;line-height:1.6;margin:0}
+.tp-kadim{background:var(--korpus-soft);border-radius:9px;padding:9px 12px;margin-top:10px;font-size:.84rem}
+.tp-kadim b{display:block;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:2px}
+.tp-nerede{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tp-nerede a{font-size:.74rem;border:1px dashed var(--line);border-radius:999px;padding:4px 11px;text-decoration:none;color:var(--insan);background:var(--card)}
+.tp-list{list-style:none;padding:0;margin:6px 0 0}
+.tp-list li{border-bottom:1px solid var(--line)}
+.tp-list button{all:unset;display:block;width:100%;padding:9px 4px;cursor:pointer;font-size:.88rem}
+.tp-list button:hover{background:var(--chip)}
+.tp-list .le{color:var(--muted);font-size:.74rem;font-style:italic;margin-left:6px}
+.tp-listhead{font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:16px 0 2px}
+#tp-backdrop{position:fixed;inset:0;background:rgba(15,17,22,.34);z-index:2999;opacity:0;pointer-events:none;transition:opacity .3s}
+#tp-backdrop.open{opacity:1;pointer-events:auto}
+.tp-open-btn{font-family:var(--sans);font-size:.8rem;font-weight:700;background:var(--insan-soft);color:var(--insan)!important;border-radius:999px;padding:6px 13px;text-decoration:none}
 </style>
 
 <a class="skip" href="#tanis">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
   <a href="#tanis">1 Temeller</a><a href="#arastirmaci">2 Yol</a><a href="#makine">3 Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">4 Dene</a><a href="#ilham">5 Makale</a>
-  <a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
+  <a class="tp-open-btn" href="#" role="button">📖 Terimler</a><a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a>
 </div></nav>
 
 <div class="dots" id="dots" aria-hidden="true">
@@ -1925,4 +1960,200 @@ function drawWizMap(rows){
     setTimeout(sweep,1500);
   }
 })();
+
+/* ================= TERİMLER SÖZLÜĞÜ ================= */
+function TERIM_SISTEMI(){
+  var K="https://alicetinkaya76.github.io/kitabin-rihlesi/";
+  var KUTU=K+"kutuphane.html";
+  var T=[
+   {a:"korpus",en:"corpus",v:["korpusu","korpusta","korpustan","korpusun","korpuslar"],k:"kütüphane ve kataloğu",
+    d:"Bilgisayarın bütün hâlinde işleyebileceği biçimde toplanmış, düzenli metin bütünü. Akademik kullanımda korpusun sürüm numarası ve kaynak bilgisi bulunur; bu, hangi metnin kullanıldığının sonradan da doğrulanabilmesi içindir.",
+    n:[[K+"#tanis","1 · Temeller"],[KUTU+"#d1","Kütüphane: korpus rafı"]]},
+   {a:"veri seti",en:"dataset",v:["veri setleri","veri setine","veri setinden","veri setinin","veri setini"],k:"neşredilmiş defter",
+    d:"Aynı alanlarla — yani aynı çekmece düzeniyle — tutulmuş kayıtların bütünü. Tablo, JSON dosyası veya veritabanı hâlinde saklanır; eser gibi sürüm numarası alır, arşivlenir ve kaynak gösterilir. Bir veri seti, üzerine makale yazılmasa dahi başlı başına yayın sayılabilir.",
+    n:[[K+"#kayit","1d · Veri seti"],[KUTU+"#d2","Kütüphane: veri setleri"]]},
+   {a:"uzak okuma",en:"distant reading",v:["uzak okumanın","uzak okumada","uzak okumayı"],k:"mu'cem ve fihrist usulü",
+    d:"Metinleri tek tek okumak yerine, çok sayıda metni bir arada sayarak ve ölçerek incelemek. Franco Moretti'nin 2000 yılındaki adlandırmasıyla yaygınlaştı. Okumanın yerine geçmez; hangi metne, nereye bakılacağını tespit eder.",
+    n:[[K+"#uzakb","1 · Temeller: canlı sayaç"]]},
+   {a:"yakın okuma",en:"close reading",v:["yakın okumanın","yakın okumayı"],k:"şerh ve tahlil geleneği",
+    d:"Tek bir metnin ayrıntılı, bağlamına dikkat eden tahlili. Uzak okumanın rakibi değil, tamamlayıcısıdır: sayım nereye bakılacağını, yakın okuma orada ne olduğunu söyler.",
+    n:[[K+"#uzakb","1 · Temeller"]]},
+   {a:"ağ analizi",en:"network analysis",v:["ağ analizinin","ağ analizini"],k:"tabakat ve isnad tasnifi",
+    d:"Kişiler, eserler veya kurumlar arasındaki ilişkileri düğüm (nokta) ve kenar (bağlantı) olarak modelleyip ölçen yöntem. Bir kişinin derecesi kaç bağlantısı olduğunu, aradalığı kaç ilişki yolunun onun üzerinden geçtiğini gösterir.",
+    n:[[K+"#netb","1 · Temeller: imamlar ağı"]]},
+   {a:"CBS",en:"GIS — Geographic Information System",v:[],k:"memâlik ve mesâlik literatürü",
+    d:"Coğrafî Bilgi Sistemi: mekâna bağlı verileri (koordinat, güzergâh, sınır) saklayan, sorgulayan ve haritaya döken sistem. Metindeki yer adı koordinata bağlandığında eser haritalanabilir hâle gelir.",
+    n:[[K+"#harita","1c · CBS durağı"]]},
+   {a:"gazetteer",en:"historical gazetteer",v:["gazetteer'i","gazetteer'in","gazetteer'ler"],k:"mu'cemü'l-büldân",
+    d:"Tarihî yer adlarını koordinatlarıyla eşleştiren coğrafya sözlüğü. Modern harita servisleri Tuleytula, Rey veya Merv gibi adları tanımadığından, tarihî çalışmalarda bu sözlükler kullanılır. Örnek: el-Süreyyâ.",
+    n:[[KUTU+"#q=gazetteer","Kütüphane: gazetteer araması"]]},
+   {a:"JSON",en:"JavaScript Object Notation",v:[],k:"etiketli çekmeceli dolap",
+    d:"\"etiket\": değer çiftleriyle yazılan veri biçimi. Düz metindir; not defterinde açılır, özel program gerektirmez. Hem insan hem makine okuyabildiği için veri setlerinin en yaygın biçimidir.",
+    n:[[K+"#kayit","1d · Veri seti"],[K+"#dene","4 · Sıra sende"]]},
+   {a:"CSV",en:"Comma-Separated Values",v:[],k:"cetvel",
+    d:"Tablo satırlarını düz metin olarak saklayan biçim; Excel ve Google E-Tablolar'da doğrudan açılır. Veri setleri çoğu zaman aynı anda hem JSON hem CSV olarak yayımlanır.",
+    n:[[KUTU+"#tezgah","Kütüphane: Tezgâh (CSV indirme)"]]},
+   {a:"mARkdown",en:"OpenITI mARkdown",v:[".mARkdown"],k:"işaretli nüsha",
+    d:"OpenITI'nin klasik metinler için kullandığı düz metin biçimi. Bölüm başlığı ### | işaretiyle, satır devamı ~~ ile, matbu neşrin cilt ve sayfa numarası PageV05P022 biçimiyle gösterilir.",
+    n:[[KUTU+"#d1","Kütüphane: OpenITI rafı"]]},
+   {a:"metadata",en:"metadata",v:["metadatası","künye verisi"],k:"zahriye kaydı ve fihrist künyesi",
+    d:"Bir eserin kendisi değil, hakkındaki bilgi: müellif, eser adı, telif tarihi, nüsha, neşir. Kataloglar bu bilgiyle kurulur; eser kaybolsa dahi künyesi ilmî hafızada kalır.",
+    n:[[K+"#tanis","1 · Temeller: el-Fihrist"]]},
+   {a:"provenans",en:"provenance",v:["provenansı"],k:"sened",
+    d:"Bir verinin nereden geldiğini gösteren zincir: hangi eser, hangi neşir, hangi dijital sürüm, hangi veri seti. Zincir kopmuşsa sayılar sonradan yeniden üretilemez.",
+    n:[[K+"#kayit","1d · Sened çekmecesi"]]},
+   {a:"mukabele",en:"collation / verification",v:["mukabelesi","mukabeleyi","mukabeleye"],k:"nüsha karşılaştırma",
+    d:"Metnin bir başka nüshayla harf harf karşılaştırılması. Bu sitede aynı usul, modelin ürettiği her kaydın delilinin kaynak metinde aranması anlamında kullanılır: bulunamayan kayıt sonuç dışı bırakılır.",
+    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]]},
+   {a:"tokenization",en:"tokenization",v:["token","tokenlara","parçalama"],k:"hece ve kök tahlili",
+    d:"Metnin, modelin işleyebileceği küçük parçalara (token) ayrılması ve her parçanın bir numaraya karşılık gelmesi. Model harf ya da kelime değil, bu numaraları görür; Arapça metinler İngilizceye göre daha çok parçaya bölünür.",
+    n:[[K+"#makine","3 · Makinenin içi, 1. adım"]]},
+   {a:"embedding",en:"embedding",v:["embeddingler","anlam vektörü"],k:"anlam yakınlığı",
+    d:"Her parçanın, sayılardan oluşan bir liste (vektör) hâlinde temsil edilmesi. Anlamca yakın kelimeler bu sayı uzayında birbirine yakın düşer; yakınlık kosinüs benzerliğiyle ölçülür.",
+    n:[[K+"#makine","3 · Makinenin içi, 2. adım"]]},
+   {a:"attention",en:"attention",v:["dikkat mekanizması"],k:"siyak ve sibak",
+    d:"Modelin, yazacağı her kelimede pasajın tamamını tartması; hangi kelimelerin o an ağır bastığını belirleyen mekanizma. Bir katmanda çok sayıda \"kafa\" aynı cümleye farklı açılardan bakar.",
+    n:[[K+"#makine","3 · Makinenin içi, 3. adım"]]},
+   {a:"softmax",en:"softmax",v:[],k:"tercih tayini",
+    d:"Adayların ham puanlarını toplamı bire eşit olasılıklara çeviren hesap. Modelin \"sıradaki kelime\" yarışı bu hesapla sonuçlanır; sıcaklık değeri bu dağılımı yayar ya da sivriltir.",
+    n:[[K+"#makine","3 · Makinenin içi, 4. adım"]]},
+   {a:"sıcaklık",en:"temperature",v:["sıcaklığı","sıcaklık değeri"],k:"tereddüt payı",
+    d:"Modelin ne kadar \"sürprizli\" davranacağını belirleyen ayar. Düşük değerde daima en olası kelime seçilir; yüksek değerde daha az olası seçenekler de şans bulur. Aynı soruya farklı zamanlarda farklı cevap gelmesinin sebebi budur.",
+    n:[[K+"#deep","Çekirdeğe iniş · Kat 3"]]},
+   {a:"halüsinasyon",en:"hallucination",v:["halüsinasyonu"],k:"vehim",
+    d:"Modelin, kaynağı olmayan bir bilgiyi kendinden emin biçimde üretmesi. Arıza değil, yöntemin yapısal riskidir: model doğruluk değil olabilirlik üretir. Panzehiri delil şartı ve denetimdir.",
+    n:[[K+"#tanis","1 · Temeller"],[K+"#dene","4 · Sıra sende"]]},
+   {a:"prompt",en:"prompt",v:["promptu","talimat metni"],k:"suâlin edebi",
+    d:"Modele verilen talimat metni. İyi bir talimatta bağlam, görev, kaynak sınırı, çıktı ölçütü ve çekimser kalma izni bulunur; bu beş unsur, cevabın niteliğini doğrudan belirler.",
+    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]]},
+   {a:"şemalı çıktı",en:"constrained decoding",v:["kapalı liste","şemalı çıktının"],k:"kapalı sözlükle tasnif",
+    d:"Modelin cevabının önceden belirlenmiş bir kalıba (alanlar, kapalı değer listesi, zorunlu delil) uymaya zorlanması. Serbest metin sayılamaz; kapalı liste hem sayımı hem tartışmayı disipline eder.",
+    n:[[K+"#makine","3 · Makinenin içi, 5. adım"]]},
+   {a:"büyük dil modeli",en:"LLM — Large Language Model",v:["dil modeli","dil modelleri","LLM"],k:"—",
+    d:"Çok büyük metin yığınları üzerinde \"sıradaki kelimeyi tahmin et\" hedefiyle eğitilmiş model. Sohbet asistanlarının çekirdeğidir; üzerine insan beğenisiyle ince ayar ve dış kaynak bağlantıları eklenir.",
+    n:[[K+"#makine","3 · Makinenin içi"]]},
+   {a:"MCP",en:"Model Context Protocol",v:[],k:"kütüphaneye çıkma izni",
+    d:"Sohbet modelinin dış kaynaklara — YÖK Ulusal Tez Merkezi, DergiPark, kütüphane katalogları gibi — standart ve denetlenebilir biçimde bağlanmasını sağlayan açık protokol. Model cevabını ezberinden değil, bağlandığı kaynaktan dönen kayıtlardan verir; hangi sorgunun çalıştığı görülebilir. Delil yükünü kaldırmaz; künye yine kaynağında teyit edilir.",
+    n:[[K+"#makine","3 · Makinenin içi: harici katman"]]},
+   {a:"OCR",en:"Optical Character Recognition",v:["OCR'ı"],k:"istinsah",
+    d:"Basılı sayfanın görüntüsünden metni çıkarma teknolojisi. El yazması için kullanılan biçimine HTR (Handwritten Text Recognition) denir; Osmanlıca ve Arapça için özel modeller gerekir ve hata payı elle denetlenmelidir.",
+    n:[[KUTU+"#d3","Kütüphane: Transkribus"]]},
+   {a:"DOI",en:"Digital Object Identifier",v:["DOI'si","DOI'li"],k:"kalıcı künye numarası",
+    d:"Bir makaleye veya veri setine verilen kalıcı tanımlayıcı. Adres değişse dahi DOI aynı esere gider; bu yüzden atıf verilebilirliğin şartı sayılır. Veri setleri Zenodo gibi depolara konularak DOI alır.",
+    n:[[KUTU+"#d4","Kütüphane: akademik altyapı"]]},
+   {a:"açık erişim",en:"open access",v:["açık erişimli"],k:"vakıf kitaplığı",
+    d:"Yayının ücretsiz ve engelsiz okunabilmesi. Bazı dergilerde yazardan işlem ücreti (APC) istenebilir; öğrenciler için ücretsiz ve açık erişimli dergileri tercih etmek yaygın bir yoldur.",
+    n:[[KUTU+"#d4","Kütüphane: dergiler"]]},
+   {a:"veri makalesi",en:"data paper",v:["veri makaleleri"],k:"neşir mukaddimesi",
+    d:"Bir veri setinin nasıl derlendiğini, hangi ölçütlerle denetlendiğini ve nasıl kullanılabileceğini anlatan kısa hakemli makale türü. İddia yerine kaynağı sunar; genç araştırmacılar için en ulaşılabilir ilk yayın kapılarından biridir.",
+    n:[[K+"#ilham","5 · İlk makalene giden yol"],[KUTU+"#dergisec","Kütüphane: dergi seçici"]]},
+   {a:"normalizasyon",en:"normalization",v:["normalizasyonu","normalize"],k:"imlâ birleştirme",
+    d:"Aynı kelimenin farklı yazımlarını tek biçime indirgeme işlemi: harekelerin düşürülmesi, tâ-i merbûta ile he'nin, hemzeli eliflerin birleştirilmesi. Sayım ve arama sonuçları bu işleme bağlıdır; hangi kuralın uygulandığı beyan edilmelidir.",
+    n:[[K+"#uzakb","1 · Temeller: sayacın içi"]]},
+   {a:"metin yeniden kullanımı",en:"text reuse",v:["metin yeniden kullanımının"],k:"iktibas ve nakil",
+    d:"Bir eserin başka bir eserden aldığı pasajların bilgisayarla tespit edilmesi. Klasik literatürde nakil zincirlerinin ölçülmesini sağlar; KITAB projesi bu alanda çalışır.",
+    n:[[KUTU+"#d2","Kütüphane: KITAB verisi"]]},
+   {a:"prosopografi",en:"prosopography",v:["prosopografik"],k:"tabakat ve terâcim",
+    d:"Bir topluluğa mensup kişilerin ortak özelliklerinin (hoca, memuriyet, doğum yeri, vefat yılı) sistemli biçimde toplanıp karşılaştırılması. Tabakat literatürünün yaptığı işin sayısal hâlidir.",
+    n:[[KUTU+"#d2","Kütüphane: prosopografi verileri"]]}
+  ];
+  var IDX={}; T.forEach(function(x,i){ IDX[x.a.toLocaleLowerCase("tr")]=i; });
+  var panel=document.getElementById("tpanel"), backdrop=document.getElementById("tp-backdrop"),
+      body=document.getElementById("tp-body"), q=document.getElementById("tp-q");
+  if(!panel) return;
+  function esc2(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+  function liste(filtre){
+    var f=(filtre||"").toLocaleLowerCase("tr");
+    var arr=T.map(function(x,i){return {x:x,i:i};}).filter(function(o){
+      return !f || o.x.a.toLocaleLowerCase("tr").indexOf(f)>=0 || (o.x.en||"").toLowerCase().indexOf(f)>=0 || (o.x.d||"").toLocaleLowerCase("tr").indexOf(f)>=0;
+    });
+    if(!arr.length) return '<p style="font-size:.86rem;color:var(--muted)">Bu terim listede yok. Kütüphane\'de aramayı deneyin.</p>';
+    return '<div class="tp-listhead">'+(f?arr.length+" sonuç":"Tüm terimler ("+T.length+")")+'</div><ul class="tp-list">'
+      + arr.map(function(o){ return '<li><button data-i="'+o.i+'">'+esc2(o.x.a)+'<span class="le">'+esc2(o.x.en)+'</span></button></li>'; }).join("")
+      + '</ul>';
+  }
+  function goster(i, filtre){
+    var h="";
+    if(i!=null && T[i]){
+      var x=T[i];
+      h+='<div class="tp-card"><h3>'+esc2(x.a)+'</h3><span class="en">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>';
+      if(x.k && x.k!=="—") h+='<div class="tp-kadim"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>';
+      if(x.n && x.n.length) h+='<div class="tp-nerede">'+x.n.map(function(p){return '<a href="'+p[0]+'">'+esc2(p[1])+'</a>';}).join("")+'</div>';
+      h+='</div>';
+    }
+    body.innerHTML=h+liste(filtre);
+  }
+  var sonI=null;
+  function ac(i){ sonI=(i==null?sonI:i); goster(sonI, q.value); panel.classList.add("open"); backdrop.classList.add("open"); panel.setAttribute("aria-hidden","false"); }
+  function kapat(){ panel.classList.remove("open"); backdrop.classList.remove("open"); panel.setAttribute("aria-hidden","true"); }
+  document.getElementById("tp-close").addEventListener("click",kapat);
+  backdrop.addEventListener("click",kapat);
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && panel.classList.contains("open")) kapat(); });
+  q.addEventListener("input",function(){ goster(null,q.value); });
+  body.addEventListener("click",function(e){
+    var b=e.target.closest("button[data-i]"); if(!b) return;
+    sonI=+b.dataset.i; goster(sonI,""); q.value=""; body.scrollTop=0;
+  });
+  document.addEventListener("click",function(e){
+    var t=e.target.closest(".terim"); if(!t) return;
+    e.preventDefault(); ac(+t.dataset.i);
+  });
+  var navBtn=document.querySelector(".nav .tp-open-btn");
+  if(navBtn) navBtn.addEventListener("click",function(e){ e.preventDefault(); q.value=""; ac(sonI==null?0:sonI); });
+
+  /* --- metinde terim işaretleme --- */
+  var SKIP={SCRIPT:1,STYLE:1,A:1,BUTTON:1,CODE:1,PRE:1,INPUT:1,TEXTAREA:1,OPTION:1,SUMMARY:1,H1:1,SVG:1,TEXT:1};
+  var sayac={};
+  function isHarf(ch){ return ch && /[0-9A-Za-zÇĞİÎÖŞÜçğıîöşüâûÂÛ'’]/.test(ch); }
+  function isaretle(root){
+    var walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode:function(n){
+      if(!n.nodeValue || n.nodeValue.length<3) return NodeFilter.FILTER_REJECT;
+      var p=n.parentNode;
+      while(p && p!==root){
+        if(SKIP[p.nodeName]) return NodeFilter.FILTER_REJECT;
+        if(p.classList && (p.classList.contains("ar")||p.classList.contains("terim")||p.classList.contains("termtag")||p.classList.contains("tok"))) return NodeFilter.FILTER_REJECT;
+        p=p.parentNode;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var nodes=[], n;
+    while((n=walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var txt=node.nodeValue, best=null;
+      for(var i=0;i<T.length;i++){
+        if((sayac[i]||0)>=2) continue;
+        var adaylar=[T[i].a].concat(T[i].v||[]);
+        adaylar.sort(function(a,b){return b.length-a.length;});
+        for(var j=0;j<adaylar.length;j++){
+          var kelime=adaylar[j], pos=txt.toLocaleLowerCase("tr").indexOf(kelime.toLocaleLowerCase("tr"));
+          if(pos<0) continue;
+          if(isHarf(txt[pos-1])||isHarf(txt[pos+kelime.length])) continue;
+          if(!best || pos<best.pos) best={pos:pos,len:kelime.length,i:i};
+          break;
+        }
+      }
+      if(!best) return;
+      sayac[best.i]=(sayac[best.i]||0)+1;
+      var after=node.splitText(best.pos);
+      var rest=after.splitText(best.len);
+      var btn=document.createElement("button");
+      btn.className="terim"; btn.type="button"; btn.dataset.i=best.i;
+      btn.setAttribute("aria-label", after.nodeValue+" — terim açıklaması");
+      btn.title=T[best.i].a+" ("+T[best.i].en+") — tıklayın";
+      btn.textContent=after.nodeValue;
+      after.parentNode.replaceChild(btn, after);
+    });
+  }
+  var alan=document.querySelector("main")||document.body;
+  try{ isaretle(alan); }catch(err){ console.warn("terim işaretleme:",err); }
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",TERIM_SISTEMI,{once:true});
+else TERIM_SISTEMI();
 </script>
+
+<div id="tp-backdrop"></div>
+<aside id="tpanel" role="dialog" aria-modal="false" aria-labelledby="tp-title" aria-hidden="true">
+  <div class="tp-head"><b id="tp-title">Terimler sözlüğü</b><button class="tp-close" id="tp-close" aria-label="Paneli kapat">✕</button></div>
+  <div class="tp-search"><input id="tp-q" type="search" placeholder="Terim ara: korpus, JSON, mukabele…" aria-label="Terim ara"></div>
+  <div class="tp-body" id="tp-body"></div>
+</aside>
