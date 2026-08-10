@@ -445,6 +445,34 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 #tp-backdrop{position:fixed;inset:0;background:rgba(15,17,22,.34);z-index:2999;opacity:0;pointer-events:none;transition:opacity .3s}
 #tp-backdrop.open{opacity:1;pointer-events:auto}
 .tp-open-btn{font-family:var(--sans);font-size:.8rem;font-weight:700;background:var(--insan-soft);color:var(--insan)!important;border-radius:999px;padding:6px 13px;text-decoration:none}
+
+/* ---------- yerinde tanım: baloncuk · künye kartı · durak şeridi ---------- */
+.tpop{position:fixed;z-index:3100;width:min(340px,90vw);background:var(--card);border:1px solid var(--line);border-top:4px solid var(--insan);border-radius:14px;box-shadow:0 18px 46px -18px rgba(0,0,0,.45);padding:14px 16px;font-family:var(--sans);display:none}
+.tpop.open{display:block;animation:tpopin .18s ease}
+@keyframes tpopin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tpop.open{animation:none}}
+.tpop h4{font-family:var(--serif);font-size:1.1rem;margin:0}
+.tpop .pen{font-size:.74rem;color:var(--muted);font-style:italic;display:block;margin:1px 0 7px}
+.tpop p{font-size:.84rem;line-height:1.55;margin:0}
+.tpop .pk{background:var(--korpus-soft);border-radius:8px;padding:7px 10px;margin-top:8px;font-size:.78rem}
+.tpop .pk b{display:block;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus)}
+.tpop .prow{display:flex;gap:8px;align-items:center;margin-top:10px}
+.tpop .pmore{all:unset;cursor:pointer;font-size:.76rem;font-weight:700;color:var(--insan);border-bottom:1px solid var(--insan)}
+.tpop .pclose{all:unset;cursor:pointer;margin-left:auto;color:var(--muted);font-size:1rem;padding:2px 6px;border-radius:6px}
+.tpop .pclose:hover{background:var(--chip)}
+.kavramkart{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--insan);border-radius:12px;padding:14px 16px;margin:0 0 12px;text-align:left;box-shadow:var(--shadow)}
+.kavramkart .kk-lab{font-family:var(--sans);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--insan);font-weight:800}
+.kavramkart h4{font-family:var(--serif);font-size:1.3rem;margin:2px 0 0}
+.kavramkart .kk-en{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-style:italic;display:block;margin-bottom:8px}
+.kavramkart p{font-family:var(--sans);font-size:.88rem;line-height:1.6;margin:0}
+.kavramkart .kk-kadim{background:var(--korpus-soft);border-radius:9px;padding:8px 12px;margin-top:9px;font-family:var(--sans);font-size:.82rem}
+.kavramkart .kk-kadim b{display:block;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:1px}
+.kavramkart .kk-more{all:unset;cursor:pointer;font-family:var(--sans);font-size:.76rem;font-weight:700;color:var(--insan);margin-top:9px;display:inline-block;border-bottom:1px solid var(--insan)}
+.kavramkart .kk-ek{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px;display:block}
+.terimserit{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center;max-width:720px;margin:16px auto 0;font-family:var(--sans);font-size:.76rem;color:var(--muted)}
+.terimserit button{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:5px 12px;font-weight:600}
+.terimserit button:hover{background:var(--insan);color:#fff}
+.terimserit button:focus-visible{outline:2px solid var(--insan);outline-offset:2px}
 </style>
 
 <a class="skip" href="#tanis">İçeriğe atla</a>
@@ -490,7 +518,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="mstep" style="text-align:left" id="uzakb">
     <div class="mno" style="background:var(--korpus)">a</div>
     <h3><span class="termtag">distant reading</span>Uzak okuma (İng. <i>distant reading</i>)</h3>
-    <p class="mwhy" style="margin:0 0 8px"><b>Nedir?</b> Metinleri tek tek okumak yerine, çok sayıda metni bir arada sayarak, ölçerek ve karşılaştırarak incelemek. Terim, edebiyat araştırmacısı Franco Moretti'nin 2000 yılında yaptığı adlandırmayla yaygınlaştı. Amaç okumanın yerine geçmek değil; <b>hangi metne, nereye bakılacağını</b> tespit etmektir. Karşıtı sayılan <i>yakın okuma</i> (İng. <i>close reading</i>), tek metnin ayrıntılı tahlilidir.</p>
+    <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>yakın okuma</b> (İng. <i>close reading</i>) tek metnin ayrıntılı tahlilidir; ikisi rakip değil, tamamlayıcıdır."></div>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Yakın okuma</button><button id="uz-uzak" aria-pressed="true">Uzak okuma</button></div>
     <div id="uz-body"></div>
     <details class="mdeep"><summary>Meraklısına: sayaç metni tam olarak nasıl sayıyor?</summary>
@@ -508,7 +536,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="mstep" style="text-align:left" id="netb">
     <div class="mno" style="background:var(--korpus)">b</div>
     <h3><span class="termtag">network analysis</span>Ağ analizi (İng. <i>network analysis</i>)</h3>
-    <p class="mwhy" style="margin:0 0 8px"><b>Nedir?</b> Kişiler, eserler veya kurumlar arasındaki ilişkileri <b>düğüm</b> (nokta) ve <b>kenar</b> (bağlantı çizgisi) olarak modelleyip ölçen yöntem. "Kim kimden okudu", "hangi râvi ortak halka" gibi sorular böylece sayılabilir hâle gelir: bir kişinin <i>derecesi</i> kaç bağlantısı olduğunu, <i>aradalığı</i> kaç ilişki yolunun onun üzerinden geçtiğini gösterir. Aşağıda tabakat kaynaklarındaki hoca-talebe bağlarıyla kurulmuş bir örnek var.</p>
+    <div data-terim="ağ analizi" data-ek="Aşağıdaki örnek, tabakat kaynaklarındaki hoca-talebe bağlarıyla kurulmuştur."></div>
     <div class="embwrap"><div id="netmini"></div></div>
     <div id="netinfo"></div>
     <details class="mdeep"><summary>Meraklısına: bir ok nasıl doğar?</summary>
@@ -534,7 +562,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="harita">
   <div class="kicker">1c · Kavram: CBS</div>
   <h2>Koordinat verilince kitap haritaya döner</h2>
-  <p class="one" style="margin-bottom:6px"><b>CBS</b> — Coğrafî Bilgi Sistemi (İng. <i>GIS, Geographic Information System</i>): mekâna bağlı verileri (koordinat, güzergâh, sınır) saklayan, sorgulayan ve haritaya döken sistem. Metinde geçen yer adı bir koordinata bağlandığında eser haritalanabilir hâle gelir; tarihî yer adları için modern harita servisleri değil, <i>tarihî coğrafya sözlükleri</i> (gazetteer) kullanılır.</p>
+  <div data-terim="CBS" data-ek="Tarihî yer adları için modern harita servisleri değil, tarihî coğrafya sözlükleri (gazetteer) kullanılır." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
   <p class="one">Örnek katman: İbn Battûta'nın (ö. 770/1368-69) <i>Tuhfetü'n-nüzzâr</i> adlı seyahatnâmesinin (er-Rihle) islamicatlas.org'daki verisi — 317 koordinatlı durak; veri setinde her durak eserdeki cümlesine bağlıdır. Beyaz halkalı 8 vitrin durağına dokunun: delil pasajı açılır.</p>
   <div class="mapshell" style="margin-top:18px">
     <div id="gmap" role="application" aria-label="İbn Battûta'nın yolculuk haritası"></div>
@@ -567,7 +595,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene dresser-scene wrap" id="kayit">
   <div class="kicker">1d · Kavram: Veri seti</div>
   <h2>Veri seti: etiketli çekmeceli dolap</h2>
-  <p class="one" style="margin:0 auto 10px"><b>Veri seti</b> (İng. <i>dataset</i>): aynı alanlarla — yani aynı çekmece düzeniyle — tutulmuş kayıtların bütünü. Tablo, JSON dosyası veya veritabanı hâlinde saklanır; tıpkı bir eser gibi sürüm numarası alır, arşivlenir ve kaynak gösterilir.</p>
+  <div data-terim="veri seti" data-ek="Aşağıdaki dolap, yayımlanmış bir veri setinden alınmış gerçek bir kaydın çekmeceleridir." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
   <p class="one" style="margin:0 auto 16px">Yayımlanmış EICD-B veri setinden <b>gerçek bir kayıt</b> (EICD-B: Belâzürî'nin fetih kayıtlarından derlenen veri seti — 2. durakta yakından tanıyacaksın). Çekmeceleri aç; en kıymetlisi DELİL çekmecesi.</p>
   <div class="dresser" id="dresser"></div>
   <div class="machine-toggle" role="group" aria-label="Görünüm">
@@ -2096,10 +2124,89 @@ function TERIM_SISTEMI(){
   });
   document.addEventListener("click",function(e){
     var t=e.target.closest(".terim"); if(!t) return;
-    e.preventDefault(); ac(+t.dataset.i);
+    e.preventDefault(); popAc(t, +t.dataset.i);
   });
   var navBtn=document.querySelector(".nav .tp-open-btn");
   if(navBtn) navBtn.addEventListener("click",function(e){ e.preventDefault(); q.value=""; ac(sonI==null?0:sonI); });
+
+
+  /* ---------- yerinde tanım baloncuğu ---------- */
+  var pop=document.createElement("div"); pop.className="tpop"; pop.setAttribute("role","dialog");
+  document.body.appendChild(pop);
+  var popAcik=false;
+  function popKapat(){ pop.classList.remove("open"); popAcik=false; }
+  var scrollYoksay=false;
+  function popYerlestir(btn,i){
+    var x=T[i];
+    pop.innerHTML='<h4>'+esc2(x.a)+'</h4><span class="pen">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>'
+      +((x.k&&x.k!=="—")?'<div class="pk"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>':'')
+      +'<div class="prow"><button class="pmore" data-i="'+i+'">Tam kayıt · nerede geçiyor →</button><button class="pclose" aria-label="Kapat">✕</button></div>';
+    pop.classList.add("open"); popAcik=true;
+    var r=btn.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight;
+    var left=Math.min(Math.max(10, r.left+r.width/2-pw/2), Math.max(10, innerWidth-pw-10));
+    var top=(r.bottom+ph+14<innerHeight)? r.bottom+8 : (r.top-ph-8);
+    top=Math.min(Math.max(10, top), Math.max(10, innerHeight-ph-10));
+    pop.style.left=left+"px"; pop.style.top=top+"px";
+  }
+  function popAc(btn,i){
+    var r=btn.getBoundingClientRect();
+    var gorunur = r.top>60 && r.bottom<innerHeight-40;
+    if(!gorunur){
+      scrollYoksay=true;
+      btn.scrollIntoView({block:"center", behavior: reducedMotionVar()?"auto":"smooth"});
+      setTimeout(function(){ popYerlestir(btn,i); scrollYoksay=false; }, reducedMotionVar()?60:420);
+    } else popYerlestir(btn,i);
+  }
+  function reducedMotionVar(){ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){ return false; } }
+  pop.addEventListener("click",function(e){
+    if(e.target.closest(".pclose")) return popKapat();
+    var m=e.target.closest(".pmore"); if(m){ popKapat(); ac(+m.dataset.i); }
+  });
+  document.addEventListener("click",function(e){
+    if(popAcik && !e.target.closest(".tpop") && !e.target.closest(".terim")) popKapat();
+  },true);
+  addEventListener("scroll",function(){ if(popAcik && !scrollYoksay) popKapat(); },{passive:true});
+  addEventListener("resize",function(){ if(popAcik) popKapat(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&popAcik) popKapat(); });
+
+  /* ---------- kavram künye kartları (tanımlar tek kaynaktan) ---------- */
+  document.querySelectorAll("[data-terim]").forEach(function(el){
+    var i=IDX[(el.dataset.terim||"").toLocaleLowerCase("tr")];
+    if(i==null) return;
+    var x=T[i], ek=el.getAttribute("data-ek");
+    el.classList.add("kavramkart");
+    el.innerHTML='<span class="kk-lab">Kavram</span><h4>'+esc2(x.a)+'</h4><span class="kk-en">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>'
+      +((x.k&&x.k!=="—")?'<div class="kk-kadim"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>':'')
+      +(ek?'<span class="kk-ek">'+ek+'</span>':'')
+      +'<button class="kk-more" data-i="'+i+'">Tam kayıt · nerede geçiyor →</button>';
+  });
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".kk-more"); if(!b) return;
+    ac(+b.dataset.i);
+  });
+
+  /* ---------- durak sonu terim şeritleri ---------- */
+  var SERIT={
+    tanis:["korpus","uzak okuma","yakın okuma","ağ analizi","normalizasyon","metadata"],
+    harita:["CBS","gazetteer"],
+    kayit:["veri seti","JSON","CSV","mARkdown","provenans","metadata"],
+    arastirmaci:["mukabele","şemalı çıktı","veri makalesi","provenans"],
+    makine:["büyük dil modeli","tokenization","embedding","attention","softmax","sıcaklık","şemalı çıktı","MCP","halüsinasyon","prompt"],
+    dene:["prompt","mukabele","normalizasyon","halüsinasyon"],
+    ilham:["veri makalesi","DOI","açık erişim","prosopografi","metin yeniden kullanımı"]
+  };
+  Object.keys(SERIT).forEach(function(id){
+    var sec=document.getElementById(id); if(!sec) return;
+    var mevcut=SERIT[id].map(function(a){ return IDX[a.toLocaleLowerCase("tr")]; }).filter(function(i){ return i!=null; });
+    if(!mevcut.length) return;
+    var d=document.createElement("div"); d.className="terimserit";
+    d.innerHTML='<span>Bu durakta geçen terimler:</span>'+mevcut.map(function(i){ return '<button data-i="'+i+'">'+esc2(T[i].a)+'</button>'; }).join("");
+    d.addEventListener("click",function(e){
+      var b=e.target.closest("button[data-i]"); if(!b) return;
+      popAc(b, +b.dataset.i);
+    });
+    sec.appendChild(d);
+  });
 
   /* --- metinde terim işaretleme --- */
   var SKIP={SCRIPT:1,STYLE:1,A:1,BUTTON:1,CODE:1,PRE:1,INPUT:1,TEXTAREA:1,OPTION:1,SUMMARY:1,H1:1,SVG:1,TEXT:1};
