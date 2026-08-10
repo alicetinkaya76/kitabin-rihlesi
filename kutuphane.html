@@ -310,6 +310,18 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
 .terimserit button{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:5px 12px;font-weight:600}
 .terimserit button:hover{background:var(--insan);color:#fff}
 .terimserit button:focus-visible{outline:2px solid var(--insan);outline-offset:2px}
+
+.tpop{width:min(400px,92vw);max-height:min(74vh,620px);overflow-y:auto}
+.tpop h4.kh,.tp-card h4.kh{font-family:var(--serif);font-size:1.16rem;margin:0}
+.tp-card h4.kh{font-size:1.24rem}
+.kbox{border-radius:9px;padding:8px 11px;margin-top:9px;font-size:.8rem;line-height:1.5}
+.kbox b{display:block;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
+.kbox.ko{background:var(--model-soft)} .kbox.ko b{color:var(--model)}
+.kbox.kd{background:var(--rubric-soft)} .kbox.kd b{color:var(--rubric)}
+.kbox.kk2{background:var(--korpus-soft)} .kbox.kk2 b{color:var(--korpus)}
+.krow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.74rem;color:var(--muted)}
+.krel{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:3px 10px;font-size:.74rem;font-weight:600}
+.krel:hover{background:var(--insan);color:#fff}
 </style>
 
 <a class="skip" href="#d1">İçeriğe atla</a>
@@ -1482,100 +1494,112 @@ function TERIM_SISTEMI(){
   var T=[
    {a:"korpus",en:"corpus",v:["korpusu","korpusta","korpustan","korpusun","korpuslar"],k:"kütüphane ve kataloğu",
     d:"Bilgisayarın bütün hâlinde işleyebileceği biçimde toplanmış, düzenli metin bütünü. Akademik kullanımda korpusun sürüm numarası ve kaynak bilgisi bulunur; bu, hangi metnin kullanıldığının sonradan da doğrulanabilmesi içindir.",
-    n:[[K+"#tanis","1 · Temeller"],[KUTU+"#d1","Kütüphane: korpus rafı"]]},
+    n:[[K+"#tanis","1 · Temeller"],[KUTU+"#d1","Kütüphane: korpus rafı"]],o:"Bu sitedeki Belâzürî metni, OpenITI korpusunun 2025.1.9 sürümünden alındı; sürüm numarası verilmeden yapılan bir sayımı başka araştırmacı tekrarlayamaz.",dk:"Her dijital kütüphane korpus değildir: arama yapabildiğiniz hâlde sürümlenmiş ve alıntılanabilir bir bütün sunmayan koleksiyonlar akademik atıf için yeterli sayılmaz.",il:["metadata","provenans","veri seti"]},
    {a:"veri seti",en:"dataset",v:["veri setleri","veri setine","veri setinden","veri setinin","veri setini"],k:"neşredilmiş defter",
     d:"Aynı alanlarla — yani aynı çekmece düzeniyle — tutulmuş kayıtların bütünü. Tablo, JSON dosyası veya veritabanı hâlinde saklanır; eser gibi sürüm numarası alır, arşivlenir ve kaynak gösterilir. Bir veri seti, üzerine makale yazılmasa dahi başlı başına yayın sayılabilir.",
-    n:[[K+"#kayit","1d · Veri seti"],[KUTU+"#d2","Kütüphane: veri setleri"]]},
+    n:[[K+"#kayit","1d · Veri seti"],[KUTU+"#d2","Kütüphane: veri setleri"]],o:"EICD-B: Fütûhu'l-büldân'dan çıkarılmış 226 kayıt; her kayıtta şehir, hicrî yıl, fetih türü ve metinden alınmış delil cümlesi bulunur.",dk:"Alanları ve değer listesi yazılı olmayan bir tablo veri seti sayılmaz; şema, verinin kendisi kadar önemlidir.",il:["JSON","şemalı çıktı","veri makalesi","DOI"]},
    {a:"uzak okuma",en:"distant reading",v:["uzak okumanın","uzak okumada","uzak okumayı"],k:"mu'cem ve fihrist usulü",
     d:"Metinleri tek tek okumak yerine, çok sayıda metni bir arada sayarak ve ölçerek incelemek. Franco Moretti'nin 2000 yılındaki adlandırmasıyla yaygınlaştı. Okumanın yerine geçmez; hangi metne, nereye bakılacağını tespit eder.",
-    n:[[K+"#uzakb","1 · Temeller: canlı sayaç"]]},
+    n:[[K+"#uzakb","1 · Temeller: canlı sayaç"]],o:"Fütûhu'l-büldân'ın Mısır bölümünde fetih kökü 7, anve 2 kez geçiyor; bu oran bölümün eğilimini tek satır okumadan gösterir.",dk:"Sayım tek başına yorum değildir: neyin sayıldığı (kök mü, birebir yazım mı) beyan edilmeden sonuç savunulamaz.",il:["yakın okuma","normalizasyon","korpus"]},
    {a:"yakın okuma",en:"close reading",v:["yakın okumanın","yakın okumayı"],k:"şerh ve tahlil geleneği",
     d:"Tek bir metnin ayrıntılı, bağlamına dikkat eden tahlili. Uzak okumanın rakibi değil, tamamlayıcısıdır: sayım nereye bakılacağını, yakın okuma orada ne olduğunu söyler.",
-    n:[[K+"#uzakb","1 · Temeller"]]},
+    n:[[K+"#uzakb","1 · Temeller"]],o:"Sayım, anve kelimesinin yoğunlaştığı bölümü işaret eder; o ibarenin hangi bağlamda söylendiğini ancak metni okuyarak çözersiniz.",dk:"Uzak okumanın sonucu, yakın okumayla teyit edilmeden makale iddiasına dönüştürülmemelidir.",il:["uzak okuma"]},
    {a:"ağ analizi",en:"network analysis",v:["ağ analizinin","ağ analizini"],k:"tabakat ve isnad tasnifi",
     d:"Kişiler, eserler veya kurumlar arasındaki ilişkileri düğüm (nokta) ve kenar (bağlantı) olarak modelleyip ölçen yöntem. Bir kişinin derecesi kaç bağlantısı olduğunu, aradalığı kaç ilişki yolunun onun üzerinden geçtiğini gösterir.",
-    n:[[K+"#netb","1 · Temeller: imamlar ağı"]]},
+    n:[[K+"#netb","1 · Temeller: imamlar ağı"]],o:"Şâfiî hem Mâlik'ten hem Muhammed b. Hasan eş-Şeybânî'den okuduğu için Hicaz ile Irak havzalarını birleştirir; ağ dilinde buna yüksek aradalık denir.",dk:"Ağ ilişkiyi gösterir, hükmü değil: bir kişinin köprü konumunda olması ilmî üstünlük anlamına gelmez.",il:["prosopografi","veri seti"]},
    {a:"CBS",en:"GIS — Geographic Information System",v:[],k:"memâlik ve mesâlik literatürü",
     d:"Coğrafî Bilgi Sistemi: mekâna bağlı verileri (koordinat, güzergâh, sınır) saklayan, sorgulayan ve haritaya döken sistem. Metindeki yer adı koordinata bağlandığında eser haritalanabilir hâle gelir.",
-    n:[[K+"#harita","1c · CBS durağı"]]},
+    n:[[K+"#harita","1c · CBS durağı"]],o:"226 fetih kaydı koordinatlandığında, sahil şehirlerinde sulh, dağlık bölgelerde kuvvet yoluyla giriş yoğunluğu göze çarpar.",dk:"Modern harita servisleri tarihî adları tanımaz; Tuleytula'yı Toledo, Ohio'ya yerleştirebilir. Tarihî coğrafya sözlüğü şarttır.",il:["gazetteer","veri seti"]},
    {a:"gazetteer",en:"historical gazetteer",v:["gazetteer'i","gazetteer'in","gazetteer'ler"],k:"mu'cemü'l-büldân",
     d:"Tarihî yer adlarını koordinatlarıyla eşleştiren coğrafya sözlüğü. Modern harita servisleri Tuleytula, Rey veya Merv gibi adları tanımadığından, tarihî çalışmalarda bu sözlükler kullanılır. Örnek: el-Süreyyâ.",
-    n:[[KUTU+"#q=gazetteer","Kütüphane: gazetteer araması"]]},
+    n:[[KUTU+"#q=gazetteer","Kütüphane: gazetteer araması"]],o:"el-Süreyyâ, iki binden fazla tarihî yeri koordinatıyla verir; EICD-B kayıtlarının tamamı bu sözlükle konumlandırıldı.",dk:"Aynı ad birden çok yere ait olabilir (ör. iki ayrı Trablus); eşleştirme, bölge sınırıyla ayrıca sınanmalıdır.",il:["CBS"]},
    {a:"JSON",en:"JavaScript Object Notation",v:[],k:"etiketli çekmeceli dolap",
     d:"\"etiket\": değer çiftleriyle yazılan veri biçimi. Düz metindir; not defterinde açılır, özel program gerektirmez. Hem insan hem makine okuyabildiği için veri setlerinin en yaygın biçimidir.",
-    n:[[K+"#kayit","1d · Veri seti"],[K+"#dene","4 · Sıra sende"]]},
+    n:[[K+"#kayit","1d · Veri seti"],[K+"#dene","4 · Sıra sende"]],o:"Örnek kayıt: {\"şehir\": \"حصن بابليون\", \"hicri_yil\": 20, \"tur\": \"SUBJUGATION\", \"delil\": \"ففتح الحصن عنوة\"}",dk:"Model geçerli JSON üretmeyi garanti etmez; tek bir eksik ayraç tabloyu bozar. Bu yüzden çıktı bir şemaya bağlanır ve denetlenir.",il:["CSV","şemalı çıktı","veri seti"]},
    {a:"CSV",en:"Comma-Separated Values",v:[],k:"cetvel",
     d:"Tablo satırlarını düz metin olarak saklayan biçim; Excel ve Google E-Tablolar'da doğrudan açılır. Veri setleri çoğu zaman aynı anda hem JSON hem CSV olarak yayımlanır.",
-    n:[[KUTU+"#tezgah","Kütüphane: Tezgâh (CSV indirme)"]]},
+    n:[[KUTU+"#tezgah","Kütüphane: Tezgâh (CSV indirme)"]],o:"Tezgâhta doğrulanan kayıtlar CSV olarak indirilir; dosya Excel veya Google E-Tablolar'da doğrudan açılır.",dk:"Arapça metin içeren CSV dosyalarında UTF-8 kodlaması seçilmezse harfler bozuk görünür.",il:["JSON","veri seti"]},
    {a:"mARkdown",en:"OpenITI mARkdown",v:[".mARkdown"],k:"işaretli nüsha",
     d:"OpenITI'nin klasik metinler için kullandığı düz metin biçimi. Bölüm başlığı ### | işaretiyle, satır devamı ~~ ile, matbu neşrin cilt ve sayfa numarası PageV05P022 biçimiyle gösterilir.",
-    n:[[KUTU+"#d1","Kütüphane: OpenITI rafı"]]},
+    n:[[KUTU+"#d1","Kütüphane: OpenITI rafı"]],o:"### | فتوح مصر والمغرب satırı bölüm başlığıdır; ~~ ile başlayan satır önceki cümlenin devamı, PageV05P022 ise matbu neşrin cilt ve sayfasıdır.",dk:"Bu işaretler temizlenmeden yapılan kelime sayımı, sayfa numaralarını ve başlık işaretlerini de kelime sayar.",il:["korpus","normalizasyon"]},
    {a:"metadata",en:"metadata",v:["metadatası","künye verisi"],k:"zahriye kaydı ve fihrist künyesi",
     d:"Bir eserin kendisi değil, hakkındaki bilgi: müellif, eser adı, telif tarihi, nüsha, neşir. Kataloglar bu bilgiyle kurulur; eser kaybolsa dahi künyesi ilmî hafızada kalır.",
-    n:[[K+"#tanis","1 · Temeller: el-Fihrist"]]},
+    n:[[K+"#tanis","1 · Temeller: el-Fihrist"]],o:"OpenITI'de her metnin başındaki #META# satırları müellifi, eser adını ve alındığı nüshayı bildirir.",dk:"Dijital kütüphanelerde künye bilgisi eksik veya hatalı olabilir; neşir bilgisi verilmeyen metin, akademik atıfta tek başına yeterli değildir.",il:["provenans","korpus"]},
    {a:"provenans",en:"provenance",v:["provenansı"],k:"sened",
     d:"Bir verinin nereden geldiğini gösteren zincir: hangi eser, hangi neşir, hangi dijital sürüm, hangi veri seti. Zincir kopmuşsa sayılar sonradan yeniden üretilemez.",
-    n:[[K+"#kayit","1d · Sened çekmecesi"]]},
+    n:[[K+"#kayit","1d · Sened çekmecesi"]],o:"Bu sitedeki sayıların zinciri: Belâzürî → de Goeje neşri (1866) → OpenITI 2025.1.9 → EICD-B veri seti → makale.",dk:"Zincirin bir halkası eksikse (özellikle sürüm numarası) sayı sonradan doğrulanamaz; “internetten aldım” bir sened değildir.",il:["metadata","mukabele","DOI"]},
    {a:"mukabele",en:"collation / verification",v:["mukabelesi","mukabeleyi","mukabeleye"],k:"nüsha karşılaştırma",
     d:"Metnin bir başka nüshayla harf harf karşılaştırılması. Bu sitede aynı usul, modelin ürettiği her kaydın delilinin kaynak metinde aranması anlamında kullanılır: bulunamayan kayıt sonuç dışı bırakılır.",
-    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]]},
+    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]],o:"EICD-B'de 226 kaydın delil cümleleri metinde arandı: %35,0 harfiyen, %56,6 imlâ farkıyla bulundu; %8,4 bulunamadığı için sonuçlara alınmadı.",dk:"İmlâ farkıyla bulunan kayıt hata değildir; hemze ve tâ-i merbûta yazımı normalize edildiğinde eşleşir. Asıl elenmesi gereken, hiç bulunamayandır.",il:["normalizasyon","provenans","halüsinasyon"]},
    {a:"tokenization",en:"tokenization",v:["token","tokenlara","parçalama"],k:"hece ve kök tahlili",
     d:"Metnin, modelin işleyebileceği küçük parçalara (token) ayrılması ve her parçanın bir numaraya karşılık gelmesi. Model harf ya da kelime değil, bu numaraları görür; Arapça metinler İngilizceye göre daha çok parçaya bölünür.",
-    n:[[K+"#makine","3 · Makinenin içi, 1. adım"]]},
+    n:[[K+"#makine","3 · Makinenin içi, 1. adım"]],o:"طنجة kelimesi “طنج” ve “ة” gibi parçalara ayrılabilir; model bu parçaların numaralarını görür, harfleri değil.",dk:"ة ile ه ayrı numaralardır; bu yüzden delil ararken normalizasyon yapılmazsa aynı cümle bulunamaz.",il:["embedding","normalizasyon"]},
    {a:"embedding",en:"embedding",v:["embeddingler","anlam vektörü"],k:"anlam yakınlığı",
     d:"Her parçanın, sayılardan oluşan bir liste (vektör) hâlinde temsil edilmesi. Anlamca yakın kelimeler bu sayı uzayında birbirine yakın düşer; yakınlık kosinüs benzerliğiyle ölçülür.",
-    n:[[K+"#makine","3 · Makinenin içi, 2. adım"]]},
+    n:[[K+"#makine","3 · Makinenin içi, 2. adım"]],o:"rıhle ile sefer kelimelerinin vektörleri neredeyse aynı yöne bakar; benzerlik ölçümü 0,99 civarında çıkar.",dk:"Yakınlık, anlamdaşlık değil kullanım benzerliğidir: zıt anlamlı kelimeler benzer bağlamlarda geçtikleri için yakın görünebilir.",il:["tokenization","attention"]},
    {a:"attention",en:"attention",v:["dikkat mekanizması"],k:"siyak ve sibak",
     d:"Modelin, yazacağı her kelimede pasajın tamamını tartması; hangi kelimelerin o an ağır bastığını belirleyen mekanizma. Bir katmanda çok sayıda \"kafa\" aynı cümleye farklı açılardan bakar.",
-    n:[[K+"#makine","3 · Makinenin içi, 3. adım"]]},
+    n:[[K+"#makine","3 · Makinenin içi, 3. adım"]],o:"Kayıttaki “tür” alanı yazılırken عنوة kelimesi, “yıl” alanı yazılırken سنة ثلاث عشرة ifadesi ağır basar.",dk:"Bağlam penceresi sınırlıdır: yıl bilgisi pasajdan sayfalarca uzaktaysa tartı şaşabilir; bu yüzden metin parçalanırken yıl bilgisi taşınır.",il:["embedding","softmax"]},
    {a:"softmax",en:"softmax",v:[],k:"tercih tayini",
     d:"Adayların ham puanlarını toplamı bire eşit olasılıklara çeviren hesap. Modelin \"sıradaki kelime\" yarışı bu hesapla sonuçlanır; sıcaklık değeri bu dağılımı yayar ya da sivriltir.",
-    n:[[K+"#makine","3 · Makinenin içi, 4. adım"]]},
+    n:[[K+"#makine","3 · Makinenin içi, 4. adım"]],o:"Bir alan yazılırken adaylar yarışır: ilk aday %78, ikincisi %14, üçüncüsü %8 pay alır ve kazanan yazılır.",dk:"Yüksek olasılık doğruluk değildir: model en olası devamı seçer, en doğru olanı değil.",il:["sıcaklık","attention"]},
    {a:"sıcaklık",en:"temperature",v:["sıcaklığı","sıcaklık değeri"],k:"tereddüt payı",
     d:"Modelin ne kadar \"sürprizli\" davranacağını belirleyen ayar. Düşük değerde daima en olası kelime seçilir; yüksek değerde daha az olası seçenekler de şans bulur. Aynı soruya farklı zamanlarda farklı cevap gelmesinin sebebi budur.",
-    n:[[K+"#deep","Çekirdeğe iniş · Kat 3"]]},
+    n:[[K+"#deep","Çekirdeğe iniş · Kat 3"]],o:"Aynı yarışta sıcaklık 0,2 iken favori aday %99,6 alır; 2,0 iken payı %43'e düşer ve sürprizler artar.",dk:"Akademik çıkarımda düşük sıcaklık tercih edilir; yine de aynı soru iki kez sorulduğunda cevap değişebilir — çıktıyı ve tarihi saklayın.",il:["softmax","şemalı çıktı"]},
    {a:"halüsinasyon",en:"hallucination",v:["halüsinasyonu"],k:"vehim",
     d:"Modelin, kaynağı olmayan bir bilgiyi kendinden emin biçimde üretmesi. Arıza değil, yöntemin yapısal riskidir: model doğruluk değil olabilirlik üretir. Panzehiri delil şartı ve denetimdir.",
-    n:[[K+"#tanis","1 · Temeller"],[K+"#dene","4 · Sıra sende"]]},
+    n:[[K+"#tanis","1 · Temeller"],[K+"#dene","4 · Sıra sende"]],o:"Bu sitedeki örnek cevaba bilerek yerleştirilen “Nûr Şehri” kaydı metinde yoktur; delil arandığında elenir.",dk:"En tehlikelisi doğru görünen künyedir: var olmayan bir makaleye gerçek bir dergi adı, cilt ve sayfa numarası eşlik edebilir.",il:["mukabele","şemalı çıktı"]},
    {a:"prompt",en:"prompt",v:["promptu","talimat metni"],k:"suâlin edebi",
     d:"Modele verilen talimat metni. İyi bir talimatta bağlam, görev, kaynak sınırı, çıktı ölçütü ve çekimser kalma izni bulunur; bu beş unsur, cevabın niteliğini doğrudan belirler.",
-    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]]},
+    n:[[K+"#dene","4 · Sıra sende"],[KUTU+"#tezgah","Kütüphane: Tezgâh"]],o:"Bu sitedeki talimat beş parçadan oluşur: bağlam, görev, kaynak sınırı (“yalnızca bu metne dayanarak”), çıktı ölçütü ve çekimser kanalı.",dk:"“Emin değilsen belirt” cümlesi bir garanti değil, davranış isteğidir; asıl güvence delil şartı ile kapalı listedir.",il:["şemalı çıktı","halüsinasyon"]},
    {a:"şemalı çıktı",en:"constrained decoding",v:["kapalı liste","şemalı çıktının"],k:"kapalı sözlükle tasnif",
     d:"Modelin cevabının önceden belirlenmiş bir kalıba (alanlar, kapalı değer listesi, zorunlu delil) uymaya zorlanması. Serbest metin sayılamaz; kapalı liste hem sayımı hem tartışmayı disipline eder.",
-    n:[[K+"#makine","3 · Makinenin içi, 5. adım"]]},
+    n:[[K+"#makine","3 · Makinenin içi, 5. adım"]],o:"Fetih türü üç değere kapatıldı: sulhan, anveten ve bozulan ahd; dördüncü bir cevap üretilemez.",dk:"Kapalı liste, sınırda kalan vakayı zorla bir kutuya sokabilir; bu yüzden çekimser kanalı açık bırakılır ve o kayıtlar ayrı listelenir.",il:["prompt","JSON","veri seti"]},
    {a:"büyük dil modeli",en:"LLM — Large Language Model",v:["dil modeli","dil modelleri","LLM"],k:"—",
     d:"Çok büyük metin yığınları üzerinde \"sıradaki kelimeyi tahmin et\" hedefiyle eğitilmiş model. Sohbet asistanlarının çekirdeğidir; üzerine insan beğenisiyle ince ayar ve dış kaynak bağlantıları eklenir.",
-    n:[[K+"#makine","3 · Makinenin içi"]]},
+    n:[[K+"#makine","3 · Makinenin içi"]],o:"Telefon klavyesinin sonraki kelime önerisiyle aynı fikir; fark, trilyonlarca kelimelik eğitim ve çok daha uzun bağlam.",dk:"Model bir bilgi tabanı değildir: ezberi eskiyebilir ve kaynağı yoktur. Bilgi için kaynağa, işlem için modele başvurulur.",il:["softmax","halüsinasyon","MCP"]},
    {a:"MCP",en:"Model Context Protocol",v:[],k:"kütüphaneye çıkma izni",
     d:"Sohbet modelinin dış kaynaklara — YÖK Ulusal Tez Merkezi, DergiPark, kütüphane katalogları gibi — standart ve denetlenebilir biçimde bağlanmasını sağlayan açık protokol. Model cevabını ezberinden değil, bağlandığı kaynaktan dönen kayıtlardan verir; hangi sorgunun çalıştığı görülebilir. Delil yükünü kaldırmaz; künye yine kaynağında teyit edilir.",
-    n:[[K+"#makine","3 · Makinenin içi: harici katman"]]},
+    n:[[K+"#makine","3 · Makinenin içi: harici katman"]],o:"Bağlantı kurulduğunda model, YÖK Ulusal Tez Merkezi veya DergiPark üzerinde doğrudan arama yapar ve dönen kayıtları listeler; hangi sorgunun çalıştığı görülebilir.",dk:"Bağlantının olması doğruluk garantisi değildir: kaynak eksik veya hatalı kayıt döndürebilir; künye yine kaynağında teyit edilir.",il:["büyük dil modeli","metadata"]},
    {a:"OCR",en:"Optical Character Recognition",v:["OCR'ı"],k:"istinsah",
     d:"Basılı sayfanın görüntüsünden metni çıkarma teknolojisi. El yazması için kullanılan biçimine HTR (Handwritten Text Recognition) denir; Osmanlıca ve Arapça için özel modeller gerekir ve hata payı elle denetlenmelidir.",
-    n:[[KUTU+"#d3","Kütüphane: Transkribus"]]},
+    n:[[KUTU+"#d3","Kütüphane: Transkribus"]],o:"Osmanlıca bir dergi sayfası taranınca “terakki” kelimesi hatalı okunabilir; sayımdan önce elle düzeltme gerekir.",dk:"OCR hatası sistematikse (hep aynı harf yanlış okunuyorsa), sayımınızda gerçek bir eğilim gibi görünür.",il:["normalizasyon","korpus"]},
    {a:"DOI",en:"Digital Object Identifier",v:["DOI'si","DOI'li"],k:"kalıcı künye numarası",
     d:"Bir makaleye veya veri setine verilen kalıcı tanımlayıcı. Adres değişse dahi DOI aynı esere gider; bu yüzden atıf verilebilirliğin şartı sayılır. Veri setleri Zenodo gibi depolara konularak DOI alır.",
-    n:[[KUTU+"#d4","Kütüphane: akademik altyapı"]]},
+    n:[[KUTU+"#d4","Kütüphane: akademik altyapı"]],o:"EICD-B makalesinin numarası 10.1093/llc/fqag093'tür; derginin adresi değişse de bu numara aynı esere götürür.",dk:"DOI yalnız makalelere değil veri setlerine de verilir; Zenodo'ya yüklenen bir veri seti kalıcı numara alarak alıntılanabilir hâle gelir.",il:["veri makalesi","açık erişim","provenans"]},
    {a:"açık erişim",en:"open access",v:["açık erişimli"],k:"vakıf kitaplığı",
     d:"Yayının ücretsiz ve engelsiz okunabilmesi. Bazı dergilerde yazardan işlem ücreti (APC) istenebilir; öğrenciler için ücretsiz ve açık erişimli dergileri tercih etmek yaygın bir yoldur.",
-    n:[[KUTU+"#d4","Kütüphane: dergiler"]]},
+    n:[[KUTU+"#d4","Kütüphane: dergiler"]],o:"Al-ʿUṣūr al-Wusṭā ve Digital Humanities Quarterly hem açık erişimli hem ücretsizdir; ilk yayın için elverişli kapılardır.",dk:"Açık erişim her zaman ücretsiz demek değildir: bazı dergiler yazardan işlem ücreti (APC) talep eder; gönderim öncesi derginin sayfasına bakın.",il:["DOI","veri makalesi"]},
    {a:"veri makalesi",en:"data paper",v:["veri makaleleri"],k:"neşir mukaddimesi",
     d:"Bir veri setinin nasıl derlendiğini, hangi ölçütlerle denetlendiğini ve nasıl kullanılabileceğini anlatan kısa hakemli makale türü. İddia yerine kaynağı sunar; genç araştırmacılar için en ulaşılabilir ilk yayın kapılarından biridir.",
-    n:[[K+"#ilham","5 · İlk makalene giden yol"],[KUTU+"#dergisec","Kütüphane: dergi seçici"]]},
+    n:[[K+"#ilham","5 · İlk makalene giden yol"],[KUTU+"#dergisec","Kütüphane: dergi seçici"]],o:"Journal of Open Humanities Data'da yayımlanan bir veri makalesi, verinin nasıl derlendiğini ve nasıl denetlendiğini anlatır; iddia değil kaynak sunar.",dk:"Kolay yayın değildir: denetim ölçütleriniz zayıfsa hakem veriyi reddeder. Kolaylığı, yeni bir tez kurma yükünün olmamasındadır.",il:["veri seti","DOI","açık erişim"]},
    {a:"normalizasyon",en:"normalization",v:["normalizasyonu","normalize"],k:"imlâ birleştirme",
     d:"Aynı kelimenin farklı yazımlarını tek biçime indirgeme işlemi: harekelerin düşürülmesi, tâ-i merbûta ile he'nin, hemzeli eliflerin birleştirilmesi. Sayım ve arama sonuçları bu işleme bağlıdır; hangi kuralın uygulandığı beyan edilmelidir.",
-    n:[[K+"#uzakb","1 · Temeller: sayacın içi"]]},
+    n:[[K+"#uzakb","1 · Temeller: sayacın içi"]],o:"ففتحها عنوةً ibaresi normalize edilince ففتحها عنوه biçimini alır: harekeler düşer, tâ-i merbûta he'ye dönüşür.",dk:"Normalizasyon bilgi kaybettirir; hangi kuralları uyguladığınızı yazmazsanız sayımınız başkası tarafından tekrarlanamaz.",il:["tokenization","mukabele","uzak okuma"]},
    {a:"metin yeniden kullanımı",en:"text reuse",v:["metin yeniden kullanımının"],k:"iktibas ve nakil",
     d:"Bir eserin başka bir eserden aldığı pasajların bilgisayarla tespit edilmesi. Klasik literatürde nakil zincirlerinin ölçülmesini sağlar; KITAB projesi bu alanda çalışır.",
-    n:[[KUTU+"#d2","Kütüphane: KITAB verisi"]]},
+    n:[[KUTU+"#d2","Kütüphane: KITAB verisi"]],o:"KITAB projesi, bir eserin başka eserlerle paylaştığı pasajları otomatik tespit eder; nakil zincirleri böyle ölçülür.",dk:"Ortak pasaj her zaman doğrudan iktibas değildir: iki müellif ortak bir üçüncü kaynaktan almış olabilir.",il:["korpus","veri seti"]},
    {a:"prosopografi",en:"prosopography",v:["prosopografik"],k:"tabakat ve terâcim",
     d:"Bir topluluğa mensup kişilerin ortak özelliklerinin (hoca, memuriyet, doğum yeri, vefat yılı) sistemli biçimde toplanıp karşılaştırılması. Tabakat literatürünün yaptığı işin sayısal hâlidir.",
-    n:[[KUTU+"#d2","Kütüphane: prosopografi verileri"]]}
+    n:[[KUTU+"#d2","Kütüphane: prosopografi verileri"]],o:"EICD-B'de en çok fetih kaydı İyâd b. Ganm adına yazılıdır (21 kayıt); komutan profilleri böyle karşılaştırılabilir.",dk:"Sayı, müellifin ilgisini de yansıtır: bir kişinin çok geçmesi onun daha etkili olduğunu değil, kaynağın ona daha çok yer verdiğini gösterebilir.",il:["ağ analizi","veri seti"]}
   ];
   var IDX={}; T.forEach(function(x,i){ IDX[x.a.toLocaleLowerCase("tr")]=i; });
   var panel=document.getElementById("tpanel"), backdrop=document.getElementById("tp-backdrop"),
       body=document.getElementById("tp-body"), q=document.getElementById("tp-q");
   if(!panel) return;
   function esc2(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+  function kayitHTML(x,i,mini){
+    var h='<h4 class="kh">'+esc2(x.a)+'</h4><span class="pen">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>';
+    if(x.o) h+='<div class="kbox ko"><b>Bu araştırmada nasıl görünür?</b>'+esc2(x.o)+'</div>';
+    if(x.dk) h+='<div class="kbox kd"><b>Dikkat</b>'+esc2(x.dk)+'</div>';
+    if(x.k&&x.k!=="—") h+='<div class="kbox kk2"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>';
+    if(x.il&&x.il.length){
+      var ch=x.il.map(function(a){ var j=IDX[a.toLocaleLowerCase("tr")]; return j==null?"":'<button class="krel" data-i="'+j+'">'+esc2(T[j].a)+'</button>'; }).join("");
+      if(ch) h+='<div class="krow"><span>İlgili terimler:</span>'+ch+'</div>';
+    }
+    if(x.n&&x.n.length) h+='<div class="tp-nerede">'+x.n.map(function(p){return '<a href="'+p[0]+'">'+esc2(p[1])+'</a>';}).join("")+'</div>';
+    return h;
+  }
   function liste(filtre){
     var f=(filtre||"").toLocaleLowerCase("tr");
     var arr=T.map(function(x,i){return {x:x,i:i};}).filter(function(o){
@@ -1590,10 +1614,7 @@ function TERIM_SISTEMI(){
     var h="";
     if(i!=null && T[i]){
       var x=T[i];
-      h+='<div class="tp-card"><h3>'+esc2(x.a)+'</h3><span class="en">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>';
-      if(x.k && x.k!=="—") h+='<div class="tp-kadim"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>';
-      if(x.n && x.n.length) h+='<div class="tp-nerede">'+x.n.map(function(p){return '<a href="'+p[0]+'">'+esc2(p[1])+'</a>';}).join("")+'</div>';
-      h+='</div>';
+      h+='<div class="tp-card">'+kayitHTML(x,i,false)+'</div>';
     }
     body.innerHTML=h+liste(filtre);
   }
@@ -1608,6 +1629,8 @@ function TERIM_SISTEMI(){
     var b=e.target.closest("button[data-i]"); if(!b) return;
     sonI=+b.dataset.i; goster(sonI,""); q.value=""; body.scrollTop=0;
   });
+  // panelde "Kütüphanede ara" bağlantısı
+  
   document.addEventListener("click",function(e){
     var t=e.target.closest(".terim"); if(!t) return;
     e.preventDefault(); popAc(t, +t.dataset.i);
@@ -1624,9 +1647,8 @@ function TERIM_SISTEMI(){
   var scrollYoksay=false;
   function popYerlestir(btn,i){
     var x=T[i];
-    pop.innerHTML='<h4>'+esc2(x.a)+'</h4><span class="pen">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>'
-      +((x.k&&x.k!=="—")?'<div class="pk"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>':'')
-      +'<div class="prow"><button class="pmore" data-i="'+i+'">Tam kayıt · nerede geçiyor →</button><button class="pclose" aria-label="Kapat">✕</button></div>';
+    pop.innerHTML=kayitHTML(x,i,true)
+      +'<div class="prow"><button class="pmore" data-i="'+i+'">Kütüphanede ara →</button><button class="pclose" aria-label="Kapat">✕</button></div>';
     pop.classList.add("open"); popAcik=true;
     var r=btn.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight;
     var left=Math.min(Math.max(10, r.left+r.width/2-pw/2), Math.max(10, innerWidth-pw-10));
@@ -1646,6 +1668,8 @@ function TERIM_SISTEMI(){
   function reducedMotionVar(){ try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){ return false; } }
   pop.addEventListener("click",function(e){
     if(e.target.closest(".pclose")) return popKapat();
+    var rel=e.target.closest(".krel");
+    if(rel){ var btn=document.querySelector('.terim[data-i="'+rel.dataset.i+'"]'); popYerlestir(btn||pop.__son||document.body, +rel.dataset.i); return; }
     var m=e.target.closest(".pmore"); if(m){ popKapat(); ac(+m.dataset.i); }
   });
   document.addEventListener("click",function(e){
@@ -1695,7 +1719,7 @@ function TERIM_SISTEMI(){
   });
 
   /* --- metinde terim işaretleme --- */
-  var SKIP={SCRIPT:1,STYLE:1,A:1,BUTTON:1,CODE:1,PRE:1,INPUT:1,TEXTAREA:1,OPTION:1,SUMMARY:1,H1:1,SVG:1,TEXT:1};
+  var SKIP={SCRIPT:1,STYLE:1,A:1,BUTTON:1,CODE:1,PRE:1,INPUT:1,TEXTAREA:1,OPTION:1,SUMMARY:1,H1:1,H2:1,H3:1,H4:1,SVG:1,TEXT:1};
   var sayac={};
   function isHarf(ch){ return ch && /[0-9A-Za-zÇĞİÎÖŞÜçğıîöşüâûÂÛ'’]/.test(ch); }
   function isaretle(root){
@@ -1704,7 +1728,7 @@ function TERIM_SISTEMI(){
       var p=n.parentNode;
       while(p && p!==root){
         if(SKIP[p.nodeName]) return NodeFilter.FILTER_REJECT;
-        if(p.classList && (p.classList.contains("ar")||p.classList.contains("terim")||p.classList.contains("termtag")||p.classList.contains("tok"))) return NodeFilter.FILTER_REJECT;
+        if(p.classList && (p.classList.contains("ar")||p.classList.contains("terim")||p.classList.contains("termtag")||p.classList.contains("tok")||p.classList.contains("kavramkart")||p.classList.contains("terimserit")||p.classList.contains("tpop")||p.classList.contains("tp-card"))) return NodeFilter.FILTER_REJECT;
         p=p.parentNode;
       }
       return NodeFilter.FILTER_ACCEPT;
