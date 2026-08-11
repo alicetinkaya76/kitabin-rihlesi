@@ -42,6 +42,12 @@ def icinde(i,araliklar):
     return any(a<=i<b for a,b in araliklar)
 
 # ---------------------------------------------------------------- çıkarım
+def anahtar_mi(govde,son):
+    """Kapanış tırnağından sonra ':' geliyorsa bu bir JSON/obje anahtarıdır."""
+    i=son
+    while i<len(govde) and govde[i] in " \t": i+=1
+    return i<len(govde) and govde[i]==":"
+
 def cikar(s, ceviriler=None):
     """Çevrilebilir aday dizgeleri (tür, metin) olarak döndürür."""
     sc=script_araliklari(s)
@@ -56,8 +62,10 @@ def cikar(s, ceviriler=None):
     for a,b in sc:
         govde=s[a:b]
         for m in re.finditer(r'"((?:[^"\\\n]|\\.)*)"',govde):
+            if anahtar_mi(govde,m.end()): continue      # JSON anahtarı — çevrilmez
             if cevrilebilir(m.group(1),ceviriler): adaylar.append(("js2",m.group(1)))
         for m in re.finditer(r"'((?:[^'\\\n]|\\.)*)'",govde):
+            if anahtar_mi(govde,m.end()): continue
             if cevrilebilir(m.group(1),ceviriler): adaylar.append(("js1",m.group(1)))
     return adaylar
 
@@ -94,13 +102,16 @@ def cevir(s, sozluk):
             v=m.group(1)
             if v in sozluk:
                 sayac["js"]+=1
-                return '"'+sozluk[v].replace("\\","\\\\").replace('"','\\"')+'"'
+                # ters bölü KAÇIRILMAZ: çeviri zaten JS sabitine yazılmak üzere
+                # yazıldı, içindeki \n gibi diziler kasıtlıdır. Yalnız sınırlayıcı
+                # tırnak kaçırılır.
+                return '"'+sozluk[v]+'"'
             return m.group(0)
         def m1(m):
             v=m.group(1)
             if v in sozluk:
                 sayac["js"]+=1
-                return "'"+sozluk[v].replace("\\","\\\\").replace("'","\\'")+"'"
+                return "'"+sozluk[v]+"'"
             return m.group(0)
         govde=re.sub(r'"((?:[^"\\\n]|\\.)*)"', m2, govde)
         govde=re.sub(r"'((?:[^'\\\n]|\\.)*)'", m1, govde)

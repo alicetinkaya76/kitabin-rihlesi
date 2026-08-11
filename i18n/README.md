@@ -26,3 +26,18 @@ HTML'den **üretilir** — elle tutulan ikinci bir kopya yoktur.
 `tr-en.json` dosyasına `"türkçe dizge": "english string"` çifti ekleyip
 yeniden çalıştırmak yeterlidir. Türkçe dizge, kaynak dosyadaki hâliyle
 **birebir** aynı olmalıdır (kırpma yapılır, iç boşluklar korunur).
+
+## İki sert kural (ikisi de hatadan öğrenildi)
+
+1. **Sözlük değeri, JS dizge sabitinin GÖVDESİDİR ve aynen yazılır.**
+   Üretici hiçbir kaçış eklemez. Kaynak dizgede `\n` ya da `\"` varsa,
+   çeviride de aynen olmalıdır. (Önce ters bölüyü ikiye katlıyorduk;
+   sonuç: metinde harfiyen görünen `\n`.)
+2. **İndeksle çeviri eklerken listeyi DAİMA `ekle.liste()` üretir.**
+   Bir keresinde döküm ile uygulama farklı filtre kullandı, indeksler
+   kaydı ve yer adları alâkasız cümlelerle değişti. Tek kaynak şart.
+
+## Güvenlik kapısı
+`build_i18n.py` üretilen EN dosyasının `<script>` bloklarını **yazmadan
+önce** `node --check` ile denetler. Geçersizse dosya yazılmaz, hata
+basılır. Bu kapı bilerek bozuk bir kayıtla sınandı ve çalıştığı görüldü.

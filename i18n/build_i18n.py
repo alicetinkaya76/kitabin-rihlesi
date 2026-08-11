@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """TR sayfalarından EN sayfaları üretir + dil değiştiriciyi her ikisine enjekte eder."""
-import io,os,re,json,sys
+import io,os,re,json,sys,subprocess
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import i18n_lib as L
 
@@ -55,6 +55,14 @@ def main():
         # EN sayfa
         en,sayac=en_yap(s,sozluk,tr_dosya)
         en=switcher_ekle(en, alt, en=True)
+        # GÜVENLİK KAPISI: bozuk kaçış / yanlış eşleşme JS'i kırabilir.
+        # Üretilen dosyayı yazmadan önce script bloklarını node ile denetle.
+        bloklar=re.findall(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", en, re.S)
+        gecici="/tmp/_i18n_check.js"
+        io.open(gecici,"w",encoding="utf-8").write("\n;\n".join(bloklar))
+        r=subprocess.run(["node","--check",gecici],capture_output=True,text=True)
+        if r.returncode!=0:
+            raise SystemExit("EN çıktısı geçersiz JS üretti ("+en_dosya+"); YAZILMADI.\n"+r.stderr[:900])
         io.open(R+"en/"+en_dosya,"w",encoding="utf-8").write(en)
         kalan=L.kapsam(en, set(sozluk.values()))
         toplam=len({t.strip() for _,t in L.cikar(s)})
