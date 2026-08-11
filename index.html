@@ -573,6 +573,47 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .emekbar .seg:hover{filter:brightness(1.12)}
 .emekbar .cap{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:6px;text-align:center}
 
+/* ---------- nesep: gerçek ölçekli zaman şeridi + harita ---------- */
+.zamankutu{width:100%;max-width:820px;margin:14px auto 0}
+.zamankutu svg{width:100%;height:auto;display:block;overflow:visible}
+.zs .ax{stroke:var(--line);stroke-width:1.5}
+.zs .brk{fill:var(--chip);stroke:var(--line);stroke-width:1}
+.zs .lead{stroke:var(--line);stroke-width:1;stroke-dasharray:4 3}
+.zs .dot{fill:var(--card);stroke:var(--muted);stroke-width:2;cursor:pointer;transition:r .18s}
+.zs .dot:hover{stroke:var(--rubric)}
+.zs .dot.on{fill:var(--rubric);stroke:var(--rubric)}
+.zs .yil{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+.zs .yil.on{fill:var(--rubric);font-weight:800}
+.zs .ad{font-family:var(--sans);font-size:10.5px;fill:var(--ink)}
+.zs .kap{font-family:var(--sans);font-size:10px;fill:var(--muted)}
+.zs .cag{font-family:var(--sans);font-size:9.5px;fill:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+#nesepmap{width:100%;max-width:820px;height:290px;border-radius:14px;border:1px solid var(--line);background:#cfe0ea;margin:10px auto 0}
+.haritanot{font-family:var(--sans);font-size:.76rem;color:var(--muted);margin-top:7px;text-align:center}
+.dagitikrozet{display:inline-block;font-family:var(--sans);font-size:.68rem;font-weight:700;background:var(--model-soft);color:var(--model);border-radius:999px;padding:2px 10px;margin-left:6px}
+/* ---------- veri seti: 226 kare + künye + kod defteri ---------- */
+.kareler{display:grid;grid-template-columns:repeat(auto-fill,minmax(11px,1fr));gap:2px;width:min(560px,100%);margin:10px auto 0}
+.kare{aspect-ratio:1;border-radius:2px;background:var(--chip);transition:transform .15s,opacity .15s;cursor:default}
+.kare.sec{outline:2px solid var(--ink);outline-offset:1px;z-index:2;transform:scale(1.5)}
+.kare.sonuk{opacity:.18}
+.karelegend{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:10px auto 0;width:100%;max-width:700px;font-family:var(--sans);font-size:.76rem}
+.karelegend button{all:unset;cursor:pointer;display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.karelegend button[aria-pressed="true"]{background:var(--chip);border-color:var(--muted)}
+.karelegend .sw{width:11px;height:11px;border-radius:2px;flex:none}
+.karelegend b{font-variant-numeric:tabular-nums}
+.kunyekart{width:100%;max-width:640px;margin:14px auto 0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--korpus);border-radius:14px;padding:15px 18px;text-align:left}
+.kunyekart h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
+.kunyesat{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);font-size:.79rem;line-height:1.45}
+.kunyesat:last-child{border-bottom:none}
+.kunyesat b{flex:0 0 132px;color:var(--muted);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding-top:2px}
+.kodtablo{overflow-x:auto;margin-top:8px}
+.kodtablo table{border-collapse:collapse;font-family:var(--sans);font-size:.74rem;width:100%;min-width:520px}
+.kodtablo th,.kodtablo td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.kodtablo th{background:var(--chip);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kodtablo code{font-family:var(--mono);font-size:.72rem}
+.kodtablo tr.zorunlu td:first-child{border-left:3px solid var(--rubric)}
+@media(max-width:640px){.kareler{grid-template-columns:repeat(auto-fill,minmax(9px,1fr));width:100%}
+ .kunyesat{flex-direction:column;gap:1px}.kunyesat b{flex:none}#nesepmap{height:220px}}
+
 /* ---------- makale atölyesi (5. durak) ---------- */
 .atlas{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--sans);font-size:.74rem;margin:12px 0 4px}
 .atlas a{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);font-weight:600}
@@ -721,7 +762,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <span class="ksoru">"Nerede, hangi güzergâhla, hangi yoğunlukta?"</span>
       <span class="kklasik">Klasik karşılığı: mesâlik ve memâlik literatürü</span>
       <span class="kornek">Yer adı koordinata bağlanınca desen görünür hâle gelir. <b>Örnek:</b> 226 fetih kaydı haritaya döküldüğünde, sahil şehirlerinde antlaşma, dağlık bölgelerde kuvvet yoluyla giriş yoğunlaşıyor — desen edebî değil, coğrafî.</span>
-      <a href="#harita">CBS durağında haritayı gör ↓</a>
+      <a href="#harita">CBS (coğrafî bilgi sistemleri) durağında haritayı gör ↓</a>
     </div>
     <div class="kap">
       <span class="kico">🔍</span>
@@ -748,9 +789,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve <b>denetlenebilirliği</b> — çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
 
-  <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Kısa bir tarihçe</b> — bu yöntemin kökleri kendi ilim geleneğimizde; künyelere dokunun:</p>
+  <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Kısa bir tarihçe</b> — bu yöntemin kökleri kendi ilim geleneğimizde. Sekiz durak, üç görünüşte: <b>künye şeridi</b>, <b>gerçek ölçekli zaman çizgisi</b> ve <b>harita</b>. Birinden birine dokunun; üçü birlikte hareket eder.</p>
   <div class="timeline" id="nesep"></div>
+  <div class="zamankutu"><svg class="zs" id="nesepzaman" viewBox="0 0 1000 210" role="img" aria-label="Yöntemin nesebi: gerçek ölçekli zaman çizgisi"></svg></div>
+  <p class="haritanot" style="margin:2px auto 0;max-width:700px">Üstteki eksen <b>gerçek ölçekli</b>: bin yılda iki durak. Alttaki büyüteç son yüz yılı açıyor: altı durak. Şeridin söylediği tek cümle bu — <b>yöntemin nesebi eski, hızlanması yeni.</b></p>
   <div class="tpanel" id="nesep-panel"></div>
+  <div id="nesepmap" role="img" aria-label="Durakların haritası"></div>
+  <p class="haritanot" id="nesepmapnot"></p>
   <p class="one" style="margin:10px auto 0;font-size:.9rem;color:var(--muted)">Bu ilimlerde <b>tasnif, fihrist ve mu'cem</b> geleneği asırlardır sürüyor. Değişen, emeğin bir kısmının makineye geçmesi; usul ve hüküm araştırmacıda kalıyor.</p>
 
   <p class="one" style="margin:26px auto 6px;font-size:.98rem"><b>Aynı malzemeye dört mercek</b> — malzememiz hep aynı: Belâzürî'nin (ö. 279/892-93) <i>Fütûhu'l-büldân</i> adlı eseri. Merceğe dokun, ne gösterdiğini gör:</p>
@@ -847,6 +892,29 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div id="machinejson"></div>
   <p class="one small" style="margin:12px auto 0">"Makinenin gördüğü" düz metnin adı <b>JSON</b>'dur: aynı çekmeceli dolabın makine için yazılmış hali. 4. durakta modelden tam bu biçimi isteyeceksin.</p>
+
+  <p class="one" style="margin:26px auto 0"><b>Ama bir kayıt veri seti değildir.</b> Veri seti, <i>aynı çekmecelere sahip</i> kayıtların tamamıdır. Açtığınız çekmece, yayımlanan EICD-B'nin <b>226 kaydından biri</b>. Diğer 225'i de burada:</p>
+  <div class="kareler" id="kareler" aria-label="226 kayıt"></div>
+  <div class="karelegend" id="karelegend"></div>
+  <p class="one small" style="margin:9px auto 0;color:var(--muted)">Renkler yayımlanan dağılımdan (EICD-B, Tablo 2 ve Tablo 4). <b>Karelerin sırası temsilîdir</b> — hangi karenin hangi şehir olduğu bu görselde yoktur; burada gösterilen yalnız oranlardır. Siyah çerçeveli kare, yukarıda çekmecelerini açtığınız kayıt.</p>
+
+  <div class="kunyekart">
+    <h4>Bir kayıt yığınını <i>veri seti</i> yapan sekiz şey</h4>
+    <p class="small muted" style="margin:0 0 8px">Sağ sütun EICD-B'nin kendi değerleridir. Kendi veri setiniz için bu sekiz satırı doldurabiliyorsanız, elinizde yayımlanabilir bir şey var demektir.</p>
+    <div id="kunyeliste"></div>
+  </div>
+
+  <details class="mdeep" style="max-width:640px;margin:12px auto 0;text-align:left"><summary>📓 Kod defteri (İng. <i>codebook</i>) — her çekmecenin kuralı</summary>
+    <p class="small" style="margin:0 0 8px">Kod defteri, veri setinin kullanma kılavuzudur: hangi alan ne demek, hangi değerleri alabilir, nasıl türetildi, boş kalabilir mi. <b>Kod defteri olmayan veri seti okunamaz</b> — altı ay sonra kendiniz de okuyamazsınız.</p>
+    <div class="kodtablo" id="kodtablo"></div>
+    <p class="small muted" style="margin:8px 0 0">Kırmızı kenarlı satırlar <b>zorunlu</b> alanlardır: biri boşsa kayıt veri setine girmez.</p>
+  </details>
+
+  <div class="degildir" style="max-width:640px;margin:12px auto 0">
+    <div class="warncard"><b>Veri seti gerçeğin kendisi değildir.</b> EICD-B'nin sulhan/anveten oranları, VII. yüzyılda ne olduğunu değil, <b>Belâzürî'nin ne kaydettiğini</b> gösterir. Makale bunu sınırlar bölümünde ismen yazıyor.</div>
+    <div class="warncard"><b>Veri seti tarafsız değildir.</b> Hangi çekmecelerin açıldığı bir karardır. "Fetih tarzı" çekmecesini açan, o ayrımı önemli saydığını beyan etmiş olur; açmayan da başka bir şey beyan eder.</div>
+    <div class="warncard"><b>Veri seti bitmiş değildir.</b> Sürüm numarası tam bunun içindir: v1.0 bir iddia değil, bir <b>duraktır</b>. Hata bulunur, düzeltilir, v1.1 yayımlanır — ve eski sürüm silinmez, kalır.</div>
+  </div>
   <p class="one" style="margin:18px auto 0">Dört kavram tamam: <b>uzak okuma · ağ · CBS · veri seti</b>. Şimdi bir araştırmacının bunları hangi sırayla kullandığına bakalım ↓</p>
   <details class="mdeep" style="max-width:640px;margin:14px auto 0;text-align:left"><summary>Dosya biçimleri: .txt · .md/.mARkdown · JSON · CSV nedir?</summary>
     <p><b>.txt</b> (İng. <i>plain text</i>, düz metin): hiçbir biçimlendirme içermeyen saf metin dosyası; her cihazda ve her programda açılır. Klasik metinlerin dijital nüshaları çoğunlukla bu biçimdedir.<br>
@@ -1164,7 +1232,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p class="ap">Şimdiye kadar hep tarif ettik. Burada <b>bitmiş bir iş</b> var: bu sitedeki yöntemin yayımlanmış hâli. Sekiz durakta, aynı altı aletin üzerine geri konuyor — soru nasıl kurulmuş, kaynak nasıl sınırlanmış, model nasıl kullanılmış, doğrulama nasıl yapılmış, hangi sayılar çıkmış, hangi sınırlar açıkça yazılmış, beyan nasıl kaleme alınmış. <b>Rakamların hepsi makalenin kendisinden</b>; hiçbiri bu site için üretilmedi.</p>
     <div class="anpar" id="emspar"></div>
     <div class="istpanel" id="emspanel"></div>
-    <p class="small muted" style="margin-top:10px">Gökalp, H. &amp; Çetinkaya, A. (2026). "The Early Islamic Conquests Database–Balādhurī (EICD-B): large language model extraction of conquest data from <i>Futūḥ al-buldān</i>", <i>Digital Scholarship in the Humanities</i>, 1-17. doi:10.1093/llc/fqag093 · <a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">açık erişim (CC BY 4.0)</a> — alıntılar bu lisansla, künyesiyle verilmiştir.</p>
+    <p class="small muted" style="margin-top:10px">Gökalp, H. &amp; Çetinkaya, A. (2026). "The Early Islamic Conquests Database–Balādhurī (EICD-B): large language model extraction of conquest data from <i>Futūḥ al-buldān</i>", <i>Digital Scholarship in the Humanities</i>, 1-17. doi:10.1093/llc/fqag093 · <a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">açık erişim</a> · <b>CC BY 4.0</b> lisansı (Creative Commons Atıf 4.0: künyesi verilmek şartıyla herkes serbestçe kullanabilir, çoğaltabilir ve uyarlayabilir) — buradaki alıntılar bu lisansla ve künyesiyle verilmiştir.</p>
   </div>
 
   <div class="atolye" id="hakem">
@@ -1713,6 +1781,88 @@ else window.addEventListener("load", initMap, {once:true});
     ["2016","OpenITI","OpenITI (Open Islamicate Texts Initiative): uluslararası bir heyet klasik metinleri makine tarafından işlenebilir ve sürüm numaralı hâle getirdi: her metnin kaynağı ve her değişikliğin kaydı tutuluyor.","Yaptığı iş: Şâmile'nin açığını kapattı — sürüm numarası, nüsha kaydının dijital muadilidir. Bu sitedeki metinlerin kaynağı budur.","sürümlü korpus","openiti",'Sitedeki karşılığı: <a href="'+KURL+'#tezgah">Tezgâh\'ta kitap getir (Kütüphane)</a>'],
     ["2022","Sohbet modelleri","Sonraki kelimeyi tahmin etme yöntemi trilyonlarca kelimelik veriye ölçeklendi; okuma ve veri çıkarma hızı büyük ölçüde değişti.","Yaptığı iş: emeğin bir kısmını devraldı. Devralamadığı şey bu şeridin bütün konusu: delil ve denetim araştırmacıdadır.","çıkarım (denetim sende)","llm",'Sitedeki karşılığı: <a href="#dene">4. durakta kendiniz deneyin ↓</a>'],
   ];
+  /* --- durakların yeri: gerçek şehir ya da "dağıtık" --- */
+  const NYER=[
+   {ad:"Bağdat",lat:33.315,lon:44.366,not:"Abbâsî başkenti; İbnü'n-Nedîm'in verrâklık (kitapçılık) yaptığı şehir."},
+   {ad:"Dımaşk",lat:33.513,lon:36.292,not:"Mizzî, Dârülhadîsi'l-Eşrefiyye'de ders verdi; eserini burada tamamladı."},
+   {ad:"Leiden",lat:52.157,lon:4.491,not:"Sekiz cilt Brill tarafından Leiden'de basıldı; heyet uluslararasıydı."},
+   {ad:"Kahire",lat:30.044,lon:31.236,not:"Abdülbâkī'nin mu'cemi Kahire'de hazırlandı ve basıldı."},
+   {ad:"New York",lat:40.713,lon:-74.006,not:"Busa 1949'da IBM ile burada görüştü; iş sonra İtalya'da (Gallarate, Pisa) sürdürüldü."},
+   {dagitik:true,not:"Tek bir kurumun eseri değil; internet üzerinden yayıldı ve büyüdü. Şehri yok."},
+   {dagitik:true,not:"Uluslararası bir ortaklık: kurucu ekip Londra, Viyana/Hamburg ve Maryland'de. Metinler herkesin indirebileceği bir depoda."},
+   {dagitik:true,not:"Ne şehri var ne kütüphanesi; veri merkezlerinde ve cebinizde."}
+  ];
+  const NYIL=[987,1341,1936,1945,1949,2005,2016,2022];
+  const NYETIKET=["987","1341","1936","1945","1949","~2005","2016","2022"];
+
+  /* --- gerçek ölçekli zaman çizgisi + büyüteç --- */
+  const Z={x0:64,x1:944,ana:58,inset:158,y0:950,y1:2030,b0:1930,b1:2030};
+  const zx=y=>Z.x0+(y-Z.y0)/(Z.y1-Z.y0)*(Z.x1-Z.x0);
+  const zi=y=>Z.x0+(y-Z.b0)/(Z.b1-Z.b0)*(Z.x1-Z.x0);
+  function zamanCiz(){
+    const bx0=zx(Z.b0), bx1=zx(Z.b1);
+    let g='';
+    g+='<text class="cag" x="'+Z.x0+'" y="'+(Z.ana-30)+'">gerçek ölçek · 950-2030</text>';
+    g+='<line class="ax" x1="'+Z.x0+'" y1="'+Z.ana+'" x2="'+Z.x1+'" y2="'+Z.ana+'"/>';
+    for(let y=1000;y<=2000;y+=250){ g+='<line class="ax" x1="'+zx(y)+'" y1="'+(Z.ana-5)+'" x2="'+zx(y)+'" y2="'+(Z.ana+5)+'"/>'
+      +'<text class="kap" x="'+zx(y)+'" y="'+(Z.ana+19)+'" text-anchor="middle">'+y+'</text>'; }
+    /* büyüteç bölgesi + huni */
+    g+='<rect class="brk" x="'+bx0+'" y="'+(Z.ana-13)+'" width="'+Math.max(6,bx1-bx0)+'" height="26" rx="4"/>';
+    g+='<line class="lead" x1="'+bx0+'" y1="'+(Z.ana+13)+'" x2="'+Z.x0+'" y2="'+(Z.inset-26)+'"/>';
+    g+='<line class="lead" x1="'+bx1+'" y1="'+(Z.ana+13)+'" x2="'+Z.x1+'" y2="'+(Z.inset-26)+'"/>';
+    /* ana eksende ilk iki durak etiketli, hepsi nokta */
+    NYIL.forEach((y,i)=>{
+      g+='<circle class="dot" data-z="'+i+'" cx="'+zx(y)+'" cy="'+Z.ana+'" r="'+(i<2?6:4)+'"/>';
+      if(i<2) g+='<text class="yil" data-zy="'+i+'" x="'+zx(y)+'" y="'+(Z.ana-16)+'" text-anchor="middle">'+NYETIKET[i]+'</text>'
+        +'<text class="ad" x="'+zx(y)+'" y="'+(Z.ana-30)+'" text-anchor="middle">'+esc(NESEP[i][1])+'</text>';
+    });
+    /* büyüteç ekseni */
+    g+='<text class="cag" x="'+Z.x0+'" y="'+(Z.inset-40)+'">büyüteç · 1930-2030</text>';
+    g+='<line class="ax" x1="'+Z.x0+'" y1="'+Z.inset+'" x2="'+Z.x1+'" y2="'+Z.inset+'"/>';
+    for(let y=1950;y<=2020;y+=25){ g+='<line class="ax" x1="'+zi(y)+'" y1="'+(Z.inset-5)+'" x2="'+zi(y)+'" y2="'+(Z.inset+5)+'"/>'
+      +'<text class="kap" x="'+zi(y)+'" y="'+(Z.inset+19)+'" text-anchor="middle">'+y+'</text>'; }
+    NYIL.forEach((y,i)=>{ if(i<2) return;
+      const x=zi(y), ust=(i%2===0);
+      g+='<circle class="dot" data-z="'+i+'" cx="'+x+'" cy="'+Z.inset+'" r="6"/>'
+       +'<text class="yil" data-zy="'+i+'" x="'+x+'" y="'+(Z.inset+(ust?-14:-14))+'" text-anchor="middle">'+NYETIKET[i]+'</text>'
+       +'<text class="ad" x="'+x+'" y="'+(Z.inset+(ust?-27:34))+'" text-anchor="middle">'+esc(NESEP[i][1].length>18?NESEP[i][1].slice(0,17)+"…":NESEP[i][1])+'</text>';
+    });
+    $("#nesepzaman").innerHTML=g;
+  }
+
+  /* --- harita: gerçek şehirli duraklar --- */
+  let nmap=null, nmark={}, nline=null;
+  function haritaKur(){
+    try{
+      if(typeof L==="undefined") throw new Error("leaflet yok");
+      nmap=L.map("nesepmap",{scrollWheelZoom:false,zoomControl:true,attributionControl:true}).setView([40,20],3);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
+        {attribution:'© OpenStreetMap contributors © CARTO',maxZoom:9,subdomains:"abcd"}).addTo(nmap);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
+        {maxZoom:9,subdomains:"abcd",opacity:.7}).addTo(nmap);
+      const pts=[];
+      NYER.forEach((v,i)=>{
+        if(v.dagitik) return;
+        pts.push([v.lat,v.lon]);
+        const m=L.circleMarker([v.lat,v.lon],{radius:7,color:"#1F2937",weight:2,fillColor:"#fff",fillOpacity:.95});
+        m.bindPopup("<b>"+esc(NYETIKET[i])+" · "+esc(NESEP[i][1])+"</b><div class='pd'>"+esc(v.ad)+" — "+esc(v.not)+"</div>",{maxWidth:280});
+        m.on("click",()=>showN(i));
+        m.addTo(nmap); nmark[i]=m;
+      });
+      nline=L.polyline(pts,{color:"#B91C1C",weight:2,opacity:.5,dashArray:"6 5"}).addTo(nmap);
+      /* konteyner ölçüsüz doğabilir (flex/center) — boyut gelince yeniden sığdır */
+      const sigdir=()=>{ try{ nmap.invalidateSize(); nmap.fitBounds(L.latLngBounds(pts),{padding:[34,34]}); }catch(e){} };
+      requestAnimationFrame(sigdir); setTimeout(sigdir,400); window.addEventListener("load",sigdir,{once:true});
+      if(window.ResizeObserver){ let ilk=true;
+        new ResizeObserver(es=>{ const b=es[0].contentRect; if(b.width>50 && (ilk || Math.abs(b.width-(nmap._sonW||0))>40)){ ilk=false; nmap._sonW=b.width; sigdir(); } })
+          .observe(document.getElementById("nesepmap")); }
+      $("#nesepmapnot").innerHTML='Kesikli çizgi <b>kronolojiktir</b>: Bağdat → Dımaşk → Leiden → Kahire → New York. Düz bir "batıya gidiş" değil; ilim merkezleri yer değiştirdi. <b>Son üç durağın haritada yeri yok</b> — Şâmile, OpenITI ve sohbet modelleri bir şehre değil ağa ait. Şeridin ikinci cümlesi bu: yöntem şehirden ağa taşındı.';
+    }catch(e){
+      const d=document.getElementById("nesepmap");
+      if(d){ d.style.height="auto"; d.style.background="var(--code-bg)"; d.innerHTML='<p class="small muted" style="padding:14px;margin:0">Harita yüklenemedi (bağlantı ya da tarayıcı kısıtı). Durakların yerleri: Bağdat (987) · Dımaşk (1341) · Leiden (1936-88) · Kahire (1945) · New York (1949); son üç durak bir şehre değil ağa aittir.</p>'; }
+    }
+  }
+
   $("#nesep").innerHTML=NESEP.map((n,i)=>'<button class="tstop" data-i="'+i+'" aria-pressed="'+(i===1)+'"><b>'+esc(n[0])+'</b><span>'+esc(n[1])+'</span></button>').join("");
   function showN(i){
     document.querySelectorAll("#nesep .tstop").forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
@@ -1721,9 +1871,19 @@ else window.addEventListener("load", initMap, {once:true});
       +'<div><b>'+esc(n[0])+' · '+esc(n[1])+'</b> — '+esc(n[2])
       +'<span style="display:block;margin-top:6px">'+esc(n[3])+'</span>'
       +'<span class="termtag" style="float:none;display:inline-block;margin:8px 8px 0 0">bugünkü adı: '+esc(n[4])+'</span>'
-      +'<span style="display:inline-block;margin-top:8px;font-size:.8rem">'+n[6]+'</span></div></div>';
+      +'<span style="display:inline-block;margin-top:8px;font-size:.8rem">'+n[6]+'</span>'
+      +'<div style="margin-top:9px;font-family:var(--sans);font-size:.79rem;border-top:1px dashed var(--line);padding-top:7px">'
+      +'<b>Nerede:</b> '+(NYER[i].dagitik? '<span class="dagitikrozet">dağıtık · şehri yok</span> ' : esc(NYER[i].ad)+' — ')
+      +esc(NYER[i].not)+'</div></div></div>';
+    document.querySelectorAll("#nesepzaman .dot").forEach(d=>d.classList.toggle("on", +d.dataset.z===i));
+    document.querySelectorAll("#nesepzaman .yil").forEach(t=>t.classList.toggle("on", +t.dataset.zy===i));
+    if(nmap && nmark[i]){ try{ nmap.flyTo([NYER[i].lat,NYER[i].lon], 5, {duration:.9}); nmark[i].openPopup(); }catch(e){} }
+    else if(nmap){ try{ nmap.closePopup(); }catch(e){} }
   }
   $("#nesep").addEventListener("click",e=>{ const b=e.target.closest(".tstop"); if(b) showN(+b.dataset.i); });
+  zamanCiz();
+  $("#nesepzaman").addEventListener("click",e=>{ const d=e.target.closest("[data-z]"); if(d) showN(+d.dataset.z); });
+  haritaKur();
   showN(1);
 
   const LENS=[
@@ -2155,6 +2315,85 @@ $("#ep-copy").addEventListener("click",async e=>{
 });
 $("#plandl").addEventListener("click",()=>dosyaIndir());
 
+
+/* ---------- VERİ SETİ: 226 kare · künye · kod defteri ---------- */
+(function(){
+  if(!document.getElementById("kareler")) return;
+  /* Bütün sayılar yayımlanan EICD-B'den: Tablo 2 (fetih tarzı) ve Tablo 4
+     (doğrulama). Karelerin SIRASI temsilîdir; hangi kare hangi şehir bilgisi
+     bu görselde yoktur — gösterilen yalnız orandır. */
+  const KIP={
+   tarz:{ad:"Fetih tarzı (Tablo 2)",g:[
+     ["Sulhan — antlaşmayla",118,"var(--korpus)"],
+     ["Anveten — kuvvetle",96,"var(--rubric)"],
+     ["Yeniden tesis",12,"var(--model)"]]},
+   delil:{ad:"Delil denetimi (Tablo 4)",g:[
+     ["TAM — kaynakta birebir",79,"var(--korpus)"],
+     ["KISMÎ — imlâ/lafız farkı",128,"var(--model)"],
+     ["BULUNAMADI",19,"var(--rubric)"]]}
+  };
+  let kip="tarz", vurgu=null;
+  const SECILI=17; /* çekmecesi açık kaydın karesi (görselde sabit bir konum) */
+  function ciz(){
+    const g=KIP[kip].g; let h="", n=0;
+    g.forEach((s,gi)=>{ for(let k=0;k<s[1];k++){ h+='<div class="kare" data-g="'+gi+'" style="background:'+s[2]+'"'
+      +(n===SECILI?' data-sec="1"':'')+'></div>'; n++; } });
+    $("#kareler").innerHTML=h;
+    $("#karelegend").innerHTML='<span class="muted" style="align-self:center">'+esc(KIP[kip].ad)+':</span>'
+      +g.map((s,gi)=>'<button data-g="'+gi+'" aria-pressed="'+(vurgu===gi)+'"><span class="sw" style="background:'+s[2]+'"></span>'
+        +esc(s[0])+' <b>'+s[1]+'</b> · %'+(s[1]/226*100).toFixed(1).replace(".",",")+'</button>').join("")
+      +'<button data-kip="1" aria-pressed="false" style="border-style:dashed">↻ '+(kip==="tarz"?"delil denetimine geç":"fetih tarzına dön")+'</button>';
+    uygula();
+  }
+  function uygula(){
+    document.querySelectorAll("#kareler .kare").forEach(k=>{
+      k.classList.toggle("sonuk", vurgu!==null && +k.dataset.g!==vurgu);
+      k.classList.toggle("sec", k.dataset.sec==="1");
+    });
+    document.querySelectorAll("#karelegend button[data-g]").forEach(b=>b.setAttribute("aria-pressed", vurgu===+b.dataset.g));
+  }
+  $("#karelegend").addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.kip){ kip = kip==="tarz"?"delil":"tarz"; vurgu=null; ciz(); return; }
+    const gi=+b.dataset.g; vurgu = vurgu===gi ? null : gi; uygula();
+  });
+  ciz();
+
+  /* --- veri setinin künyesi: sekiz satır --- */
+  const KUNYE=[
+   ["Adı ve sürümü","Bir veri setinin adı olmalı; sürüm numarası da. Sürüm, düzeltmelerin izini sürmenin tek yoludur.",
+    "EICD-B (validated) — makalenin Tablo 1'inde <i>dataset release</i> satırı olarak verilmiş."],
+   ["Kapsam","Neyi kapsıyor, neyi kapsamıyor — sayıyla ve sınırla.",
+    "Fütûhu'l-büldân'ın ilk yüzyıl fetih pasajları, ~86.500 kelime; hicrî 11-97 (mîlâdî 632-716) + 3 aykırı kayıt (99 ve 221). <span class=\"muted\">Makalede hicrî yıllar <b>AH</b> (<i>Anno Hegirae</i>) kısaltmasıyla verilir.</span>"],
+   ["Kayıt sayısı","Kaç satır? Metinde, tabloda ve özde <b>aynı</b> sayı yazmalı.",
+    "226 fetih olayı · 195 ayrı yer adı · 215 komutan anması."],
+   ["Alanlar ve kod defteri","Her sütunun ne demek olduğu, hangi değerleri alabildiği yazılı olmalı.",
+    "Yıl (tam sayı) · yer · komutan · halife · fetih tarzı (kapalı liste) · delil pasajı (zorunlu). Aşağıdaki kod defterine bakın."],
+   ["Türetme kararları","Ham metinden veriye giderken verilen kararlar — normalizasyon, tekilleştirme, ayıklama.",
+    "Hemze ve tatvîl temizliği; yer adı varyantlarının uyumlanması; ad normalizasyonu; müşterek komutanlıkların ayrıştırılması. Tekilleştirme anahtarı: yıl + şehir + komutan."],
+   ["Doğrulama","Kaç kayıt, hangi usulle denetlendi; doğrulanamayana ne oldu?",
+    "Üç Katmanlı Doğrulama Protokolü; 79 TAM (%35,0) · 128 KISMÎ (%56,6) · 19 BULUNAMADI (%8,4); şehir adı doğrulanan 207 (%91,6)."],
+   ["Lisans ve kalıcı kimlik","İzinsiz kullanılamayan veri, veri değildir. Bağlantı ölür; kalıcı kimlik (DOI) ölmez.",
+    "Makale CC BY 4.0 açık erişim; veri seti ek malzemeyle yayımlandı ve Zenodo'ya konulmak üzere DOI alıyor."],
+   ["Bilinen boşluklar","Neyin eksik olduğunu <b>siz</b> yazın; hakem bulmadan önce.",
+    "Mısır ve Endülüs az temsil edilir (kaynağın kendisi az yer verdiği için); kategoriler kaynağın hukukî çerçevelemesini devralır; tek kaynağa dayanır."]
+  ];
+  $("#kunyeliste").innerHTML=KUNYE.map(k=>'<div class="kunyesat"><b>'+esc(k[0])+'</b><span>'+k[1]+'<br><span style="color:var(--korpus)">EICD-B: </span>'+k[2]+'</span></div>').join("");
+
+  /* --- kod defteri --- */
+  const KOD=[
+   ["year_ah","tam sayı","11-97 (+99, 221)","Belâzürî'nin verdiği hicrî yıl; başlıkta geçen yıl parçalara enjekte edilerek taşınır.","hayır",1],
+   ["city / toponym","metin","serbest, sonra uyumlanır","Pasajda geçen yer adı; yazım varyantları tek biçime indirilir, gazetteer'la denetlenir.","hayır",1],
+   ["conquest_type","<b>kapalı liste</b>","sulhan · anwatan · reconsolidation","Pasajdaki hukukî terimlerden (sulhan / anveten / emân / kıtâl) çıkarılır; sözlük katmanı denetler.","hayır",1],
+   ["commander","metin","serbest, sonra normalize","Komutan adı; müşterek komutanlıklar ayrı kayıtlara bölünür.","evet",0],
+   ["caliph","metin","halife adı","Yılın hangi halifenin saltanatına düştüğünden türetilir (türev alan — ham veri değil).","evet",0],
+   ["evidence","metin","kaynaktan kısa pasaj","<b>Zorunlu.</b> Kaydın dayandığı Arapça ibare; olmadan kayıt yoktur.","hayır",1]
+  ];
+  $("#kodtablo").innerHTML='<table><thead><tr><th>alan</th><th>tip</th><th>izinli değerler</th><th>nasıl türetildi</th><th>boş olabilir mi</th></tr></thead><tbody>'
+   +KOD.map(k=>'<tr'+(k[5]?' class="zorunlu"':'')+'><td><code>'+k[0]+'</code></td><td>'+k[1]+'</td><td>'+esc(k[2])+'</td><td>'+k[3]+'</td><td>'+esc(k[4])+'</td></tr>').join("")
+   +'</tbody></table>';
+})();
+
 /* ---------- MAKALE ATÖLYESİ (5. durak) ---------- */
 /* Altı alet: A soru tezgâhı · B dönem takvimi · C makalenin anatomisi
    D hakem gözü · E yapay zekâ beyanı · F kurtarma kartları.
@@ -2361,7 +2600,7 @@ const ANA=[
   hata:"Künyeyi modelden istemek. Uydurulmuş künye bu alanda en hızlı ret sebebidir; sayfasını görmediğin künyeyi yazma.",em:"Yaklaşık otuz künye; klasik kaynak (Belâzürî'nin 1866 de Goeje neşri) ile modern literatür (Noth, Donner, Kennedy, Kaegi, Hoyland, Levy-Rubin, Lynch, Crone-Cook) ve dijital beşerî bilimler literatürü (Moretti, Miller-Romanov-Savant, Kiessling, Romanov-Seydi) yan yana. Neredeyse her künyede DOI ya da erişim tarihi var."},
  {ad:"Yazar katkıları, fon ve çıkar beyanı",pay:"60-120 kelime",ne:"Kimin ne yaptığı, işin parayla desteklenip desteklenmediği, yazarların çıkar ilişkisi olup olmadığı. Çoğu dergi artık bunu ayrı başlık olarak istiyor.",
   sab:"[Ad] (kavramsallaştırma, veri küratörlüğü, doğrulama, denetim) ve [Ad] (yöntem, yazılım, biçimsel analiz, görselleştirme). Çıkar çatışması: yok. Fon: [kurum, proje no] / yok.",
-  vaka:"Katkılar CRediT taksonomisiyle yazılır — «yazdı» değil, on dört başlıktan hangileri. Ortak çalışmada payını görünür kılmanın tek kurumsal yolu budur.",
+  vaka:"Katkılar CRediT taksonomisiyle yazılır (İng. Contributor Roles Taxonomy — akademik katkıyı on dört başlıkta tanımlayan uluslararası ölçüt) — «yazdı» değil, on dört başlıktan hangileri. Ortak çalışmada payını görünür kılmanın tek kurumsal yolu budur.",
   hata:"Katkıyı sözlü anlaşmaya bırakmak. Makale basıldıktan sonra kimin ne yaptığı yalnız bu paragrafta durur.",
   em:"İki yazar, iki fakülte: ilahiyat tarafı kavramsallaştırma, veri küratörlüğü, araştırma, proje yönetimi, denetim, doğrulama ve gözden geçirmeyi; mühendislik tarafı biçimsel analiz, yöntem, kaynaklar, yazılım, görselleştirme ve ilk taslağı üstlenmiş. Çıkar çatışması: yok. Fon: yok — bu iş bütçesiz yapılabilir bir iştir."}];
 let curAna=0;
@@ -2476,7 +2715,7 @@ const EMS=[
    +'Türkçesi: <i>Erken İslam Fetihleri Veri Tabanı–Belâzürî: Fütûhu\'l-büldân\'dan büyük dil modeliyle fetih verisi çıkarımı</i><br>'
    +'Hüseyin Gökalp (Selçuk Üniversitesi İlahiyat Fakültesi, İslam Tarihi) — sorumlu yazar · Ali Çetinkaya (Selçuk Üniversitesi Teknoloji Fakültesi, Bilgisayar Mühendisliği)<br>'
    +'<i>Digital Scholarship in the Humanities</i>, 2026, s. 1-17 · Full Paper · açık erişim (CC BY 4.0) · doi:10.1093/llc/fqag093</div>'
-   +'<div class="ikincibox" style="margin-top:8px"><b>Emek paylaşımı — makalede ismen yazılı (CRediT)</b>'
+   +'<div class="ikincibox" style="margin-top:8px"><b>Emek paylaşımı — makalede ismen yazılı (CRediT: katkı rolleri taksonomisi)</b>'
    +'<b style="display:inline;text-transform:none;letter-spacing:0">Gökalp:</b> kavramsallaştırma · veri küratörlüğü · araştırma · proje yönetimi · denetim · doğrulama · yazım (gözden geçirme ve düzenleme)<br>'
    +'<b style="display:inline;text-transform:none;letter-spacing:0">Çetinkaya:</b> biçimsel analiz · fon temini · yöntem · kaynaklar · yazılım · görselleştirme · yazım (ilk taslak)<br>'
    +'<span class="muted">Çıkar çatışması: yok. Fon: yok.</span></div>',
