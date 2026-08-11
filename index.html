@@ -179,6 +179,27 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .dbox .ok{font-family:var(--sans);font-size:.72rem;color:var(--korpus);font-weight:700}
 .seechips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-family:var(--sans);font-size:.8rem}
 .seechips a{border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+/* karşılama: kim için ne var + seviye rozetleri */
+.kimsin{max-width:760px;margin:22px auto 0;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
+.kimsin>b{font-family:var(--sans);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rubric);display:block;margin-bottom:3px}
+.kimsin .alt{font-family:var(--sans);font-size:.86rem;color:var(--muted);margin-bottom:11px}
+.kimsec{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.kimsec button{font:inherit;font-family:var(--sans);font-size:.86rem;font-weight:600;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;cursor:pointer;color:var(--ink);line-height:1.35}
+.kimsec button:hover{border-color:var(--rubric)}
+.kimsec button[aria-pressed="true"]{background:var(--rubric-soft);border-color:var(--rubric)}
+.rota{margin-top:13px;background:var(--korpus-soft);border-left:5px solid var(--korpus);border-radius:11px;padding:13px 16px;font-family:var(--sans);font-size:.88rem;line-height:1.6;display:none}
+.rota.on{display:block}
+.rota b{color:var(--korpus)}
+.rota .adimlar{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.rota .adimlar a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);font-size:.8rem;font-weight:600}
+.rota .adimlar a.ana{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rota .atla{font-size:.8rem;color:var(--muted);margin-top:8px;display:block}
+.seviye{display:inline-block;font-family:var(--sans);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;border-radius:999px;padding:4px 11px;margin-left:8px;vertical-align:3px}
+.seviye.temel{background:var(--korpus-soft);color:var(--korpus)}
+.seviye.orta{background:var(--model-soft);color:var(--model)}
+.seviye.derin{background:var(--insan-soft);color:var(--insan)}
+.atlanabilir{font-family:var(--sans);font-size:.8rem;color:var(--muted);background:var(--chip);border-radius:9px;padding:7px 13px;display:inline-block;margin-top:8px}
+.senin{outline:2px dashed var(--korpus);outline-offset:6px;border-radius:14px}
 /* DH tanımı: üç kapasite + alan soruları */
 .kapasite{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));max-width:860px;margin:18px auto 0;text-align:left}
 .kap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px}
@@ -574,12 +595,23 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="btnrow">
     <a class="cta" href="#tanis">Başla ↓</a>
   </div>
+  <div class="kimsin">
+    <b>Önce şunu soralım</b>
+    <div class="alt">Bu sayfada beş durak var; hepsini gezmek şart değil. Kim olduğunuzu söyleyin, size uygun rotayı işaretleyelim.</div>
+    <div class="kimsec" id="kimsec">
+      <button data-k="0" aria-pressed="false">🎓 Lisans öğrencisiyim<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">Merak ediyorum, ödevde işime yarar mı?</span></button>
+      <button data-k="1" aria-pressed="false">📚 Tez / yüksek lisans<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">Ciddi bir çalışmaya uygulamak istiyorum</span></button>
+      <button data-k="2" aria-pressed="false">👨‍🏫 Ders veriyorum<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">Öğrencilerime göstermek istiyorum</span></button>
+      <button data-k="3" aria-pressed="false">🔍 Sadece merak ettim<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">Yapay zekâ bu işi nasıl yapıyor?</span></button>
+    </div>
+    <div class="rota" id="rota"></div>
+  </div>
 </header>
 
 <main>
 <!-- 0 · TANIŞ -->
 <section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
-  <div class="kicker">1 · Temeller</div>
+  <div class="kicker">1 · Temeller</div><span class="seviye temel">Temel · herkes</span>
   <h2>Dijital beşerî bilimler nedir?</h2>
   <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir ve aranabilir</b> malzemeyle sormak. Müstakil yeni bir ilim değil; <b>mu'cem, fihrist ve tabakat</b> geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
 
@@ -637,7 +669,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one" style="margin:26px auto 0;font-size:.98rem">İki merceği hemen şimdi, bu sayfada dene:</p>
   <div class="mstep" style="text-align:left" id="uzakb">
     <div class="mno" style="background:var(--korpus)">a</div>
-    <h3><span class="termtag">distant reading</span>Uzak okuma (İng. <i>distant reading</i>)</h3>
+    <h3><span class="termtag">uzak okuma · distant reading</span>Uzak okuma (İng. <i>distant reading</i>)</h3>
     <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>yakın okuma</b> (İng. <i>close reading</i>) tek metnin ayrıntılı tahlilidir; ikisi rakip değil, tamamlayıcıdır. Kavramın kaynağı Türkçede de okunabilir: Franco Moretti, <a href='https://www.bilgiyay.com/kitap/uzak-okuma/' target='_blank' rel='noopener'>Uzak Okuma</a>, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021."></div>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Yakın okuma</button><button id="uz-uzak" aria-pressed="true">Uzak okuma</button></div>
     <div id="uz-body"></div>
@@ -655,7 +687,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div class="mstep" style="text-align:left" id="netb">
     <div class="mno" style="background:var(--korpus)">b</div>
-    <h3><span class="termtag">network analysis</span>Ağ analizi (İng. <i>network analysis</i>)</h3>
+    <h3><span class="termtag">ağ analizi · network analysis</span>Ağ analizi (İng. <i>network analysis</i>)</h3>
     <div data-terim="ağ analizi" data-ek="Aşağıdaki örnek, tabakat kaynaklarındaki hoca-talebe bağlarıyla kurulmuştur."></div>
     <div class="embwrap"><div id="netmini"></div></div>
     <div id="netinfo"></div>
@@ -680,7 +712,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 2 · HARİTA -->
 <section class="scene wrap" id="harita">
-  <div class="kicker">1c · Kavram: CBS</div>
+  <div class="kicker">1c · Kavram: CBS</div><span class="seviye temel">Temel · herkes</span>
   <h2>Koordinat verilince kitap haritaya döner</h2>
   <div data-terim="CBS" data-ek="Tarihî yer adları için modern harita servisleri değil, tarihî coğrafya sözlükleri (gazetteer) kullanılır." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
   <p class="one">Örnek katman: İbn Battûta'nın (ö. 770/1368-69) <i>Tuhfetü'n-nüzzâr</i> adlı seyahatnâmesinin (er-Rihle) islamicatlas.org'daki verisi — 317 koordinatlı durak; veri setinde her durak eserdeki cümlesine bağlıdır. Beyaz halkalı 8 vitrin durağına dokunun: delil pasajı açılır.</p>
@@ -713,7 +745,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 3 · KAYIT -->
 <section class="scene dresser-scene wrap" id="kayit">
-  <div class="kicker">1d · Kavram: Veri seti</div>
+  <div class="kicker">1d · Kavram: Veri seti</div><span class="seviye temel">Temel · herkes</span>
   <h2>Veri seti: etiketli çekmeceli dolap</h2>
   <div data-terim="veri seti" data-ek="Aşağıdaki dolap, yayımlanmış bir veri setinden alınmış gerçek bir kaydın çekmeceleridir." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
   <p class="one" style="margin:0 auto 16px">Yayımlanmış EICD-B veri setinden <b>gerçek bir kayıt</b> (EICD-B: Belâzürî'nin fetih kayıtlarından derlenen veri seti — 2. durakta yakından tanıyacaksın). Çekmeceleri aç; en kıymetlisi DELİL çekmecesi.</p>
@@ -743,7 +775,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <!-- 3 · MAKİNE -->
 <!-- 2 · ARAŞTIRMACI -->
 <section class="scene wrap" id="arastirmaci">
-  <div class="kicker">2 · Araştırmacının yolu</div>
+  <div class="kicker">2 · Araştırmacının yolu</div><span class="seviye orta">Uygulama · çalışmak isteyene</span>
   <h2>Araştırmacı nasıl çalışır: malzemeden ürüne</h2>
   <p class="one">Beş istasyon; her birinde üç katman var — <b>ilke</b> · yürünmüş <b>gerçek örnek</b> (EICD-B, Oxford DSH 2026) · meraklısına <b>usta notu</b>. İkinci bir yol daha eşlik ediyor: aynı istasyonların bir hadis çalışmasında nasıl görüneceği (tasarım şablonu — henüz yürünmemiş, yol genellensin diye).</p>
   <div class="olcek" role="group" aria-label="Ölçek seç" id="olcek">
@@ -760,9 +792,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <section class="scene wrap" id="makine" style="text-align:center;align-items:center">
-  <div class="kicker">3 · Makinenin içi</div>
+  <div class="kicker">3 · Makinenin içi</div><span class="seviye derin">Meraklısına · atlanabilir</span>
   <h2>Makine bunu nasıl yapar?</h2>
-  <p class="one" style="margin:0 auto 14px">Önce cebindeki ipucu — telefonunun klavyesi yıllardır aynı oyunu oynuyor:</p>
+  <p class="one" style="margin:0 auto 6px">Önce cebindeki ipucu — telefonunun klavyesi yıllardır aynı oyunu oynuyor:</p>
+  <p class="atlanabilir">Bu durak <b>meraklısına</b>: aleti kullanmak için içini bilmek şart değil. Aceleniz varsa doğrudan <a href="#dene">4. durağa (90 saniyelik deneme)</a> geçebilir, buraya sonra dönebilirsiniz.</p>
   <div class="phone">
     <div class="pbar"></div>
     <div class="bubble" id="klv-text"></div>
@@ -790,7 +823,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">1</div>
-    <h3><span class="termtag">tokenization</span>Arapça mı okur? Hayır: önce parçalar, sonra sayıya çevirir</h3>
+    <h3><span class="termtag">parçalama · tokenization</span>Arapça mı okur? Hayır: önce parçalar, sonra sayıya çevirir</h3>
     <div class="ioline"><b>Girdi:</b> harfler <span class="arr">→</span> <b>Çıktı:</b> parça numaraları</div>
     <div class="tokstage">
       <div class="toklabel">Kitaptan cümle</div>
@@ -812,7 +845,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">2</div>
-    <h3><span class="termtag">embedding</span>Her parçayı anlam haritasına koyar</h3>
+    <h3><span class="termtag">anlam yerleştirme · embedding</span>Her parçayı anlam haritasına koyar</h3>
     <div class="ioline"><b>Girdi:</b> parça numaraları <span class="arr">→</span> <b>Çıktı:</b> anlam uzayında noktalar</div>
     <div class="embwrap"><div id="embmap"></div></div>
     <div class="embchips" id="embchips"></div>
@@ -822,7 +855,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">3</div>
-    <h3><span class="termtag">attention</span>Her kelimeyi yazarken bütün pasajı tartar</h3>
+    <h3><span class="termtag">bağlam tartısı · attention</span>Her kelimeyi yazarken bütün pasajı tartar</h3>
     <div class="ioline"><b>Girdi:</b> noktalar <span class="arr">→</span> <b>Çıktı:</b> bağlama göre tartılmış anlam</div>
     <div class="fchips" id="m-fields">
       <button data-f="sehir" aria-pressed="false">"şehir" yazarken</button>
@@ -837,7 +870,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">4</div>
-    <h3><span class="termtag">softmax</span>Cevap vermez; metni devam ettirir — her adım bir yarıştır</h3>
+    <h3><span class="termtag">olasılık yarışı · softmax</span>Cevap vermez; metni devam ettirir — her adım bir yarıştır</h3>
     <div class="ioline"><b>Girdi:</b> tartılmış bağlam <span class="arr">→</span> <b>Çıktı:</b> sıradaki parçanın yarışı, kazanan yazılır</div>
     <div class="term" id="m-term"><span>Talimat: metinden şehir kaydı çıkar, delili AYNEN kopyala.</span>
 <span class="tar" id="m-quote"></span>
@@ -861,7 +894,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="mstep">
     <div class="mno">5</div>
-    <h3><span class="termtag">constrained decoding</span>Kapıları azalt, kopyayı serbest bırak</h3>
+    <h3><span class="termtag">şemalı çıktı · constrained decoding</span>Kapıları azalt, kopyayı serbest bırak</h3>
     <div class="ioline"><b>Girdi:</b> serbest yarış <span class="arr">→</span> <b>Çıktı:</b> şemaya bağlanmış, delilli karar</div>
     <div class="mtoggle" role="group"><button id="m-free" aria-pressed="true">Serbest bırakılırsa</button><button id="m-closed" aria-pressed="false">Kapalı liste verilirse</button></div>
     <div id="m-doorarea"></div>
@@ -872,7 +905,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
 
   <details class="deep" id="deep">
-    <summary>🔬 Meraklısına: çekirdeğe iniş — makinenin içindeki dört mekanizma</summary>
+    <summary>🔬 Çok meraklısına: çekirdeğe iniş — dört mekanizma <span class="seviye derin" style="margin-left:4px">İleri düzey</span></summary>
 
     <div class="dpanel">
       <h4>Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h4>
@@ -925,7 +958,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 3b · SÖZLÜK -->
 <section class="scene wrap" id="sozluk" style="text-align:center;align-items:center;min-height:60vh">
-  <div class="kicker">Ara durak · Kadim sözlük</div>
+  <div class="kicker">Ara durak · Kadim sözlük</div><span class="seviye temel">Temel · herkes</span>
   <h2>Bu dünya sana yabancı değil</h2>
   <p class="one" style="margin:0 auto">Kartlara dokun: her teknik kavramın bin yıllık bir karşılığı var.</p>
   <div class="flipgrid" id="flipgrid"></div>
@@ -934,7 +967,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 4 · DENE -->
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
-  <div class="kicker">4 · Sıra sende</div>
+  <div class="kicker">4 · Sıra sende</div><span class="seviye temel">Herkes · 90 saniye</span>
   <h2>90 saniyede ilk denetimin</h2>
   <p class="one" style="margin:0 auto 26px">Model çıkarır; delilleri SEN denetlersin — geleneğin verdiği adla: <b>mukabele</b>. Aradaki işi buradaki küçük <b>tezgâh</b> yapar: her delili kitapta arar, hükmü sana bırakır. Önce yolunu seç:</p>
   <div class="pathpick" id="pathpick">
@@ -983,7 +1016,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 5 · İLHAM -->
 <section class="scene wrap" id="ilham">
-  <div class="kicker">5 · İlk makalene giden yol</div>
+  <div class="kicker">5 · İlk makalene giden yol</div><span class="seviye orta">Uygulama · plan çıkarır</span>
   <h2>İlk makalene giden yol</h2>
   <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
   <div class="trackchips" id="trackchips"></div>
@@ -1282,6 +1315,52 @@ else window.addEventListener("load", initMap, {once:true});
   });
 })();
 
+
+
+/* ---------- KARŞILAMA: kim için ne var ---------- */
+(function(){
+  var ROTA=[
+   {b:"Lisans öğrencisi için üç durak yeter.",
+    m:"Kavramları tanıyın, doksan saniyede kendiniz deneyin, sonra ödevinizde ne işe yarayacağını görün. Makinenin içine girmek zorunda değilsiniz — o durak meraklısına.",
+    ad:[["#tanis","1 · Temeller",1],["#dene","4 · 90 saniyede dene",1],["#ilham","5 · Ödevden makaleye",0]],
+    atla:"Atlayabilirsiniz: 3 · Makinenin içi (ileri düzey) ve Çekirdeğe iniş bölümü.",
+    vurgu:["tanis","dene","ilham"]},
+   {b:"Tez ya da yüksek lisans için beş durağın beşi de işinize yarar.",
+    m:"Özellikle 2. durakta ölçek seçicisini “Tez / makale” konumuna alın; 5. durakta alanınızı seçip planınızı indirin ve danışmanınıza götürün.",
+    ad:[["#arastirmaci","2 · Araştırmacının yolu",1],["#dene","4 · Tezgâhta dene",0],["#ilham","5 · Planını indir",1]],
+    atla:"Sonra dönmek üzere geçebilirsiniz: 3 · Makinenin içi — ama yöntem bölümünüzü yazarken lazım olacak.",
+    vurgu:["arastirmaci","dene","ilham"]},
+   {b:"Ders veriyorsanız üç kısa gösterim yeter.",
+    m:"Haritayı açıp oynatın (30 sn), sihirbazda uydurma kaydın yakalanışını gösterin (90 sn), sonra Kütüphane'yi öğrencilere adres olarak bırakın. Kavram kartları ve Kadim sözlük doğrudan slayta alınabilir.",
+    ad:[["#harita","Harita gösterimi",0],["#dene","Canlı denetim",1],["https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html","📚 Kütüphane",0]],
+    atla:"Ders için sunum senaryosu ve QR kodları depoda hazır; Kütüphane'deki dergi seçici öğrenci yönlendirmesi için pratiktir.",
+    vurgu:["harita","dene"]},
+   {b:"Merak için en iyi sıra: baştan sona, ama acele etmeden.",
+    m:"Kapaktan başlayıp aşağı inin. En eğlenceli durak 3 · Makinenin içi: klavye oyunundan başlayıp beş adımı kendiniz gezebilir, isterseniz çekirdeğe kadar inip sıcaklık sürgüsüyle oynayabilirsiniz.",
+    ad:[["#tanis","1 · Temeller",0],["#makine","3 · Makinenin içi",1],["#deep","Çekirdeğe iniş",0]],
+    atla:"Hiçbir şeyi atlamanız gerekmiyor; bölümler birbirinden bağımsız okunabilir.",
+    vurgu:["tanis","makine"]}
+  ];
+  var kimsec=document.getElementById("kimsec"), rota=document.getElementById("rota");
+  if(!kimsec) return;
+  function uygula(i,kaydet){
+    var r=ROTA[i];
+    document.querySelectorAll("#kimsec button").forEach(function(b){ b.setAttribute("aria-pressed", +b.dataset.k===i); });
+    rota.innerHTML='<b>'+r.b+'</b><br>'+r.m
+      +'<div class="adimlar">'+r.ad.map(function(a){ return '<a class="'+(a[2]?"ana":"")+'" href="'+a[0]+'">'+a[1]+'</a>'; }).join("")+'</div>'
+      +'<span class="atla">'+r.atla+'</span>';
+    rota.classList.add("on");
+    document.querySelectorAll(".senin").forEach(function(el){ el.classList.remove("senin"); });
+    r.vurgu.forEach(function(id){ var el=document.getElementById(id); if(el) el.classList.add("senin"); });
+    if(kaydet){ try{ localStorage.setItem("rihle_kim", String(i)); }catch(e){} }
+  }
+  kimsec.addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    uygula(+b.dataset.k,true);
+    rota.scrollIntoView({block:"nearest",behavior:"smooth"});
+  });
+  try{ var k=localStorage.getItem("rihle_kim"); if(k!==null) uygula(+k,false); }catch(e){}
+})();
 
 /* ---------- ARAŞTIRMACININ YOLU: TEZGÂH ---------- */
 (function(){
