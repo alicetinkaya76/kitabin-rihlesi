@@ -572,6 +572,97 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .emekbar .seg{display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.66rem;font-weight:700;color:#fff;cursor:pointer;transition:filter .2s}
 .emekbar .seg:hover{filter:brightness(1.12)}
 .emekbar .cap{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:6px;text-align:center}
+
+/* ---------- makale atölyesi (5. durak) ---------- */
+.atlas{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--sans);font-size:.74rem;margin:12px 0 4px}
+.atlas a{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);font-weight:600}
+.atlas a:hover{background:var(--rubric-soft);border-color:var(--rubric)}
+.atolye{max-width:820px;margin:22px auto 0;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;text-align:left;scroll-margin-top:70px}
+.atolye .ah{display:flex;align-items:center;gap:11px;margin-bottom:4px}
+.atolye .ah h3{font-family:var(--sans);font-size:1.1rem;margin:0;line-height:1.25}
+.atolye .an{flex:none;width:29px;height:29px;border-radius:9px;background:var(--rubric);color:#fff;font-family:var(--sans);font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.atolye .ap{font-family:var(--sans);font-size:.85rem;color:var(--muted);line-height:1.55;margin:0 0 12px}
+.atolye .altbaslik{font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 5px;font-weight:700}
+/* A · soru tezgâhı */
+.secrow{margin-bottom:9px}
+.secrow>b{display:block;font-family:var(--sans);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.secrow .opts{display:flex;gap:6px;flex-wrap:wrap}
+.secrow button{font-family:var(--sans);font-size:.78rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 12px;cursor:pointer;text-align:left;line-height:1.3;max-width:100%}
+.secrow button small{display:block;font-size:.66rem;color:var(--muted);margin-top:1px}
+.secrow button[aria-pressed="true"]{border-color:var(--rubric);background:var(--rubric-soft)}
+.secrow button[aria-pressed="true"] small{color:var(--rubric)}
+.soruout{background:var(--code-bg);border:1px solid var(--line);border-left:6px solid var(--korpus);border-radius:12px;padding:13px 16px;margin:12px 0 4px}
+.soruout .lb{font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.soruout .q{font-family:var(--serif);font-size:1.1rem;line-height:1.5}
+.soruout .q b{color:var(--rubric)}
+.kapi4{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:10px 0}
+.kapi{border-radius:10px;padding:9px 12px;font-family:var(--sans);font-size:.76rem;line-height:1.45;border-left:4px solid}
+.kapi.ok{background:var(--korpus-soft);border-color:var(--korpus)}
+.kapi.uy{background:var(--rubric-soft);border-color:var(--rubric)}
+.kapi b{display:block;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.kapi.ok b{color:var(--korpus)} .kapi.uy b{color:var(--rubric)}
+.tabloprev{overflow-x:auto;margin-top:6px}
+.tabloprev table{border-collapse:collapse;font-family:var(--sans);font-size:.75rem;min-width:100%}
+.tabloprev th,.tabloprev td{border:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}
+.tabloprev th{background:var(--chip);font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tabloprev td{font-family:var(--mono);font-size:.72rem}
+.tabloprev .dl{color:var(--rubric)}
+/* B · takvim */
+.haftalar{display:flex;gap:2px;margin:12px 0 4px;border-radius:8px;overflow:hidden}
+.haftalar .fz{display:flex;flex-direction:column;justify-content:center;padding:9px 8px;font-family:var(--sans);font-size:.66rem;color:#fff;font-weight:700;line-height:1.25;min-width:0}
+.haftalar .fz span{font-size:.6rem;font-weight:500;opacity:.9;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mtas{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:10px}
+.mtas>div{background:var(--code-bg);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-family:var(--sans);font-size:.75rem;line-height:1.4}
+.mtas .h{display:inline-block;background:var(--ink);color:var(--paper);border-radius:5px;padding:1px 7px;font-size:.65rem;font-weight:800;margin-bottom:3px}
+.takvimhk{background:var(--insan-soft);border-radius:10px;padding:10px 14px;margin-top:11px;font-family:var(--sans);font-size:.79rem;line-height:1.5}
+.takvimhk b{color:var(--insan)}
+/* C · anatomi */
+.anpar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.anpar button{font-family:var(--sans);font-size:.75rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.anpar button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.anpar .no{font-weight:800;color:var(--rubric);margin-right:4px}
+.anpar button[aria-pressed="true"] .no{color:var(--paper)}
+#anpanel{margin:0;max-width:none}
+.sablon{background:var(--code-bg);border:1px dashed var(--line);border-radius:9px;padding:9px 12px;font-family:var(--mono);font-size:.74rem;line-height:1.6;margin:9px 0;white-space:pre-wrap}
+.sablon .lbl{font-family:var(--sans);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.sablon mark{background:var(--model-soft);color:inherit;border-radius:3px;padding:0 3px}
+/* D · hakem gözü */
+.hkmgrup{font-family:var(--sans);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rubric);font-weight:800;margin:12px 0 5px}
+.hkm{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.hkm input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--korpus)}
+.hkm .t{font-family:var(--sans);font-size:.81rem;line-height:1.45}
+.hkm .r{font-family:var(--serif);font-style:italic;font-size:.8rem;color:var(--rubric);margin-top:3px;display:block}
+.hkm.tik .r{display:none}
+.hkm.tik .t{color:var(--muted)}
+.meter{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-family:var(--sans);font-size:.8rem}
+.meter .mt{flex:1;height:9px;background:var(--chip);border-radius:999px;overflow:hidden}
+.meter .mf{height:100%;width:0;background:var(--korpus);transition:width .3s}
+.meter .vd{font-weight:800;white-space:nowrap}
+/* E · beyan */
+.yzsec{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+.yzsec button{font-family:var(--sans);font-size:.76rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer}
+.yzsec button[aria-pressed="true"]{border-color:var(--korpus);background:var(--korpus-soft)}
+.yzsec button[aria-pressed="true"]::before{content:"✓ ";font-weight:800;color:var(--korpus)}
+.yzinput{font-family:var(--sans);font-size:.82rem;width:100%;max-width:420px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink)}
+.yzout{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:9px 0;font-family:var(--serif);font-size:.88rem;line-height:1.6;white-space:pre-wrap}
+.yzout .lbl{font-family:var(--sans);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.kirmizicizgi{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:10px}
+.kirmizicizgi>div{background:var(--rubric-soft);border-left:4px solid var(--rubric);border-radius:9px;padding:8px 12px;font-family:var(--sans);font-size:.76rem;line-height:1.45}
+.kirmizicizgi b{display:block;color:var(--rubric);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+/* F · kurtarma */
+.kurt{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
+.kurt>details{background:var(--code-bg);border:1px solid var(--line);border-radius:11px;padding:0}
+.kurt>details>summary{cursor:pointer;list-style:none;padding:10px 13px;font-family:var(--sans);font-size:.82rem;font-weight:700}
+.kurt>details>summary::-webkit-details-marker{display:none}
+.kurt>details>summary::after{content:" ▾";color:var(--muted)}
+.kurt>details[open]>summary::after{content:" ▴"}
+.kurt>details>div{padding:0 13px 11px;font-family:var(--sans);font-size:.78rem;line-height:1.55;color:var(--muted)}
+.kurt>details>div b{color:var(--ink)}
+.dosyakart{max-width:820px;margin:22px auto 0;background:var(--ink);color:var(--paper);border-radius:16px;padding:20px 22px;text-align:center;box-shadow:var(--shadow)}
+.dosyakart h3{font-family:var(--sans);font-size:1.08rem;margin:0 0 5px;color:var(--paper)}
+.dosyakart p{font-family:var(--sans);font-size:.81rem;opacity:.85;margin:0 0 12px;line-height:1.5}
+.dosyakart .cta{background:var(--paper);color:var(--ink)}
+@media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
 </style>
 
 <a class="skip" href="#tanis">İçeriğe atla</a>
@@ -1018,15 +1109,93 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="ilham">
   <div class="kicker">5 · İlk makalene giden yol</div><span class="seviye orta">Uygulama · plan çıkarır</span>
   <h2>İlk makalene giden yol</h2>
-  <p class="one">Alanını seç; gerçekçi bir yol haritası çıksın. Süreler, ders yükü yanında yürünecek şekilde verilmiştir.</p>
+  <p class="one">Bu durak bir <b>atölyedir</b>: alanını seç, altı aleti sırayla kullan, sonunda danışmanına götürebileceğin tek dosya çıksın. Hiçbir alet senin yerine karar vermez; hepsi kararı <i>görünür</i> kılar.</p>
   <div class="trackchips" id="trackchips"></div>
-  <div id="trackhead" style="max-width:720px;margin:0 auto;width:100%"></div>
-  <div class="planbar" style="max-width:720px;margin-left:auto;margin-right:auto;width:100%">
-    <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
-    <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.78rem">📄 Planı indir</button>
+  <div class="atlas" aria-label="Atölyedeki aletler">
+    <a href="#soru">A · Soru tezgâhı</a><a href="#takvim">B · Dönem takvimi</a><a href="#anatomi">C · Makalenin anatomisi</a><a href="#hakem">D · Hakem gözü</a><a href="#beyan">E · Yapay zekâ beyanı</a><a href="#kurtarma">F · İşler yolunda gitmezse</a>
   </div>
-  <div class="steps" id="trackplan" style="max-width:720px"></div>
-  <div class="gercek" style="max-width:720px"><b>Gerçekçi beklenti:</b> ilk hedef "büyük makale" değil; <b>mütevazı ve bitmiş</b> bir iş — bir araştırma notu ya da veri makalesi. Veri setin Zenodo'da DOI alır; ilk hakemli satırın çoğu zaman budur. Merdiven:
+  <div id="trackhead" style="max-width:820px;margin:0 auto;width:100%"></div>
+
+  <div class="atolye" id="soru">
+    <div class="ah"><span class="an">A</span><h3>Soru tezgâhı — dağınık merakı çalışılabilir bir soruya çevir</h3></div>
+    <p class="ap">Öğrencinin en çok takıldığı yer konu bulmak değil, konuyu <b>soruya</b> daraltmaktır. Üç seçim yeter: neyin içinde bakacaksın (malzeme), neyi sayacaksın (birim), neye göre karşılaştıracaksın (eksen). Seçtikçe hem soru cümlen hem o soruyu taşıyacak tablonun sütunları çıkar.</p>
+    <div id="soruSec"></div>
+    <div class="soruout" id="soruOut"></div>
+    <div class="altbaslik">Sorunun dört kapısı</div>
+    <div class="kapi4" id="soruKapi"></div>
+    <div class="altbaslik">Bu sorunun tablosu — dördüncü duraktaki tezgâhın istediği biçim</div>
+    <div class="tabloprev" id="soruTablo"></div>
+    <details class="mdeep ustanotu" style="margin-top:11px"><summary>🎯 Beşinci kapı: cevabı şimdiden biliyor musun?</summary>
+      <p>Bu kapıyı makine açamaz; kendine sorman gerek. Dürüst cevabın işini kurtarır.</p>
+      <div class="btnrow" style="justify-content:flex-start;margin-top:6px"><button class="wbtn alt" data-k5="e">Evet, sonucu tahmin edebiliyorum</button><button class="wbtn alt" data-k5="h">Hayır, gerçekten bilmiyorum</button></div>
+      <p id="k5c" class="small" style="margin-top:8px"></p>
+    </details>
+  </div>
+
+  <div class="altbaslik" style="max-width:820px;margin:26px auto 0;font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700">Sorun kurulduysa: dört evrelik plan</div>
+  <div class="planbar" style="max-width:820px;margin-left:auto;margin-right:auto;width:100%">
+    <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
+    <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.78rem">📄 Dosyanı indir</button>
+  </div>
+  <div class="steps" id="trackplan" style="max-width:820px"></div>
+
+  <div class="atolye" id="takvim">
+    <div class="ah"><span class="an">B</span><h3>Dönem takvimi — bu iş ders yükünün yanında yürür mü?</h3></div>
+    <p class="ap">"Üç dört ay" demek kolaydır; asıl soru haftada kaç saat verebildiğindir. Saat bütçeni seç: takvim uzar ya da kısalır, <b>hedef de değişir</b>. Kapsam esner, kalite esnemez.</p>
+    <div class="olcek" id="saatsec" role="group" aria-label="Haftalık saat bütçesi">
+      <button data-s="2" aria-pressed="false">Haftada 2 saat</button><button data-s="4" aria-pressed="true">Haftada 4 saat</button><button data-s="6" aria-pressed="false">Haftada 6 saat</button>
+    </div>
+    <div id="takvimOut"></div>
+    <p class="small muted" style="margin-top:9px">Süreler bu sitenin <b>planlama tahminidir</b>; ölçülmüş veri değildir. Emek dağılımı, ikinci duraktaki tezgâhın oranlarıyla aynıdır (malzeme %40, çıkarım %10, mukabele %25, yazım %25).</p>
+  </div>
+
+  <div class="atolye" id="anatomi">
+    <div class="ah"><span class="an">C</span><h3>Makalenin anatomisi — hangi bölümde tam olarak ne yazılır</h3></div>
+    <p class="ap">Hiç makale yazmamış bir öğrencinin en büyük engeli, makalenin <i>neye benzediğini</i> bilmemesidir. Aşağıda bir dijital beşerî bilimler makalesi on parçaya ayrıldı. Parçaya dokun: ne işe yarar, ilk cümlesi nasıl kurulur, bu sitedeki vakada nasıl görünür, en sık hata nedir. Kelime bütçeleri <b>temsilîdir</b> — derginin yazım kılavuzu her zaman üstündür.</p>
+    <div class="anpar" id="anparlar"></div>
+    <div class="istpanel" id="anpanel"></div>
+    <div class="btnrow" style="justify-content:flex-start;margin-top:12px"><button class="wbtn alt" id="iskeletdl">📄 Makale iskeletini indir (.md)</button></div>
+    <p class="small muted" style="margin-top:6px">İndirilen dosya boş başlıklardan ibaret değildir: her başlığın altında ne yazılacağı, kaç kelime olacağı ve soru cümlen hazır durur.</p>
+  </div>
+
+  <div class="atolye" id="hakem">
+    <div class="ah"><span class="an">D</span><h3>Hakem gözü — göndermeden önce kendi hakemin ol</h3></div>
+    <p class="ap">Hakem raporu geldiğinde şaşırmamanın tek yolu, o raporu <b>kendine önceden yazmaktır</b>. On iki maddeyi tek tek işaretle; işaretlenmeyen maddenin altında, o eksik yüzünden alacağın cümle duruyor.</p>
+    <div id="hkmliste"></div>
+    <div class="meter"><span>Gönderime hazırlık</span><div class="mt"><div class="mf" id="hkmfill"></div></div><span class="vd" id="hkmvd">0/12</span></div>
+    <p class="small muted" style="margin-top:8px">Hakem cümleleri <b>temsilîdir</b>: hakem raporlarında en sık karşılaşılan gerekçelerden derlenmiş örnek cümlelerdir, belirli bir rapordan alıntı değildir. İşaretlerin tarayıcında saklanır.</p>
+  </div>
+
+  <div class="atolye" id="beyan">
+    <div class="ah"><span class="an">E</span><h3>Yapay zekâ beyanı — üçüncü fiilin aleti</h3></div>
+    <p class="ap">Bu sitenin omurgası üç fiildi: <b>üret</b> (kendin), <b>doğrula</b> (dışarıda), <b>beyan et</b>. İlk ikisinin aleti vardı; üçüncüsününki burada. Modeli hangi işlerde kullandığını seç, beyan paragrafın Türkçe ve İngilizce olarak çıksın. Gizlemek değil, <i>yazmak</i> güven verir.</p>
+    <div class="altbaslik">Modeli hangi işlerde kullandın?</div>
+    <div class="yzsec" id="yzsec"></div>
+    <div class="altbaslik">Model adı, sürümü, kullanım tarihi</div>
+    <input class="yzinput" id="yzmodel" type="text" placeholder="ör. Claude Opus 5, Haziran 2026" aria-label="Model adı ve sürümü">
+    <div class="altbaslik">Doğrulanamayan kayıtlara ne yaptın?</div>
+    <div class="yzsec" id="yzelenen">
+      <button data-e="at" aria-pressed="true">Eledim (veri setine girmedi)</button><button data-e="isaret" aria-pressed="false">İşaretleyerek bıraktım</button>
+    </div>
+    <div class="yzout" id="yztr"></div>
+    <div class="yzout" id="yzen"></div>
+    <div class="btnrow" style="justify-content:flex-start;margin:0"><button class="wbtn alt" id="yzcopy">Beyanı kopyala (TR + EN)</button></div>
+    <div class="altbaslik">Kırmızı çizgiler — bunlar beyanla düzelmez</div>
+    <div class="kirmizicizgi">
+      <div><b>Modeli yazar yapmak</b>Model sorumluluk üstlenemez; yazar sorumluluk üstlenendir. Teşekkür bölümü de değil, yöntem bölümü doğru yerdir.</div>
+      <div><b>Künyeyi modelden almak</b>Uydurulmuş künye bu alanda makale reddettiren bir numaralı sebeptir. Her künye asıl kaynaktan görülür; görülmeyen kaynakça satırı silinir.</div>
+      <div><b>Doğrulanmamış kaydı tabloya koymak</b>Delil sütunu boş kalan satır tabloya girmez. "Model öyle dedi" bir sened değildir.</div>
+    </div>
+    <p class="small muted" style="margin-top:9px">Daha geniş çerçeve: <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#adab">Kütüphane · Âdâb &amp; Beyan</a>. Derginin kendi beyan formu varsa o esastır; bu metin onu doldurmayı kolaylaştırır.</p>
+  </div>
+
+  <div class="atolye" id="kurtarma">
+    <div class="ah"><span class="an">F</span><h3>İşler yolunda gitmezse — altı gerçek çıkmaz ve çıkışı</h3></div>
+    <p class="ap">Yol haritaları hep işlerin yolunda gittiğini varsayar; gitmez. Aşağıdakiler süsleme değil, bu işi yapan herkesin başına gelen altı durumdur. Hangisindeysen aç.</p>
+    <div class="kurt" id="kurtliste"></div>
+  </div>
+
+  <div class="gercek" style="max-width:820px"><b>Gerçekçi beklenti:</b> ilk hedef "büyük makale" değil; <b>mütevazı ve bitmiş</b> bir iş — bir araştırma notu ya da veri makalesi. Veri setin Zenodo'da DOI alır; ilk hakemli satırın çoğu zaman budur. Merdiven:
     <div class="merdiven"><span class="mx">1</span><span>araştırma notu / kitap değerlendirmesi</span><span class="mx">2</span><span>veri makalesi (JOHD)</span><span class="mx">3</span><span>ulusal tam makale</span><span class="mx">4</span><span>uluslararası</span></div>
   </div>
   <div class="yoldas">
@@ -1037,13 +1206,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="warncard"><b>Sürekli beslenme.</b> The Digital Orientalist'i takip et; Programming Historian'dan dönemde bir ders bitir — <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">ikisi de Öğrenme rafında.</a></div>
     </div>
   </div>
-  <div class="card pv i" style="max-width:720px;margin:14px auto 0;text-align:left">
+  <div class="card pv i" style="max-width:820px;margin:14px auto 0;text-align:left">
     <span class="pvlabel">Danışmana ilk e-posta — şablon (alanına göre dolar)</span>
     <pre id="ep-text" style="white-space:pre-wrap;font-family:var(--serif);font-size:.9rem;background:none;border:none;padding:6px 0 0"></pre>
     <div class="btnrow" style="justify-content:flex-start;margin:8px 0 0"><button class="wbtn alt" id="ep-copy">Şablonu kopyala</button></div>
     <p class="small muted" style="margin:6px 0 0">[köşeli] alanları kendine göre doldur; planın tek sayfalık halini "Planı indir"den al, ekle.</p>
   </div>
-  <div class="shelfhead" style="max-width:720px;margin:18px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
+  <div class="dosyakart">
+    <h3>📄 Altı aletin çıktısı: tek dosya</h3>
+    <p>Soru cümlen, tablonun sütunları, saat bütçene göre takvimin, dört evrelik planın, makale iskeletin, hakem listendeki eksiklerin, yapay zekâ beyanın ve danışman e-postan — hepsi tek bir <b>.md</b> dosyasında. Danışman randevusuna bununla git.</p>
+    <button class="cta" id="plandl2">Dosyanı indir (.md)</button>
+  </div>
+  <div class="shelfhead" style="max-width:820px;margin:22px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
   <div class="vitrin" id="vitrin">
     <div class="vh">📚 Kütüphane — bu sitenin ambarı</div>
@@ -1076,7 +1250,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 "use strict";
-const IBB = {"traveler":{"name":"İbn Battûta","ar":"ابن بطوطة","birth":1304,"death":1369,"km":117000,"years":29,"countries":44,"stops":317,"voyages":7,"work_ar":"تحفة النظار في غرائب الأمصار وعجائب الأسفار"},"voyages":[{"id":1,"title":"İlk Hac Yolculuğu: Mağrib → Mekke","years":"1325–1326","color":"#e63946","stops":65},{"id":2,"title":"Irak, İran ve Doğu Afrika: Büyük Güney Turu","years":"1326–1332","color":"#2a9d8f","stops":47},{"id":3,"title":"Anadolu, Deşt-i Kıpçak ve Hindistan Yolu","years":"1330–1333","color":"#e9c46a","stops":65},{"id":4,"title":"Hindistan Dönemi: Delhi Sultanlığı","years":"1334–1341","color":"#264653","stops":41},{"id":5,"title":"Maldivler, Seylan, Güneydoğu Asya ve Çin","years":"1343–1347","color":"#a855f7","stops":43},{"id":6,"title":"Dönüş ve Endülüs: Eve Yolculuk","years":"1347–1350","color":"#f4a261","stops":34},{"id":7,"title":"Batı Afrika / Sudan: Sahra Ötesi","years":"1351–1354","color":"#06b6d4","stops":22}],"stops_min":[[1,35.76,-5.834,"Tanca"],[1,34.883,-1.317,"Tlemsen"],[1,36.305,2.233,"Milyana"],[1,36.754,3.059,"Cezayir"],[1,36.751,5.057,"Becâye"],[1,36.365,6.615,"Kostantîne"],[1,36.9,7.767,"Bône (Annâbe)"],[1,36.806,10.181,"Tunus"],[1,35.826,10.637,"Sûse"],[1,34.741,10.76,"Sfaks"],[1,33.882,10.098,"Gābes"],[1,32.902,13.18,"Trablus (Libya)"],[1,31.2,29.919,"İskenderiye"],[1,31.034,30.467,"Dimenhûr"],[1,31.2,30.55,"Fuvva"],[1,30.95,30.85,"Nahrâriyye"],[1,30.044,31.236,"Kahire"],[1,28.087,30.762,"Minyâ"],[1,27.178,31.186,"Asyût"],[1,26.562,31.747,"İhmîm"],[1,26.155,32.716,"Kınâ"],[1,25.917,32.767,"Kûs"],[1,25.687,32.64,"Uksur"],[1,24.978,32.873,"İdfû"],[1,22.333,36.433,"Ayzâb"],[1,30.044,31.236,"Kahire (2. ziyaret)"],[1,30.417,31.567,"Bilbîs"],[1,30.95,32.8,"Katiyâ"],[1,31.5,34.467,"Gazze"],[1,31.533,35.1,"Halîl (Hebron)"],[1,31.705,35.202,"Beytülahm"],[1,31.768,35.214,"Kudüs"],[1,31.669,34.566,"Askalân"],[1,31.927,34.867,"Ramle"],[1,32.221,35.254,"Nâbulus"],[1,32.333,35.75,"Aclûn"],[1,32.921,35.076,"Akkâ"],[1,33.27,35.196,"Sûr"],[1,33.56,35.371,"Saydâ"],[1,33.894,35.502,"Beyrut"],[1,32.79,35.531,"Taberiyye"],[1,34.437,35.85,"Trablus (Şam)"],[1,34.73,36.71,"Humus"],[1,35.132,36.751,"Hama"],[1,35.644,36.672,"Maarratü'n-Nu'mân"],[1,36.202,37.134,"Halep"],[1,36.2,36.15,"Antakya"],[1,35.361,35.925,"Cebele"],[1,35.517,35.783,"Lâzkiye"],[1,34.007,36.208,"Ba'lebek"],[1,33.514,36.276,"Şam (Dımaşk)"],[1,33.35,36.233,"Kisve"],[1,32.517,36.483,"Busrâ"],[1,31.185,35.705,"Kerek"],[1,30.196,35.734,"Ma'ân"],[1,28.384,36.555,"Tebük"],[1,26.785,37.953,"el-Hicr (Medâin Sâlih)"],[1,26.617,37.919,"el-Ulâ"],[1,24.469,39.614,"Medîne-i Münevvere"],[1,24.413,39.542,"Zülhuleyfe"],[1,23.783,38.783,"Bedir"],[1,22.797,39.035,"Râbiğ"],[1,22.155,39.321,"Hulays"],[1,21.917,39.35,"Usfân"],[1,21.422,39.826,"Mekke-i Mükerreme"],[2,24.467,39.602,"Medîne"],[2,25.45,39.85,"Vâdî el-Arûs"],[2,26.1,40.5,"Asîle"],[2,27.12,42.52,"Feyd"],[2,32.01,44.21,"Kâdisiye"],[2,32.0,44.335,"Necef"],[2,32.05,44.42,"Havarnâk"],[2,32.19,46.33,"Vâsıt"],[2,31.95,46.45,"Ümmü Ubeyde"],[2,30.509,47.78,"Basra"],[2,30.339,48.304,"Abbâdân"],[2,31.278,49.604,"Râmiz"],[2,32.046,48.857,"Tüster"],[2,31.839,49.869,"Îzec"],[2,32.655,51.668,"İsfahan"],[2,29.592,52.584,"Şîrâz"],[2,29.619,51.655,"Kâzirûn"],[2,32.03,44.4,"Kûfe"],[2,32.616,44.024,"Kerbelâ"],[2,33.315,44.366,"Bağdat"],[2,38.096,46.274,"Tebrîz"],[2,34.596,43.679,"Tikrît"],[2,36.335,43.119,"Musul"],[2,37.328,42.196,"Cezîretü İbn Ömer"],[2,37.074,41.217,"Nusaybin"],[2,36.32,41.83,"Sincâr"],[2,37.312,40.735,"Mârdîn"],[2,21.422,39.826,"Mekke (mücâveret)"],[2,21.543,39.173,"Cidde"],[2,19.104,37.33,"Sevâkin"],[2,18.52,41.32,"Halî"],[2,14.195,43.315,"Zebîd"],[2,13.579,44.022,"Ta'iz"],[2,15.369,44.191,"San'â"],[2,12.786,45.019,"Aden"],[2,11.354,43.479,"Zeyla"],[2,2.047,45.318,"Mogadişu"],[2,-8.957,39.52,"Kilva"],[2,17.015,54.092,"Zafâr"],[2,22.694,59.371,"Kalhât"],[2,27.085,56.46,"Hürmüz"],[2,25.57,52.34,"Sîrâf / Kays"],[2,26.067,50.558,"Bahreyn"],[2,26.52,50.01,"Katîf"],[2,25.38,49.59,"Hecer / el-Ahsâ"],[2,24.63,46.72,"Yemâme / Hicr"],[2,21.422,39.826,"Mekke (4. hac, 732 AH)"],[3,21.486,39.193,"Cidde"],[3,22.333,36.433,"Aydâb"],[3,30.044,31.236,"Kahire"],[3,35.52,35.777,"Lâzkiye"],[3,36.544,31.998,"Alanya"],[3,36.897,30.713,"Antalya"],[3,37.721,30.288,"Burdur"],[3,37.765,30.557,"Isparta"],[3,37.883,30.855,"Eğirdir"],[3,37.133,29.5,"Gölhisar"],[3,37.776,29.086,"Denizli"],[3,37.571,29.075,"Tavas"],[3,37.215,28.364,"Muğla"],[3,37.315,27.784,"Milas"],[3,37.3,27.833,"Peçin"],[3,37.875,32.493,"Konya"],[3,37.175,33.229,"Karaman"],[3,38.369,34.029,"Aksaray"],[3,37.967,34.683,"Niğde"],[3,38.731,35.479,"Kayseri"],[3,39.748,37.018,"Sivas"],[3,40.65,35.835,"Amasya"],[3,40.867,35.233,"Gümüşhacıköy"],[3,39.75,39.5,"Erzincan"],[3,39.906,41.266,"Erzurum"],[3,38.233,28.083,"Birgi"],[3,38.083,27.733,"Tire"],[3,37.95,27.37,"Selçuk"],[3,38.419,27.129,"İzmir"],[3,38.619,27.429,"Manisa"],[3,39.122,27.18,"Bergama"],[3,39.648,27.883,"Balıkesir"],[3,40.183,29.067,"Bursa"],[3,40.429,29.721,"İznik"],[3,40.39,30.79,"Göynük"],[3,40.47,31.17,"Mudurnu"],[3,40.8,32.2,"Gerede"],[3,40.736,31.606,"Bolu"],[3,41.389,33.783,"Kastamonu"],[3,42.023,35.153,"Sinop"],[3,45.353,36.468,"Kerç"],[3,45.032,35.383,"Kefe"],[3,45.005,35.077,"Kırım"],[3,47.111,39.42,"Azak"],[3,44.1,43.6,"Macar"],[3,44.048,43.059,"Beş Dağ"],[3,48.531,44.513,"Saray (Özbek Han Ordugahı)"],[3,54.983,49.067,"Bulgar"],[3,46.35,48.041,"Hacı Tarhan"],[3,51.533,45.983,"Ukek"],[3,44.85,34.97,"Sudak"],[3,44.9,28.88,"Baba Saltuk"],[3,42.48,26.5,"Mahtuli"],[3,41.28,28.23,"Finiqa"],[3,41.008,28.978,"Konstantinopolis"],[3,48.531,44.513,"Saray (Saray Berke)"],[3,47.033,51.767,"Sarayçık"],[3,42.297,59.15,"Hârezm"],[3,39.768,64.456,"Buhâra"],[3,39.654,66.96,"Semerkant"],[3,34.353,62.204,"Herat"],[3,37.224,67.278,"Tirmiz"],[3,36.758,66.897,"Belh"],[3,34.555,69.207,"Kâbil"],[3,28.614,77.209,"Delhi"],[4,29.38,71.68,"Pencâb (İndus Nehri)"],[4,26.42,68.38,"Cenânî"],[4,26.425,67.86,"Sivistân (Sehwan)"],[4,24.65,67.73,"Lâherî (Lahari Bandar)"],[4,27.69,68.95,"Bekkâr (Bukkar)"],[4,29.22,69.17,"Ûce (Uch)"],[4,30.198,71.471,"Mültân"],[4,30.145,74.195,"Ebûher (Abohar)"],[4,30.35,73.39,"Ecûdhen (Pakpattan)"],[4,30.0,73.5,"Emcerî"],[4,29.533,75.017,"Sirsutî (Sirsa)"],[4,29.1,75.97,"Hânsî (Hansi)"],[4,28.75,77.0,"Mes'ûdâbâd"],[4,28.614,77.209,"Delhi (Varış)"],[4,28.47,77.25,"Tilpat"],[4,28.614,77.209,"Delhi (Kadılık Tayini)"],[4,28.614,77.209,"Delhi (Saray Hayatı)"],[4,28.524,77.186,"Delhi (Kutbüddîn Türbesi İdaresi)"],[4,29.392,78.135,"Bicnûr (Bijnor)"],[4,28.9,78.47,"Emrûha (Amroha)"],[4,27.18,79.98,"Ganj Nehri (Sultan'ın Karargâhı)"],[4,28.614,77.209,"Delhi (Gözden Düşüş)"],[4,28.614,77.209,"Delhi (Zühd Dönemi)"],[4,26.425,67.86,"Sivistân (Sultan Ziyareti)"],[4,28.614,77.209,"Delhi (İnzivâ)"],[4,28.614,77.209,"Delhi (Çin Elçiliği)"],[4,26.92,77.29,"Beyâne (Bayana)"],[4,27.88,78.08,"Kûl (Aligarh)"],[4,27.05,79.92,"Kannevc (Kanauj)"],[4,26.22,78.18,"Kâlyûr (Gwalior)"],[4,25.5,78.5,"Berûn (Paron)"],[4,19.94,75.22,"Devletâbâd (Daulatabad)"],[4,21.37,74.26,"Nezerbar (Nandurbar)"],[4,22.32,72.62,"Kenbâye (Khambhat/Cambay)"],[4,15.5,73.87,"Kundahâr (Goa Bölgesi)"],[4,15.5,73.91,"Sindâbûr (Goa)"],[4,14.28,74.44,"Hünûr (Honavar)"],[4,13.99,74.56,"Fâkenûr (Bhatkal)"],[4,12.87,74.88,"Mencülûr (Mangalore)"],[4,11.87,75.37,"Hîlî (Cannanore)"],[4,11.25,75.77,"Kâlikût (Calicut/Kozhikode)"],[5,11.25,75.77,"Kâlikût (Gemi Kazası)"],[5,8.88,76.6,"Kûlam (Quilon)"],[5,14.28,74.44,"Honavar (İnziva)"],[5,14.8,74.12,"Sindâbûr (Fetih)"],[5,11.18,75.8,"Şâliyât (Chaliyam)"],[5,4.17,73.51,"Maldivler (Varış)"],[5,3.88,73.41,"Kannalûs Adası"],[5,3.5,73.1,"Tîm Atolü"],[5,4.175,73.509,"Mehl Adası (Malé)"],[5,2.93,73.55,"Mulûk Adası"],[5,7.47,80.35,"Battâle (Seylan)"],[5,7.2,80.25,"Mânâr Mendelî"],[5,7.16,80.58,"Kunkâr"],[5,6.81,80.5,"Serendîb Dağı (Âdem Tepesi)"],[5,5.92,80.59,"Dînevr (Devinuvara)"],[5,6.03,80.22,"Kâlî (Galle)"],[5,6.93,79.84,"Kolombû"],[5,10.5,79.15,"Harkâtû Kalesi (Ma'bar)"],[5,10.78,79.13,"Sultan Gıyâsüddîn'in Sarayı"],[5,9.23,78.79,"Fattan"],[5,9.92,78.12,"Mütre (Madurai)"],[5,8.88,76.6,"Kûlam (Dönüş)"],[5,14.0,74.5,"Honavar-Fâkânûr (Korsanlık)"],[5,4.17,73.51,"Maldivler (İkinci Dönüş)"],[5,22.34,91.78,"Südkâvân (Çittagong)"],[5,24.89,91.87,"Kâmrû Dağları (Sylhet)"],[5,24.9,91.85,"Şeyh Celâlüddîn'in Mağarası"],[5,24.38,91.42,"Habnâk (Habiganj?)"],[5,23.65,90.61,"Sünerkâvân (Sonargaon)"],[5,20.15,92.9,"Bürhankâr Sahili (Arakan?)"],[5,5.54,95.32,"Câva / Sumatra"],[5,2.0,103.0,"Mül Câva (Malay Yarımadası?)"],[5,1.5,110.35,"Kâkule"],[5,15.88,108.33,"Tavâlisî"],[5,24.9,118.58,"Zeytûn (Quanzhou)"],[5,23.13,113.26,"Sîn Kelân (Guangzhou/Kanton)"],[5,26.07,119.3,"Kuncunfû (Fuzhou?)"],[5,30.27,120.15,"el-Hansâ (Hangzhou)"],[5,35.0,117.0,"Hatâ Ülkesi"],[5,39.91,116.4,"Hân Bâlık (Pekin)"],[5,24.9,118.58,"Zeytûn (Dönüş)"],[5,-5.0,100.0,"Ruhh Kuşu (Açık Deniz)"],[5,5.54,95.32,"Sumatra (Dönüş)"],[6,8.88,76.59,"Kûlam (Dönüş)"],[6,11.25,75.77,"Kâlikût (Dönüş)"],[6,17.02,54.09,"Zafâr (Dönüş)"],[6,23.59,58.54,"Muskat"],[6,27.09,56.46,"Hürmüz (Dönüş)"],[6,29.59,52.58,"Şîrâz (Dönüş)"],[6,30.51,47.81,"Basra (Dönüş)"],[6,32.0,44.34,"Necef ve Kûfe"],[6,33.31,44.37,"Bağdat (Dönüş)"],[6,34.45,41.18,"Fırat Güzergâhı: Enbâr'dan Rahbe'ye"],[6,34.56,38.27,"Tedmür"],[6,33.51,36.29,"Şam (Dönüş — Şahsî Keşif)"],[6,36.2,37.15,"Halep"],[6,33.51,36.29,"Şam (Kara Veba)"],[6,31.78,35.23,"Kudüs (Dönüş)"],[6,31.5,34.47,"Gazze (Veba)"],[6,31.2,29.92,"İskenderiye (Dönüş)"],[6,30.04,31.24,"Kahire (Dönüş)"],[6,21.42,39.83,"Mekke (Altıncı Hac)"],[6,24.47,39.61,"Medine (Dönüş)"],[6,33.87,10.1,"Cerbe ve Gâbes"],[6,36.8,10.17,"Tunus (Dönüş)"],[6,39.22,9.12,"Sardunya Adası"],[6,34.88,-1.32,"Tilimsân (Dönüş)"],[6,34.21,-4.01,"Tâzâ"],[6,34.03,-5.0,"Fas (Eve Dönüş — 24 Yıl Sonra)"],[6,35.76,-5.83,"Tanca (Anne Kabri Ziyareti)"],[6,35.89,-5.31,"Sebte"],[6,36.14,-5.35,"Cebelitârık (Cebel-i Feth)"],[6,36.74,-5.17,"Runde"],[6,36.72,-4.42,"Mâleka"],[6,37.18,-3.6,"Gırnata"],[6,31.63,-8.0,"Merâkeş"],[6,34.03,-5.0,"Fas (Yerleşim)"],[7,31.28,-4.27,"Sicilmâse (Hareket)"],[7,23.65,-5.36,"Tağâzâ"],[7,22.0,-6.0,"Tâserhlâ"],[7,17.3,-7.03,"İvâlâtân (Oualata)"],[7,15.5,-7.5,"Zâğarî"],[7,14.5,-7.0,"Kârshû"],[7,11.38,-8.23,"Mali (Nyânî)"],[7,14.5,-4.5,"Mîme"],[7,14.8,-3.8,"Kûrî Mansâ"],[7,16.77,-3.01,"Timbüktü"],[7,16.3,-1.5,"Ferbâ Süleyman'ın Kasabası"],[7,16.27,-0.05,"Kûkû (Gao)"],[7,17.5,4.0,"Berdemâ Toprakları"],[7,17.43,7.1,"Tekeddâ"],[7,17.6,7.5,"Sultan İzar'ın Kampı"],[7,19.0,7.0,"Kâhir"],[7,23.0,7.0,"Ğât Kavşağı"],[7,23.5,5.5,"Hakkâr Toprakları"],[7,27.19,2.48,"Bûdâ (Tuvât)"],[7,31.28,-4.27,"Sicilmâse (Dönüş)"],[7,32.5,-4.5,"Dârü't-Tama'"],[7,34.03,-5.0,"Fas (Nihaî Dönüş)"]],"showcase":[{"id":1,"tr":"Tanca","en":"Tangier","ar":"طنجة","lat":35.7595,"lon":-5.834,"arr":"1325-06-14","arr_ah":"725-07-02","region_tr":"Mağrib","country":"Morocco","type":"departure","quote_ar":"كان خروجي من طنجة مسقط رأسي في يوم الخميس الثاني من شهر الله رجب الفرد عام خمسة وعشرين وسبعمائة معتمدا حج بيت الحرام","quote_tr":"Doğduğum yer Tanca'dan çıkışım, yedi yüz yirmi beş yılı Receb'in ikinci Perşembe günü Beytü'l-Harâm'ı haccetmek niyetiyle oldu."},{"id":65,"tr":"Mekke-i Mükerreme","en":"Mecca","ar":"مكة المكرمة","lat":21.4225,"lon":39.8262,"arr":"1326-12-12","arr_ah":"726-12-12","region_tr":"Hicaz","country":"Saudi Arabia","type":"destination","quote_ar":"فوصلنا عند الصباح إلى البلد الأمين مكة شرفها الله تعالى ودخلنا البيت الحرام الشريف الذي من دخله كان آمنا","quote_tr":"Sabah vakti Mekke-i Mükerreme'ye — emin belde — vardık; Allah şerefini artırsın. Beytü'l-Harâm'a girdik — 'Kim oraya girerse güvende olur.'"},{"id":167,"tr":"Konstantinopolis","en":"Constantinople","ar":"القسطنطينية","lat":41.0082,"lon":28.9784,"region_tr":"Bizans","country":"Turkey","type":"capital","quote_ar":"وكان دخولنا عند الزوال أو بعده إلى القسطنطينية العظمى وقد ضربوا نواقيسهم حتى ارتجت الآفاق لاختلاط أصواتها","quote_tr":"Öğle vakti veya sonrasında Konstantinopolis el-Uzmâ'ya girdik; çanlarını öyle çaldılar ki seslerinin karışımından ufuklar titredi."},{"id":146,"tr":"İznik","en":"Iznik (Nicaea)","ar":"يزنيك","lat":40.4292,"lon":29.7208,"region_tr":"Anadolu","country":"Turkey","type":"major_city","quote_ar":"والبحيرة محيطة بها من جميع الجهات وهي خاوية على عروشها لا يسكن بها الا أناس قليلون من خدام السلطان وبها زوجته بيلون خاتون","quote_tr":"Göl şehri her tarafından kuşatmıştır; neredeyse boş, sadece sultanın birkaç hizmetkarı yaşar. Sultanın eşi Bayalun Hatun burada hükmeder."},{"id":191,"tr":"Delhi (Varış)","en":"Delhi (Arrival)","ar":"دهلي","lat":28.6139,"lon":77.209,"arr":"1334-01-01","arr_ah":"734-04-15","region_tr":"Hindistan","country":"India","type":"capital","quote_ar":"وصلنا إلى حضرة دهلي قاعدة بلاد الهند وهي المدينة العظيمة الشأن الضخمة الجامعة بين الحسن والحصانة وعليها السور الذي لا يعلم له في بلاد الدنيا نظير وهي أعظم مدن الهند بل مدن الإسلام كلها بالمشرق","quote_tr":"Hindistan'ın başkenti Delhi'ye ulaştık. Büyük, ihtişamlı, güzelliği ve sağlamlığı bir arada barındıran bu şehrin dünyada eşi benzeri olmayan bir suru vardır. Hindistan'ın değil, bütün doğu İslâm dünyasının en büyük şehridir."},{"id":253,"tr":"Zeytûn (Quanzhou)","en":"Zaytun (Quanzhou)","ar":"الزيتون (泉州 Quanzhou)","lat":24.9,"lon":118.58,"arr":"1346-10-15","arr_ah":"747-02-15","region_tr":"Çin","country":"China","type":"port","quote_ar":"لما قطعنا البحر كانت أول مدينة وصلنا اليها مدينة الزيتون وهي مدينة عظيمة كبيرة تصنع بها ثياب الكمخا والأطلس ومرساها من أعظم مراسي الدنيا أو هو أعظمها","quote_tr":"Denizi geçince vardığımız ilk şehir Zeytûn idi — kamha ve atlas kumaşların dokunduğu büyük bir şehir; limanı dünyanın en büyüğü ya da en büyüklerinden."},{"id":293,"tr":"Gırnata","en":"Granada","ar":"غرناطة","lat":37.18,"lon":-3.6,"arr":"1351-05-20","arr_ah":"751-05-20","region_tr":"Endülüs","country":"Spain","type":"capital","quote_ar":"ثم سافرت منها إلى مدينة غرناطة قاعدة بلاد الاندلس وعروس مدنها وخارجها لا نظير له في بلاد الدنيا","quote_tr":"Oradan Endülüs'ün başkenti ve şehirlerinin gelini Gırnata'ya gittim; dışı dünyada eşsizdir."},{"id":305,"tr":"Timbüktü","en":"Timbuktu","ar":"تنبكتو","lat":16.77,"lon":-3.01,"arr":"1354-04-01","arr_ah":"754-03-01","region_tr":"Batı Afrika","country":"Mali","type":"city","quote_ar":"ثم سافرنا منها إلى مدينة تنبكتو وبينها وبين النيل أربعة أميال وأكثر سكانها مسوفة أهل اللثام","quote_tr":"Timbüktü şehrine yolculuk ettik; şehir ile Nil [Niger] arasında dört mil var, halkının çoğunluğu peçeli Mesûfe'dir."}]};
+const IBB = {"traveler": {"name": "İbn Battûta", "ar": "ابن بطوطة", "birth": 1304, "death": 1369, "km": 117000, "years": 29, "countries": 44, "stops": 317, "voyages": 7, "work_ar": "تحفة النظار في غرائب الأمصار وعجائب الأسفار"}, "voyages": [{"id": 1, "title": "İlk Hac Yolculuğu: Mağrib → Mekke", "years": "1325–1326", "color": "#e63946", "stops": 65}, {"id": 2, "title": "Irak, İran ve Doğu Afrika: Büyük Güney Turu", "years": "1326–1332", "color": "#2a9d8f", "stops": 47}, {"id": 3, "title": "Anadolu, Deşt-i Kıpçak ve Hindistan Yolu", "years": "1330–1333", "color": "#e9c46a", "stops": 65}, {"id": 4, "title": "Hindistan Dönemi: Delhi Sultanlığı", "years": "1334–1341", "color": "#264653", "stops": 41}, {"id": 5, "title": "Maldivler, Seylan, Güneydoğu Asya ve Çin", "years": "1343–1347", "color": "#a855f7", "stops": 43}, {"id": 6, "title": "Dönüş ve Endülüs: Eve Yolculuk", "years": "1347–1350", "color": "#f4a261", "stops": 34}, {"id": 7, "title": "Batı Afrika / Sudan: Sahra Ötesi", "years": "1351–1354", "color": "#06b6d4", "stops": 22}], "stops_min": [[1, 35.76, -5.834, "Tanca"], [1, 34.883, -1.317, "Tlemsen"], [1, 36.305, 2.233, "Milyana"], [1, 36.754, 3.059, "Cezayir"], [1, 36.751, 5.057, "Becâye"], [1, 36.365, 6.615, "Kostantîne"], [1, 36.9, 7.767, "Bône (Annâbe)"], [1, 36.806, 10.181, "Tunus"], [1, 35.826, 10.637, "Sûse"], [1, 34.741, 10.76, "Sfaks"], [1, 33.882, 10.098, "Gābes"], [1, 32.902, 13.18, "Trablus (Libya)"], [1, 31.2, 29.919, "İskenderiye"], [1, 31.034, 30.467, "Dimenhûr"], [1, 31.2, 30.55, "Fuvva"], [1, 30.95, 30.85, "Nahrâriyye"], [1, 30.044, 31.236, "Kahire"], [1, 28.087, 30.762, "Minyâ"], [1, 27.178, 31.186, "Asyût"], [1, 26.562, 31.747, "İhmîm"], [1, 26.155, 32.716, "Kınâ"], [1, 25.917, 32.767, "Kûs"], [1, 25.687, 32.64, "Uksur"], [1, 24.978, 32.873, "İdfû"], [1, 22.333, 36.433, "Ayzâb"], [1, 30.044, 31.236, "Kahire (2. ziyaret)"], [1, 30.417, 31.567, "Bilbîs"], [1, 30.95, 32.8, "Katiyâ"], [1, 31.5, 34.467, "Gazze"], [1, 31.533, 35.1, "Halîl (Hebron)"], [1, 31.705, 35.202, "Beytülahm"], [1, 31.768, 35.214, "Kudüs"], [1, 31.669, 34.566, "Askalân"], [1, 31.927, 34.867, "Ramle"], [1, 32.221, 35.254, "Nâbulus"], [1, 32.333, 35.75, "Aclûn"], [1, 32.921, 35.076, "Akkâ"], [1, 33.27, 35.196, "Sûr"], [1, 33.56, 35.371, "Saydâ"], [1, 33.894, 35.502, "Beyrut"], [1, 32.79, 35.531, "Taberiyye"], [1, 34.437, 35.85, "Trablus (Şam)"], [1, 34.73, 36.71, "Humus"], [1, 35.132, 36.751, "Hama"], [1, 35.644, 36.672, "Maarratü'n-Nu'mân"], [1, 36.202, 37.134, "Halep"], [1, 36.2, 36.15, "Antakya"], [1, 35.361, 35.925, "Cebele"], [1, 35.517, 35.783, "Lâzkiye"], [1, 34.007, 36.208, "Ba'lebek"], [1, 33.514, 36.276, "Şam (Dımaşk)"], [1, 33.35, 36.233, "Kisve"], [1, 32.517, 36.483, "Busrâ"], [1, 31.185, 35.705, "Kerek"], [1, 30.196, 35.734, "Ma'ân"], [1, 28.384, 36.555, "Tebük"], [1, 26.785, 37.953, "el-Hicr (Medâin Sâlih)"], [1, 26.617, 37.919, "el-Ulâ"], [1, 24.469, 39.614, "Medîne-i Münevvere"], [1, 24.413, 39.542, "Zülhuleyfe"], [1, 23.783, 38.783, "Bedir"], [1, 22.797, 39.035, "Râbiğ"], [1, 22.155, 39.321, "Hulays"], [1, 21.917, 39.35, "Usfân"], [1, 21.422, 39.826, "Mekke-i Mükerreme"], [2, 24.467, 39.602, "Medîne"], [2, 25.45, 39.85, "Vâdî el-Arûs"], [2, 26.1, 40.5, "Asîle"], [2, 27.12, 42.52, "Feyd"], [2, 32.01, 44.21, "Kâdisiye"], [2, 32.0, 44.335, "Necef"], [2, 32.05, 44.42, "Havarnâk"], [2, 32.19, 46.33, "Vâsıt"], [2, 31.95, 46.45, "Ümmü Ubeyde"], [2, 30.509, 47.78, "Basra"], [2, 30.339, 48.304, "Abbâdân"], [2, 31.278, 49.604, "Râmiz"], [2, 32.046, 48.857, "Tüster"], [2, 31.839, 49.869, "Îzec"], [2, 32.655, 51.668, "İsfahan"], [2, 29.592, 52.584, "Şîrâz"], [2, 29.619, 51.655, "Kâzirûn"], [2, 32.03, 44.4, "Kûfe"], [2, 32.616, 44.024, "Kerbelâ"], [2, 33.315, 44.366, "Bağdat"], [2, 38.096, 46.274, "Tebrîz"], [2, 34.596, 43.679, "Tikrît"], [2, 36.335, 43.119, "Musul"], [2, 37.328, 42.196, "Cezîretü İbn Ömer"], [2, 37.074, 41.217, "Nusaybin"], [2, 36.32, 41.83, "Sincâr"], [2, 37.312, 40.735, "Mârdîn"], [2, 21.422, 39.826, "Mekke (mücâveret)"], [2, 21.543, 39.173, "Cidde"], [2, 19.104, 37.33, "Sevâkin"], [2, 18.52, 41.32, "Halî"], [2, 14.195, 43.315, "Zebîd"], [2, 13.579, 44.022, "Ta'iz"], [2, 15.369, 44.191, "San'â"], [2, 12.786, 45.019, "Aden"], [2, 11.354, 43.479, "Zeyla"], [2, 2.047, 45.318, "Mogadişu"], [2, -8.957, 39.52, "Kilva"], [2, 17.015, 54.092, "Zafâr"], [2, 22.694, 59.371, "Kalhât"], [2, 27.085, 56.46, "Hürmüz"], [2, 25.57, 52.34, "Sîrâf / Kays"], [2, 26.067, 50.558, "Bahreyn"], [2, 26.52, 50.01, "Katîf"], [2, 25.38, 49.59, "Hecer / el-Ahsâ"], [2, 24.63, 46.72, "Yemâme / Hicr"], [2, 21.422, 39.826, "Mekke (4. hac, 732 AH)"], [3, 21.486, 39.193, "Cidde"], [3, 22.333, 36.433, "Aydâb"], [3, 30.044, 31.236, "Kahire"], [3, 35.52, 35.777, "Lâzkiye"], [3, 36.544, 31.998, "Alanya"], [3, 36.897, 30.713, "Antalya"], [3, 37.721, 30.288, "Burdur"], [3, 37.765, 30.557, "Isparta"], [3, 37.883, 30.855, "Eğirdir"], [3, 37.133, 29.5, "Gölhisar"], [3, 37.776, 29.086, "Denizli"], [3, 37.571, 29.075, "Tavas"], [3, 37.215, 28.364, "Muğla"], [3, 37.315, 27.784, "Milas"], [3, 37.3, 27.833, "Peçin"], [3, 37.875, 32.493, "Konya"], [3, 37.175, 33.229, "Karaman"], [3, 38.369, 34.029, "Aksaray"], [3, 37.967, 34.683, "Niğde"], [3, 38.731, 35.479, "Kayseri"], [3, 39.748, 37.018, "Sivas"], [3, 40.65, 35.835, "Amasya"], [3, 40.867, 35.233, "Gümüşhacıköy"], [3, 39.75, 39.5, "Erzincan"], [3, 39.906, 41.266, "Erzurum"], [3, 38.233, 28.083, "Birgi"], [3, 38.083, 27.733, "Tire"], [3, 37.95, 27.37, "Selçuk"], [3, 38.419, 27.129, "İzmir"], [3, 38.619, 27.429, "Manisa"], [3, 39.122, 27.18, "Bergama"], [3, 39.648, 27.883, "Balıkesir"], [3, 40.183, 29.067, "Bursa"], [3, 40.429, 29.721, "İznik"], [3, 40.39, 30.79, "Göynük"], [3, 40.47, 31.17, "Mudurnu"], [3, 40.8, 32.2, "Gerede"], [3, 40.736, 31.606, "Bolu"], [3, 41.389, 33.783, "Kastamonu"], [3, 42.023, 35.153, "Sinop"], [3, 45.353, 36.468, "Kerç"], [3, 45.032, 35.383, "Kefe"], [3, 45.005, 35.077, "Kırım"], [3, 47.111, 39.42, "Azak"], [3, 44.1, 43.6, "Macar"], [3, 44.048, 43.059, "Beş Dağ"], [3, 48.531, 44.513, "Saray (Özbek Han Ordugahı)"], [3, 54.983, 49.067, "Bulgar"], [3, 46.35, 48.041, "Hacı Tarhan"], [3, 51.533, 45.983, "Ukek"], [3, 44.85, 34.97, "Sudak"], [3, 44.9, 28.88, "Baba Saltuk"], [3, 42.48, 26.5, "Mahtuli"], [3, 41.28, 28.23, "Finiqa"], [3, 41.008, 28.978, "Konstantinopolis"], [3, 48.531, 44.513, "Saray (Saray Berke)"], [3, 47.033, 51.767, "Sarayçık"], [3, 42.297, 59.15, "Hârezm"], [3, 39.768, 64.456, "Buhâra"], [3, 39.654, 66.96, "Semerkant"], [3, 34.353, 62.204, "Herat"], [3, 37.224, 67.278, "Tirmiz"], [3, 36.758, 66.897, "Belh"], [3, 34.555, 69.207, "Kâbil"], [3, 28.614, 77.209, "Delhi"], [4, 29.38, 71.68, "Pencâb (İndus Nehri)"], [4, 26.42, 68.38, "Cenânî"], [4, 26.425, 67.86, "Sivistân (Sehwan)"], [4, 24.65, 67.73, "Lâherî (Lahari Bandar)"], [4, 27.69, 68.95, "Bekkâr (Bukkar)"], [4, 29.22, 69.17, "Ûce (Uch)"], [4, 30.198, 71.471, "Mültân"], [4, 30.145, 74.195, "Ebûher (Abohar)"], [4, 30.35, 73.39, "Ecûdhen (Pakpattan)"], [4, 30.0, 73.5, "Emcerî"], [4, 29.533, 75.017, "Sirsutî (Sirsa)"], [4, 29.1, 75.97, "Hânsî (Hansi)"], [4, 28.75, 77.0, "Mes'ûdâbâd"], [4, 28.614, 77.209, "Delhi (Varış)"], [4, 28.47, 77.25, "Tilpat"], [4, 28.614, 77.209, "Delhi (Kadılık Tayini)"], [4, 28.614, 77.209, "Delhi (Saray Hayatı)"], [4, 28.524, 77.186, "Delhi (Kutbüddîn Türbesi İdaresi)"], [4, 29.392, 78.135, "Bicnûr (Bijnor)"], [4, 28.9, 78.47, "Emrûha (Amroha)"], [4, 27.18, 79.98, "Ganj Nehri (Sultan'ın Karargâhı)"], [4, 28.614, 77.209, "Delhi (Gözden Düşüş)"], [4, 28.614, 77.209, "Delhi (Zühd Dönemi)"], [4, 26.425, 67.86, "Sivistân (Sultan Ziyareti)"], [4, 28.614, 77.209, "Delhi (İnzivâ)"], [4, 28.614, 77.209, "Delhi (Çin Elçiliği)"], [4, 26.92, 77.29, "Beyâne (Bayana)"], [4, 27.88, 78.08, "Kûl (Aligarh)"], [4, 27.05, 79.92, "Kannevc (Kanauj)"], [4, 26.22, 78.18, "Kâlyûr (Gwalior)"], [4, 25.5, 78.5, "Berûn (Paron)"], [4, 19.94, 75.22, "Devletâbâd (Daulatabad)"], [4, 21.37, 74.26, "Nezerbar (Nandurbar)"], [4, 22.32, 72.62, "Kenbâye (Khambhat/Cambay)"], [4, 15.5, 73.87, "Kundahâr (Goa Bölgesi)"], [4, 15.5, 73.91, "Sindâbûr (Goa)"], [4, 14.28, 74.44, "Hünûr (Honavar)"], [4, 13.99, 74.56, "Fâkenûr (Bhatkal)"], [4, 12.87, 74.88, "Mencülûr (Mangalore)"], [4, 11.87, 75.37, "Hîlî (Cannanore)"], [4, 11.25, 75.77, "Kâlikût (Calicut/Kozhikode)"], [5, 11.25, 75.77, "Kâlikût (Gemi Kazası)"], [5, 8.88, 76.6, "Kûlam (Quilon)"], [5, 14.28, 74.44, "Honavar (İnziva)"], [5, 14.8, 74.12, "Sindâbûr (Fetih)"], [5, 11.18, 75.8, "Şâliyât (Chaliyam)"], [5, 4.17, 73.51, "Maldivler (Varış)"], [5, 3.88, 73.41, "Kannalûs Adası"], [5, 3.5, 73.1, "Tîm Atolü"], [5, 4.175, 73.509, "Mehl Adası (Malé)"], [5, 2.93, 73.55, "Mulûk Adası"], [5, 7.47, 80.35, "Battâle (Seylan)"], [5, 7.2, 80.25, "Mânâr Mendelî"], [5, 7.16, 80.58, "Kunkâr"], [5, 6.81, 80.5, "Serendîb Dağı (Âdem Tepesi)"], [5, 5.92, 80.59, "Dînevr (Devinuvara)"], [5, 6.03, 80.22, "Kâlî (Galle)"], [5, 6.93, 79.84, "Kolombû"], [5, 10.5, 79.15, "Harkâtû Kalesi (Ma'bar)"], [5, 10.78, 79.13, "Sultan Gıyâsüddîn'in Sarayı"], [5, 9.23, 78.79, "Fattan"], [5, 9.92, 78.12, "Mütre (Madurai)"], [5, 8.88, 76.6, "Kûlam (Dönüş)"], [5, 14.0, 74.5, "Honavar-Fâkânûr (Korsanlık)"], [5, 4.17, 73.51, "Maldivler (İkinci Dönüş)"], [5, 22.34, 91.78, "Südkâvân (Çittagong)"], [5, 24.89, 91.87, "Kâmrû Dağları (Sylhet)"], [5, 24.9, 91.85, "Şeyh Celâlüddîn'in Mağarası"], [5, 24.38, 91.42, "Habnâk (Habiganj?)"], [5, 23.65, 90.61, "Sünerkâvân (Sonargaon)"], [5, 20.15, 92.9, "Bürhankâr Sahili (Arakan?)"], [5, 5.54, 95.32, "Câva / Sumatra"], [5, 2.0, 103.0, "Mül Câva (Malay Yarımadası?)"], [5, 1.5, 110.35, "Kâkule"], [5, 15.88, 108.33, "Tavâlisî"], [5, 24.9, 118.58, "Zeytûn (Quanzhou)"], [5, 23.13, 113.26, "Sîn Kelân (Guangzhou/Kanton)"], [5, 26.07, 119.3, "Kuncunfû (Fuzhou?)"], [5, 30.27, 120.15, "el-Hansâ (Hangzhou)"], [5, 35.0, 117.0, "Hatâ Ülkesi"], [5, 39.91, 116.4, "Hân Bâlık (Pekin)"], [5, 24.9, 118.58, "Zeytûn (Dönüş)"], [5, -5.0, 100.0, "Ruhh Kuşu (Açık Deniz)"], [5, 5.54, 95.32, "Sumatra (Dönüş)"], [6, 8.88, 76.59, "Kûlam (Dönüş)"], [6, 11.25, 75.77, "Kâlikût (Dönüş)"], [6, 17.02, 54.09, "Zafâr (Dönüş)"], [6, 23.59, 58.54, "Muskat"], [6, 27.09, 56.46, "Hürmüz (Dönüş)"], [6, 29.59, 52.58, "Şîrâz (Dönüş)"], [6, 30.51, 47.81, "Basra (Dönüş)"], [6, 32.0, 44.34, "Necef ve Kûfe"], [6, 33.31, 44.37, "Bağdat (Dönüş)"], [6, 34.45, 41.18, "Fırat Güzergâhı: Enbâr'dan Rahbe'ye"], [6, 34.56, 38.27, "Tedmür"], [6, 33.51, 36.29, "Şam (Dönüş — Şahsî Keşif)"], [6, 36.2, 37.15, "Halep"], [6, 33.51, 36.29, "Şam (Kara Veba)"], [6, 31.78, 35.23, "Kudüs (Dönüş)"], [6, 31.5, 34.47, "Gazze (Veba)"], [6, 31.2, 29.92, "İskenderiye (Dönüş)"], [6, 30.04, 31.24, "Kahire (Dönüş)"], [6, 21.42, 39.83, "Mekke (Altıncı Hac)"], [6, 24.47, 39.61, "Medine (Dönüş)"], [6, 33.87, 10.1, "Cerbe ve Gâbes"], [6, 36.8, 10.17, "Tunus (Dönüş)"], [6, 39.22, 9.12, "Sardunya Adası"], [6, 34.88, -1.32, "Tilimsân (Dönüş)"], [6, 34.21, -4.01, "Tâzâ"], [6, 34.03, -5.0, "Fas (Eve Dönüş — 24 Yıl Sonra)"], [6, 35.76, -5.83, "Tanca (Anne Kabri Ziyareti)"], [6, 35.89, -5.31, "Sebte"], [6, 36.14, -5.35, "Cebelitârık (Cebel-i Feth)"], [6, 36.74, -5.17, "Runde"], [6, 36.72, -4.42, "Mâleka"], [6, 37.18, -3.6, "Gırnata"], [6, 31.63, -8.0, "Merâkeş"], [6, 34.03, -5.0, "Fas (Yerleşim)"], [7, 31.28, -4.27, "Sicilmâse (Hareket)"], [7, 23.65, -5.36, "Tağâzâ"], [7, 22.0, -6.0, "Tâserhlâ"], [7, 17.3, -7.03, "İvâlâtân (Oualata)"], [7, 15.5, -7.5, "Zâğarî"], [7, 14.5, -7.0, "Kârshû"], [7, 11.38, -8.23, "Mali (Nyânî)"], [7, 14.5, -4.5, "Mîme"], [7, 14.8, -3.8, "Kûrî Mansâ"], [7, 16.77, -3.01, "Timbüktü"], [7, 16.3, -1.5, "Ferbâ Süleyman'ın Kasabası"], [7, 16.27, -0.05, "Kûkû (Gao)"], [7, 17.5, 4.0, "Berdemâ Toprakları"], [7, 17.43, 7.1, "Tekeddâ"], [7, 17.6, 7.5, "Sultan İzar'ın Kampı"], [7, 19.0, 7.0, "Kâhir"], [7, 23.0, 7.0, "Ğât Kavşağı"], [7, 23.5, 5.5, "Hakkâr Toprakları"], [7, 27.19, 2.48, "Bûdâ (Tuvât)"], [7, 31.28, -4.27, "Sicilmâse (Dönüş)"], [7, 32.5, -4.5, "Dârü't-Tama'"], [7, 34.03, -5.0, "Fas (Nihaî Dönüş)"]], "showcase": [{"id": 1, "tr": "Tanca", "en": "Tangier", "ar": "طنجة", "lat": 35.7595, "lon": -5.834, "arr": "1325-06-14", "arr_ah": "725-07-02", "region_tr": "Mağrib", "country": "Morocco", "type": "departure", "quote_ar": "كان خروجي من طنجة مسقط رأسي في يوم الخميس الثاني من شهر الله رجب الفرد عام خمسة وعشرين وسبعمائة معتمدا حج بيت الحرام", "quote_tr": "Doğduğum yer Tanca'dan çıkışım, yedi yüz yirmi beş yılı Receb'in ikinci Perşembe günü Beytü'l-Harâm'ı haccetmek niyetiyle oldu."}, {"id": 65, "tr": "Mekke-i Mükerreme", "en": "Mecca", "ar": "مكة المكرمة", "lat": 21.4225, "lon": 39.8262, "arr": "1326-12-12", "arr_ah": "726-12-12", "region_tr": "Hicaz", "country": "Saudi Arabia", "type": "destination", "quote_ar": "فوصلنا عند الصباح إلى البلد الأمين مكة شرفها الله تعالى ودخلنا البيت الحرام الشريف الذي من دخله كان آمنا", "quote_tr": "Sabah vakti Mekke-i Mükerreme'ye — emin belde — vardık; Allah şerefini artırsın. Beytü'l-Harâm'a girdik — 'Kim oraya girerse güvende olur.'"}, {"id": 167, "tr": "Konstantinopolis", "en": "Constantinople", "ar": "القسطنطينية", "lat": 41.0082, "lon": 28.9784, "region_tr": "Bizans", "country": "Turkey", "type": "capital", "quote_ar": "وكان دخولنا عند الزوال أو بعده إلى القسطنطينية العظمى وقد ضربوا نواقيسهم حتى ارتجت الآفاق لاختلاط أصواتها", "quote_tr": "Öğle vakti veya sonrasında Konstantinopolis el-Uzmâ'ya girdik; çanlarını öyle çaldılar ki seslerinin karışımından ufuklar titredi."}, {"id": 146, "tr": "İznik", "en": "Iznik (Nicaea)", "ar": "يزنيك", "lat": 40.4292, "lon": 29.7208, "region_tr": "Anadolu", "country": "Turkey", "type": "major_city", "quote_ar": "والبحيرة محيطة بها من جميع الجهات وهي خاوية على عروشها لا يسكن بها الا أناس قليلون من خدام السلطان وبها زوجته بيلون خاتون", "quote_tr": "Göl şehri her tarafından kuşatmıştır; neredeyse boş, sadece sultanın birkaç hizmetkarı yaşar. Sultanın eşi Bayalun Hatun burada hükmeder."}, {"id": 191, "tr": "Delhi (Varış)", "en": "Delhi (Arrival)", "ar": "دهلي", "lat": 28.6139, "lon": 77.209, "arr": "1334-01-01", "arr_ah": "734-04-15", "region_tr": "Hindistan", "country": "India", "type": "capital", "quote_ar": "وصلنا إلى حضرة دهلي قاعدة بلاد الهند وهي المدينة العظيمة الشأن الضخمة الجامعة بين الحسن والحصانة وعليها السور الذي لا يعلم له في بلاد الدنيا نظير وهي أعظم مدن الهند بل مدن الإسلام كلها بالمشرق", "quote_tr": "Hindistan'ın başkenti Delhi'ye ulaştık. Büyük, ihtişamlı, güzelliği ve sağlamlığı bir arada barındıran bu şehrin dünyada eşi benzeri olmayan bir suru vardır. Hindistan'ın değil, bütün doğu İslâm dünyasının en büyük şehridir."}, {"id": 253, "tr": "Zeytûn (Quanzhou)", "en": "Zaytun (Quanzhou)", "ar": "الزيتون (泉州 Quanzhou)", "lat": 24.9, "lon": 118.58, "arr": "1346-10-15", "arr_ah": "747-02-15", "region_tr": "Çin", "country": "China", "type": "port", "quote_ar": "لما قطعنا البحر كانت أول مدينة وصلنا اليها مدينة الزيتون وهي مدينة عظيمة كبيرة تصنع بها ثياب الكمخا والأطلس ومرساها من أعظم مراسي الدنيا أو هو أعظمها", "quote_tr": "Denizi geçince vardığımız ilk şehir Zeytûn idi — kamha ve atlas kumaşların dokunduğu büyük bir şehir; limanı dünyanın en büyüğü ya da en büyüklerinden."}, {"id": 293, "tr": "Gırnata", "en": "Granada", "ar": "غرناطة", "lat": 37.18, "lon": -3.6, "arr": "1351-05-20", "arr_ah": "751-05-20", "region_tr": "Endülüs", "country": "Spain", "type": "capital", "quote_ar": "ثم سافرت منها إلى مدينة غرناطة قاعدة بلاد الاندلس وعروس مدنها وخارجها لا نظير له في بلاد الدنيا", "quote_tr": "Oradan Endülüs'ün başkenti ve şehirlerinin gelini Gırnata'ya gittim; dışı dünyada eşsizdir."}, {"id": 305, "tr": "Timbüktü", "en": "Timbuktu", "ar": "تنبكتو", "lat": 16.77, "lon": -3.01, "arr": "1354-04-01", "arr_ah": "754-03-01", "region_tr": "Batı Afrika", "country": "Mali", "type": "city", "quote_ar": "ثم سافرنا منها إلى مدينة تنبكتو وبينها وبين النيل أربعة أميال وأكثر سكانها مسوفة أهل اللثام", "quote_tr": "Timbüktü şehrine yolculuk ettik; şehir ile Nil [Niger] arasında dört mil var, halkının çoğunluğu peçeli Mesûfe'dir."}]};
 const EXCERPT = "قالوا: وكان عمرو بن العاصي حاصر قيسارية بعد انصراف الناس من حرب اليرموك ثم استخلف عليها ابنه حين ولى يزيد بن أبي سفيان ومضى إلى مصر من تلقاء نفسه في ثلاثة آلاف وخمسمائة، فغضب عمر لذلك وكتب إليه يوبخه ويعنفه على افتتانه عليه برأيه وأمره بالرجوع إلى موضعه إن وافاه كتابه دون مصر، فورد الكتاب عليه وهو بالعريش، وقيل أيضا: إن عمر كتب إلى عمرو بن العاصي يأمره بالشخوص إلى مصر فوافاه كتابه وهو محاصر قيسارية وكان الذي أتاه شريك بن عبدة فأعطاه ألف دينار فأبى شريك قبولها فسأله أن يستر ذلك ولا يخبر به عمر.\nقالوا: وكان مسير عمرو إلى مصر في سنة تسع عشرة فنزل العريش ثم أتى الفرماء وبها قوم مستعدون للقتال فحاربهم فهزمهم وحوى عسكرهم ومضى قدما إلى الفسطاط فنزل جنان الريحان وقد خندق أهل الفسطاط، وكان اسم المدينة اليونة فسماها المسلمون  فسطاطا لأنهم قالوا: هذا فسطاط القوم ومجمعهم، وقوم يقولون: إن عمرا ضرب بها فسطاطا فسميت بذلك.\nقالوا: ولم يلبث عمرو بن العاصي وهو محاصر أهل الفسطاط أن ورد عليه الزبير بن العوام بن خويلد في عشرة آلاف، ويقال: في اثني عشر ألفا فيهم خارجة بن حذافة العدوي وعمير بن وهب الجمحي، وكان الزبير قد هم بالغزو وأراد إتيان انطاكية فقال له عمر: يا أبا عبد الله هل لك في ولاية مصر، فقال: لا حاجة لي فيها ولكني أخرج مجاهدا وللمسلمين معاونا فإن وجدت عمرا قد فتحها لم أعرض لعمله وقصدت إلى بعض السواحل فرابطت به وإن وجدته في جهاد كنت معه فسار على ذلك.\nقالوا: وكان الزبير يقاتل من وجه وعمرو بن العاصي من وجه، ثم أن الزبير أتى بسلم فصعد عليه حتى أوفى على الحصن وهو مجرد سيفه فكبر وكبر المسلمون واتبعوه ففتح الحصن عنوة واستباح المسلمون ما فيه وأفر عمرو أهله على أنهم ذمة موضع عليهم الجزية في رقابهم والخراج في أرضهم وكتب بذلك إلى عمر بن الخطاب رضي الله عنه فأجازه واختط الزبير بمصر وابنتى دارا معروفة، وإياها نزل عبد الله بن الزبير حين غزا أفريقية مع ابن أبي سرح وسلم الزبير باق في مصر.\nوحدثنا عفان بن مسلم، قال حدثنا حماد بن سلمة عن هشام بن عروة أن الزبير بن العوام بعث إلى مصر فقيل له أن بها الطعن والطاعون، فقال: إنما جئنا للطعن والطاعون، قال: فوضعوا السلاليم فصعدوا عليها.\nوحدثني عمرو الناقد، قال: حدثني عبد الله بن وهب المصري عن ابن لهيعة عن يزيد بن أبي حبيب: أن عمرو بن العاصي دخل مصر ومعه ثلاثة آلاف وخمسمائة، وكان عمر بن الخطاب قد أشفق لما أخبر به من أمرها فأرسل الزبير بن العوام في اثني عشر ألفا فشهد الزبير فتح مصر واختط بها.\nوحدثني عمرو الناقد، عن عبد الله بن وهب المصري عن ابن لهيعة عن يزيد بن أبي حبيب عن عبد الله بن المغيرة بن  أبي بردة عن سفيان بن وهب الخولاني، قال: لما فتحنا مصر بغير عهد قام الزبير فقال: أقسمها يا عمرو فأبى فقال الزبير: والله لتقسمنها كما قسم رسول صلى الله عليه وسلم خيبر: فكتب عمرو إلى عمر في ذلك فكتب إليه عمر أقرها حتى يغزو منها حبل الحبلة، قال: وقال عبد الله بن وهب: وحدثني ابن لهيعة عن خالد بن ميمون عن عبد الله ابن المغيرة عن سفيان بن وهب بنحوه.\nوحدثني القاسم بن سلام، قال: حدثنا أبو الأسود عن ابن لهيعة عن يزيد ابن أبي حبيب أن عمرو بن العاصي دخل مصر في ثلاثة آلاف وخمسمائة، وكان عمر قد أشفق من ذلك فأرسل الزبير بن العوام في اثني عشر ألفا فشهد معه فح مصر، قال: فاختط الزبير بمصر والإسكندرية خطتين.\nوحدثني إبراهيم بن مسلم الخوارزمي، عن عبد الله بن المبارك عن ابن لهيعة عن يزيد بن أبي حبيب عن أبي فراس عن عبد الله بن عمرو بن العاص، قال: اشتبه على الناس أمر مصر، فقال قوم: فتحت عنوة، وقال آخرون: فتحت صلحا، والثلج في أمرها أن أبي قدمها فقاتله أهل اليونة ففتحها قهرا وأدخلها المسلمين وكان الزبير أول من على حصنها، فقال صاحبها لأبي: أنه قد بلغنا فعلكم بالشام ووضعكم الجزية على النصارى واليهود وإقراركم الأرض في أيدي أهلها يعمرونها ويؤدون خراجها فإن فعلتم بنا مثل ذلك كان أرد عليكم من قتلنا وسبينا وإجلائنا، قال: فاستشار أبي المسلمين فأشاروا عليه";
 const SAMPLE = {"olaylar":[{"şehir":"حصن بابليون / Bâbilyûn Kalesi","hicri_yil":20,"tur":"SUBJUGATION","komutan":"Amr b. Âs","delil":"وكبر المسلمون واتبعوه ففتح الحصن عنوة واستباح المسلمون ما"},{"şehir":"الإسكندرية / İskenderiye","hicri_yil":21,"tur":"SUBJUGATION","komutan":"Amr b. Âs","delil":"إن عمر كتب إلى عمرو بن العاصي يامره"},{"şehir":"مدينة النور / Nûr Şehri","hicri_yil":23,"tur":"CAPITULATION","komutan":"Ukbe b. Nâfi","delil":"فصالح أهل مدينة النور على ألف دينار من الذهب الخالص"}],"çekimser":[{"not":"Bir kayıtta yıl, mektup aktarımından geliyordu; emin olamadım."}]};
 const $=s=>document.querySelector(s);
@@ -1085,7 +1259,7 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* hero stats */
 (function(){
-  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["101","kaynak · 100'ü doğrulandı"],["3-4 ay","ilk makale yolu"]]
+  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["101","kaynak · 100'ü doğrulandı"],["10-20 hafta","ilk makale yolu"]]
     .map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span></div>").join("");
 })();
 
@@ -1956,6 +2130,7 @@ function renderTrack(name){
     +'<p class="sum" style="margin:2px 0 0"><b>Emsal:</b> '+m.emsal+' · <b>Hedef raf:</b> '+esc(m.hedef)+'</p>'
     +'<details class="mdeep ustanotu" style="margin-top:8px"><summary>⚡ İlk 60 dakika — bugün başla</summary><p>'+m.ilk60.map((x,j)=>(j+1)+". "+esc(x)).join("<br>")+'</p></details></div>';
   const ep=$("#ep-text"); if(ep) ep.textContent=epostaText();
+  if(typeof soruLoad==="function"){ soruLoad(); soruSecCiz(); soruRender(); }
   planProg();
 }
 $("#trackchips").innerHTML=Object.keys(TRACKS).map(t=>'<button aria-pressed="false">'+esc(t)+'</button>').join("");
@@ -1969,15 +2144,386 @@ $("#ep-copy").addEventListener("click",async e=>{
   catch(err){ e.target.textContent="Pano engellendi — metni elle seç"; }
   setTimeout(()=>{ e.target.textContent="Şablonu kopyala"; },2500);
 });
-$("#plandl").addEventListener("click",()=>{
-  const md=["# İlk makaleme giden yol — "+curTrack,"", "Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",""].concat(
-    TRACKS[curTrack].map(s=>"## "+s[0]+" · "+s[1]+"\n"+s[2]+"\nBitti sayılır: "+s[4]+"\nTuzak: "+s[5]+"\nBağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")+"\n")
-  ).concat(["---","Merdiven: araştırma notu → veri makalesi (JOHD) → ulusal tam makale → uluslararası","Üret (kendin) · Doğrula (dışarıda) · Beyan et"]).join("\n");
-  const blob=new Blob([md],{type:"text/markdown;charset=utf-8"});
-  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="yol-haritasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md";
+$("#plandl").addEventListener("click",()=>dosyaIndir());
+
+/* ---------- MAKALE ATÖLYESİ (5. durak) ---------- */
+/* Altı alet: A soru tezgâhı · B dönem takvimi · C makalenin anatomisi
+   D hakem gözü · E yapay zekâ beyanı · F kurtarma kartları.
+   Kelime bütçeleri ve süreler TEMSİLÎDİR; sayısal vaka değerleri (226, %35,0…)
+   EICD-B veri setinden gelir ve sayfanın başka yerleriyle aynıdır. */
+
+/* ===== A · SORU TEZGÂHI ===== */
+/* ic: cümlede kullanılacak, çekimlenmiş malzeme ifadesi
+   ger: eksenin çalışabilmesi için gereken malzeme seçenekleri (uyum denetimi) */
+const SORU={
+ "Tarih & Siyer":{
+  m:[{ad:"Fütûhu'l-büldân'ın tek bölgesi",ic:"Fütûhu'l-büldân'ın tek bölgesinde",no:"Belâzürî (ö. 279/892-93) · OpenITI'de açık erişim",ol:"~3.000 kelime · bir hafta sonu",o:1},
+     {ad:"Fütûh'un üç bölgesi (Mısır · Şam · Horasan)",ic:"Fütûh'un üç bölgesinde",no:"aynı eser, üç ayrı bölüm",ol:"~10.000 kelime · üç hafta",o:2},
+     {ad:"Aynı bölgeyi anlatan iki müellif",ic:"aynı bölgeyi anlatan iki müellifte",no:"Belâzürî + İbn Abdülhakem (ö. 257/871), Fütûhu Mısr ve'l-Maġrib",ol:"iki eser · bir dönem",o:3}],
+  b:[{ad:"yerleşim kaydı",bs:"yerleşim kayıtları",st:"yerleşim",or:"Bâbilyûn"},
+     {ad:"fetih tarzı kaydı",bs:"fetih tarzı kayıtları",st:"tarz",or:"sulhan"},
+     {ad:"komutan adı",bs:"komutan adları",st:"komutan",or:"Amr b. Âs"}],
+  e:[{ad:"bölgeden bölgeye",st:"bölge",or:"Mısır",fi:"değişiyor",ger:[1],nk:"birden fazla bölge"},
+     {ad:"fetih tarzına göre",st:"tarz",or:"anveten",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"müellife göre",st:"müellif",or:"Belâzürî",fi:"değişiyor",ger:[2],nk:"birden fazla müellif"},
+     {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"Fütûh, s. [sayfa] · «صلحا»"},
+ "Hadis & İsnad":{
+  m:[{ad:"tek bab (15-30 rivayet)",ic:"tek bir babda",no:"sunnah.com'da oku, hadith-json'dan indir",ol:"bir hafta sonu",o:1},
+     {ad:"tek kitâb (bir eserin bir konu bloğu)",ic:"bir eserin tek bir kitâbında",no:"aynı musannif, tek konu bloğu",ol:"üç-dört hafta",o:2},
+     {ad:"aynı babı veren iki musannif",ic:"aynı babı veren iki musannifte",no:"ör. Buhârî (ö. 256/870) ile Müslim (ö. 261/875)",ol:"iki eser · bir dönem",o:3}],
+  b:[{ad:"râvi",bs:"râviler",st:"râvi",or:"Nâfi‘"},
+     {ad:"isnad zinciri",bs:"isnad zincirleri",st:"isnad",or:"zincir 7"},
+     {ad:"metin (matn) varyantı",bs:"matn varyantları",st:"varyant",or:"lafız farkı A"}],
+  e:[{ad:"tabakadan tabakaya",st:"tabaka",or:"3. tabaka",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"musannife göre",st:"musannif",or:"Buhârî",fi:"değişiyor",ger:[2],nk:"birden fazla musannif"},
+     {ad:"râvi nisbesine göre (coğrafya)",st:"nisbe",or:"Medenî",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"[eser], [bab] · «حدثنا …»"},
+ "Kur'an Çalışmaları":{
+  m:[{ad:"tek kök ailesi, Kur'an bütününde",ic:"Kur'an bütününde tek bir kök ailesinde",no:"Quran.com + corpus.quran.com",ol:"bir hafta sonu",o:1},
+     {ad:"tek sûre, bütün kökler",ic:"tek bir sûrede",no:"orta uzunlukta bir sûre seç",ol:"üç hafta",o:2},
+     {ad:"iki meal + Arapça asıl",ic:"iki meal ile Arapça asıl arasında",no:"aynı âyet kümesinde tercih farkları",ol:"bir dönem",o:3}],
+  b:[{ad:"kelime geçişi (kök / kalıp)",bs:"kelime geçişleri",st:"geçiş",or:"ف ت ن"},
+     {ad:"âyet",bs:"âyetler",st:"âyet",or:"2:191"},
+     {ad:"meal tercihi",bs:"meal tercihleri",st:"tercih",or:"«fitne» → «ayartma»"}],
+  e:[{ad:"Mekkî–Medenî ayrımına göre",st:"nüzûl",or:"Medenî",fi:"dağılıyor",ger:[0,2],nk:"hem Mekkî hem Medenî metin"},
+     {ad:"sûre tertibine göre",st:"sûre",or:"2 · el-Bakara",fi:"değişiyor",ger:[0,2],nk:"birden fazla sûre"},
+     {ad:"mütercime göre",st:"mütercim",or:"[mütercim]",fi:"değişiyor",ger:[2],nk:"birden fazla meal"},
+     {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"2:191 · «فتنة»"},
+ "Osmanlı & Türkçe":{
+  m:[{ad:"tek kavram, tek süreli yayın",ic:"tek bir süreli yayında",no:"Wikilala'da tek gazete ya da dergi",ol:"bir hafta sonu",o:1},
+     {ad:"tek kavram, üç süreli yayın",ic:"üç süreli yayında",no:"desen tek yayına mı özgü, görürsün",ol:"üç-dört hafta",o:2},
+     {ad:"kavram ailesi, kitap + süreli yayın",ic:"kitaplarda ve süreli yayınlarda",no:"kitap dili ile basın dilinin seyri",ol:"bir dönem",o:3}],
+  b:[{ad:"kelime geçişi",bs:"kelime geçişleri",st:"geçiş",or:"terakkî"},
+     {ad:"yazı (makale / haber)",bs:"yazılar",st:"yazı",or:"1897 · s. 3"},
+     {ad:"yazar",bs:"yazarlar",st:"yazar",or:"[yazar]"}],
+  e:[{ad:"on yıldan on yıla",st:"on yıl",or:"1890'lar",fi:"değişiyor",ger:[0,1,2]},
+     {ad:"yayın türüne göre (kitap / gazete)",st:"tür",or:"gazete",fi:"değişiyor",ger:[2],nk:"hem kitap hem süreli yayın"},
+     {ad:"yayından yayına",st:"yayın",or:"[yayın adı]",fi:"değişiyor",ger:[1,2],nk:"birden fazla yayın"},
+     {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"[yayın], [tarih], s. [sayfa] · «terakkî»"}
+};
+let sSec={m:0,b:0,e:0};
+function ilkUygunEksen(mi){ const d=SORU[curTrack], i=d.e.findIndex(x=>x.st&&x.ger.indexOf(mi)>=0); return i>=0?i:d.e.length-1; }
+function soruLoad(){
+  let v={}; try{ v=JSON.parse(localStorage.getItem("rihle_soru")||"{}"); }catch(e){}
+  /* varsayılan hep tutarlı açılır; tutarsızlığı öğrenci kendi seçimiyle üretir */
+  sSec = v[curTrack] || {m:0,b:0,e:ilkUygunEksen(0)};
+}
+function soruSave(){ try{ const v=JSON.parse(localStorage.getItem("rihle_soru")||"{}"); v[curTrack]=sSec; localStorage.setItem("rihle_soru",JSON.stringify(v)); }catch(e){} }
+function soruUyum(){ const d=SORU[curTrack]; return d.e[sSec.e].ger.indexOf(sSec.m)>=0; }
+function soruCumle(){
+  const d=SORU[curTrack], m=d.m[sSec.m], b=d.b[sSec.b], e=d.e[sSec.e];
+  return e.st ? m.ic+" "+b.bs+", "+e.ad+" nasıl "+e.fi+"?"
+              : m.ic+" "+b.bs+" nasıl dağılıyor?";
+}
+/* seçim düğmeleri rota değişince bir kez çizilir; tıklamada yalnız aria-pressed
+   güncellenir — aksi hâlde innerHTML yenilenmesi klavye odağını düşürür */
+function soruSecCiz(){
+  const d=SORU[curTrack];
+  const row=(lbl,key,arr)=>'<div class="secrow"><b>'+lbl+'</b><div class="opts">'+arr.map((x,i)=>
+    '<button data-s="'+key+'" data-i="'+i+'" aria-pressed="false">'+esc(x.ad)+
+    (x.no?'<small>'+esc(x.no)+'</small>':(x.or?'<small>ör. '+esc(x.or)+'</small>':''))+'</button>').join("")+'</div></div>';
+  $("#soruSec").innerHTML=row("① Malzeme — neyin içinde bakacaksın?","m",d.m)
+    +row("② Birim — satırların ne olacak?","b",d.b)
+    +row("③ Eksen — neye göre karşılaştıracaksın?","e",d.e);
+}
+function soruRender(){
+  const d=SORU[curTrack], m=d.m[sSec.m], b=d.b[sSec.b], e=d.e[sSec.e], uy=soruUyum();
+  document.querySelectorAll("#soruSec button[data-s]").forEach(x=>
+    x.setAttribute("aria-pressed", sSec[x.dataset.s]===+x.dataset.i ? "true":"false"));
+  $("#soruOut").innerHTML='<span class="lb">Soru cümlen</span><span class="q">'+esc(soruCumle())+'</span>'
+    +(uy? '<p class="small muted" style="margin:8px 0 0">Bu cümleyi giriş bölümünün ikinci paragrafına olduğu gibi koyabilirsin. Ölçek: '+esc(m.ol)+'.</p>'
+        : '<p class="small" style="margin:8px 0 0;color:var(--rubric)"><b>Bu soru şu an kendi içinde tutarsız</b> — üçüncü kapıya bak.</p>');
+  const sc=Math.min(4,m.o+(e.st&&uy?1:0));
+  const olcekH=[["Ödev ölçeği.","Bir hafta sonunda biter; araştırma notuna çevrilebilir.",1],
+    ["Araştırma notu / veri makalesi ölçeği.","Bir dönemde rahat biter.",1],
+    ["Veri makalesi ya da ulusal tam makale ölçeği.","Bir dönem + yaz gerekir.",1],
+    ["Tam makale ölçeği.","Bir dönemde zor: ya malzemeyi daralt ya ekseni tek tut. Büyük ve yarım, küçük ve bitmişten kötüdür.",0]][sc-1];
+  let k3;
+  if(!e.st) k3=[0,"3 · Karşılaştırma var mı?","Eksen seçmedin. Bu bir <b>betimdir</b> — betim de yayımlanır (veri makalesi tam olarak budur) ama iddia taşımaz. Bilerek seçtiysen sorun yok; unuttuysan bir eksen ekle."];
+  else if(!uy){
+    const gm=e.ger[0], alt=d.e.findIndex((x,i)=>i!==sSec.e&&x.st&&x.ger.indexOf(sSec.m)>=0);
+    k3=[0,"3 · Karşılaştırma tutmuyor",
+      "«"+esc(e.ad)+"» karşılaştırması için malzemede <b>"+esc(e.nk||"birden fazla değer")+"</b> olmalı; sen «"+esc(m.ad)+"» seçtin. Tek değeri kendisiyle karşılaştıramazsın — bu, ilk çalışmalarda en sık yapılan hatadır. "+(alt>=0?"İki çıkış var:":"Çıkış şu:")
+      +'<div class="btnrow" style="justify-content:flex-start;margin:8px 0 0"><button class="wbtn alt" data-fix="m" data-v="'+gm+'">Malzemeyi genişlet → '+esc(d.m[gm].ad)+'</button>'
+      +(alt>=0?'<button class="wbtn alt" data-fix="e" data-v="'+alt+'">Ekseni değiştir → '+esc(d.e[alt].ad)+'</button>':'')+'</div>'];
+  }
+  else k3=[1,"3 · Karşılaştırma var mı?","Eksen: <b>"+esc(e.st)+"</b>. Bir tabloyu iddiaya çeviren şey karşılaştırmadır — ve bu eksen seçtiğin malzemede gerçekten var."];
+  const K=[
+   [1,"1 · Sayılabilir mi?","Satır = bir "+esc(b.ad)+". Sayılabilir bir birim seçtin. «Etki», «önem», «ruh» gibi birimler bu tezgâhta çalışmaz — onlar sayının değil, yorumun konusudur."],
+   [1,"2 · Delili var mı?","Her satır <b>"+esc(m.no)+"</b> içinde bir yere dayanacak. Delil sütunu boş kalan satır tabloya girmez; dördüncü duraktaki tezgâh tam bunu denetler."],
+   k3,
+   [olcekH[2],"4 · Ölçek tutuyor mu?","<b>"+olcekH[0]+"</b> "+olcekH[1]]
+  ];
+  $("#soruKapi").innerHTML=K.map(k=>'<div class="kapi '+(k[0]?"ok":"uy")+'"><b>'+(k[0]?"✓ ":"⚠ ")+esc(k[1])+'</b>'+k[2]+'</div>').join("");
+  $("#soruTablo").innerHTML='<table><thead><tr><th>#</th><th>'+esc(b.st)+'</th><th>'+esc(e.st&&uy?e.st:"—")+'</th><th class="dl">delil (sayfa · ibare)</th></tr></thead>'
+    +'<tbody><tr><td>1</td><td>'+esc(b.or)+'</td><td>'+esc(e.st&&uy?e.or:"—")+'</td><td class="dl">'+esc(d.dl)+'</td></tr>'
+    +'<tr><td>2</td><td>…</td><td>…</td><td class="dl">…</td></tr></tbody></table>'
+    +'<p class="small muted" style="margin:7px 0 0">Son sütun pazarlığa açık değildir: <b>bir satırın delili yoksa o satır yoktur.</b> Sütun adlarını değiştirebilirsin; sayısını azaltamazsın.</p>';
+}
+$("#soruSec").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-s]"); if(!b) return;
+  sSec[b.dataset.s]=+b.dataset.i; soruSave(); soruRender();
+});
+$("#soruKapi").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-fix]"); if(!b) return;
+  sSec[b.dataset.fix]=+b.dataset.v; soruSave(); soruRender();
+});
+document.querySelectorAll("[data-k5]").forEach(b=>b.addEventListener("click",()=>{
+  $("#k5c").innerHTML = b.dataset.k5==="e"
+   ? "O hâlde bu bir <b>sınama</b> değil, bir <b>teyit</b>. Teyit de değerlidir — ama makalede «beklendiği gibi» deyip geç, ağırlığı oraya verme. Asıl merakını bir kademe daralt: tahmininin <i>tutmadığı</i> yeri ara. Bilim, tahminin çatladığı yerde başlar."
+   : "İyi. Sonucu bilmediğin soru, cevabı yayımlanmaya değer sorudur. Şunu şimdi yaz ve bir kenara koy: «Ben şunu bekliyorum: …» — veri geldiğinde bu not, kendini kandırmana engel olur.";
+}));
+
+/* ===== B · DÖNEM TAKVİMİ ===== */
+const FAZ=[{ad:"Malzeme",r:"var(--korpus)",is:"kaynağı bul, sürümünü ve erişim tarihini not et, kesiti sınırla, elle 10 satır çıkar"},
+ {ad:"Çıkarım",r:"var(--model)",is:"talimatı yaz, kapalı liste ve delil sütununu şart koş, modelden JSON al"},
+ {ad:"Mukabele",r:"var(--rubric)",is:"her satırı asıl metinle karşılaştır, oranı hesapla, elenenleri ayrı tut"},
+ {ad:"Yazım",r:"var(--insan)",is:"tablo → şekil → bulgular → giriş → öz; kaynakçayı en sonda tek tek teyit et"}];
+const SAAT={
+ 2:{h:20,f:[8,2,5,5],hedef:"araştırma notu (2-3 sayfa) + Zenodo'da veri seti",kes:"Kesilen: ikinci karşılaştırma ekseni. Tek eksenle kal.",toplam:40},
+ 4:{h:14,f:[6,1,4,3],hedef:"veri makalesi (JOHD tarzı) ya da ulusal dergide araştırma notu",kes:"Dengeli seçim: bir dönemde biter, ders yükünü öldürmez.",toplam:56},
+ 6:{h:10,f:[4,1,3,2],hedef:"tam makale taslağı",kes:"Dürüst uyarı: ders döneminde haftada 6 saati çoğu öğrenci sürdüremez. Bu seçenek yaz ya da ara dönem içindir.",toplam:60}};
+const MTAS=["kaynak sürümü + elle çıkarılmış ilk 10 satır","modelin çıktısı (JSON) elinde","mukabele raporu: tam / kısmî / elenen sayıları","gönderilecek taslak + verinin DOI'si"];
+let curSaat=4;
+function takvimRender(){
+  const S=SAAT[curSaat]; let acc=0; const ends=[];
+  const bar=FAZ.map((f,i)=>{ const w=S.f[i]; const a=acc+1; acc+=w; ends.push(acc);
+    return '<div class="fz" style="flex:'+w+';background:'+f.r+'">'+esc(f.ad)+'<span>H'+a+(w>1?"-"+acc:"")+'</span></div>'; }).join("");
+  $("#takvimOut").innerHTML='<div class="haftalar">'+bar+'</div>'
+   +'<p class="small muted" style="margin:2px 0 0">'+S.h+' hafta · toplam ~'+S.toplam+' saat · haftada '+curSaat+' saat</p>'
+   +'<div class="mtas">'+FAZ.map((f,i)=>'<div><span class="h">H'+ends[i]+' sonu</span><br><b>'+esc(f.ad)+'</b> — '+esc(f.is)+'<br><span style="color:var(--korpus);font-weight:700">✓ '+esc(MTAS[i])+'</span></div>').join("")+'</div>'
+   +'<div class="takvimhk"><b>Hedef:</b> '+esc(S.hedef)+'. '+esc(S.kes)
+   +'<br><b>Toplam emek üç seçenekte de 40-60 saat civarındadır</b> — değişen, bu emeğin kaç haftaya yayıldığıdır.'
+   +'<br><b>İki hafta geri kalırsan</b> takvimi uzatma, kapsamı kes: ikinci bölgeyi ya da ikinci ekseni at. Bitmiş küçük iş, yarım büyük işten her zaman iyidir.</div>';
+}
+$("#saatsec").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  curSaat=+b.dataset.s;
+  document.querySelectorAll("#saatsec button").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+  try{ localStorage.setItem("rihle_saat",String(curSaat)); }catch(err){}
+  takvimRender();
+});
+
+/* ===== C · MAKALENİN ANATOMİSİ ===== */
+const ANA=[
+ {ad:"Başlık",pay:"8-14 kelime",ne:"Üç bilgiyi aynı anda verir: neye baktın, neyi saydın, hangi ölçekte. Okur başlığa bakınca makalenin kapsamını çıkarabilmeli.",
+  sab:"[Malzeme]'de [birim]: [eksen] bir [sayım / karşılaştırma]",
+  vaka:"Bu sitedeki vakada malzeme Fütûhu'l-büldân'ın bir kesiti, birim yerleşim kaydı, eksen fetih tarzıdır. Başlık bu üçünü taşımalı, hiçbirini büyütmemelidir.",
+  hata:"Kapsamı olduğundan geniş göstermek. «İslam tarihinde fetihler» başlığı, tek eserin tek bölümünü inceleyen bir makaleyi taşıyamaz; hakem ilk cümlede yakalar."},
+ {ad:"Öz",pay:"150-250 kelime",ne:"Beş cümle yeter: (1) sorun, (2) malzeme ve ölçek, (3) yöntem, (4) bulgu — mutlaka sayıyla, (5) sınır.",
+  sab:"[Malzeme] üzerinde [birim] düzeyinde bir sayım yapıldı. [N] kayıt çıkarıldı; %[x]'i asıl metinle doğrulandı, %[y]'si doğrulanamadığı için elendi. [Eksen] boyunca [bulgu]. Sonuçlar [kesit] ile sınırlıdır.",
+  vaka:"Bu vakanın sayıları hazır: 226 kayıt, %35,0 tam eşleşme, %56,6 kısmî (imlâ farkı), %8,4 doğrulanamadığı için elendi.",
+  hata:"Bulguyu söylemeden bitirmek. «…incelenmiştir», «…ele alınmıştır» özü boş bırakır; okurun aradığı sayıdır."},
+ {ad:"Anahtar kelimeler",pay:"5 kelime",ne:"Makalenin bulunmasını sağlar. Üçü alan (hadis, fetih tarihi), ikisi yöntem (uzak okuma, veri seti) olsun.",
+  sab:"[alan] · [malzeme] · [birim] · [yöntem] · dijital beşerî bilimler",
+  vaka:"Alan + malzeme + yöntem üçlüsü aranabilirliği belirler.",
+  hata:"Alanın en genel beş kelimesini yazmak. «Yapay zekâ» tek başına anahtar kelime değildir; o kelimeyle yapılan aramada makale on binincidir."},
+ {ad:"Giriş",pay:"600-900 kelime",ne:"İki iş yapar: bir boşluk gösterir, o boşluğu bu makalenin nasıl doldurduğunu söyler. «Bu makale şunu yapar» cümlesi en geç ikinci paragrafta gelmeli.",
+  sab:"[Alan]da [soru] uzun süredir tartışılır; ancak [X] üzerinde bu birimde sistematik bir sayım yapılmamıştır. Bu makale [malzeme] üzerinde [N] kayıtlık bir veri seti kurar ve [eksen] boyunca [birim]in dağılımını gösterir.",
+  vaka:"Boşluk cümlesi abartılmaz. «Hiç çalışılmamıştır» yerine «bu ölçekte ve bu birimde sayılmamıştır» demek hem doğru hem savunulabilirdir.",
+  hata:"Literatür tarihçesiyle başlamak. Okur ilk paragrafta neyin yapıldığını bilmek ister; tarihçe üçüncü paragrafın işidir."},
+ {ad:"Malzeme ve yöntem",pay:"700-1200 kelime",ne:"Hakemin en dikkatli okuduğu bölüm. Altı şey yazılı olmalı: kaynak ve sürümü, erişim tarihi, kesitin sınırı, normalizasyon kararları, modelin adı-sürümü ve talimatı, doğrulama usulü ve oranı.",
+  sab:"Metin [kaynak] [sürüm] sürümünden [tarih]te alındı; kesit [sınır] ile tanımlandı ([N] kelime). Arapça metinde harekeler düşürüldü, tâ-i merbûta ve hemze varyantları birleştirildi. Kayıtlar [model, sürüm] ile çıkarıldı; talimat metni Ek 1'dedir. Her kayıt asıl metinle karşılaştırıldı; eşleşme ölçütü [ölçüt]tür.",
+  vaka:"Dördüncü duraktaki tezgâh tam bu bölümü yazılabilir kılar: normalizasyon kararlarını ve eşleşme ölçütünü size hazır verir. Rapordaki oranı buraya yazarsınız.",
+  hata:"«Yapay zekâdan yararlanılmıştır» deyip geçmek. Hangi model, hangi sürüm, hangi talimat, hangi denetim? Bu dördü yoksa çalışma tekrarlanamaz — ve tekrarlanamayan çalışma yayımlanmaz."},
+ {ad:"Bulgular",pay:"800-1500 kelime",ne:"Önce tablo ya da şekil, sonra cümle. Metindeki her sayı tablodan yeniden üretilebilmeli. Yorum burada değil, bir sonraki bölümdedir.",
+  sab:"Tablo 1, [birim]in [eksen] boyunca dağılımını gösterir. [N] kayıttan [n1]'i [A], [n2]'si [B] kategorisindedir (%[x] / %[y]).",
+  vaka:"Bu vakada iki oran birlikte verilir: veri setinin geneli (%52,2 sulhan / %42,5 anveten) ile incelenen kesitin dağılımı. İkisi ayrıştığında bu ayrışmanın kendisi bulgudur.",
+  hata:"Yorumu bulguya karıştırmak. «Bu da gösteriyor ki…» cümlesi bu bölümde erkendir; önce ne gördüğünü yaz."},
+ {ad:"Tartışma ve sınırlar",pay:"500-900 kelime",ne:"Bulgunun ne anlama gelebileceğini tartışır ve — ayrı bir alt başlıkla — ne anlama gelmediğini söyler. «Bu veri şunu göstermez» cümlesi ismen bulunmalı.",
+  sab:"Bu dağılım [ihtimal 1] ile açıklanabilir; ancak [ihtimal 2] de aynı deseni üretir. Veri bu ikisi arasında ayrım yapmaya yetmez. Çalışma [kesit] ile sınırlıdır ve [malzeme] bütününü temsil etmez.",
+  vaka:"Bir eserin bir kesitinden çıkan oran, o eserin bütününü bile temsil etmeyebilir; dönemin tamamını hiç temsil etmez. Bunu siz yazarsanız titizlik, hakem yazarsa kusur sayılır.",
+  hata:"Sınırları saklamak. Hakem onları zaten bulur; sizden duyması güven verir, kendisi bulması ret sebebidir."},
+ {ad:"Veri erişilebilirliği beyanı",pay:"40-80 kelime",ne:"Veri nerede, hangi lisansla, hangi sürüm numarasıyla duruyor — kalıcı bir kimlikle (DOI).",
+  sab:"Bu çalışmanın veri seti [Zenodo] üzerinde [DOI] numarasıyla, [lisans] lisansıyla, [sürüm] sürümü olarak açık erişimdedir.",
+  vaka:"Veri setinin kendisi ayrıca yayındır: veri makalesi, bu beyanın genişletilmiş hâlidir.",
+  hata:"«Talep üzerine paylaşılır» yazmak. Bu ifade artık zayıf sayılıyor; birçok dergi kabul etmiyor."},
+ {ad:"Yapay zekâ beyanı",pay:"40-90 kelime",ne:"Modeli hangi işlerde kullandığın, çıktının nasıl denetlendiği, sorumluluğun kimde olduğu.",
+  sab:"→ Bu bölümü aşağıdaki <b>E · Yapay zekâ beyanı</b> aleti Türkçe ve İngilizce olarak hazırlar; kopyala, yapıştır, gerekirse kısalt.",
+  vaka:"Beyan mukabele oranını da içerir: neyin doğrulandığı ve doğrulanamayanın ne olduğu.",
+  hata:"Beyanı teşekkür bölümüne sıkıştırmak ya da hiç yazmamak. Birçok dergi artık bunu gönderim şartı yapıyor."},
+ {ad:"Kaynakça",pay:"—",ne:"Türkçe makalede İSNAD, İngilizcede Chicago yaygındır; derginin kendi kılavuzu her zaman esastır. Her künye asıl kaynaktan görülür.",
+  sab:"[Müellif]. [Eser]. [Yer]: [Yayınevi], [Yıl].  ← kontrol: bu künyeyi hangi sayfadan gördün?",
+  vaka:"Bu sitedeki 101 bağlantı tek tek açılarak doğrulandı, biri o gün kesintide olduğu için işaretlendi. Kaynakça da aynı disiplinle kurulur.",
+  hata:"Künyeyi modelden istemek. Uydurulmuş künye bu alanda en hızlı ret sebebidir; sayfasını görmediğin künyeyi yazma."}];
+let curAna=0;
+function anaCiz(){
+  $("#anparlar").innerHTML=ANA.map((a,i)=>'<button data-a="'+i+'" aria-pressed="false"><span class="no">'+(i+1)+'</span>'+esc(a.ad)+'</button>').join("");
+}
+function anaRender(){
+  document.querySelectorAll("#anparlar button").forEach((x,i)=>x.setAttribute("aria-pressed", i===curAna?"true":"false"));
+  const a=ANA[curAna];
+  $("#anpanel").innerHTML='<div class="ph"><h3>'+(curAna+1)+' · '+esc(a.ad)+'</h3><span class="sure">'+esc(a.pay)+'</span></div>'
+   +'<p class="ilke">'+esc(a.ne)+'</p>'
+   +'<div class="sablon"><span class="lbl">İlk cümlenin şablonu — köşeli parantezleri doldur</span>'+a.sab+'</div>'
+   +'<div class="ornekbox"><b>Bu sitedeki vakada nasıl görünür</b>'+esc(a.vaka)+'</div>'
+   +'<div class="tikanma" style="margin-top:9px"><b>En sık hata</b>'+esc(a.hata)+'</div>';
+}
+$("#anparlar").addEventListener("click",e=>{ const b=e.target.closest("button[data-a]"); if(!b) return; curAna=+b.dataset.a; anaRender(); });
+
+/* ===== D · HAKEM GÖZÜ ===== */
+const HKM=[
+ ["MALZEME","Kaynağın adı, sürümü ve erişim tarihi metinde yazılı.","Yazarlar hangi sürümü kullandıklarını belirtmemiş; çalışma tekrarlanamaz."],
+ ["MALZEME","Kesitin sınırı ve neden bu kesit seçildiği gerekçelendirilmiş.","Bölüm seçimi gerekçelendirilmemiş; seçim yanlılığı ihtimali açıkta bırakılmış."],
+ ["MALZEME","Kayıt sayısı metinde, tabloda ve özde aynı.","Özde 226, tabloda 224 kayıt görünüyor; hangisi doğrudur?"],
+ ["MALZEME","«Kapsamlı», «bütün», «tüm» gibi temsil iddiaları temizlenmiş.","Çalışma kendini «kapsamlı» diye niteliyor; oysa tek eserin tek bölümü incelenmiş."],
+ ["YÖNTEM","Normalizasyon kararları (harekeler, tâ-i merbûta, hemze) yazılı.","Arapça normalizasyonun nasıl yapıldığı belirsiz; sayımlar doğrulanamıyor."],
+ ["YÖNTEM","Modelin adı, sürümü ve kullanım tarihi yazılı.","Hangi modelin kullanıldığı yazılmamış; sonuçlar yeniden üretilemez."],
+ ["YÖNTEM","Talimat (prompt) metni ek olarak verilmiş.","Talimat paylaşılmadığı için yöntem tekrarlanamaz."],
+ ["YÖNTEM","Doğrulamanın usulü ve oranı sayıyla verilmiş.","Doğrulamanın nasıl ve ne oranda yapıldığı belirsiz."],
+ ["BULGU","Doğrulanamayan kayıtların akıbeti yazılı (elendi mi, işaretlendi mi).","Eşleşmeyen kayıtların ne yapıldığı belirtilmemiş; veri seti güvenilmez."],
+ ["BULGU","Her tablo ve şeklin altında kaynak ve tarih var.","Şekil 2'nin kaynağı yok; veri nereden geliyor?"],
+ ["BEYAN","Veri kalıcı bir kimlikle (DOI) açık erişimde.","Veri paylaşılmadan bulgular denetlenemez."],
+ ["BEYAN","Kaynakçadaki her künye asıl kaynaktan görülerek teyit edilmiş.","Kaynakçadaki üç künye bulunamadı; birinde yıl ile dergi adı uyuşmuyor."]];
+function hkmState(){ try{ return JSON.parse(localStorage.getItem("rihle_hakem")||"[]"); }catch(e){ return []; } }
+function hkmProg(){
+  const st=hkmState(), n=st.filter(Boolean).length;
+  $("#hkmfill").style.width=(n/HKM.length*100)+"%";
+  const vd = n<=5? "Henüz gönderme" : n<=9? "Eksikleri kapat" : n<12? "Çok yakın" : "Gönderilebilir";
+  $("#hkmvd").textContent=n+"/"+HKM.length+" · "+vd;
+  document.querySelectorAll("#hkmliste .hkm").forEach((el,i)=>el.classList.toggle("tik",!!st[i]));
+}
+function hkmRender(){
+  const st=hkmState(); let out="", grp="";
+  HKM.forEach((h,i)=>{ if(h[0]!==grp){ grp=h[0]; out+='<div class="hkmgrup">'+esc(grp)+'</div>'; }
+    out+='<label class="hkm'+(st[i]?" tik":"")+'"><input type="checkbox" data-h="'+i+'"'+(st[i]?" checked":"")+'><span class="t">'+esc(h[1])+'<span class="r">Eksikse gelecek cümle: «'+esc(h[2])+'»</span></span></label>'; });
+  $("#hkmliste").innerHTML=out; hkmProg();
+}
+$("#hkmliste").addEventListener("change",e=>{
+  const c=e.target.closest("input[data-h]"); if(!c) return;
+  const st=hkmState(); st[+c.dataset.h]=c.checked;
+  try{ localStorage.setItem("rihle_hakem",JSON.stringify(st)); }catch(err){}
+  hkmProg();
+});
+
+/* ===== E · YAPAY ZEKÂ BEYANI ===== */
+const YZ=[
+ {tr:"metinden veri çıkarımı (kayıtların tabloya/JSON'a dökülmesi)",en:"extracting structured records from the source text"},
+ {tr:"Arapça / Osmanlıca pasajların anlaşılmasında yardım",en:"assistance in understanding Arabic and Ottoman Turkish passages"},
+ {tr:"kod ve betik yazımı",en:"writing code and scripts"},
+ {tr:"dil ve üslup düzeltmesi",en:"language and style editing"},
+ {tr:"fikir ve başlık üretimi",en:"brainstorming ideas and titles"},
+ {tr:"kaynak arama",en:"searching for sources",uy:"Künyeler modelden alınmaz. Aldıysan, her birinin asıl kaynaktan teyit edildiğini beyanda ayrıca yaz."}];
+let yzSec=[true,false,false,false,false,false], yzElenen="at";
+function yzMetin(){
+  const secili=YZ.filter((_,i)=>yzSec[i]);
+  const m=($("#yzmodel").value||"").trim() || "[model adı, sürümü, kullanım tarihi]";
+  const el=yzElenen==="at" ? ["eşleşmeyen kayıtlar veri setine alınmamıştır","unmatched records were excluded from the dataset"]
+                           : ["eşleşmeyen kayıtlar işaretlenerek veri setinde bırakılmıştır","unmatched records were retained in the dataset and flagged"];
+  const tr = secili.length
+   ? "Bu çalışmada "+m+" adlı büyük dil modeli şu işler için kullanılmıştır: "+secili.map(x=>x.tr).join("; ")+". "
+     +"Modelin ürettiği her kayıt asıl metinle karşılaştırılarak denetlenmiş, "+el[0]+"; doğrulama usulü ve oranı Malzeme ve Yöntem bölümünde verilmiştir. "
+     +"Metnin bilimsel içeriğinden, yorumundan ve olası hatalarından yalnızca yazar(lar) sorumludur. Model yazar olarak gösterilmemiştir."
+   : "Bu çalışmanın hiçbir aşamasında büyük dil modeli kullanılmamıştır.";
+  const en = secili.length
+   ? "A large language model ("+m+") was used in this study for the following tasks: "+secili.map(x=>x.en).join("; ")+". "
+     +"Every record produced by the model was checked against the source text and "+el[1]+"; the verification procedure and rate are reported in the Materials and Methods section. "
+     +"The author(s) are solely responsible for the scholarly content, interpretation and any remaining errors. The model is not listed as an author."
+   : "No large language model was used at any stage of this study.";
+  return [tr,en];
+}
+function yzCiz(){
+  $("#yzsec").innerHTML=YZ.map((x,i)=>'<button data-y="'+i+'" aria-pressed="false">'+esc(x.tr)+'</button>').join("");
+}
+function yzRender(){
+  document.querySelectorAll("#yzsec button[data-y]").forEach((x,i)=>x.setAttribute("aria-pressed", yzSec[i]?"true":"false"));
+  const t=yzMetin();
+  const uy=YZ.some((x,i)=>yzSec[i]&&x.uy) ? '<p class="small" style="color:var(--rubric);margin:7px 0 0"><b>Dikkat:</b> '+esc(YZ[5].uy)+'</p>' : "";
+  $("#yztr").innerHTML='<span class="lbl">Türkçe beyan</span>'+esc(t[0])+uy;
+  $("#yzen").innerHTML='<span class="lbl">English statement</span>'+esc(t[1]);
+  try{ localStorage.setItem("rihle_yz",JSON.stringify({s:yzSec,e:yzElenen})); }catch(e){}
+}
+$("#yzsec").addEventListener("click",e=>{ const b=e.target.closest("button[data-y]"); if(!b) return; const i=+b.dataset.y; yzSec[i]=!yzSec[i]; yzRender(); });
+$("#yzelenen").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-e]"); if(!b) return; yzElenen=b.dataset.e;
+  document.querySelectorAll("#yzelenen button").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+  yzRender();
+});
+$("#yzmodel").addEventListener("input",yzRender);
+$("#yzcopy").addEventListener("click",async e=>{
+  const t=yzMetin();
+  try{ await navigator.clipboard.writeText("YAPAY ZEKÂ KULLANIM BEYANI\n"+t[0]+"\n\nAI USE STATEMENT\n"+t[1]); e.target.textContent="Kopyalandı ✓"; }
+  catch(err){ e.target.textContent="Pano engellendi — metni elle seç"; }
+  setTimeout(()=>{ e.target.textContent="Beyanı kopyala (TR + EN)"; },2500);
+});
+
+/* ===== F · KURTARMA KARTLARI ===== */
+const KURT=[
+ ["Veri hiçbir şey göstermiyor","<b>«Fark yok» da bir bulgudur</b> — ama tek şartla: beklentini <i>önceden</i> yazmış olman. A aletindeki beşinci kapıda «ben şunu bekliyorum» notunu aldıysan, elinde yayımlanabilir bir negatif sonuç var. Ölçünü ve örneklem büyüklüğünü açıkça yaz; «yeterince veri yoktu» ile «fark yoktu» aynı şey değildir. Hedefi araştırma notuna çevir; bu tür notlar dergilerde kabul görüyor."],
+ ["Danışmanım dijital yöntem bilmiyor","Danışman <b>alanın</b> hakemidir, aletin değil — ve makaleyi alan taşır. Ona iki şey götür: <b>soru cümlen</b> ve <b>tablon</b>. İkisi de dijital değildir; ikisini de değerlendirebilir. Alet tarafı için ikinci bir okuyucu bul: bilgisayar mühendisliği ya da dilbilim bölümünde bu işi yapan bir doktora öğrencisi çoğu zaman yardıma açıktır. Danışmanı ikna etmenin en hızlı yolu, bitmiş küçük bir tablodur."],
+ ["Metnin taraması berbat, OCR bozuk","<b>Elle yazılmış 200 kelime, bozuk 20.000 kelimeden iyidir.</b> Bozuk metinden çıkan sayı sayı değildir. Üç seçenek: (1) ölçeği küçült, kesiti elle temizle; (2) Transkribus'ta model dene (Osmanlıca modelleri var); (3) aynı metnin başka bir neşrini ara. Hangisini seçersen seç, «metin şu kaynaktan, şu kalitede» cümlesini Malzeme bölümüne yaz."],
+ ["Model uyduruyor","Bu bir arıza değil, <b>tabiat</b>: model en olası kelimeyi üretir, doğruyu değil. Çözüm üç katmanlı: kapalı liste (serbest cevap yerine seçenek), delil sütunu zorunluluğu (her kayıt asıl metinden bir ibare taşısın), mukabele (dördüncü duraktaki tezgâh). Uydurma kaydı yakalamak başarısızlık değil, <b>yöntemin çalıştığının kanıtıdır</b> — ve makalede bu oranı yazmak size puan kazandırır."],
+ ["Zaman yetmedi","Takvimi uzatma, <b>kapsamı kes</b>. Bir bölge yerine bir şehir, üç bab yerine bir bab, üç yayın yerine bir yayın. Kesilen kısmı «gelecek çalışma» diye yaz — kayıp değil, plandır. Yarım kalmış büyük iş yayımlanmaz; bitmiş küçük iş yayımlanır ve ikincisini kolaylaştırır."],
+ ["Makale reddedildi","<b>Hakem raporu bedava danışmanlıktır</b>; çoğu öğrencinin göremediği kadar ayrıntılı bir okumadır. Üç adım: (1) gerekçeleri maddele, duygusal cümleleri ayıkla; (2) düzeltilebilir olanları düzelt; (3) katılmadığın maddeye kısa ve saygılı bir cevap yaz, ikinci dergiye üç hafta içinde gönder. Reddedilmemiş araştırmacı yoktur; bekletilmiş makale vardır."]];
+$("#kurtliste").innerHTML=KURT.map(k=>'<details><summary>'+esc(k[0])+'</summary><div>'+k[1]+'</div></details>').join("");
+
+/* ===== iskelet + tam dosya ===== */
+function mdIndir(ad,metin){
+  const blob=new Blob([metin],{type:"text/markdown;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=ad;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
-});
+}
+const dz=t=>String(t).replace(/<[^>]+>/g,"");
+function iskeletMd(){
+  return ["# [Başlık — "+ANA[0].sab+"]","",
+   "> Soru cümlem: "+soruCumle(),
+   "> Alan: "+curTrack+" · Hedef ürün: "+TRACKMETA[curTrack].urun,
+   "> Bu iskelet bir taslaktır; derginin yazım kılavuzu her zaman üstündür.",""]
+   .concat(ANA.flatMap((a,i)=>["## "+(i+1)+". "+a.ad+"  *("+a.pay+")*","",
+     "*Ne yazılır:* "+a.ne,"","*İlk cümle şablonu:*","> "+dz(a.sab),"",
+     "*En sık hata:* "+a.hata,"","<!-- buraya yaz -->",""]))
+   .concat(["---","Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",
+     "ÜRET (kendin) · DOĞRULA (dışarıda) · BEYAN ET"]).join("\n");
+}
+function dosyaMd(){
+  const d=SORU[curTrack], m=d.m[sSec.m], b=d.b[sSec.b], e=d.e[sSec.e];
+  const S=SAAT[curSaat]; let acc=0; const ends=S.f.map(w=>(acc+=w));
+  const st=hkmState(), eksik=HKM.map((h,i)=>st[i]?null:h).filter(Boolean);
+  const t=yzMetin(), M=TRACKMETA[curTrack], pst=planState();
+  return ["# İlk makaleme giden yol — "+curTrack,"",
+   "Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",
+   "Hedef ürün: "+M.urun,"Emsal: "+dz(M.emsal),"Hedef raf: "+M.hedef,"",
+   "## A · Soru","","**"+soruCumle()+"**","",
+   "- Malzeme: "+m.ad+" ("+m.no+") — "+m.ol,
+   "- Birim (satır): "+b.ad,
+   "- Eksen (karşılaştırma): "+(e.st?e.ad:"yok — yalnız betim"),"",
+   "### Tablonun sütunları","| # | "+b.st+" | "+(e.st||"—")+" | delil (sayfa · ibare) |",
+   "|---|---|---|---|","| 1 | "+b.or+" | "+(e.or||"—")+" | "+d.dl+" |","",
+   "> Delil sütunu boş kalan satır tabloya girmez.","",
+   "## B · Takvim ("+curSaat+" saat/hafta · "+S.h+" hafta · ~"+S.toplam+" saat)",""]
+   .concat(FAZ.map((f,i)=>"- **H"+ends[i]+" sonu — "+f.ad+":** "+f.is+"  \n  ✓ "+MTAS[i]))
+   .concat(["","Hedef: "+S.hedef+". "+S.kes,
+    "İki hafta geri kalırsan takvimi uzatma, kapsamı kes.","",
+    "## C · Dört evrelik plan",""])
+   .concat(TRACKS[curTrack].map((s,i)=>"### "+(pst[curTrack+":"+i]?"[x] ":"[ ] ")+s[0]+" · "+s[1]+"\n"+s[2]
+     +"\n- Bitti sayılır: "+s[4]+"\n- Tuzak: "+s[5]
+     +"\n- Bağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")))
+   .concat(["","## D · Makalenin bölümleri (kelime bütçeleri temsilîdir)",""])
+   .concat(ANA.map((a,i)=>"- **"+(i+1)+". "+a.ad+"** ("+a.pay+") — "+a.ne))
+   .concat(["","## E · Hakem gözü — kapatılacak eksikler",""])
+   .concat(eksik.length? eksik.map(h=>"- [ ] "+h[1]+"  \n  *Eksikse gelecek cümle:* «"+h[2]+"»")
+                       : ["On iki maddenin hepsi işaretli. Gönderilebilir."])
+   .concat(["","## F · Yapay zekâ kullanım beyanı","",t[0],"","**AI use statement**","",t[1],"",
+    "## G · Danışman e-postası","","```",epostaText(),"```","",
+    "---","Merdiven: araştırma notu → veri makalesi (JOHD) → ulusal tam makale → uluslararası",
+    "ÜRET (kendin) · DOĞRULA (dışarıda) · BEYAN ET"]).join("\n");
+}
+$("#iskeletdl").addEventListener("click",()=>mdIndir("makale-iskeleti-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md",iskeletMd()));
+function dosyaIndir(){ mdIndir("yol-haritasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md",dosyaMd()); }
+$("#plandl2").addEventListener("click",dosyaIndir);
+
+/* açılış */
+try{ const sv=+localStorage.getItem("rihle_saat"); if(SAAT[sv]){ curSaat=sv;
+  document.querySelectorAll("#saatsec button").forEach(x=>x.setAttribute("aria-pressed", +x.dataset.s===sv?"true":"false")); } }catch(e){}
+try{ const yv=JSON.parse(localStorage.getItem("rihle_yz")||"null"); if(yv&&Array.isArray(yv.s)&&yv.s.length===YZ.length){ yzSec=yv.s; yzElenen=yv.e||"at";
+  document.querySelectorAll("#yzelenen button").forEach(x=>x.setAttribute("aria-pressed", x.dataset.e===yzElenen?"true":"false")); } }catch(e){}
+takvimRender(); anaCiz(); anaRender(); hkmRender(); yzCiz(); yzRender();
+
 renderTrack("Tarih & Siyer");
 $("#rail").innerHTML=RAIL.map(r=>'<a class="railcard" style="text-decoration:none;color:inherit" href="'+r.href+'"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+' <span class="chip" style="color:var(--insan)">→ nasıl başlarım</span></div></a>').join("");
 
