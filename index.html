@@ -1112,7 +1112,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one">Bu durak bir <b>atölyedir</b>: alanını seç, altı aleti sırayla kullan, sonunda danışmanına götürebileceğin tek dosya çıksın. Hiçbir alet senin yerine karar vermez; hepsi kararı <i>görünür</i> kılar.</p>
   <div class="trackchips" id="trackchips"></div>
   <div class="atlas" aria-label="Atölyedeki aletler">
-    <a href="#soru">A · Soru tezgâhı</a><a href="#takvim">B · Dönem takvimi</a><a href="#anatomi">C · Makalenin anatomisi</a><a href="#hakem">D · Hakem gözü</a><a href="#beyan">E · Yapay zekâ beyanı</a><a href="#kurtarma">F · İşler yolunda gitmezse</a>
+    <a href="#soru">A · Soru tezgâhı</a><a href="#takvim">B · Dönem takvimi</a><a href="#anatomi">C · Makalenin anatomisi</a><a href="#emsal">D · Bitmiş bir makale</a><a href="#hakem">E · Hakem gözü</a><a href="#beyan">F · Yapay zekâ beyanı</a><a href="#kurtarma">G · İşler yolunda gitmezse</a>
   </div>
   <div id="trackhead" style="max-width:820px;margin:0 auto;width:100%"></div>
 
@@ -1125,6 +1125,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="kapi4" id="soruKapi"></div>
     <div class="altbaslik">Bu sorunun tablosu — dördüncü duraktaki tezgâhın istediği biçim</div>
     <div class="tabloprev" id="soruTablo"></div>
+    <p class="small" style="margin:10px 0 0"><b>Gerçek bir örnek:</b> bu üç seçim yayımlanmış bir makalede neydi, sorusu nasıl kurulmuştu? <a href="#emsal">D · Bitmiş bir makale — EICD-B, baştan sona</a>.</p>
     <details class="mdeep ustanotu" style="margin-top:11px"><summary>🎯 Beşinci kapı: cevabı şimdiden biliyor musun?</summary>
       <p>Bu kapıyı makine açamaz; kendine sorman gerek. Dürüst cevabın işini kurtarır.</p>
       <div class="btnrow" style="justify-content:flex-start;margin-top:6px"><button class="wbtn alt" data-k5="e">Evet, sonucu tahmin edebiliyorum</button><button class="wbtn alt" data-k5="h">Hayır, gerçekten bilmiyorum</button></div>
@@ -1158,8 +1159,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p class="small muted" style="margin-top:6px">İndirilen dosya boş başlıklardan ibaret değildir: her başlığın altında ne yazılacağı, kaç kelime olacağı ve soru cümlen hazır durur.</p>
   </div>
 
+  <div class="atolye" id="emsal">
+    <div class="ah"><span class="an">D</span><h3>Bitmiş bir makale — EICD-B, baştan sona</h3></div>
+    <p class="ap">Şimdiye kadar hep tarif ettik. Burada <b>bitmiş bir iş</b> var: bu sitedeki yöntemin yayımlanmış hâli. Sekiz durakta, aynı altı aletin üzerine geri konuyor — soru nasıl kurulmuş, kaynak nasıl sınırlanmış, model nasıl kullanılmış, doğrulama nasıl yapılmış, hangi sayılar çıkmış, hangi sınırlar açıkça yazılmış, beyan nasıl kaleme alınmış. <b>Rakamların hepsi makalenin kendisinden</b>; hiçbiri bu site için üretilmedi.</p>
+    <div class="anpar" id="emspar"></div>
+    <div class="istpanel" id="emspanel"></div>
+    <p class="small muted" style="margin-top:10px">Gökalp, H. &amp; Çetinkaya, A. (2026). "The Early Islamic Conquests Database–Balādhurī (EICD-B): large language model extraction of conquest data from <i>Futūḥ al-buldān</i>", <i>Digital Scholarship in the Humanities</i>, 1-17. doi:10.1093/llc/fqag093 · <a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">açık erişim (CC BY 4.0)</a> — alıntılar bu lisansla, künyesiyle verilmiştir.</p>
+  </div>
+
   <div class="atolye" id="hakem">
-    <div class="ah"><span class="an">D</span><h3>Hakem gözü — göndermeden önce kendi hakemin ol</h3></div>
+    <div class="ah"><span class="an">E</span><h3>Hakem gözü — göndermeden önce kendi hakemin ol</h3></div>
     <p class="ap">Hakem raporu geldiğinde şaşırmamanın tek yolu, o raporu <b>kendine önceden yazmaktır</b>. On iki maddeyi tek tek işaretle; işaretlenmeyen maddenin altında, o eksik yüzünden alacağın cümle duruyor.</p>
     <div id="hkmliste"></div>
     <div class="meter"><span>Gönderime hazırlık</span><div class="mt"><div class="mf" id="hkmfill"></div></div><span class="vd" id="hkmvd">0/12</span></div>
@@ -1167,7 +1176,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
 
   <div class="atolye" id="beyan">
-    <div class="ah"><span class="an">E</span><h3>Yapay zekâ beyanı — üçüncü fiilin aleti</h3></div>
+    <div class="ah"><span class="an">F</span><h3>Yapay zekâ beyanı — üçüncü fiilin aleti</h3></div>
     <p class="ap">Bu sitenin omurgası üç fiildi: <b>üret</b> (kendin), <b>doğrula</b> (dışarıda), <b>beyan et</b>. İlk ikisinin aleti vardı; üçüncüsününki burada. Modeli hangi işlerde kullandığını seç, beyan paragrafın Türkçe ve İngilizce olarak çıksın. Gizlemek değil, <i>yazmak</i> güven verir.</p>
     <div class="altbaslik">Modeli hangi işlerde kullandın?</div>
     <div class="yzsec" id="yzsec"></div>
@@ -1190,7 +1199,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
 
   <div class="atolye" id="kurtarma">
-    <div class="ah"><span class="an">F</span><h3>İşler yolunda gitmezse — altı gerçek çıkmaz ve çıkışı</h3></div>
+    <div class="ah"><span class="an">G</span><h3>İşler yolunda gitmezse — altı gerçek çıkmaz ve çıkışı</h3></div>
     <p class="ap">Yol haritaları hep işlerin yolunda gittiğini varsayar; gitmez. Aşağıdakiler süsleme değil, bu işi yapan herkesin başına gelen altı durumdur. Hangisindeysen aç.</p>
     <div class="kurt" id="kurtliste"></div>
   </div>
@@ -2080,7 +2089,7 @@ const TRACKS={
    "Kapsam dışı dergiye göndermek — iki dokunuşluk dergi seçici tam bunun için var."]],
 };
 const RAIL=[
- {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hali: 226 kayıt, açık erişim, ilahiyat yazarlı.",chips:["Oxford DSH 2026"],href:"https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428"},
+ {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hâli: 226 kayıt, açık erişim, ilahiyat yazarlı. Yukarıdaki D aletinde sekiz durakta baştan sona açıldı.",chips:["Oxford DSH 2026","D · baştan sona"],href:"#emsal"},
  {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"],href:"https://www.journals.uchicago.edu/doi/full/10.1086/693970"},
  {k:"EMSAL",c:"var(--insan)",t:"İsnad ağları, hakemli",p:"Klasik isnad ağlarının ağ-bilimiyle incelenişi — Hadis rotasının emsali.",chips:["JHNR 2023"],href:"https://jhnr.net/articles/10.25517/jhnr.v8i1.135"},
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
@@ -2313,43 +2322,48 @@ const ANA=[
  {ad:"Başlık",pay:"8-14 kelime",ne:"Üç bilgiyi aynı anda verir: neye baktın, neyi saydın, hangi ölçekte. Okur başlığa bakınca makalenin kapsamını çıkarabilmeli.",
   sab:"[Malzeme]'de [birim]: [eksen] bir [sayım / karşılaştırma]",
   vaka:"Bu sitedeki vakada malzeme Fütûhu'l-büldân'ın bir kesiti, birim yerleşim kaydı, eksen fetih tarzıdır. Başlık bu üçünü taşımalı, hiçbirini büyütmemelidir.",
-  hata:"Kapsamı olduğundan geniş göstermek. «İslam tarihinde fetihler» başlığı, tek eserin tek bölümünü inceleyen bir makaleyi taşıyamaz; hakem ilk cümlede yakalar."},
+  hata:"Kapsamı olduğundan geniş göstermek. «İslam tarihinde fetihler» başlığı, tek eserin tek bölümünü inceleyen bir makaleyi taşıyamaz; hakem ilk cümlede yakalar.",em:"Ana başlık ürünü adlandırıyor, iki noktadan sonrası yöntemi ve kaynağı veriyor: «EICD-B: … <i>Futūḥ al-buldān</i>'dan büyük dil modeliyle fetih verisi çıkarımı». Kapsam iddiası yok — «erken İslam fetihleri» değil, «Belâzürî»."},
  {ad:"Öz",pay:"150-250 kelime",ne:"Beş cümle yeter: (1) sorun, (2) malzeme ve ölçek, (3) yöntem, (4) bulgu — mutlaka sayıyla, (5) sınır.",
   sab:"[Malzeme] üzerinde [birim] düzeyinde bir sayım yapıldı. [N] kayıt çıkarıldı; %[x]'i asıl metinle doğrulandı, %[y]'si doğrulanamadığı için elendi. [Eksen] boyunca [bulgu]. Sonuçlar [kesit] ile sınırlıdır.",
   vaka:"Bu vakanın sayıları hazır: 226 kayıt, %35,0 tam eşleşme, %56,6 kısmî (imlâ farkı), %8,4 doğrulanamadığı için elendi.",
-  hata:"Bulguyu söylemeden bitirmek. «…incelenmiştir», «…ele alınmıştır» özü boş bırakır; okurun aradığı sayıdır."},
+  hata:"Bulguyu söylemeden bitirmek. «…incelenmiştir», «…ele alınmıştır» özü boş bırakır; okurun aradığı sayıdır.",em:"~250 kelime, beş iş sırayla: ne tanıtılıyor (yapılandırılmış veri seti) · hangi hat (dört aşama) · her kaydın alanları · sayılar (226 olay, 11-97 AH; %52,2 / %42,5 / %5,3) · ne sağlıyor (Noth'un şemata tezi gibi hipotezlerin nicel sınanması). Öz, bulguyu söylemeden bitmiyor."},
  {ad:"Anahtar kelimeler",pay:"5 kelime",ne:"Makalenin bulunmasını sağlar. Üçü alan (hadis, fetih tarihi), ikisi yöntem (uzak okuma, veri seti) olsun.",
   sab:"[alan] · [malzeme] · [birim] · [yöntem] · dijital beşerî bilimler",
   vaka:"Alan + malzeme + yöntem üçlüsü aranabilirliği belirler.",
-  hata:"Alanın en genel beş kelimesini yazmak. «Yapay zekâ» tek başına anahtar kelime değildir; o kelimeyle yapılan aramada makale on binincidir."},
+  hata:"Alanın en genel beş kelimesini yazmak. «Yapay zekâ» tek başına anahtar kelime değildir; o kelimeyle yapılan aramada makale on binincidir.",em:"On anahtar kelime, üç cinsten: alan (Islamic history, early Islamic conquests) · kaynak (al-Balādhurī, Futūḥ al-buldān) · yöntem (digital humanities, large language models, information extraction, classical Arabic, computational historiography, geospatial analysis)."},
  {ad:"Giriş",pay:"600-900 kelime",ne:"İki iş yapar: bir boşluk gösterir, o boşluğu bu makalenin nasıl doldurduğunu söyler. «Bu makale şunu yapar» cümlesi en geç ikinci paragrafta gelmeli.",
   sab:"[Alan]da [soru] uzun süredir tartışılır; ancak [X] üzerinde bu birimde sistematik bir sayım yapılmamıştır. Bu makale [malzeme] üzerinde [N] kayıtlık bir veri seti kurar ve [eksen] boyunca [birim]in dağılımını gösterir.",
   vaka:"Boşluk cümlesi abartılmaz. «Hiç çalışılmamıştır» yerine «bu ölçekte ve bu birimde sayılmamıştır» demek hem doğru hem savunulabilirdir.",
-  hata:"Literatür tarihçesiyle başlamak. Okur ilk paragrafta neyin yapıldığını bilmek ister; tarihçe üçüncü paragrafın işidir."},
+  hata:"Literatür tarihçesiyle başlamak. Okur ilk paragrafta neyin yapıldığını bilmek ister; tarihçe üçüncü paragrafın işidir.",em:"İki paragraflık «Dijital Dönüş» çerçevesinden sonra doğrudan boşluğa geçiyor: bilgi, klasik Arapçanın uzun anlatı pasajlarına gömülü. Ardından <b>§1.1 Research questions</b> başlığı altında üç soru numaralanıyor. Sorularını ayrı başlık altında sayan makale, hakemin işini kolaylaştırır."},
  {ad:"Malzeme ve yöntem",pay:"700-1200 kelime",ne:"Hakemin en dikkatli okuduğu bölüm. Altı şey yazılı olmalı: kaynak ve sürümü, erişim tarihi, kesitin sınırı, normalizasyon kararları, modelin adı-sürümü ve talimatı, doğrulama usulü ve oranı.",
   sab:"Metin [kaynak] [sürüm] sürümünden [tarih]te alındı; kesit [sınır] ile tanımlandı ([N] kelime). Arapça metinde harekeler düşürüldü, tâ-i merbûta ve hemze varyantları birleştirildi. Kayıtlar [model, sürüm] ile çıkarıldı; talimat metni Ek 1'dedir. Her kayıt asıl metinle karşılaştırıldı; eşleşme ölçütü [ölçüt]tür.",
   vaka:"Dördüncü duraktaki tezgâh tam bu bölümü yazılabilir kılar: normalizasyon kararlarını ve eşleşme ölçütünü size hazır verir. Rapordaki oranı buraya yazarsınız.",
-  hata:"«Yapay zekâdan yararlanılmıştır» deyip geçmek. Hangi model, hangi sürüm, hangi talimat, hangi denetim? Bu dördü yoksa çalışma tekrarlanamaz — ve tekrarlanamayan çalışma yayımlanmaz."},
+  hata:"«Yapay zekâdan yararlanılmıştır» deyip geçmek. Hangi model, hangi sürüm, hangi talimat, hangi denetim? Bu dördü yoksa çalışma tekrarlanamaz — ve tekrarlanamayan çalışma yayımlanmaz.",em:"Üç alt başlık: 3.1 kaynak metin ve ön işleme · 3.2 çıkarım hattı · 3.3 doğrulama. Modelin adı, kimliği ve sıcaklığı yazılı; parça boyu ve bindirme yazılı; talimatların tamamı ek malzemede. «Yapay zekâdan yararlanıldı» cümlesi makalenin hiçbir yerinde geçmiyor."},
  {ad:"Bulgular",pay:"800-1500 kelime",ne:"Önce tablo ya da şekil, sonra cümle. Metindeki her sayı tablodan yeniden üretilebilmeli. Yorum burada değil, bir sonraki bölümdedir.",
   sab:"Tablo 1, [birim]in [eksen] boyunca dağılımını gösterir. [N] kayıttan [n1]'i [A], [n2]'si [B] kategorisindedir (%[x] / %[y]).",
   vaka:"Bu vakada iki oran birlikte verilir: veri setinin geneli (%52,2 sulhan / %42,5 anveten) ile incelenen kesitin dağılımı. İkisi ayrıştığında bu ayrışmanın kendisi bulgudur.",
-  hata:"Yorumu bulguya karıştırmak. «Bu da gösteriyor ki…» cümlesi bu bölümde erkendir; önce ne gördüğünü yaz."},
+  hata:"Yorumu bulguya karıştırmak. «Bu da gösteriyor ki…» cümlesi bu bölümde erkendir; önce ne gördüğünü yaz.",em:"Altı alt başlık, altı tablo, yedi şekil — ve bir taahhüt cümlesi: bütün tablo ve şekil değerleri ekteki JSON'dan doğrudan üretilmiştir. En güçlü bulgu bir çapraz tablo: sulhan olaylarının %77'sinde malî veri var, anveten olaylarının %8'inde."},
  {ad:"Tartışma ve sınırlar",pay:"500-900 kelime",ne:"Bulgunun ne anlama gelebileceğini tartışır ve — ayrı bir alt başlıkla — ne anlama gelmediğini söyler. «Bu veri şunu göstermez» cümlesi ismen bulunmalı.",
   sab:"Bu dağılım [ihtimal 1] ile açıklanabilir; ancak [ihtimal 2] de aynı deseni üretir. Veri bu ikisi arasında ayrım yapmaya yetmez. Çalışma [kesit] ile sınırlıdır ve [malzeme] bütününü temsil etmez.",
   vaka:"Bir eserin bir kesitinden çıkan oran, o eserin bütününü bile temsil etmeyebilir; dönemin tamamını hiç temsil etmez. Bunu siz yazarsanız titizlik, hakem yazarsa kusur sayılır.",
-  hata:"Sınırları saklamak. Hakem onları zaten bulur; sizden duyması güven verir, kendisi bulması ret sebebidir."},
+  hata:"Sınırları saklamak. Hakem onları zaten bulur; sizden duyması güven verir, kendisi bulması ret sebebidir.",em:"Tartışma bulguyu literatüre bağlıyor (Noth'un şemata tezi, Lynch'in «idarî el kitabı» tezi), sonra sınırlar dört madde hâlinde tek tek sayılıyor: tek bakış · kategorilerin kendisi tartışmalı · hatalar tümüyle bitmedi · tek kaynak."},
  {ad:"Veri erişilebilirliği beyanı",pay:"40-80 kelime",ne:"Veri nerede, hangi lisansla, hangi sürüm numarasıyla duruyor — kalıcı bir kimlikle (DOI).",
   sab:"Bu çalışmanın veri seti [Zenodo] üzerinde [DOI] numarasıyla, [lisans] lisansıyla, [sürüm] sürümü olarak açık erişimdedir.",
   vaka:"Veri setinin kendisi ayrıca yayındır: veri makalesi, bu beyanın genişletilmiş hâlidir.",
-  hata:"«Talep üzerine paylaşılır» yazmak. Bu ifade artık zayıf sayılıyor; birçok dergi kabul etmiyor."},
+  hata:"«Talep üzerine paylaşılır» yazmak. Bu ifade artık zayıf sayılıyor; birçok dergi kabul etmiyor.",em:"Ayrı başlık: 226 olayın JSON'u, hat belgeleri, doğrulama yöntemi ve <b>hattın tamamını gösteren on işlenmiş örnek</b> (Arapça pasaj → JSON → normalizasyon kararı) ek malzemede; veri seti Zenodo'ya konur, DOI prova aşamasında eklenir."},
  {ad:"Yapay zekâ beyanı",pay:"40-90 kelime",ne:"Modeli hangi işlerde kullandığın, çıktının nasıl denetlendiği, sorumluluğun kimde olduğu.",
-  sab:"→ Bu bölümü aşağıdaki <b>E · Yapay zekâ beyanı</b> aleti Türkçe ve İngilizce olarak hazırlar; kopyala, yapıştır, gerekirse kısalt.",
+  sab:"→ Bu bölümü aşağıdaki <b>F · Yapay zekâ beyanı</b> aleti Türkçe ve İngilizce olarak hazırlar; kopyala, yapıştır, gerekirse kısalt.",
   vaka:"Beyan mukabele oranını da içerir: neyin doğrulandığı ve doğrulanamayanın ne olduğu.",
-  hata:"Beyanı teşekkür bölümüne sıkıştırmak ya da hiç yazmamak. Birçok dergi artık bunu gönderim şartı yapıyor."},
+  hata:"Beyanı teşekkür bölümüne sıkıştırmak ya da hiç yazmamak. Birçok dergi artık bunu gönderim şartı yapıyor.",em:"«AI disclosure» diye ayrı başlık, ~90 kelime, dört soruya cevap: hangi model · hangi işlerde · nasıl denetlendi · sorumluluk kimde. Son cümlesi nettir: nihaî veri seti, yorumlar ve bütün ilmî sonuçlar yalnızca insan yazarların sorumluluğundadır."},
  {ad:"Kaynakça",pay:"—",ne:"Türkçe makalede İSNAD, İngilizcede Chicago yaygındır; derginin kendi kılavuzu her zaman esastır. Her künye asıl kaynaktan görülür.",
   sab:"[Müellif]. [Eser]. [Yer]: [Yayınevi], [Yıl].  ← kontrol: bu künyeyi hangi sayfadan gördün?",
   vaka:"Bu sitedeki 101 bağlantı tek tek açılarak doğrulandı, biri o gün kesintide olduğu için işaretlendi. Kaynakça da aynı disiplinle kurulur.",
-  hata:"Künyeyi modelden istemek. Uydurulmuş künye bu alanda en hızlı ret sebebidir; sayfasını görmediğin künyeyi yazma."}];
+  hata:"Künyeyi modelden istemek. Uydurulmuş künye bu alanda en hızlı ret sebebidir; sayfasını görmediğin künyeyi yazma.",em:"Yaklaşık otuz künye; klasik kaynak (Belâzürî'nin 1866 de Goeje neşri) ile modern literatür (Noth, Donner, Kennedy, Kaegi, Hoyland, Levy-Rubin, Lynch, Crone-Cook) ve dijital beşerî bilimler literatürü (Moretti, Miller-Romanov-Savant, Kiessling, Romanov-Seydi) yan yana. Neredeyse her künyede DOI ya da erişim tarihi var."},
+ {ad:"Yazar katkıları, fon ve çıkar beyanı",pay:"60-120 kelime",ne:"Kimin ne yaptığı, işin parayla desteklenip desteklenmediği, yazarların çıkar ilişkisi olup olmadığı. Çoğu dergi artık bunu ayrı başlık olarak istiyor.",
+  sab:"[Ad] (kavramsallaştırma, veri küratörlüğü, doğrulama, denetim) ve [Ad] (yöntem, yazılım, biçimsel analiz, görselleştirme). Çıkar çatışması: yok. Fon: [kurum, proje no] / yok.",
+  vaka:"Katkılar CRediT taksonomisiyle yazılır — «yazdı» değil, on dört başlıktan hangileri. Ortak çalışmada payını görünür kılmanın tek kurumsal yolu budur.",
+  hata:"Katkıyı sözlü anlaşmaya bırakmak. Makale basıldıktan sonra kimin ne yaptığı yalnız bu paragrafta durur.",
+  em:"İki yazar, iki fakülte: ilahiyat tarafı kavramsallaştırma, veri küratörlüğü, araştırma, proje yönetimi, denetim, doğrulama ve gözden geçirmeyi; mühendislik tarafı biçimsel analiz, yöntem, kaynaklar, yazılım, görselleştirme ve ilk taslağı üstlenmiş. Çıkar çatışması: yok. Fon: yok — bu iş bütçesiz yapılabilir bir iştir."}];
 let curAna=0;
 function anaCiz(){
   $("#anparlar").innerHTML=ANA.map((a,i)=>'<button data-a="'+i+'" aria-pressed="false"><span class="no">'+(i+1)+'</span>'+esc(a.ad)+'</button>').join("");
@@ -2361,11 +2375,12 @@ function anaRender(){
    +'<p class="ilke">'+esc(a.ne)+'</p>'
    +'<div class="sablon"><span class="lbl">İlk cümlenin şablonu — köşeli parantezleri doldur</span>'+a.sab+'</div>'
    +'<div class="ornekbox"><b>Bu sitedeki vakada nasıl görünür</b>'+esc(a.vaka)+'</div>'
+   +'<div class="ikincibox" style="margin-top:8px"><b>EICD-B\'de bu bölüm nasıl yazılmış</b>'+a.em+' <a href="#emsal">D · baştan sona →</a></div>'
    +'<div class="tikanma" style="margin-top:9px"><b>En sık hata</b>'+esc(a.hata)+'</div>';
 }
 $("#anparlar").addEventListener("click",e=>{ const b=e.target.closest("button[data-a]"); if(!b) return; curAna=+b.dataset.a; anaRender(); });
 
-/* ===== D · HAKEM GÖZÜ ===== */
+/* ===== E · HAKEM GÖZÜ ===== */
 const HKM=[
  ["MALZEME","Kaynağın adı, sürümü ve erişim tarihi metinde yazılı.","Yazarlar hangi sürümü kullandıklarını belirtmemiş; çalışma tekrarlanamaz."],
  ["MALZEME","Kesitin sınırı ve neden bu kesit seçildiği gerekçelendirilmiş.","Bölüm seçimi gerekçelendirilmemiş; seçim yanlılığı ihtimali açıkta bırakılmış."],
@@ -2400,7 +2415,7 @@ $("#hkmliste").addEventListener("change",e=>{
   hkmProg();
 });
 
-/* ===== E · YAPAY ZEKÂ BEYANI ===== */
+/* ===== F · YAPAY ZEKÂ BEYANI ===== */
 const YZ=[
  {tr:"metinden veri çıkarımı (kayıtların tabloya/JSON'a dökülmesi)",en:"extracting structured records from the source text"},
  {tr:"Arapça / Osmanlıca pasajların anlaşılmasında yardım",en:"assistance in understanding Arabic and Ottoman Turkish passages"},
@@ -2451,7 +2466,108 @@ $("#yzcopy").addEventListener("click",async e=>{
   setTimeout(()=>{ e.target.textContent="Beyanı kopyala (TR + EN)"; },2500);
 });
 
-/* ===== F · KURTARMA KARTLARI ===== */
+/* ===== D · BİTMİŞ BİR MAKALE: EICD-B, BAŞTAN SONA =====
+   Bütün değerler makalenin kendisinden: Gökalp & Çetinkaya 2026, DSH,
+   doi:10.1093/llc/fqag093, CC BY 4.0. Site için hiçbir sayı üretilmedi. */
+const EMS=[
+ {ad:"Künye",no:"kim, nerede, hangi emekle",ilke:"Bir makalenin ilk öğrettiği şey, tek başına yazılmadığıdır.",
+  govde:'<div class="ornekbox"><b>Makalenin künyesi</b>'
+   +'<b style="display:inline;text-transform:none;letter-spacing:0;font-size:.86rem">The Early Islamic Conquests Database–Balādhurī (EICD-B): large language model extraction of conquest data from <i>Futūḥ al-buldān</i></b><br>'
+   +'Türkçesi: <i>Erken İslam Fetihleri Veri Tabanı–Belâzürî: Fütûhu\'l-büldân\'dan büyük dil modeliyle fetih verisi çıkarımı</i><br>'
+   +'Hüseyin Gökalp (Selçuk Üniversitesi İlahiyat Fakültesi, İslam Tarihi) — sorumlu yazar · Ali Çetinkaya (Selçuk Üniversitesi Teknoloji Fakültesi, Bilgisayar Mühendisliği)<br>'
+   +'<i>Digital Scholarship in the Humanities</i>, 2026, s. 1-17 · Full Paper · açık erişim (CC BY 4.0) · doi:10.1093/llc/fqag093</div>'
+   +'<div class="ikincibox" style="margin-top:8px"><b>Emek paylaşımı — makalede ismen yazılı (CRediT)</b>'
+   +'<b style="display:inline;text-transform:none;letter-spacing:0">Gökalp:</b> kavramsallaştırma · veri küratörlüğü · araştırma · proje yönetimi · denetim · doğrulama · yazım (gözden geçirme ve düzenleme)<br>'
+   +'<b style="display:inline;text-transform:none;letter-spacing:0">Çetinkaya:</b> biçimsel analiz · fon temini · yöntem · kaynaklar · yazılım · görselleştirme · yazım (ilk taslak)<br>'
+   +'<span class="muted">Çıkar çatışması: yok. Fon: yok.</span></div>',
+  ders:"İlahiyat tarafı soruyu, kaynağı ve doğrulamayı; mühendislik tarafı hattı, analizi ve görselleri üstlenmiş. Sizin de ikinci bir okuyucuya ihtiyacınız olacak — ve katkı, makalede kimin ne yaptığı yazılarak paylaşılır. Ayrıca dikkat: <b>fon yok</b>. Bu iş bütçesiz yapılabilir bir iştir.",
+  bag:["#kurtarma","G · «Danışmanım dijital yöntem bilmiyor» kartı"]},
+
+ {ad:"Soru",no:"üç araştırma sorusu",ilke:"Makale sorularını başlık altında numaralamış: §1.1 Research questions.",
+  govde:'<div class="sablon"><span class="lbl">Makalenin üç sorusu (§1.1) — Türkçesi</span>'
+   +'<b>1.</b> Şema kılavuzlu bir büyük dil modeli hattı, klasik bir Arap kroniğinden fetih olaylarını <i>izlenebilir delili koruyarak</i> güvenilir biçimde çıkarabilir mi?\n'
+   +'<b>2.</b> Ortaya çıkan veri setinden hangi zamansal, siyasî ve komutan düzeyindeki desenler beliriyor; bunlar mevcut tarih yazımıyla nasıl örtüşüyor?\n'
+   +'<b>3.</b> Belâzürî\'nin sulhan ve anveten anlatılarının dağılımı, fetih tarih yazımı ile sonraki fıkhî tasnif arasındaki ilişkiye nasıl ışık tutuyor?</div>'
+   +'<div class="io2"><div class="gir"><b>A aletiyle okunuşu — malzeme</b>Fütûhu\'l-büldân\'ın ilk yüzyıl fetih pasajları (~86.500 kelime)</div>'
+   +'<div class="cik"><b>birim (satır)</b>bir fetih olayı kaydı</div></div>'
+   +'<div class="olcekrow"><b>eksen:</b> beş tane — zaman (§4.3) · bölge (§4.2) · fetih tarzı (§4.4) · halife dönemi (§4.5) · komutan (§4.6). A aletinin dördüncü kapısı böyle bir bileşimi «tam makale ölçeği» diye işaretler; nitekim 17 sayfalık bir makale çıkmış. Sizin ilk işiniz için <b>tek eksen yeter</b>.</div>',
+  ders:"Üç sorunun üç ayrı cinsi var: birincisi <b>yöntem</b> sorusu (bu hat çalışır mı?), ikincisi <b>betim</b> sorusu (ne desen çıkıyor?), üçüncüsü <b>yorum</b> sorusu (bu desen tarih yazımı için ne söylüyor?). İlk makaleniz birincisi ya da ikincisiyle yetinebilir — üçüncüsü alan uzmanlığı ister ve bu makalede onu ilahiyatçı yazar taşıyor.",
+  bag:["#soru","A · Soru tezgâhı"]},
+
+ {ad:"Malzeme",no:"kaynak ve sınır",ilke:"Kesitin sınırı tahminle değil sayıyla verilmiş.",
+  govde:'<div class="io2"><div class="gir"><b>Kaynak</b>OpenITI/KITAB\'ın Fütûhu\'l-büldân dijital neşri; temeli M. J. de Goeje\'nin Leiden 1866 tenkitli neşri</div>'
+   +'<div class="cik"><b>Sınır</b>yalnız ilk yüzyıl fetihleri ≈ <b>86.500 kelime</b></div></div>'
+   +'<div class="ornekbox"><b>Ön işleme</b>Başlıklar, derkenar işaretleri, OpenITI kilometre taşları ve sayfa sonları temizlendi — <b>ama</b> delil pasajları ile de Goeje sayfa numaraları arasındaki hizalama korundu. Metin ~2.000 token\'lık, <b>200 token bindirmeli</b> parçalara bölündü: bir olay anlatısı paragraf sınırını aşabildiği için.</div>'
+   +'<div class="tikanma"><b>Makalenin kendi uyarısı</b>OpenITI metninde bilinen imlâ tuhaflıkları var (hemze işaretlemesi, tâ-i merbûta aktarımı); makale bunları gizlemiyor, normalizasyon adımında sistematik olarak ele aldığını yazıyor.</div>',
+  ders:"«Fütûh\'u inceledik» demiyor: <b>86.500 kelime</b> diyor. Sizin yazacağınız cümle de budur — ve bu cümle, hakem gözü aletindeki birinci ve ikinci maddeyi tek başına kapatır.",
+  bag:["#hakem","E · Hakem gözü, malzeme maddeleri"]},
+
+ {ad:"Çıkarım",no:"model, şema, normalizasyon",ilke:"«Yapay zekâdan yararlanıldı» cümlesi makalenin hiçbir yerinde yok.",
+  govde:'<div class="ciktiornek"><span class="lbl">Makalede yazılı olanlar</span>'
+   +'model      : Claude 3 Sonnet (Anthropic)\nkimlik     : claude-3-Sonnet-20240229\nsıcaklık   : 0\nparça      : ~2.000 token, 200 token bindirme\ntalimatlar : tamamı ek malzemede\nseçim gerekçesi : uzun bağlam, şemaya tutarlı uyum,\n             klasik Arapçada düşük uydurma eğilimi</div>'
+   +'<div class="ornekbox"><b>Şema — kapalı liste + zorunlu delil</b>Model, sabit bir olay şemasına uyan JSON üretmeye zorlanıyor: <code>year_ah</code> tam sayı; <code>conquest_type</code> <b>kapalı liste</b> (sulhan / anwatan / reconsolidation); şehir, komutan, halife dizge; ve <b>zorunlu <code>evidence</code> alanı</b> — bağlamdan alınmış kısa Arapça pasaj.</div>'
+   +'<div class="ikincibox" style="margin-top:8px"><b>Normalizasyon kararları</b>(1) hemze varyantları ve tatvîl temizliği · (2) yer adlarının yazım varyantlarının uyumlanması · (3) halife ve komutan adlarının toplama için normalizasyonu. Ayrıca «/» ile verilen müşterek komutanlıklar ayrıştırıldı. Tekilleştirme anahtarı: <code>(year_ah, city_arabic, commander_arabic)</code>.</div>'
+   +'<div class="olcekrow"><b>Sürdürülebilirlik notu:</b> makale, ticarî bir arayüze bağlılığın tekrarlanabilirlik riski olduğunu açıkça yazıyor ve açık ağırlıklı modellerle (Llama 3 70B, Qwen 2.5) ön denemeyi bildiriyor — karmaşık pasajlarda bir miktar hassasiyet kaybıyla.</div>',
+  ders:"Bu sitede öğrettiğimiz iki kural — <b>kapalı liste</b> ve <b>zorunlu delil sütunu</b> — makalenin yöntem bölümünde aynen duruyor. Aradaki tek fark, orada bunların adı «controlled vocabulary» ve «evidence field».",
+  bag:["#dene","4 · Tezgâhta dene"]},
+
+ {ad:"Mukabele",no:"üç katmanlı doğrulama",ilke:"Doğrulama, muhaddisin işinin otomatikleşmiş hâli olarak tarif ediliyor.",
+  govde:'<div class="ornekbox"><b>Katman 1 · Halife dönemi tutarlılığı</b>Olay tarihleri, halifelerin saltanat yıllarıyla ve komutanların yaşam süreleriyle çaprazlanır. Makalenin verdiği örnek: 25 AH\'ye tarihlenen bir olay <b>Hâlid b. Velîd</b>\'e (ö. 21/642) atfedilmişse sistem bunu anomali olarak işaretler. Makale bunu açıkça «isnadın makullüğünü denetleyen ortaçağ muhaddisinin işini otomatikleştirmek» diye niteliyor.</div>'
+   +'<div class="ornekbox" style="margin-top:7px"><b>Katman 2 · Kural tabanlı yıl çıkarımı</b>Kronikler yılı bir kez başlık olarak verir («On Üçüncü Yıl»), sonra sayfalarca tekrar etmez. Hat, her parçaya bağlam-farkında üstveri enjekte eder; böylece model tek başına duran bir pasajda bile zamanı bilir.</div>'
+   +'<div class="ornekbox" style="margin-top:7px"><b>Katman 3 · Sözlük kılavuzlu arıtma</b>Fıkhî terimler için sistematik denetim: <span class="ar" style="display:inline">أمان · ذمة · صلحا</span> ile <span class="ar" style="display:inline">قتال · حصار · عنوة</span> karşıtlığı. Amaç, muğlak dilden fetih tipi uydurmasını engellemek.</div>'
+   +'<div class="ikincibox" style="margin-top:7px"><b>Artı: gazetteer</b>Erken İslam idarî coğrafyası için yapılandırılmış bir gazetteer (11-100 AH) sisteme tanıtıldı — makro bölgeler (el-Irâk, el-Meşrik, Bilâdüşşam, el-Cezîre, el-Mağrib), vilâyetler, cündler, diyârlar. Böylece bölge adı şehir sanılmıyor. al-Ṯurayyā ile çapraz kontrol yapıldı.</div>'
+   +'<div class="ciktiornek" style="margin-top:9px"><span class="lbl">Sonuç (Tablo 4) — 226 kaydın tamamı üzerinde</span>'
+   +'TAM       (kaynakta birebir bulundu)      79  · %35,0\nKISMÎ     (başka lafız / imlâ farkı)   128  · %56,6\nBULUNAMADI (parça sınırı vb.)            19  · %8,4\nşehir adı kaynaktan doğrulanan          207  · %91,6</div>',
+  ders:"%35 ilk bakışta düşük görünür — ve makale bunu saklamak yerine <b>izah ediyor</b>: TAM/KISMÎ ayrımı imlâ sadakatinin ölçüsüdür, anlam doğruluğunun değil; OpenITI metni ile hattın normalizasyonu hemze ve tâ-i merbûtayı farklı ele aldığı için içerik örtüşse de yüzey ayrışıyor. <b>Oranı yazıp açıklamak, oranı yazmamaktan her zaman güçlüdür.</b>",
+  bag:["#dene","4 · Kendi mukabeleni yap"]},
+
+ {ad:"Bulgular",no:"her cümlenin altında sayı",ilke:"Metindeki, tablolardaki ve şekillerdeki bütün sayılar ekteki JSON'dan hesaplanır.",
+  govde:'<div class="ciktiornek"><span class="lbl">Tablo 1 · veri setinin künyesi</span>'
+   +'fetih olayı                     226\nyıl aralığı            11-97 AH (632-716)\n  (+3 aykırı kayıt: 99 ve 221 AH)\nayrı yer adı                    195\nham komutan dizgesi              79\nkomutan anması (ayrıştırılmış)  215\ncoğrafî konumlandırma      226/226 · %100</div>'
+   +'<div class="ciktiornek" style="margin-top:8px"><span class="lbl">Tablo 2 · fetih tarzı</span>'
+   +'Sulhan  (antlaşmayla)   118 · %52,2\nAnveten (kuvvetle)       96 · %42,5\nYeniden tesis            12 · %5,3</div>'
+   +'<div class="dou" style="margin-top:9px"><div class="ornekbox"><b>Halife dönemi</b>Hz. Ömer dönemi 99 olayla açık ara önde (%43,8). Birinci Fitne yıllarında (35-40 AH) belirgin bir düşüş var. Makale burada ince bir uyarı yapıyor: Hz. Ali dönemine düşen 29 olayın 25\'i tek bir yılda (37 AH) kümeleniyor ve neredeyse tamamı Sind fetihleri — yani bu sayı, Belâzürî\'nin coğrafî blok hâlinde anlatma tarzının doğurduğu <b>metinsel bir yapı eseridir</b>, sürmekte olan bir askerî genişlemenin delili değil.</div>'
+   +'<div class="ikincibox"><b>Bölge</b>İran 42 (%18,6) · Bilâdüşşam 36 (%15,9) · Mâverâünnehir 33 (%14,6) · Irak 27 (%11,9) · el-Cezîre 20 (%8,8). Mısır yalnız 5 (%2,2) — makale bunu bir hat kusuru sanmayıp <b>kelime sayarak</b> gösteriyor: Mısır-Mağrib-Endülüs bloğu metnin %8,2\'si ve bin kelimede 1,4 olayla korpusun en düşük yoğunluğu.</div></div>'
+   +'<div class="karar" style="margin-top:9px"><b>En güçlü bulgu</b><span class="ks">Fetih tarzı ile malî terimler çaprazlandığında (Tablo 5):</span>'
+   +'<div class="secenek iyi"><span class="mark">✓</span><span><b>Sulhan</b> olaylarının <b>%77</b>\'sinde malî veri var (118 olaydan 91\'i): cizye, harâc, sulh formülleri.</span></div>'
+   +'<div class="secenek kotu"><span class="mark">!</span><span><b>Anveten</b> olaylarının yalnız <b>%8</b>\'inde (96 olaydan 8\'i). <b>Dokuz kattan fazla fark.</b></span></div>'
+   +'<span style="font-family:var(--sans);font-size:.78rem;display:block;margin-top:6px">Yorum: antlaşmayla teslim olan şehirlerin pazarlık ettiği malî düzenlemeler idarî olarak bağlayıcı kaldığı için kayda geçmiş; kuvvetle alınanlarda kaydedilecek bir pazarlık yok.</span></div>',
+  ders:"Makale hiçbir yerde «çok / az / yaygın» demiyor; her nitelemenin altında bir sayı var. Ve en kritik cümle yöntem bölümünün sonunda duruyor: bütün tablo ve şekil değerleri ekteki JSON\'dan <b>doğrudan üretilmiştir</b>. Yani makale, kendi sayılarının denetlenebilirliğini bir cümleyle taahhüt ediyor.",
+  bag:["#anatomi","C · Bulgular bölümü"]},
+
+ {ad:"Sınırlar",no:"dört tanesi, numaralı",ilke:"Sınırlar saklanmamış; sayılmış.",
+  govde:'<div class="btgrid" style="grid-template-columns:1fr">'
+   +'<div class="tuzakbox"><b>1 · Tek bakış</b>Veri, Belâzürî\'nin kendi bakışını ve kaynak erişimini yansıtır; onun az yer verdiği bölgeler — özellikle Mısır ve Endülüs — az temsil edilir.</div>'
+   +'<div class="tuzakbox"><b>2 · Kategorilerin kendisi tartışmalı</b>Sulhan/anveten tasnifi, kaynağın kendisindeki muğlaklığı ve geriye dönük hukukî çerçevelemeyi devralır. Bu yüzden bunlar VII. yüzyıl olaylarının şeffaf kaydı değil, <b>Abbâsî dönemi tarih yazımı hafızasının temsilleri</b> olarak okunmalıdır.</div>'
+   +'<div class="tuzakbox"><b>3 · Hatalar tümüyle bitmedi</b>Doğrulama protokolüne rağmen bazı çıkarım hataları kalır — özellikle örtük zaman göndergeleri ve komutan adlarının yazım varyantları.</div>'
+   +'<div class="tuzakbox"><b>4 · Tek kaynak</b>Çalışma tek bir esere dayanır; Taberî, Vâkıdî, İbn Abdülhakem ve Arapça dışı kaynaklarla çapraz karşılaştırma güveni artıracaktır.</div></div>'
+   +'<div class="ikincibox" style="margin-top:9px"><b>Ayrıca dürüstçe söylenen</b>Makale, daha geniş EICD-B projesindeki şehirlerin yaklaşık <b>%69,5</b>\'inin yalnız tek bir kaynakta göründüğünü de raporluyor ve bundan «veri kırılganlığı» diye söz ediyor: kanonik anlatı, her olayın birden çok şahitle doğrulandığı kalın bir tarih değil; büyük ölçüde tek zincire bağlı bir mozaiktir.</div>',
+  ders:"Dört sınırın dördü de zayıflık değil, <b>kalite işaretidir</b>. Hakem raporu geldiğinde bu maddeler zaten cevaplanmış olur. Sizin de makalenizde ayrı bir başlık altında numaralı bir sınırlar listesi bulunsun.",
+  bag:["#hakem","E · Hakem gözü, 4. madde"]},
+
+ {ad:"Beyan",no:"yapay zekâ ve veri",ilke:"Ayrı başlık, doksan kelime, dört soruya cevap.",
+  govde:'<div class="ciktiornek"><span class="lbl">EICD-B · «AI disclosure» başlığı, aynen</span>'
+   +'This manuscript was prepared with the assistance of Claude 3 Sonnet (Anthropic). The authors used this large language model as the primary research instrument for schema-guided extraction of conquest events from the classical Arabic source text, as described in the Methodology section. The model was also used for preliminary data validation and normalization tasks. All AI-generated outputs, including extracted data records and evidence snippets, were systematically verified by the authors against the original Arabic source text. The final dataset, interpretations, and all scholarly conclusions are the sole responsibility of the human authors.</div>'
+   +'<div class="ornekbox" style="margin-top:8px"><b>Türkçesi</b>Bu makale Claude 3 Sonnet (Anthropic) yardımıyla hazırlanmıştır. Yazarlar bu büyük dil modelini, Yöntem bölümünde anlatıldığı üzere, klasik Arapça kaynak metinden şema kılavuzlu fetih olayı çıkarımı için <b>başlıca araştırma aleti</b> olarak kullanmışlardır. Model ayrıca ön veri doğrulama ve normalizasyon işlerinde kullanılmıştır. Çıkarılan veri kayıtları ve delil pasajları dâhil, modelin ürettiği bütün çıktılar yazarlarca <b>asıl Arapça metinle karşılaştırılarak sistematik biçimde denetlenmiştir</b>. Nihaî veri seti, yorumlar ve bütün ilmî sonuçlar <b>yalnızca insan yazarların sorumluluğundadır</b>.</div>'
+   +'<div class="ikincibox" style="margin-top:8px"><b>Veri erişilebilirliği beyanı</b>226 fetih olayının tam JSON dosyası, çıkarım hattı belgeleri, doğrulama yöntemi ve <b>hattın tamamını gösteren on işlenmiş örnek</b> (Arapça pasaj → çıkarılan JSON → normalizasyon kararları) ek malzeme olarak yayımlandı. Veri seti kabulle birlikte Zenodo\'ya konur; DOI prova aşamasında eklenir.</div>',
+  ders:"Dört soruya cevap veriyor: <b>hangi model</b>, <b>hangi işlerde</b>, <b>nasıl denetlendi</b>, <b>sorumluluk kimde</b>. F aletindeki üretici tam bu dört soruyu doldurup size aynı paragrafı Türkçe ve İngilizce olarak veriyor. Ve şu ayrıntıya dikkat: «on işlenmiş örnek» — makale, hattın nasıl çalıştığını okurun kendi gözüyle görebilmesi için pasajdan JSON\'a giden on tam örneği paylaşmış.",
+  bag:["#beyan","F · Yapay zekâ beyanı üreticisi"]}
+];
+let curEms=0;
+function emsCiz(){
+  $("#emspar").innerHTML=EMS.map((e,i)=>'<button data-e2="'+i+'" aria-pressed="false"><span class="no">'+(i+1)+'</span>'+esc(e.ad)+'</button>').join("");
+}
+function emsRender(){
+  document.querySelectorAll("#emspar button").forEach((x,i)=>x.setAttribute("aria-pressed", i===curEms?"true":"false"));
+  const e=EMS[curEms];
+  $("#emspanel").innerHTML='<div class="ph"><h3>'+(curEms+1)+' · '+esc(e.ad)+'</h3><span class="sure">'+esc(e.no)+'</span></div>'
+   +'<p class="ilke">'+esc(e.ilke)+'</p>'+e.govde
+   +'<div class="karar" style="margin-top:11px"><b>Öğrenci için ders</b><span style="font-family:var(--sans);font-size:.82rem;line-height:1.55;display:block">'+e.ders+'</span></div>'
+   +'<p class="small" style="margin:9px 0 0">İlgili alet: <a href="'+e.bag[0]+'">'+esc(e.bag[1])+'</a></p>';
+}
+$("#emspar").addEventListener("click",e=>{ const b=e.target.closest("button[data-e2]"); if(!b) return; curEms=+b.dataset.e2; emsRender(); });
+
+/* ===== G · KURTARMA KARTLARI ===== */
 const KURT=[
  ["Veri hiçbir şey göstermiyor","<b>«Fark yok» da bir bulgudur</b> — ama tek şartla: beklentini <i>önceden</i> yazmış olman. A aletindeki beşinci kapıda «ben şunu bekliyorum» notunu aldıysan, elinde yayımlanabilir bir negatif sonuç var. Ölçünü ve örneklem büyüklüğünü açıkça yaz; «yeterince veri yoktu» ile «fark yoktu» aynı şey değildir. Hedefi araştırma notuna çevir; bu tür notlar dergilerde kabul görüyor."],
  ["Danışmanım dijital yöntem bilmiyor","Danışman <b>alanın</b> hakemidir, aletin değil — ve makaleyi alan taşır. Ona iki şey götür: <b>soru cümlen</b> ve <b>tablon</b>. İkisi de dijital değildir; ikisini de değerlendirebilir. Alet tarafı için ikinci bir okuyucu bul: bilgisayar mühendisliği ya da dilbilim bölümünde bu işi yapan bir doktora öğrencisi çoğu zaman yardıma açıktır. Danışmanı ikna etmenin en hızlı yolu, bitmiş küçük bir tablodur."],
@@ -2476,7 +2592,7 @@ function iskeletMd(){
    "> Bu iskelet bir taslaktır; derginin yazım kılavuzu her zaman üstündür.",""]
    .concat(ANA.flatMap((a,i)=>["## "+(i+1)+". "+a.ad+"  *("+a.pay+")*","",
      "*Ne yazılır:* "+a.ne,"","*İlk cümle şablonu:*","> "+dz(a.sab),"",
-     "*En sık hata:* "+a.hata,"","<!-- buraya yaz -->",""]))
+     "*EICD-B'de bu bölüm:* "+dz(a.em),"","*En sık hata:* "+a.hata,"","<!-- buraya yaz -->",""]))
    .concat(["---","Kaynak: Bir Kitabın Rıhlesi · alicetinkaya76.github.io/kitabin-rihlesi",
      "ÜRET (kendin) · DOĞRULA (dışarıda) · BEYAN ET"]).join("\n");
 }
@@ -2504,7 +2620,7 @@ function dosyaMd(){
      +"\n- Bitti sayılır: "+s[4]+"\n- Tuzak: "+s[5]
      +"\n- Bağlantılar: "+s[3].replace(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g,"$2 <$1>").replace(/<[^>]+>/g,"")))
    .concat(["","## D · Makalenin bölümleri (kelime bütçeleri temsilîdir)",""])
-   .concat(ANA.map((a,i)=>"- **"+(i+1)+". "+a.ad+"** ("+a.pay+") — "+a.ne))
+   .concat(ANA.map((a,i)=>"- **"+(i+1)+". "+a.ad+"** ("+a.pay+") — "+a.ne+"  \n  *EICD-B'de:* "+dz(a.em)))
    .concat(["","## E · Hakem gözü — kapatılacak eksikler",""])
    .concat(eksik.length? eksik.map(h=>"- [ ] "+h[1]+"  \n  *Eksikse gelecek cümle:* «"+h[2]+"»")
                        : ["On iki maddenin hepsi işaretli. Gönderilebilir."])
@@ -2522,7 +2638,7 @@ try{ const sv=+localStorage.getItem("rihle_saat"); if(SAAT[sv]){ curSaat=sv;
   document.querySelectorAll("#saatsec button").forEach(x=>x.setAttribute("aria-pressed", +x.dataset.s===sv?"true":"false")); } }catch(e){}
 try{ const yv=JSON.parse(localStorage.getItem("rihle_yz")||"null"); if(yv&&Array.isArray(yv.s)&&yv.s.length===YZ.length){ yzSec=yv.s; yzElenen=yv.e||"at";
   document.querySelectorAll("#yzelenen button").forEach(x=>x.setAttribute("aria-pressed", x.dataset.e===yzElenen?"true":"false")); } }catch(e){}
-takvimRender(); anaCiz(); anaRender(); hkmRender(); yzCiz(); yzRender();
+takvimRender(); anaCiz(); anaRender(); emsCiz(); emsRender(); hkmRender(); yzCiz(); yzRender();
 
 renderTrack("Tarih & Siyer");
 $("#rail").innerHTML=RAIL.map(r=>'<a class="railcard" style="text-decoration:none;color:inherit" href="'+r.href+'"><span class="rk" style="color:'+r.c+'">'+r.k+'</span><h3>'+esc(r.t)+'</h3><p>'+esc(r.p)+'</p><div class="chips">'+r.chips.map(c=>'<span class="chip">'+esc(c)+'</span>').join("")+' <span class="chip" style="color:var(--insan)">→ nasıl başlarım</span></div></a>').join("");
