@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 // Depo kökünü servis eder (index.html ana sayfadır).
 const ROOT = normalize(join(dirname(fileURLToPath(import.meta.url)), ".."));
-const TYPES = { ".html": "text/html; charset=utf-8", ".md": "text/markdown; charset=utf-8", ".mjs": "text/javascript", ".json": "application/json", ".mARkdown": "text/plain; charset=utf-8" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".md": "text/markdown; charset=utf-8", ".mjs": "text/javascript", ".json": "application/json", ".mARkdown": "text/plain; charset=utf-8", ".png":"image/png", ".jpg":"image/jpeg", ".svg":"image/svg+xml", ".webp":"image/webp"};
 
 createServer(async (req, res) => {
   try {

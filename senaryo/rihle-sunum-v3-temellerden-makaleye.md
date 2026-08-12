@@ -122,7 +122,18 @@ SORUMLULUK DEVREDİLEMEZ.
 
 ---
 
-# B6 · KAPANIŞ (44:00–48:00)
+# B5.5 · T-CORPUS — ADRES (43:00–45:00, 2 dk)
+
+**PERDEDE:** T-Corpus amblemi + tek slayt: `TİMAV Dijital Beşerî Bilimler Merkezi · 2026 · Konya` ve altında **kayıt QR'ı** (senaryo/qr-tcorpus.png — sürüm 5, %25 hata düzeltmeli, arka sıradan okunur; sitedeki 6. durağa gider).
+
+**KONUŞMA:**
+> "Bir adres vererek bitireyim. Bu yöntemin Türkiye'de kurumsal bir karşılığı var: T-Corpus, TİMAV bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanı oradan geliyor — yani gösterdiğim yol tasarım değil, yürünüyor. Merkezin kendi ifadesiyle kuruluş gerekçesi şu: Türkiye'deki büyük platformlar arama arayüzü sunuyor; indirilebilir veri seti, DOI'li sürüm ve açık lisans sunan bir İslami ilimler korpusu henüz yok. Bu boşluk için kuruldu. Ve dikkatinizi çekerim: merkezin yayımladığı dört ilke, bu elli dakikada tekrar ettiğim dört kuralın aynısı — kaynağa bağlılık, açıklık, insan onayı, dürüst durum.
+> Perdedeki kareyi okutursanız sitenin son durağına gelirsiniz. Orada üç kapı var. En hafifi 'haberdar olmak istiyorum' — tek satır. Asıl kapı ortadaki: **beşinci durakta indirdiğiniz tek sayfalık planı gönderin.** Özgeçmiş istemiyoruz; soru cümlenizi istiyoruz. Çünkü bu işte aranan şey tecrübe değil, soru kurabilmek. Üçüncü kapı ekipte çalışmak isteyenler için; orada özgeçmiş de var ama isteğe bağlı.
+> Beta rozetli projelerin hepsi el bekliyor. 'Beta' burada süs değil: yürüyor, eksikleri var demek."
+
+**PRODÜKSİYON:** QR'ı slaytta en az 6×6 cm bas. Yedek: sözlü adres `kitabin-rihlesi/#tcorpus`.
+
+# B6 · KAPANIŞ (45:00–48:00)
 
 **PERDEDE (son kare, sabit):**
 ```
@@ -147,6 +158,7 @@ Dijital İslami ilimler kuruluş aşamasında; en çok, İLAHİYAT BİLEN ele ih
 | B2 Araştırmacının yolu | Durak 2: 5 istasyon şeridi |
 | B3 Makinenin içi | Durak 3: klavye oyunu + 5 katlı boru hattı + Çekirdeğe iniş (sunumda anılmaz, meraklıya kalır) |
 | B4 Canlı ispat | Durak 4: sihirbaz (CANLI AN 1) · Durak 1-CBS haritası (CANLI AN 2) · tam Tezgâh Kütüphane'de |
+| B5.5 T-Corpus | Durak 6: dört ilke eşleşmesi, proje ailesi (durum rozetli), üç kapılı kayıt QR'ı |
 | B5 Makale yolu | Durak 5: makale atölyesi (A-F) + Kütüphane: emsaller, dergi seçici (CANLI AN 3), âdâb & beyan |
 | B6 Kapanış | Kapak QR + Kütüphane |
 

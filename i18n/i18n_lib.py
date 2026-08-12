@@ -56,7 +56,7 @@ def cikar(s, ceviriler=None):
     for m in re.finditer(r">([^<>]+)<",s):
         if icinde(m.start(1),sc) or icinde(m.start(1),st): continue
         if cevrilebilir(m.group(1),ceviriler): adaylar.append(("metin",m.group(1)))
-    for m in re.finditer(r'\b(title|placeholder|aria-label|alt|content|summary)="([^"]*)"',s):
+    for m in re.finditer(r'\b(title|placeholder|aria-label|alt|content|summary|src)="([^"]*)"',s):
         if icinde(m.start(2),sc): continue
         if cevrilebilir(m.group(2),ceviriler): adaylar.append(("oznitelik",m.group(2)))
     for a,b in sc:
@@ -93,7 +93,7 @@ def cevir(s, sozluk):
             sayac["oznitelik"]+=1
             return m.group(1)+'="'+sozluk[v].replace('"',"&quot;")+'"'
         return m.group(0)
-    s3=re.sub(r'\b(title|placeholder|aria-label|alt|content|summary)="([^"]*)"', m_oz, s2)
+    s3=re.sub(r'\b(title|placeholder|aria-label|alt|content|summary|src)="([^"]*)"', m_oz, s2)
     sc=script_araliklari(s3)
     parcalar=[]; son=0
     for a,b in sc:
