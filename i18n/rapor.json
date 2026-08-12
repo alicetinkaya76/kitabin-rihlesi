@@ -1,7 +1,7 @@
 {
  "index.html": {
-  "toplam_tekil": 3467,
-  "kalan": 1784,
+  "toplam_tekil": 3470,
+  "kalan": 1787,
   "kapsam_%": 48.5,
   "degistirilen": {
    "metin": 714,
@@ -23,8 +23,8 @@
  },
  "kutuphane.html": {
   "toplam_tekil": 2492,
-  "kalan": 2093,
-  "kapsam_%": 16.0,
+  "kalan": 2096,
+  "kapsam_%": 15.9,
   "degistirilen": {
    "metin": 17,
    "oznitelik": 4,

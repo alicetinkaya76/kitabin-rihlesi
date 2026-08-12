@@ -41,3 +41,19 @@ yeniden çalıştırmak yeterlidir. Türkçe dizge, kaynak dosyadaki hâliyle
 `build_i18n.py` üretilen EN dosyasının `<script>` bloklarını **yazmadan
 önce** `node --check` ile denetler. Geçersizse dosya yazılmaz, hata
 basılır. Bu kapı bilerek bozuk bir kayıtla sınandı ve çalıştığı görüldü.
+
+## Durum şeridi (dürüst durum ilkesi)
+Çeviri %100 olmadığı sürece `build_i18n.py`, EN sayfaların en üstüne bir
+şerit koyar: *"This English edition is a work in progress: %N of the text
+has been translated so far."* Yüzde her derlemede yeniden hesaplanır, bu
+yüzden bayatlamaz; kapsam %99,5'i geçtiğinde şerit kendiliğinden kaybolur.
+
+Gerekçe: sitenin dördüncü ilkesi "bitmemiş iş bitmiş gibi sunulmaz". Yarım
+çeviriyi sessizce yayımlamak o ilkeyi çiğnerdi.
+
+## Kaldığı yer (2026-08-12)
+- index.html    %48,5 — kalan ~1.016 dizge / ~6.800 kelime
+- kutuphane.html %15,9 — kalan ~1.587 dizge / ~22.000 kelime (çoğu 101
+  kaynak künyesi ve Tezgâh)
+Devam ederken: `python3 i18n/ekle.py` içindeki `liste()` tek kaynaktır;
+dökümü ve uygulamayı DAİMA ondan al (indeks kayması hatası buradan doğmuştu).

@@ -32,6 +32,29 @@ def switcher_ekle(s, hedef_dosya, en):
     if "rihle_lang" in s: return s
     return s.replace("</body>", js+"</body>",1) if "</body>" in s else s+js
 
+
+SERIT_CSS=(".enwip{background:var(--model-soft);border-bottom:1px solid var(--line);"
+ "font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;"
+ "padding:7px 16px;line-height:1.5}"
+ ".enwip b{color:var(--model)}.enwip a{color:inherit}")
+
+def serit_ekle(en, tr_dosya):
+    """EN sayfanın üstüne dürüst durum şeridi (kapsam %100 ise eklenmez)."""
+    global _KAPSAM
+    p=_KAPSAM.get(tr_dosya)
+    if p is None or p>=99.5: return en
+    serit=('<div class="enwip">This English edition is <b>a work in progress</b>: '
+           '<b>{:.0f}%</b> of the text has been translated so far. Passages not yet '
+           'translated appear in Turkish. The interactive tools work identically in '
+           'both editions.</div>').format(p)
+    en=en.replace("</style>", SERIT_CSS+"</style>", 1)
+    for anc in ('<a class="skip"', '<nav class="nav"'):
+        i=en.find(anc)
+        if i>0: return en[:i]+serit+en[i:]
+    return en
+
+_KAPSAM={}
+
 def en_yap(s, sozluk, dosya):
     s,sayac=L.cevir(s,sozluk)
     s=s.replace('<html lang="tr">','<html lang="en">',1)
@@ -53,8 +76,16 @@ def main():
         tr=switcher_ekle(s, alt, en=False)
         io.open(R+tr_dosya,"w",encoding="utf-8").write(tr)
         # EN sayfa
+        # kapsamı ÖNCE hesapla ki şerit doğru yüzdeyi yazsın
+        _on,_ = en_yap(s,sozluk,tr_dosya)
+        _kalan=L.kapsam(_on, set(sozluk.values()))
+        _toplam=len({t.strip() for _,t in L.cikar(s)})
+        _KAPSAM[tr_dosya]=round((_toplam-len(_kalan))/_toplam*100,1) if _toplam else 100.0
         en,sayac=en_yap(s,sozluk,tr_dosya)
         en=switcher_ekle(en, alt, en=True)
+        # DÜRÜST DURUM (sitenin 4. ilkesi): çeviri bitmediyse sayfa bunu
+        # kendisi söyler. Yüzde her derlemede yeniden hesaplanır, bayatlamaz.
+        en=serit_ekle(en, tr_dosya)
         # GÜVENLİK KAPISI: bozuk kaçış / yanlış eşleşme JS'i kırabilir.
         # Üretilen dosyayı yazmadan önce script bloklarını node ile denetle.
         bloklar=re.findall(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", en, re.S)
