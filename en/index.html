@@ -252,8 +252,8 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .ncap{font-family:var(--sans);font-size:.6rem;color:var(--muted);text-align:center;margin-top:3px}
 .nrow{display:flex;gap:14px;align-items:flex-start;text-align:left}
 .dolapflow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;font-family:var(--sans);font-size:.74rem;font-weight:700;margin:16px auto 0;width:100%;max-width:640px}
-.dolapflow a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
-.dolapflow a.burasi{background:var(--model);color:#fff;border-color:var(--model)}
+.dolapflow a,.dolapflow .burasi{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+.dolapflow .burasi{background:var(--model);color:#fff;border-color:var(--model)}
 .dolapflow .arr{color:var(--rubric)}
 /* nesep şeridi + mercekler + kütüphane kapıları */
 .timeline{display:flex;gap:10px;overflow-x:auto;padding:6px 4px 12px;scroll-snap-type:x proximity;width:100%;max-width:760px;margin:0 auto}
@@ -771,7 +771,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .dosyakart p{font-family:var(--sans);font-size:.81rem;opacity:.85;margin:0 0 12px;line-height:1.5}
 .dosyakart .cta{background:var(--paper);color:var(--ink)}
 @media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
-.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
+.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
 
 <a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
@@ -989,7 +989,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <b>JSON</b> (<i>JavaScript Object Notation</i>): a data format written as “label”: value pairs. This is the machine-side counterpart of the chest of drawers above; both humans and machines read it, it is plain text, and it needs no special software.<br>
     <b>CSV</b> (<i>Comma-Separated Values</i>): stores table rows as plain text; it opens directly in Excel and Google Sheets. A dataset is often published as JSON and CSV at the same time.</p>
   </details>
-  <div class="dolapflow" aria-label="The life story of a record">The life story of a record:<a href="#uzakb">PASSAGE</a><span class="arr">→</span><a href="#dene">INSTRUCTION</a><span class="arr">→</span><a class="burasi">RECORD (you are here)</a><span class="arr">→</span><a href="#dene">VERIFICATION</a><span class="arr">→</span><a href="#harita">FIGURE</a></div>
+  <div class="dolapflow" aria-label="The life story of a record">The life story of a record:<a href="#uzakb">PASSAGE</a><span class="arr">→</span><a href="#dene">INSTRUCTION</a><span class="arr">→</span><span class="burasi">RECORD (you are here)</span><span class="arr">→</span><a href="#dene">VERIFICATION</a><span class="arr">→</span><a href="#harita">FIGURE</a></div>
   <p class="one small" style="margin:10px auto 0;color:var(--muted)">This record has 225 siblings in the chest; 91.6% of the evidence was located in its source (EICD-B). Once the chest is full, all three lenses work at once: counting, mapping and network all feed from here.</p>
   <details class="mdeep" style="max-width:640px;margin:10px auto 0;text-align:left"><summary>For the curious: why these five drawers? — a defence of the schema</summary>
     <p><b>Why is the year a number?</b> So that it can be sorted and plotted; a drawer that says “early period” produces no chart. <b>Why is the type a closed list?</b> Free text cannot be counted; three gates discipline the debate — a borderline case goes to “undecided” rather than being ignored. <b>Why is evidence mandatory?</b> Unless it is mandatory, the chest becomes an elegant-looking heap of conjecture. <b>Why does provenance get its own drawer?</b> If the chain book → edition → digital version → dataset breaks, in five years nobody can reproduce the figures. The schema is the first draft of your thesis: which drawers you open reveals what you consider a question.</p>
@@ -1411,7 +1411,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <a href="https://alicetinkaya76.github.io/tcorpus/" target="_blank" rel="noopener">The centre’s website (TR · EN · AR)</a> · <a href="https://timav.org.tr" target="_blank" rel="noopener">timav.org.tr</a> · <a href="https://islamicatlas.org" target="_blank" rel="noopener">islamicatlas.org</a>
   </div>
 
-  <div class="kayit" id="kayit">
+  <div class="kayit" id="tckayit">
     <h3>If you would like to work with us — three doors</h3>
     <p class="alt">None of them requires you to “be a researcher” first. But we wrote this deliberately: <b>a CV belongs only to the highest door, and even there it is optional.</b> What the centre actually wants to know is not your work experience but whether you can <b>frame a question</b> — which is why the middle door asks for the one-page plan you downloaded at the fifth stop. Question sentence + table schema + calendar. It says far more than a CV.</p>
     <div class="kayitrow">
@@ -1419,11 +1419,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         <img src="qr-tcorpus-kayit-en.png" alt="QR code leading to this section" width="602" height="602" loading="lazy">
         <span>Scan it with your phone — it brings you to this section, where you choose your door.<br>kitabin-rihlesi/#tcorpus</span>
       </div>
-      <div class="kapitek">
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20haberdar%20olmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20T-Corpus%27un%20yeni%20veri%20setleri%20ve%20a%C3%A7%C4%B1lan%20projelerinden%20haberdar%20olmak%20istiyorum.%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%3A%0A%C4%B0lgi%20alan%C4%B1m%3A%0A"><span class="zor">Door 1 · lightest</span><b>📬 I’d like to be kept informed</b><span>Let me know when new datasets and new openings are announced. All it takes: your name and your field of interest.</span></a>
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20veriyle%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20Kendi%20sorumla%20%C3%A7al%C4%B1%C5%9Fmaya%20ba%C5%9Flamak%20istiyorum.%0A%0AEKTE%3A%205.%20duraktan%20indirdi%C4%9Fim%20tek%20sayfal%C4%B1k%20plan%20(yol-haritasi-....md)%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%20%2F%20s%C4%B1n%C4%B1f%3A%0ASoru%20c%C3%BCmlem%3A%0A"><span class="zor">Door 2 · the real door</span><b>📄 I’d like to work with the data</b><span>Attach the plan you downloaded at the fifth stop. No CV needed — the plan speaks for you.</span></a>
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20ekipte%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20Merkezin%20y%C3%BCr%C3%BCyen%20bir%20projesinde%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum.%0A%0AEKTE%3A%20(1)%205.%20duraktan%20indirdi%C4%9Fim%20plan%20(2)%20%C3%B6zge%C3%A7mi%C5%9F%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%20%2F%20s%C4%B1n%C4%B1f%3A%0AHangi%20proje%20ilgimi%20%C3%A7ekiyor%3A%0AAyd%C4%B1rabilece%C4%9Fim%20zaman%20(saat%2Fhafta)%3A%0A"><span class="zor">Door 3 · heaviest</span><b>🤝 I’d like to join the team</b><span>For those who want to take responsibility in a running project: the plan + a CV + how many hours a week you can give.</span></a>
-      </div>
+      <div class="kapitek" id="kapitek"></div>
     </div>
     <p class="kvkk"><b>What happens to your data:</b> Your email goes directly to TİMAV’s institutional address (bilgi@timav.org.tr); this page collects, stores and transmits nothing — there is no form and no server. What you send is used only to reply to you and to point you towards a suitable project. If you want your record deleted, writing to the same address is enough.</p>
   </div>
@@ -2584,6 +2580,28 @@ $("#plandl").addEventListener("click",()=>dosyaIndir());
   }
   $("#tcfil").addEventListener("click",e=>{ const b=e.target.closest("button[data-f]"); if(!b) return; f=b.dataset.f; ciz(); });
   ciz();
+  /* ---- kayıt kapıları ----------------------------------------------
+     FORM_URL boşsa kapılar doğrudan e-postaya gider (altyapı gerektirmez).
+     Google Form kurulduğunda BU SATIRA adresi yaz; kapılar, kısa adres ve
+     kare kod metni kendiliğinden forma döner. Tek değişiklik burasıdır. */
+  const FORM_URL="";
+  const EP="mailto:bilgi@timav.org.tr?subject=";
+  const KAPILAR=[
+   ["Door 1 · lightest","📬 I’d like to be kept informed",
+    "Let me know when new datasets and new openings are announced. All it takes: your name and your field of interest.",
+    EP+encodeURIComponent("T-Corpus — haberdar olmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. T-Corpus'un yeni veri setlerinden ve açılan projelerinden haberdar olmak istiyorum.\n\nAd soyad:\nKurum / bölüm:\nİlgi alanım:\n")],
+   ["Door 2 · the real door","📄 I’d like to work with the data",
+    "Attach the plan you downloaded at the fifth stop. No CV needed — the plan speaks for you.",
+    EP+encodeURIComponent("T-Corpus — veriyle çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Kendi sorumla çalışmaya başlamak istiyorum.\n\nEKTE: 5. duraktan indirdiğim tek sayfalık plan (yol-haritasi-….md)\n\nAd soyad:\nKurum / bölüm / sınıf:\nSoru cümlem:\n")],
+   ["Door 3 · heaviest","🤝 I’d like to join the team",
+    "For those who want to take responsibility in a running project: the plan + a CV + how many hours a week you can give.",
+    EP+encodeURIComponent("T-Corpus — ekipte çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Merkezin yürüyen bir projesinde çalışmak istiyorum.\n\nEKTE: (1) 5. duraktan indirdiğim plan (2) özgeçmiş\n\nAd soyad:\nKurum / bölüm / sınıf:\nHangi proje ilgimi çekiyor:\nAyırabileceğim zaman (saat/hafta):\n")]
+  ];
+  const hedef=k=>FORM_URL||k[3];
+  const disari=FORM_URL?' target="_blank" rel="noopener"':"";
+  $("#kapitek").innerHTML=KAPILAR.map(k=>'<a href="'+hedef(k)+'"'+disari+'><span class="zor">'+esc(k[0])+'</span><b>'+esc(k[1])+'</b><span>'+esc(k[2])+'</span></a>').join("")
+   + (FORM_URL? '<p class="small muted" style="margin:2px 0 0">Form açılmıyorsa doğrudan yazabilirsiniz: <a href="mailto:bilgi@timav.org.tr">bilgi@timav.org.tr</a></p>' : "");
+
   $("#tcband").innerHTML=[["2","live platforms"],["20+","digital projects"],["9","research lines"],["3","languages · TR EN AR"]]
     .map(x=>'<div><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>').join("");
 })();

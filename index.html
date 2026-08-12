@@ -252,8 +252,8 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .ncap{font-family:var(--sans);font-size:.6rem;color:var(--muted);text-align:center;margin-top:3px}
 .nrow{display:flex;gap:14px;align-items:flex-start;text-align:left}
 .dolapflow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;font-family:var(--sans);font-size:.74rem;font-weight:700;margin:16px auto 0;width:100%;max-width:640px}
-.dolapflow a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
-.dolapflow a.burasi{background:var(--model);color:#fff;border-color:var(--model)}
+.dolapflow a,.dolapflow .burasi{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
+.dolapflow .burasi{background:var(--model);color:#fff;border-color:var(--model)}
 .dolapflow .arr{color:var(--rubric)}
 /* nesep şeridi + mercekler + kütüphane kapıları */
 .timeline{display:flex;gap:10px;overflow-x:auto;padding:6px 4px 12px;scroll-snap-type:x proximity;width:100%;max-width:760px;margin:0 auto}
@@ -771,7 +771,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .dosyakart p{font-family:var(--sans);font-size:.81rem;opacity:.85;margin:0 0 12px;line-height:1.5}
 .dosyakart .cta{background:var(--paper);color:var(--ink)}
 @media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
-.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
+.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
 
 <a class="skip" href="#tanis">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
@@ -989,7 +989,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <b>JSON</b> (<i>JavaScript Object Notation</i>): "etiket": değer çiftleriyle yazılan veri biçimi. Yukarıdaki çekmeceli dolabın makine tarafındaki karşılığı budur; hem insan hem makine okur, düz metindir, özel program gerektirmez.<br>
     <b>CSV</b> (<i>Comma-Separated Values</i>, virgülle ayrılmış değerler): tablo satırlarını düz metin olarak saklar; Excel ve Google E-Tablolar'da doğrudan açılır. Bir veri seti çoğu zaman aynı anda hem JSON hem CSV olarak yayımlanır.</p>
   </details>
-  <div class="dolapflow" aria-label="Kaydın hayat hikâyesi">Kaydın hayat hikâyesi:<a href="#uzakb">PASAJ</a><span class="arr">→</span><a href="#dene">TALİMAT</a><span class="arr">→</span><a class="burasi">KAYIT (buradasın)</a><span class="arr">→</span><a href="#dene">DENETİM</a><span class="arr">→</span><a href="#harita">ŞEKİL</a></div>
+  <div class="dolapflow" aria-label="Kaydın hayat hikâyesi">Kaydın hayat hikâyesi:<a href="#uzakb">PASAJ</a><span class="arr">→</span><a href="#dene">TALİMAT</a><span class="arr">→</span><span class="burasi">KAYIT (buradasın)</span><span class="arr">→</span><a href="#dene">DENETİM</a><span class="arr">→</span><a href="#harita">ŞEKİL</a></div>
   <p class="one small" style="margin:10px auto 0;color:var(--muted)">Bu kaydın dolapta 225 kardeşi var; delillerin %91,6'sı kaynağında bulundu (EICD-B). Dolap dolunca üç mercek birden çalışır: sayım da harita da ağ da buradan beslenir.</p>
   <details class="mdeep" style="max-width:640px;margin:10px auto 0;text-align:left"><summary>Meraklısına: bu beş çekmece neden bu beşi? — şemanın savunması</summary>
     <p><b>Yıl neden sayı?</b> Sıralanabilsin, çizilebilsin diye; "erken dönem" yazan çekmece grafik üretmez. <b>Tür neden kapalı liste?</b> Serbest metin sayılamaz; üç kapı tartışmayı disipline eder — sınıra düşen vaka "çekimser"e gider, yok sayılmaz. <b>Delil neden zorunlu?</b> Zorunlu olmazsa dolap, zarif görünüşlü bir zan yığınına döner. <b>Sened neden ayrı çekmece?</b> Kitap → neşir → dijital sürüm → veri seti zinciri koparsa, beş yıl sonra kimse sayıları yeniden üretemez. Şema, tezinin ilk taslağıdır: hangi çekmeceyi açtığın, neyi soru saydığını ele verir.</p>
@@ -1411,7 +1411,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <a href="https://alicetinkaya76.github.io/tcorpus/" target="_blank" rel="noopener">Merkezin sitesi (TR · EN · AR)</a> · <a href="https://timav.org.tr" target="_blank" rel="noopener">timav.org.tr</a> · <a href="https://islamicatlas.org" target="_blank" rel="noopener">islamicatlas.org</a>
   </div>
 
-  <div class="kayit" id="kayit">
+  <div class="kayit" id="tckayit">
     <h3>Çalışmak isterseniz — üç kapı</h3>
     <p class="alt">Hiçbiri için önce "araştırmacı olmanız" gerekmiyor. Ama şunu bilerek yazdık: <b>özgeçmiş en üstteki kapıda ve isteğe bağlı.</b> Merkezin asıl merak ettiği, iş tecrübeniz değil, <b>soru kurabilmeniz</b> — o yüzden orta kapıda beşinci duraktan indirdiğiniz tek sayfalık planı istiyoruz. Soru cümlesi + tablo şeması + takvim. Bir özgeçmişten daha çok şey söyler.</p>
     <div class="kayitrow">
@@ -1419,11 +1419,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         <img src="qr-tcorpus-kayit.png" alt="Bu bölüme giden kare kod" width="602" height="602" loading="lazy">
         <span>Telefonla okutun — bu bölüme gelir, kapıyı orada seçersiniz.<br>kitabin-rihlesi/#tcorpus</span>
       </div>
-      <div class="kapitek">
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20haberdar%20olmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20T-Corpus%27un%20yeni%20veri%20setleri%20ve%20a%C3%A7%C4%B1lan%20projelerinden%20haberdar%20olmak%20istiyorum.%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%3A%0A%C4%B0lgi%20alan%C4%B1m%3A%0A"><span class="zor">Kapı 1 · en hafif</span><b>📬 Haberdar olmak istiyorum</b><span>Yeni veri setleri ve açılan projeler duyurulduğunda haberim olsun. Tek gereken: adınız ve ilgi alanınız.</span></a>
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20veriyle%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20Kendi%20sorumla%20%C3%A7al%C4%B1%C5%9Fmaya%20ba%C5%9Flamak%20istiyorum.%0A%0AEKTE%3A%205.%20duraktan%20indirdi%C4%9Fim%20tek%20sayfal%C4%B1k%20plan%20(yol-haritasi-....md)%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%20%2F%20s%C4%B1n%C4%B1f%3A%0ASoru%20c%C3%BCmlem%3A%0A"><span class="zor">Kapı 2 · asıl kapı</span><b>📄 Veriyle çalışmak istiyorum</b><span>Beşinci duraktan indirdiğiniz planı ekleyin. Özgeçmiş gerekmez — plan, sizin adınıza konuşur.</span></a>
-        <a href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20ekipte%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum&body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20seminerinden%20geliyorum.%20Merkezin%20y%C3%BCr%C3%BCyen%20bir%20projesinde%20%C3%A7al%C4%B1%C5%9Fmak%20istiyorum.%0A%0AEKTE%3A%20(1)%205.%20duraktan%20indirdi%C4%9Fim%20plan%20(2)%20%C3%B6zge%C3%A7mi%C5%9F%0A%0AAd%20soyad%3A%0AKurum%20%2F%20b%C3%B6l%C3%BCm%20%2F%20s%C4%B1n%C4%B1f%3A%0AHangi%20proje%20ilgimi%20%C3%A7ekiyor%3A%0AAyd%C4%B1rabilece%C4%9Fim%20zaman%20(saat%2Fhafta)%3A%0A"><span class="zor">Kapı 3 · en ağır</span><b>🤝 Ekipte çalışmak istiyorum</b><span>Yürüyen bir projede sorumluluk almak isteyenler için: plan + özgeçmiş + haftada kaç saat ayırabileceğiniz.</span></a>
-      </div>
+      <div class="kapitek" id="kapitek"></div>
     </div>
     <p class="kvkk"><b>Verilerinizle ne yapılır:</b> Yazdığınız e-posta doğrudan TİMAV'ın kurumsal adresine (bilgi@timav.org.tr) gider; bu sayfa hiçbir bilgi toplamaz, saklamaz ya da üçüncü tarafa aktarmaz — form yok, sunucu yok. Gönderdiğiniz bilgiler yalnızca size dönüş yapmak ve uygun projeye yönlendirmek için kullanılır. Kaydınızın silinmesini istediğinizde aynı adrese yazmanız yeterlidir.</p>
   </div>
@@ -2584,6 +2580,28 @@ $("#plandl").addEventListener("click",()=>dosyaIndir());
   }
   $("#tcfil").addEventListener("click",e=>{ const b=e.target.closest("button[data-f]"); if(!b) return; f=b.dataset.f; ciz(); });
   ciz();
+  /* ---- kayıt kapıları ----------------------------------------------
+     FORM_URL boşsa kapılar doğrudan e-postaya gider (altyapı gerektirmez).
+     Google Form kurulduğunda BU SATIRA adresi yaz; kapılar, kısa adres ve
+     kare kod metni kendiliğinden forma döner. Tek değişiklik burasıdır. */
+  const FORM_URL="";
+  const EP="mailto:bilgi@timav.org.tr?subject=";
+  const KAPILAR=[
+   ["Kapı 1 · en hafif","📬 Haberdar olmak istiyorum",
+    "Yeni veri setleri ve açılan projeler duyurulduğunda haberim olsun. Tek gereken: adınız ve ilgi alanınız.",
+    EP+encodeURIComponent("T-Corpus — haberdar olmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. T-Corpus'un yeni veri setlerinden ve açılan projelerinden haberdar olmak istiyorum.\n\nAd soyad:\nKurum / bölüm:\nİlgi alanım:\n")],
+   ["Kapı 2 · asıl kapı","📄 Veriyle çalışmak istiyorum",
+    "Beşinci duraktan indirdiğiniz planı ekleyin. Özgeçmiş gerekmez — plan, sizin adınıza konuşur.",
+    EP+encodeURIComponent("T-Corpus — veriyle çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Kendi sorumla çalışmaya başlamak istiyorum.\n\nEKTE: 5. duraktan indirdiğim tek sayfalık plan (yol-haritasi-….md)\n\nAd soyad:\nKurum / bölüm / sınıf:\nSoru cümlem:\n")],
+   ["Kapı 3 · en ağır","🤝 Ekipte çalışmak istiyorum",
+    "Yürüyen bir projede sorumluluk almak isteyenler için: plan + özgeçmiş + haftada kaç saat ayırabileceğiniz.",
+    EP+encodeURIComponent("T-Corpus — ekipte çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Merkezin yürüyen bir projesinde çalışmak istiyorum.\n\nEKTE: (1) 5. duraktan indirdiğim plan (2) özgeçmiş\n\nAd soyad:\nKurum / bölüm / sınıf:\nHangi proje ilgimi çekiyor:\nAyırabileceğim zaman (saat/hafta):\n")]
+  ];
+  const hedef=k=>FORM_URL||k[3];
+  const disari=FORM_URL?' target="_blank" rel="noopener"':"";
+  $("#kapitek").innerHTML=KAPILAR.map(k=>'<a href="'+hedef(k)+'"'+disari+'><span class="zor">'+esc(k[0])+'</span><b>'+esc(k[1])+'</b><span>'+esc(k[2])+'</span></a>').join("")
+   + (FORM_URL? '<p class="small muted" style="margin:2px 0 0">Form açılmıyorsa doğrudan yazabilirsiniz: <a href="mailto:bilgi@timav.org.tr">bilgi@timav.org.tr</a></p>' : "");
+
   $("#tcband").innerHTML=[["2","yayında platform"],["20+","dijital proje"],["9","araştırma hattı"],["3","dil · TR EN AR"]]
     .map(x=>'<div><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>').join("");
 })();
