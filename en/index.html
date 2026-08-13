@@ -1138,7 +1138,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="toklabel">The next decision — where will the “evidence” field come from? <span class="temsili">illustrative</span></div>
       <div class="brow"><span class="bname">COPY</span><div class="btrack"><div class="bfill" style="background:var(--korpus)" data-w="96"></div></div><span class="bpct">%96</span></div>
       <div class="brow"><span class="bname">FROM MEMORY</span><div class="btrack"><div class="bfill" style="background:var(--rubric)" data-w="4"></div></div><span class="bpct">%4</span></div>
-      <div class="toklabel" style="margin-top:6px;color:var(--korpus);font-weight:700">Copying is easier than inventing → step 5 puts that tendency under discipline ↓</div>
+      <div class="toklabel" style="margin-top:6px;color:var(--korpus);font-weight:700">Modelin en güçlü içgüdüsü burada devreye girecek → 5. adım ↓</div>
     </div>
     <p class="mwhy">The whole art lies in setting up a beginning in which the most likely continuation is the <b>correct record</b> — rather like asking a poet given a metre to complete the line. For live probability bars see: <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Transformer Explainer</a>.</p>
     <details class="mdeep"><summary>For the curious: the mathematics of the race</summary><p>Generation is <b>autoregressive</b>: one single token is chosen at a time, appended to the sentence, and the whole computation runs again. The scores of the race (logits) are turned into probabilities by <b>softmax</b>; “temperature” spreads that distribution out or sharpens it. <a href="#deep">Down to the core · Floor 3</a>, pull the slider and play with a REAL softmax: at T=0.2 the favourite takes 99.6%; at T=2, 43%.</p></details>
@@ -2357,7 +2357,7 @@ const TRACKS={
    "Looking at the answer key too early — your own list first, the key second; the lesson is hidden in that order."],
   ["Hafta 2-3","Kendi bölümünü seç","Download the Syria or Khurāsān section of the same work from OpenITI; same instruction + verification at the workbench; then plot it in Google My Maps.", L_("OpenITI'de kitap bulma",KUT+"#d1")+" · "+L_("Tam Tezgâh",KUT+"#tezgah"),
    "Your own table of 8-15 records + a screenshot of your My Maps map.",
-   "Choosing too large a section — stay under 3,000 words; small and finished beats large and half-done."],
+   "Bölümü büyük seçmek — 3.000 kelimeyi geçmeyin. Üç bin kelimelik bir kesitin her satırı bir hafta sonunda elle denetlenebilir; on bin kelimelik kesitte denetim yarım kalır ve sayılar savunulamaz hâle gelir."],
   ["Ay 2","Sorunu sor","Compare two regions: where does the ṣulḥ/ʿanwa ratio shift, and why? A table + a map + a 2-3 page findings note.", L_("Dört soru kalıbı",KUT+"#d3"),
    "ONE chart setting the two regions side by side + a short note; the figures reproducible from the table.",
    "Attributing the difference to a ‘cause’ straight away — describe first, enumerate the possibilities; interpretation comes after description."],
@@ -2757,7 +2757,7 @@ function soruRender(){
   const olcekH=[["Ödev ölçeği.","Can be finished over a weekend; it can be turned into a research note.",1],
     ["Research-note / data-paper scale.","Comfortably finished in one semester.",1],
     ["Data-paper or national full-article scale.","One semester plus a summer.",1],
-    ["Tam makale ölçeği.","Hard in a single semester: either narrow the material or keep to one axis. Large and half-done is worse than small and finished.",0]][sc-1];
+    ["Tam makale ölçeği.","Bir dönemde zor: ya malzemeyi daraltın ya ekseni tek tutun.",0]][sc-1];
   let k3;
   if(!e.st) k3=[0,"3 · Karşılaştırma var mı?","You chose no axis. This is a <b>description</b> — description is publishable too (a data paper is exactly that) but it carries no claim. If you chose deliberately, fine; if you forgot, add an axis."];
   else if(!uy){
@@ -2814,7 +2814,7 @@ function takvimRender(){
    +'<div class="mtas">'+FAZ.map((f,i)=>'<div><span class="h">H'+ends[i]+' sonu</span><br><b>'+esc(f.ad)+'</b> — '+esc(f.is)+'<br><span style="color:var(--korpus);font-weight:700">✓ '+esc(MTAS[i])+'</span></div>').join("")+'</div>'
    +'<div class="takvimhk"><b>Hedef:</b> '+esc(S.hedef)+'. '+esc(S.kes)
    +'<br><b>Toplam emek üç seçenekte de 40-60 saat civarındadır</b> — değişen, bu emeğin kaç haftaya yayıldığıdır.'
-   +'<br><b>İki hafta geri kalırsan</b> takvimi uzatma, kapsamı kes: ikinci bölgeyi ya da ikinci ekseni at. Bitmiş küçük iş, yarım büyük işten her zaman iyidir.</div>';
+   +'<br><b>İki hafta geri kalırsanız</b> takvimi uzatmayın, kapsamı kesin: ikinci bölgeyi ya da ikinci ekseni çıkarın. Uzayan takvim, dönem sonunda yarım kalan bir işe dönüşüyor.</div>';
 }
 $("#saatsec").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return;

@@ -1138,7 +1138,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="toklabel">Sıradaki karar — "delil" alanı nereden dolacak? <span class="temsili">temsilî</span></div>
       <div class="brow"><span class="bname">KOPYALA</span><div class="btrack"><div class="bfill" style="background:var(--korpus)" data-w="96"></div></div><span class="bpct">%96</span></div>
       <div class="brow"><span class="bname">EZBERDEN</span><div class="btrack"><div class="bfill" style="background:var(--rubric)" data-w="4"></div></div><span class="bpct">%4</span></div>
-      <div class="toklabel" style="margin-top:6px;color:var(--korpus);font-weight:700">Kopyalamak uydurmaktan kolaydır → 5. adım bu eğilimi disipline bağlar ↓</div>
+      <div class="toklabel" style="margin-top:6px;color:var(--korpus);font-weight:700">Modelin en güçlü içgüdüsü burada devreye girecek → 5. adım ↓</div>
     </div>
     <p class="mwhy">Bütün hüner, en olası devamın <b>doğru kayıt</b> olacağı bir başlangıç kurmakta — aruz kalıbı verilmiş şaire mısra tamamlatmak gibi. Canlı olasılık çubukları için: <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Transformer Explainer</a>.</p>
     <details class="mdeep"><summary>Meraklısına: yarışın matematiği</summary><p>Üretimin adı <b>otoregresyondur</b>: her seferinde TEK parça seçilir, cümleye eklenir ve bütün hesap yeniden koşar. Yarışın puanları (logit) <b>softmax</b>la olasılığa çevrilir; "sıcaklık" bu dağılımı yayar ya da sivriltir. <a href="#deep">Çekirdeğe iniş · Kat 3</a>'te sürgüyü çekip GERÇEK softmax'la oyna: T=0,2'de favori %99,6; T=2'de %43.</p></details>
@@ -2357,7 +2357,7 @@ const TRACKS={
    "Cevap anahtarına erken bakmak — önce kendi listen, sonra anahtar; ders sırada gizli."],
   ["Hafta 2-3","Kendi bölümünü seç","OpenITI'den aynı eserin Şam ya da Horasan bölümünü indir; aynı talimat + Tezgâh'ta denetim; Google MyMaps'e dök.", L_("OpenITI'de kitap bulma",KUT+"#d1")+" · "+L_("Tam Tezgâh",KUT+"#tezgah"),
    "8-15 kayıtlık kendi tablon + MyMaps haritanın ekran görüntüsü.",
-   "Bölümü büyük seçmek — 3.000 kelimeyi geçme; küçük ve bitmiş, büyük ve yarımdan iyidir."],
+   "Bölümü büyük seçmek — 3.000 kelimeyi geçmeyin. Üç bin kelimelik bir kesitin her satırı bir hafta sonunda elle denetlenebilir; on bin kelimelik kesitte denetim yarım kalır ve sayılar savunulamaz hâle gelir."],
   ["Ay 2","Sorunu sor","İki bölgeyi karşılaştır: sulh/anve oranı nerede, neden değişiyor? Tablo + harita + 2-3 sayfalık bulgu notu.", L_("Dört soru kalıbı",KUT+"#d3"),
    "İki bölgeyi yan yana koyan TEK grafik + kısa not; sayılar tablodan yeniden üretilebilir.",
    "Farkı hemen 'sebeb'e bağlamak — önce betimle, ihtimalleri say; yorum, betimden sonra gelir."],
@@ -2757,7 +2757,7 @@ function soruRender(){
   const olcekH=[["Ödev ölçeği.","Bir hafta sonunda biter; araştırma notuna çevrilebilir.",1],
     ["Araştırma notu / veri makalesi ölçeği.","Bir dönemde rahat biter.",1],
     ["Veri makalesi ya da ulusal tam makale ölçeği.","Bir dönem + yaz gerekir.",1],
-    ["Tam makale ölçeği.","Bir dönemde zor: ya malzemeyi daralt ya ekseni tek tut. Büyük ve yarım, küçük ve bitmişten kötüdür.",0]][sc-1];
+    ["Tam makale ölçeği.","Bir dönemde zor: ya malzemeyi daraltın ya ekseni tek tutun.",0]][sc-1];
   let k3;
   if(!e.st) k3=[0,"3 · Karşılaştırma var mı?","Eksen seçmedin. Bu bir <b>betimdir</b> — betim de yayımlanır (veri makalesi tam olarak budur) ama iddia taşımaz. Bilerek seçtiysen sorun yok; unuttuysan bir eksen ekle."];
   else if(!uy){
@@ -2814,7 +2814,7 @@ function takvimRender(){
    +'<div class="mtas">'+FAZ.map((f,i)=>'<div><span class="h">H'+ends[i]+' sonu</span><br><b>'+esc(f.ad)+'</b> — '+esc(f.is)+'<br><span style="color:var(--korpus);font-weight:700">✓ '+esc(MTAS[i])+'</span></div>').join("")+'</div>'
    +'<div class="takvimhk"><b>Hedef:</b> '+esc(S.hedef)+'. '+esc(S.kes)
    +'<br><b>Toplam emek üç seçenekte de 40-60 saat civarındadır</b> — değişen, bu emeğin kaç haftaya yayıldığıdır.'
-   +'<br><b>İki hafta geri kalırsan</b> takvimi uzatma, kapsamı kes: ikinci bölgeyi ya da ikinci ekseni at. Bitmiş küçük iş, yarım büyük işten her zaman iyidir.</div>';
+   +'<br><b>İki hafta geri kalırsanız</b> takvimi uzatmayın, kapsamı kesin: ikinci bölgeyi ya da ikinci ekseni çıkarın. Uzayan takvim, dönem sonunda yarım kalan bir işe dönüşüyor.</div>';
 }
 $("#saatsec").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return;
