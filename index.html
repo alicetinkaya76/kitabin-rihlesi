@@ -771,7 +771,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .dosyakart p{font-family:var(--sans);font-size:.81rem;opacity:.85;margin:0 0 12px;line-height:1.5}
 .dosyakart .cta{background:var(--paper);color:var(--ink)}
 @media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
-.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
+.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}</style>
 
 <a class="skip" href="#tanis">İçeriğe atla</a>
 <nav class="nav"><div class="wrap">
@@ -845,6 +845,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="yenilik"><b>Peki yeni olan ne?</b> Soru değil, <b>ölçek ve hız</b>. A. J. Wensinck'in heyeti hadis lafızlarının dizinini yarım asırda tamamladı; Muhammed Fuâd Abdülbâkī Kur'ân-ı Kerîm mu'cemini yıllar süren bir emekle hazırladı. Bugün bir öğrenci, kendi seçtiği bir eserin benzer bir dizinini bir hafta sonunda çıkarabiliyor. Emek azalmadı; <b>yer değiştirdi</b>: dizin çıkarmaktan, çıkanı denetlemeye ve yorumlamaya geçti.</div>
 
+  <details class="mdeep" style="width:100%;max-width:820px;margin:18px auto 0;text-align:left"><summary>Dört mercek her şey değil — üç mercek daha, dürüst uyarılarıyla</summary>
+    <p class="small muted" style="margin:0 0 10px">Bu sayfa dört kavram üzerine kuruldu, çünkü ilk projede en çok işe yarayanlar onlar. Ama alanda sık geçen üç yöntem daha var; her birinin bir <b>tuzağı</b> var ve tuzağı bilinmeden kullanılmaz.</p>
+    <div class="dou" style="grid-template-columns:1fr">
+      <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri <b>modern dille</b> eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını <b>önce ölçün</b>, sonra kullanın — ve o ölçümü makalede verin.</div>
+      <div class="ikincibox"><b>Konu modelleme · topic modelling</b>Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; "bu külliyat kaç konuya ayrılıyor?" sorusunun keşif aracı.<br><b>Tuzak:</b> konu sayısını siz seçersiniz ve çıkan kümeler <b>yorumlanmayı bekler</b> — model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.</div>
+      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği <b>beyan edin</b>.</div>
+    </div>
+    <p class="small muted" style="margin:10px 0 0">Üçünün ortak dersi, bu sayfanın baştan beri tekrar ettiği kuralın aynısı: <b>aracın ne ölçtüğünü beyan etmeden sonucu savunamazsınız.</b></p>
+  </details>
+
   <p class="one" style="margin:24px auto 4px;font-size:.98rem"><b>Hangi sorulara cevap verir?</b> Solda klasik soru, sağda dijital ölçekte alacağı biçim:</p>
   <div class="alanlar">
     <div class="alan"><span class="ad">Tefsir</span><span class="kl">"Bu kavram Kur'ân-ı Kerîm'de hangi kalıplarda geçiyor?"</span><span class="dj">→ <b>Kök-kalıp tablosu:</b> her türev, geçtiği âyet ve bağlamıyla listelenir; iki mealin tercih farkları yan yana konur.</span></div>
@@ -852,6 +862,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="alan"><span class="ad">İslâm tarihi</span><span class="kl">"Şehirler antlaşmayla mı, kuvvetle mi alındı?"</span><span class="dj">→ <b>Delilli kayıt seti:</b> 226 olay; her birinde şehir, hicrî yıl, tür ve metinden alınmış delil cümlesi. <i>Bu sitenin merkez örneği.</i></span></div>
     <div class="alan"><span class="ad">Fıkıh</span><span class="kl">"Bir mesele fetva mecmualarında zaman içinde nasıl değişti?"</span><span class="dj">→ <b>Zaman serisi:</b> aynı meselenin farklı dönem fetvalarındaki gerekçeleri tasnif edilip yıllara göre karşılaştırılır.</span></div>
     <div class="alan"><span class="ad">Tasavvuf</span><span class="kl">"Bir silsile hangi coğrafyaya, hangi kuşakta yayıldı?"</span><span class="dj">→ <b>Ağ + harita birlikte:</b> şeyh-mürid bağları ağ olarak çizilir, tekke ve dergâhlar koordinatlanır.</span></div>
+    <div class="alan"><span class="ad">İslâm felsefesi &amp; kelâm</span><span class="kl">"Bir düşünür ilimleri nasıl tasnif ediyor; aklî ile naklî arasındaki sınır ne kadar geçirgen?"</span><span class="dj">→ <b>Tipli yönlü ağ:</b> ilimler düğüm, aralarındaki ilişkiler <i>tipi ve yönü belirtilmiş</i> kenar olur (asıl · alet · şart · dal · temel · uygulama + reddiye · müdafaa + kardeşlik). Böylece "sınır ne kadar geçirgen" sorusu, payı ve paydası yazılı bir orana döner.</span></div>
     <div class="alan"><span class="ad">Osmanlı & Türkçe</span><span class="kl">"Bir kavram matbuatta ne zaman yükseldi?"</span><span class="dj">→ <b>Frekans grafiği:</b> kavramın gazete ve dergilerdeki geçiş sayısı yıllara göre çizilir; kırılmalar dönemlendirilir.</span></div>
   </div>
   <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve <b>denetlenebilirliği</b> — çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
@@ -898,7 +909,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="okdogar"><div class="ar">أَخَذَ الشافعيُّ عن <mark style="background:var(--model-soft)">محمدِ بن الحسن</mark></div><span class="arr">⇒</span><div class="okedge">Şeybânî ─▶ Şâfiî</div></div>
       <p style="font-family:var(--sans);font-size:.8rem;margin:4px 0 0">Kenarı doğuran şey, tabakat metnindeki <b>kalıp fiillerdir</b>:</p>
       <div class="fiiller"><span>أخذ عن</span><span>تفقه على</span><span>سمع من</span><span>قرأ على</span><span style="opacity:.65">روى عن — rivayet kenarı, ayrı tutulur</span></div>
-      <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">Kural, delil şartımızın ağdaki hâlidir: <b>ibaresiz ok çizilmez</b> — her kenarın delili, kaynağından bir cümledir. (Kalıplar gerçek; örnek cümle temsilîdir.) Elle 6 âlimde yaptığımızı, Gephi binlerce âlimde yapar — kural aynı kalır.</p>
+      <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">Kural, delil şartımızın ağdaki hâlidir: <b>ibaresiz ok çizilmez</b> — her kenarın delili, kaynağından bir cümledir. (Kalıplar gerçek; örnek cümle temsilîdir.) Elle 6 âlimde yaptığımızı, Gephi binlerce âlimde yapar — kural aynı kalır. <b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor — dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
     <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. <b>Şeybânî</b> ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
   </div>
@@ -2364,6 +2375,19 @@ const TRACKS={
   ["Ay 3+","Yayına yürü","Karşılaştırma tablon veri makalesine çok uygun (JOHD); Türkçe için darulfunun gibi dergiler.", L_("Dergi rehberi",KUT+"#d4"),
    "JOHD tarzı kısa veri makalesi taslağı + tablonun DOI'li kopyası.",
    "Tefsir tartışmasına girmek — bu makale verinin makalesidir; yorumu sonraki makaleye sakla."]],
+ "Felsefe & İlimler Tasnifi":[
+  ["Hafta 1","Tasnifi çıkar","Bir eserin ilimler tasnifi bölümünü oku; müellifin KENDİ bölümlemesini izleyerek ilimleri düğüm olarak listele. Her düğümün metindeki yerini not et.", L_("OpenITI'de kitap bulma",KUT+"#d1"),
+   "15-25 düğümlük liste; her düğümün karşısında eserdeki yeri (sayfa/bölüm).",
+   "Kendi tasnifinizi dayatmak — müellif tefsiri ayrı bir ilim sayıyorsa siz de sayın; düzeltmek yorumun işi, kaydın değil."],
+  ["Hafta 2-3","Kenarları tiplendir","Kapalı bir ilişki tipolojisi kur (beş-altı tiple başla: asıl · alet · şart · dal · temel · uygulama). Bir YÖN KURALI yaz: A→B ne demek? Her kenara metinden bir Arapça ibare şart koş.", L_("Ağ nasıl çizilir",KUT+"#d3"),
+   "Tipli ve yönlü kenar tablosu: kaynak · hedef · tip · ağırlık · delil ibaresi · yer.",
+   "Yönü keyfî bırakmak — 'ilişki var' demek yetmez; hangi ilim hangisini besliyor, kuralı önceden yazılmalı."],
+  ["Ay 2","İkinci kodlayıcı ve κ","Kod defterini bir arkadaşına ver; aynı çiftleri BAĞIMSIZ kodlasın. Uyumu Cohen κ ile ölç, anlaşmazlıkları kod defteri kurallarına göre karara bağla ve kararları kaydet.", L_("κ ve kodlayıcı uyumu",KUT+"#d3"),
+   "κ değeri (varlık · tip · ağırlık ayrı ayrı) + anlaşmazlık karar kaydı.",
+   "Tek kodlayıcıyla ilerlemek — tek kişinin tutarlılığı, ölçüm değildir. Ayrıca aday listesine bilerek 'ilişki yok' beklenen çiftler koyun: aletin ayırt etme gücünü ancak öyle sınarsınız."],
+  ["Ay 3+","Ölç ve yayına yürü","Ağı Gephi'de çiz; oranları PAYI VE PAYDASI yazılı biçimde ver. Kod defterini, düğüm ve kenar tablolarını sürümleyip yayımla.", L_("Dergi rehberi",KUT+"#d4"),
+   "Ağ şekli + payı/paydası açık iki oran + Zenodo'da kod defteri ve tablolar.",
+   "Metriği açıklamadan vermek — 'merkezîlik yüksek' bir bulgu değildir; hangi merkezîlik, hangi normalizasyon, hangi yön kuralı?"]],
  "Osmanlı & Türkçe":[
   ["Hafta 1","Kavramını tara","Wikilala'da bir kavramı (ör. terakki) kitap ve gazetelerde ara; yıllara göre say.", L_("Wikilala","https://www.wikilala.com/"),
    "Kavramın yıl-yıl geçiş sayıları (basit tablo/CSV).",
@@ -2381,6 +2405,7 @@ const TRACKS={
 const RAIL=[
  {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"Bu sitedeki yöntemin yayımlanmış hâli: 226 kayıt, açık erişim, ilahiyat yazarlı. Yukarıdaki D aletinde sekiz durakta baştan sona açıldı.",chips:["Oxford DSH 2026","D · baştan sona"],href:"#emsal"},
  {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov'un tabakat çalışması: nicel prosopografinin klasiği.",chips:["Speculum 2017"],href:"https://www.journals.uchicago.edu/doi/full/10.1086/693970"},
+ {k:"EMSAL",c:"var(--insan)",t:"Üç filozofta ilimler tasnifi",p:"Fârâbî, Gazzâlî ve İbn Haldûn'un ilim tasnifleri tipli yönlü ağ olarak modellendi: dokuz ilişki tipi, yön kuralı, her kenara metinden delil. İki uzman bağımsız kodladı, uyum κ ile raporlandı. Nitel bulgu: bütünleşme → tâbi kılma → ikilik.",chips:["Hakem sürecinde","felsefe · ağ"],href:"#ilham"},
  {k:"EMSAL",c:"var(--insan)",t:"İsnad ağları, hakemli",p:"Klasik isnad ağlarının ağ-bilimiyle incelenişi — Hadis rotasının emsali.",chips:["JHNR 2023"],href:"https://jhnr.net/articles/10.25517/jhnr.v8i1.135"},
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"DergiPark'ta hadis+YZ, duygu analizi, DH+ilahiyat: 4 doğrulanmış makale.",chips:["Kütüphane'de"],href:KUT+"#d4"},
  {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"Derlediğin temiz veri setinin kendisi yayındır — öğrencinin ilk hakemli kapısı.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
@@ -2398,6 +2423,10 @@ const TRACKMETA={
   emsal:'<a href="https://aclanthology.org/L10-1190/" target="_blank" rel="noopener">Dukes &amp; Habash — Kur\'an morfoloji derlemi bildirisi</a>',
   hedef:"darulfunun ilahiyat; veri makalesi için JOHD",
   ilk60:["Quran.com'da kavramını ara; tam geçiş listesini kopyala (15 dk).","corpus.quran.com'da üç örnek ayetin kelime kelime çözümlemesine bak (20 dk).","Kök-form tablonun ilk 10 satırını doldur (25 dk)."]},
+ "Felsefe & İlimler Tasnifi":{urun:"tipli yönlü bir ağ + kod defteri + kodlayıcı uyum (κ) raporu",
+  emsal:'Çifçi &amp; Çetinkaya, üç filozofta ilimler tasnifi — <b>hakem sürecinde</b>',
+  hedef:"yöntem ağırlıklı ise DSH · DHQ; Türkçe için Nazariyat, İslâm Araştırmaları",
+  ilk60:["Bir tasnif bölümü seç ve ilimleri düğüm olarak listele — müellifin kendi bölümlemesiyle (20 dk).","Beş tiplik bir ilişki listesi ve bir yön kuralı yaz (20 dk).","İlk 10 kenarı delil ibaresiyle birlikte tabloya dök (20 dk)."]},
  "Osmanlı & Türkçe":{urun:"bir kavramın on yıllara göre grafiği + dönemlendirme notu",
   emsal:'<a href="https://dergipark.org.tr/en/pub/iuislamtd/article/1123964" target="_blank" rel="noopener">Saraçoğlu 2022 — DH &amp; ilahiyat (DergiPark)</a>',
   hedef:"TR Dizin'li bir ilahiyat/sosyal bilim dergisi; dergi seçici yardım eder",
@@ -2652,6 +2681,18 @@ const SORU={
      {ad:"mütercime göre",st:"mütercim",or:"[mütercim]",fi:"değişiyor",ger:[2],nk:"birden fazla meal"},
      {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
   dl:"2:191 · «فتنة»"},
+ "Felsefe & İlimler Tasnifi":{
+  m:[{ad:"tek eserin ilimler tasnifi",ic:"tek bir eserin ilimler tasnifinde",no:"ör. Fârâbî (ö. 339/950), İhsâʾü'l-ulûm — OpenITI'de açık",ol:"~15-20 düğüm · bir hafta sonu",o:1},
+     {ad:"aynı müellifin üç eseri",ic:"aynı müellifin üç eserinde",no:"ör. Gazzâlî (ö. 505/1111): İhyâʾ · el-Münkız · el-Mustasfâ",ol:"~20 düğüm · üç hafta",o:2},
+     {ad:"üç müellif, üç tasnif",ic:"üç müellifin tasniflerinde",no:"Fârâbî · Gazzâlî · İbn Haldûn (ö. 808/1406), Mukaddime",ol:"üç ağ · bir dönem",o:3}],
+  b:[{ad:"ilim (düğüm)",bs:"ilimler",st:"ilim",or:"usûl-i fıkıh"},
+     {ad:"ilimler arası ilişki (kenar)",bs:"ilimler arası ilişkiler",st:"ilişki",or:"Kur'an → tefsir"},
+     {ad:"ilişki tipi",bs:"ilişki tipleri",st:"tip",or:"alet"}],
+  e:[{ad:"müellife göre",st:"müellif",or:"Fârâbî",fi:"değişiyor",ger:[2],nk:"birden fazla müellif"},
+     {ad:"ilişki tipine göre",st:"tip",or:"alet",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"aklî / naklî ayrımına göre",st:"kanat",or:"naklî",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"karşılaştırmasız — yalnız betim",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"İhsâʾü'l-ulûm, s. [sayfa] · «آلة»"},
  "Osmanlı & Türkçe":{
   m:[{ad:"tek kavram, tek süreli yayın",ic:"tek bir süreli yayında",no:"Wikilala'da tek gazete ya da dergi",ol:"bir hafta sonu",o:1},
      {ad:"tek kavram, üç süreli yayın",ic:"üç süreli yayında",no:"desen tek yayına mı özgü, görürsün",ol:"üç-dört hafta",o:2},

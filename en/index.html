@@ -771,9 +771,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .dosyakart p{font-family:var(--sans);font-size:.81rem;opacity:.85;margin:0 0 12px;line-height:1.5}
 .dosyakart .cta{background:var(--paper);color:var(--ink)}
 @media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
-.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
+.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
 
-<div class="enwip">This English edition is <b>a work in progress</b>: <b>49%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
+<div class="enwip">This English edition is <b>a work in progress</b>: <b>47%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">The Riḥla of a Book</a>
   <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">6 T-Corpus</a>
@@ -845,6 +845,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="yenilik"><b>So what is new?</b> What changed is not the question but <b>scale and speed</b>. A. J. Wensinck’s team completed the concordance of ḥadīth wording over half a century; Muḥammad Fuʾād ʿAbd al-Bāqī prepared his muʿjam of the Qurʾān through years of labour. Today a student can produce a comparable index of a work of their own choosing over a weekend. The labour has not decreased; it has <b>moved</b>: from compiling the index to verifying and interpreting what the index yields.</div>
 
+  <details class="mdeep" style="width:100%;max-width:820px;margin:18px auto 0;text-align:left"><summary>Dört mercek her şey değil — üç mercek daha, dürüst uyarılarıyla</summary>
+    <p class="small muted" style="margin:0 0 10px">Bu sayfa dört kavram üzerine kuruldu, çünkü ilk projede en çok işe yarayanlar onlar. Ama alanda sık geçen üç yöntem daha var; her birinin bir <b>tuzağı</b> var ve tuzağı bilinmeden kullanılmaz.</p>
+    <div class="dou" style="grid-template-columns:1fr">
+      <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri <b>modern dille</b> eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını <b>önce ölçün</b>, sonra kullanın — ve o ölçümü makalede verin.</div>
+      <div class="ikincibox"><b>Konu modelleme · topic modelling</b>Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; "bu külliyat kaç konuya ayrılıyor?" sorusunun keşif aracı.<br><b>Tuzak:</b> konu sayısını siz seçersiniz ve çıkan kümeler <b>yorumlanmayı bekler</b> — model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.</div>
+      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği <b>beyan edin</b>.</div>
+    </div>
+    <p class="small muted" style="margin:10px 0 0">Üçünün ortak dersi, bu sayfanın baştan beri tekrar ettiği kuralın aynısı: <b>aracın ne ölçtüğünü beyan etmeden sonucu savunamazsınız.</b></p>
+  </details>
+
   <p class="one" style="margin:24px auto 4px;font-size:.98rem"><b>Which questions does it answer?</b> On the left the classical question, on the right the form it takes at digital scale:</p>
   <div class="alanlar">
     <div class="alan"><span class="ad">Qurʾānic exegesis</span><span class="kl">“In which morphological patterns does this concept occur in the Qurʾān?”</span><span class="dj">→ <b>Root-and-pattern table:</b> every derivative is listed with its verse and context; the divergent choices of two translations are set side by side.</span></div>
@@ -852,6 +862,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="alan"><span class="ad">Islamic history</span><span class="kl">“Were the cities taken by treaty or by force?”</span><span class="dj">→ <b>Evidence-linked record set:</b> 226 events, each with its city, hijrī year, type and an evidence sentence drawn from the text. <i>The central case study of this site.</i></span></div>
     <div class="alan"><span class="ad">Islamic law</span><span class="kl">“How did a single question shift over time across fatwā collections?”</span><span class="dj">→ <b>Time series:</b> the reasoning given for the same question in fatwās from different periods is classified and compared year by year.</span></div>
     <div class="alan"><span class="ad">Sufism</span><span class="kl">“Into which geography, and in which generation, did a spiritual lineage spread?”</span><span class="dj">→ <b>Network and map together:</b> master–disciple ties are drawn as a network while lodges are given coordinates.</span></div>
+    <div class="alan"><span class="ad">İslâm felsefesi &amp; kelâm</span><span class="kl">"Bir düşünür ilimleri nasıl tasnif ediyor; aklî ile naklî arasındaki sınır ne kadar geçirgen?"</span><span class="dj">→ <b>Tipli yönlü ağ:</b> ilimler düğüm, aralarındaki ilişkiler <i>tipi ve yönü belirtilmiş</i> kenar olur (asıl · alet · şart · dal · temel · uygulama + reddiye · müdafaa + kardeşlik). Böylece "sınır ne kadar geçirgen" sorusu, payı ve paydası yazılı bir orana döner.</span></div>
     <div class="alan"><span class="ad">Ottoman & Turkish</span><span class="kl">“When did a concept rise in the periodical press?”</span><span class="dj">→ <b>Frequency chart:</b> the concept’s occurrences in newspapers and journals are plotted by year and the breaks are periodised.</span></div>
   </div>
   <p class="one small muted" style="margin:10px auto 0">All six are old questions. What changed is the answer’s <b>scale</b> ve <b>verifiability</b> — because every record keeps its evidence tied to the source.</p>
@@ -898,7 +909,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="okdogar"><div class="ar">أَخَذَ الشافعيُّ عن <mark style="background:var(--model-soft)">محمدِ بن الحسن</mark></div><span class="arr">⇒</span><div class="okedge">al-Shaybānī ─▶ al-Shāfiʿī</div></div>
       <p style="font-family:var(--sans);font-size:.8rem;margin:4px 0 0">What creates an edge is the <b>formulaic verbs in the ṭabaqāt text</b>:</p>
       <div class="fiiller"><span>أخذ عن</span><span>تفقه على</span><span>سمع من</span><span>قرأ على</span><span style="opacity:.65">rawā ʿan — a transmission edge, kept separate</span></div>
-      <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">The rule is our evidence requirement in network form: <b>no arrow is drawn without a phrase</b> — the evidence for every edge is a sentence from its source. (The formulas are real; the sample sentence is illustrative.) What we did by hand for six scholars, Gephi does for thousands — the rule stays the same.</p>
+      <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">The rule is our evidence requirement in network form: <b>no arrow is drawn without a phrase</b> — the evidence for every edge is a sentence from its source. (The formulas are real; the sample sentence is illustrative.) What we did by hand for six scholars, Gephi does for thousands — the rule stays the same. <b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor — dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
     <p class="mwhy">Real ties, from ṭabaqāt sources — arrow direction: <b>from whom they transmitted</b>. Touch the nodes: <b>al-Shāfiʿī</b>is the bridge node joining the Ḥijāzī and Iraqi basins — <i>al-Risāla</i>bringing the two worlds into conversation is no accident. <b>al-Shaybānī</b> was both a student of Abū Ḥanīfa and a transmitter of Mālik’s <i>al-Muwaṭṭaʾ</i> : the second bridge. What the ṭabaqāt already knew, in the language of the graph. <span class="temsili">the layout is schematic; the ties are sourced</span> — you can draw the live version yourself in Gephi (instructions in the Library). On applying network analysis to literary texts see Moretti, “Network Theory, Plot Analysis”, in <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Distant Reading (Turkish ed.)</a> , p. 173.</p>
   </div>
@@ -2364,6 +2375,19 @@ const TRACKS={
   ["Ay 3+","Yayına yürü","Your comparison table suits a data paper very well (JOHD); for Turkish, journals such as darulfunun.", L_("Dergi rehberi",KUT+"#d4"),
    "A short JOHD-style data paper draft + a DOI-bearing copy of the table.",
    "Entering the exegetical debate — this article is an article about the data; save the interpretation for the next one."]],
+ "Felsefe & İlimler Tasnifi":[
+  ["Hafta 1","Tasnifi çıkar","Bir eserin ilimler tasnifi bölümünü oku; müellifin KENDİ bölümlemesini izleyerek ilimleri düğüm olarak listele. Her düğümün metindeki yerini not et.", L_("OpenITI'de kitap bulma",KUT+"#d1"),
+   "15-25 düğümlük liste; her düğümün karşısında eserdeki yeri (sayfa/bölüm).",
+   "Kendi tasnifinizi dayatmak — müellif tefsiri ayrı bir ilim sayıyorsa siz de sayın; düzeltmek yorumun işi, kaydın değil."],
+  ["Hafta 2-3","Kenarları tiplendir","Kapalı bir ilişki tipolojisi kur (beş-altı tiple başla: asıl · alet · şart · dal · temel · uygulama). Bir YÖN KURALI yaz: A→B ne demek? Her kenara metinden bir Arapça ibare şart koş.", L_("Ağ nasıl çizilir",KUT+"#d3"),
+   "Tipli ve yönlü kenar tablosu: kaynak · hedef · tip · ağırlık · delil ibaresi · yer.",
+   "Yönü keyfî bırakmak — 'ilişki var' demek yetmez; hangi ilim hangisini besliyor, kuralı önceden yazılmalı."],
+  ["Ay 2","İkinci kodlayıcı ve κ","Kod defterini bir arkadaşına ver; aynı çiftleri BAĞIMSIZ kodlasın. Uyumu Cohen κ ile ölç, anlaşmazlıkları kod defteri kurallarına göre karara bağla ve kararları kaydet.", L_("κ ve kodlayıcı uyumu",KUT+"#d3"),
+   "κ değeri (varlık · tip · ağırlık ayrı ayrı) + anlaşmazlık karar kaydı.",
+   "Tek kodlayıcıyla ilerlemek — tek kişinin tutarlılığı, ölçüm değildir. Ayrıca aday listesine bilerek 'ilişki yok' beklenen çiftler koyun: aletin ayırt etme gücünü ancak öyle sınarsınız."],
+  ["Ay 3+","Ölç ve yayına yürü","Ağı Gephi'de çiz; oranları PAYI VE PAYDASI yazılı biçimde ver. Kod defterini, düğüm ve kenar tablolarını sürümleyip yayımla.", L_("Dergi rehberi",KUT+"#d4"),
+   "Ağ şekli + payı/paydası açık iki oran + Zenodo'da kod defteri ve tablolar.",
+   "Metriği açıklamadan vermek — 'merkezîlik yüksek' bir bulgu değildir; hangi merkezîlik, hangi normalizasyon, hangi yön kuralı?"]],
  "Ottoman & Turkish":[
   ["Hafta 1","Kavramını tara","Search a concept (e.g. terakkî) in books and newspapers on Wikilala; count by year.", L_("Wikilala","https://www.wikilala.com/"),
    "Year-by-year occurrence counts for the concept (a simple table/CSV).",
@@ -2381,6 +2405,7 @@ const TRACKS={
 const RAIL=[
  {k:"EMSAL",c:"var(--insan)",t:"EICD-B — Belâzürî",p:"The published form of the method taught on this site: 226 records, open access, with an author from the religious sciences. Tool D above opens it end to end in eight stops.",chips:["Oxford DSH 2026","D · end to end"],href:"#emsal"},
  {k:"EMSAL",c:"var(--insan)",t:"30.000 biyografi sayıyla",p:"Romanov’s ṭabaqāt study: a classic of quantitative prosopography.",chips:["Speculum 2017"],href:"https://www.journals.uchicago.edu/doi/full/10.1086/693970"},
+ {k:"EMSAL",c:"var(--insan)",t:"Üç filozofta ilimler tasnifi",p:"Fârâbî, Gazzâlî ve İbn Haldûn'un ilim tasnifleri tipli yönlü ağ olarak modellendi: dokuz ilişki tipi, yön kuralı, her kenara metinden delil. İki uzman bağımsız kodladı, uyum κ ile raporlandı. Nitel bulgu: bütünleşme → tâbi kılma → ikilik.",chips:["Hakem sürecinde","felsefe · ağ"],href:"#ilham"},
  {k:"EMSAL",c:"var(--insan)",t:"İsnad ağları, hakemli",p:"Classical isnād networks examined with network science — the precedent for the ḥadīth route.",chips:["JHNR 2023"],href:"https://jhnr.net/articles/10.25517/jhnr.v8i1.135"},
  {k:"EMSAL",c:"var(--insan)",t:"Türkçe emsaller",p:"Ḥadīth and AI, sentiment analysis, DH and religious studies on DergiPark: four verified articles.",chips:["in the Library"],href:KUT+"#d4"},
  {k:"KAPI",c:"var(--model)",t:"Veri makalesi",p:"The clean dataset you compile is itself a publication — a student’s first peer-reviewed door.",chips:["JOHD","Zenodo DOI"],href:KUT+"#d4"},
@@ -2398,6 +2423,10 @@ const TRACKMETA={
   emsal:'<a href="https://aclanthology.org/L10-1190/" target="_blank" rel="noopener">Dukes &amp; Habash — Kur\'an morfoloji derlemi bildirisi</a>',
   hedef:"darulfunun ilahiyat; JOHD for a data paper",
   ilk60:["Search your concept on Quran.com; copy the complete occurrence list (15 min).","Look at the word-by-word analysis of three sample verses on corpus.quran.com (20 min).","Fill in the first 10 rows of your root-and-form table (25 min)."]},
+ "Felsefe & İlimler Tasnifi":{urun:"tipli yönlü bir ağ + kod defteri + kodlayıcı uyum (κ) raporu",
+  emsal:'Çifçi &amp; Çetinkaya, üç filozofta ilimler tasnifi — <b>hakem sürecinde</b>',
+  hedef:"yöntem ağırlıklı ise DSH · DHQ; Türkçe için Nazariyat, İslâm Araştırmaları",
+  ilk60:["Bir tasnif bölümü seç ve ilimleri düğüm olarak listele — müellifin kendi bölümlemesiyle (20 dk).","Beş tiplik bir ilişki listesi ve bir yön kuralı yaz (20 dk).","İlk 10 kenarı delil ibaresiyle birlikte tabloya dök (20 dk)."]},
  "Ottoman & Turkish":{urun:"a chart of one concept by decade + a periodisation note",
   emsal:'<a href="https://dergipark.org.tr/en/pub/iuislamtd/article/1123964" target="_blank" rel="noopener">Saraçoğlu 2022 — DH &amp; ilahiyat (DergiPark)</a>',
   hedef:"An indexed religious-studies or social-science journal; the journal chooser will help",
@@ -2652,6 +2681,18 @@ const SORU={
      {ad:"mütercime göre",st:"mütercim",or:"[mütercim]",fi:"değişiyor",ger:[2],nk:"birden fazla meal"},
      {ad:"no comparison — description only",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
   dl:"2:191 · «فتنة»"},
+ "Felsefe & İlimler Tasnifi":{
+  m:[{ad:"tek eserin ilimler tasnifi",ic:"tek bir eserin ilimler tasnifinde",no:"ör. Fârâbî (ö. 339/950), İhsâʾü'l-ulûm — OpenITI'de açık",ol:"~15-20 düğüm · bir hafta sonu",o:1},
+     {ad:"aynı müellifin üç eseri",ic:"aynı müellifin üç eserinde",no:"ör. Gazzâlî (ö. 505/1111): İhyâʾ · el-Münkız · el-Mustasfâ",ol:"~20 düğüm · üç hafta",o:2},
+     {ad:"üç müellif, üç tasnif",ic:"üç müellifin tasniflerinde",no:"Fârâbî · Gazzâlî · İbn Haldûn (ö. 808/1406), Mukaddime",ol:"üç ağ · bir dönem",o:3}],
+  b:[{ad:"ilim (düğüm)",bs:"ilimler",st:"ilim",or:"usûl-i fıkıh"},
+     {ad:"ilimler arası ilişki (kenar)",bs:"ilimler arası ilişkiler",st:"ilişki",or:"Kur'an → tefsir"},
+     {ad:"ilişki tipi",bs:"ilişki tipleri",st:"tip",or:"alet"}],
+  e:[{ad:"müellife göre",st:"müellif",or:"Fârâbî",fi:"değişiyor",ger:[2],nk:"birden fazla müellif"},
+     {ad:"ilişki tipine göre",st:"tip",or:"alet",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"aklî / naklî ayrımına göre",st:"kanat",or:"naklî",fi:"dağılıyor",ger:[0,1,2]},
+     {ad:"no comparison — description only",st:null,or:null,fi:"dağılıyor",ger:[0,1,2]}],
+  dl:"İhsâʾü'l-ulûm, s. [sayfa] · «آلة»"},
  "Ottoman & Turkish":{
   m:[{ad:"one concept, one periodical",ic:"in a single periodical",no:"a single newspaper or journal on Wikilala",ol:"bir hafta sonu",o:1},
      {ad:"one concept, three periodicals",ic:"üç süreli yayında",no:"you will see whether the pattern is peculiar to one publication",ol:"üç-dört hafta",o:2},
