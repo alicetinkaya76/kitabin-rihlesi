@@ -68,6 +68,14 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .hero .stats{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px;font-family:var(--sans)}
 .hero .stats b{font-size:clamp(1.3rem,3.4vw,1.9rem);display:block;font-variant-numeric:tabular-nums}
 .hero .stats span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* açılış: terimsiz üç cümle */
+.nedir{max-width:640px;margin:14px auto 0;font-family:var(--serif);font-size:clamp(1.02rem,2.5vw,1.16rem);line-height:1.75;text-align:left}
+.nedir p{margin:0 0 9px}
+.nedir p:last-child{margin:0}
+.nedir .num{display:inline-block;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.72rem;font-weight:800;text-align:center;line-height:22px;margin-right:8px;vertical-align:1px}
+.hemen{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:.84rem;font-weight:700;background:var(--korpus-soft);color:var(--korpus);border:1px solid color-mix(in srgb,var(--korpus) 35%,transparent);border-radius:999px;padding:9px 17px;text-decoration:none;margin-top:4px}
+.hemen:hover{background:var(--korpus);color:#fff}
 .cta{display:inline-block;font-family:var(--sans);font-weight:700;background:var(--rubric);color:#fff;border:none;border-radius:999px;padding:13px 26px;font-size:1rem;cursor:pointer;text-decoration:none;box-shadow:var(--shadow)}
 .cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
@@ -361,7 +369,7 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .lossbox{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:8px}
 .lossbox canvas{width:100%;height:110px;display:block}
 .losscnt{font-family:var(--mono);font-size:.82rem;margin-top:6px;font-variant-numeric:tabular-nums}
-/* fabrika turu + yol seçimi + planlayıcı */
+/* baştan sona tur + yol seçimi + planlayıcı */
 .mstep:not(:last-of-type)::after{content:"↓";position:absolute;left:50%;transform:translateX(-50%);bottom:-15px;font-size:1rem;color:var(--muted);font-family:var(--sans)}
 .narrator{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:1600;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.85rem;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);display:none;max-width:92%;text-align:center}
 .pathpick{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));max-width:640px;margin:0 auto 16px;width:100%}
@@ -788,12 +796,18 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <header class="scene hero wrap" id="top">
   <div class="kicker">Rıhle 2026 · Dijital İslami İlimler ve Yapay Zekâ</div>
   <h1>Bir Kitabın Rıhlesi</h1>
-  <p class="sub">Raftaki kitaptan hakemli makaleye — dijital beşerî bilimler, en basitinden.</p>
-  <p class="sub" style="font-size:.85rem;margin-top:6px"><b>1</b> Temeller · <b>2</b> Araştırmacının yolu · <b>3</b> Makinenin içi · <b>4</b> Sıra sende · <b>5</b> Makale yolu</p>
+  <p class="sub">Raftaki kitaptan hakemli makaleye.</p>
+  <div class="nedir">
+    <p><span class="num">1</span>Elinizde bir kitap var — diyelim bin yıllık bir tarih kitabı. Onu baştan sona okumak aylar sürer.</p>
+    <p><span class="num">2</span>Bilgisayar o kitabı okuyamaz, ama içindeki bilgiyi <i>sayılabilir</i> hâle getirmenize yardım edebilir: hangi şehir, hangi yılda, nasıl alınmış — hepsi bir tabloya. Sonra siz o tabloyu sayar, haritalar, karşılaştırırsınız.</p>
+    <p><span class="num">3</span>Bu sayfa, o işi baştan sona bir kere yaptırıyor. Sonunda elinizde danışmanınıza götürebileceğiniz bir araştırma planı oluyor. <b>Kod yazmanız gerekmiyor.</b></p>
+  </div>
   <div class="stats" id="hstats"></div>
   <div class="btnrow">
-    <a class="cta" href="#tanis">Başla ↓</a>
+    <a class="cta" href="#tanis">Baştan başla ↓</a>
+    <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
   </div>
+  <p class="sub" style="font-size:.82rem;margin-top:14px">Beş durak: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu</p>
   <div class="kimsin">
     <b>Önce şunu soralım</b>
     <div class="alt">Bu sayfada beş durak var; hepsini gezmek şart değil. Kim olduğunuzu söyleyin, size uygun rotayı işaretleyelim.</div>
@@ -812,7 +826,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
   <div class="kicker">1 · Temeller</div><span class="seviye temel">Temel · herkes</span>
   <h2>Dijital beşerî bilimler nedir?</h2>
-  <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir ve aranabilir</b> malzemeyle sormak. Müstakil yeni bir ilim değil; <b>mu'cem, fihrist ve tabakat</b> geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
+  <p class="one" style="margin:0 auto 8px">Beşerî bilimlerin sorularını <b>sayılabilir, haritalanabilir ve aranabilir</b> malzemeyle sormak. Müstakil yeni bir ilim değil; mu'cem, fihrist ve tabakat geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
 
   <div class="kapasite">
     <div class="kap">
@@ -849,9 +863,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <details class="mdeep" id="baskamercekler" open style="width:100%;max-width:820px;margin:8px auto 0;text-align:left"><summary><b>Duygu analizi · konu modelleme · metin yeniden kullanımı</b> — üç mercek daha, dürüst uyarılarıyla</summary>
     <p class="small muted" style="margin:0 0 10px">Bu sayfa dört kavram üzerine kuruldu, çünkü ilk projede en çok işe yarayanlar onlar. Ama alanda sık geçen üç yöntem daha var; her birinin bir <b>tuzağı</b> var ve tuzağı bilinmeden kullanılmaz.</p>
     <div class="dou" style="grid-template-columns:1fr">
-      <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri <b>modern dille</b> eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını <b>önce ölçün</b>, sonra kullanın — ve o ölçümü makalede verin.</div>
-      <div class="ikincibox"><b>Konu modelleme · topic modelling</b>Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; "bu külliyat kaç konuya ayrılıyor?" sorusunun keşif aracı.<br><b>Tuzak:</b> konu sayısını siz seçersiniz ve çıkan kümeler <b>yorumlanmayı bekler</b> — model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.</div>
-      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği <b>beyan edin</b>.</div>
+      <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri modern dille eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını önce ölçün, sonra kullanın — ve o ölçümü makalede verin.</div>
+      <div class="ikincibox"><b>Konu modelleme · topic modelling</b>Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; "bu külliyat kaç konuya ayrılıyor?" sorusunun keşif aracı.<br><b>Tuzak:</b> konu sayısını siz seçersiniz ve çıkan kümeler yorumlanmayı bekler — model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.</div>
+      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği beyan edin.</div>
     </div>
     <p class="small muted" style="margin:10px 0 0">Üçünün ortak dersi, bu sayfanın baştan beri tekrar ettiği kuralın aynısı: <b>aracın ne ölçtüğünü beyan etmeden sonucu savunamazsınız.</b></p>
   </details>
@@ -866,9 +880,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="alan"><span class="ad">İslâm felsefesi &amp; kelâm</span><span class="kl">"Bir düşünür ilimleri nasıl tasnif ediyor; aklî ile naklî arasındaki sınır ne kadar geçirgen?"</span><span class="dj">→ <b>Tipli yönlü ağ:</b> ilimler düğüm, aralarındaki ilişkiler <i>tipi ve yönü belirtilmiş</i> kenar olur (asıl · alet · şart · dal · temel · uygulama + reddiye · müdafaa + kardeşlik). Böylece "sınır ne kadar geçirgen" sorusu, payı ve paydası yazılı bir orana döner.</span></div>
     <div class="alan"><span class="ad">Osmanlı & Türkçe</span><span class="kl">"Bir kavram matbuatta ne zaman yükseldi?"</span><span class="dj">→ <b>Frekans grafiği:</b> kavramın gazete ve dergilerdeki geçiş sayısı yıllara göre çizilir; kırılmalar dönemlendirilir.</span></div>
   </div>
-  <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve <b>denetlenebilirliği</b> — çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
+  <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve denetlenebilirliği — çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
 
-  <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Kısa bir tarihçe</b> — bu yöntemin kökleri kendi ilim geleneğimizde. Sekiz durak, üç görünüşte: <b>künye şeridi</b>, <b>gerçek ölçekli zaman çizgisi</b> ve <b>harita</b>. Birinden birine dokunun; üçü birlikte hareket eder.</p>
+  <p class="one" style="margin:20px auto 6px;font-size:.98rem"><b>Kısa bir tarihçe</b> — bu yöntemin kökleri kendi ilim geleneğimizde. Sekiz durak, üç görünüşte: künye şeridi, gerçek ölçekli zaman çizgisi ve harita. Birinden birine dokunun; üçü birlikte hareket eder.</p>
   <div class="timeline" id="nesep"></div>
   <div class="zamankutu"><svg class="zs" id="nesepzaman" viewBox="0 0 1000 210" role="img" aria-label="Yöntemin nesebi: gerçek ölçekli zaman çizgisi"></svg></div>
   <p class="haritanot" style="margin:2px auto 0;max-width:700px">Üstteki eksen <b>gerçek ölçekli</b>: bin yılda iki durak. Alttaki büyüteç son yüz yılı açıyor: altı durak. Şeridin söylediği tek cümle bu — <b>yöntemin nesebi eski, hızlanması yeni.</b></p>
@@ -912,7 +926,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <div class="fiiller"><span>أخذ عن</span><span>تفقه على</span><span>سمع من</span><span>قرأ على</span><span style="opacity:.65">روى عن — rivayet kenarı, ayrı tutulur</span></div>
       <p style="font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:8px 0 0">Kural, delil şartımızın ağdaki hâlidir: <b>ibaresiz ok çizilmez</b> — her kenarın delili, kaynağından bir cümledir. (Kalıplar gerçek; örnek cümle temsilîdir.) Elle 6 âlimde yaptığımızı, Gephi binlerce âlimde yapar — kural aynı kalır. <b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor — dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
-    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. <b>Şeybânî</b> ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
+    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından — ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür — <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> — canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
   </div>
   <p class="one" style="margin:22px auto 6px;font-size:.98rem"><b>Sınırları baştan çizelim</b> — üç yaygın zan, üç cevap:</p>
   <div class="degildir">
@@ -920,7 +934,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="warncard"><b style="color:var(--rubric)">✗ Zan: "Yakın okumayı emekli eder."</b><b style="color:var(--korpus);margin-top:6px">✓ Aslı:</b> Şerhin <b>hâdimi</b>dir: sayım, dikkatin nereye teksif edileceğini söyler; makam yine yakın okumanın. Dürbünün iki ucu, tek göz.</div>
     <div class="warncard"><b style="color:var(--rubric)">✗ Zan: "Sorarsın, cevabı verir."</b><b style="color:var(--korpus);margin-top:6px">✓ Aslı:</b> Cevap otomatı değildir; hızlandırdığı şey cevap değil, <b>delile giden yol</b>dur. Delilsiz hız, hatanın hızıdır.</div>
   </div>
-  <p class="one" style="margin:18px auto 0">Sıradaki iki kavram kendi duraklarında: <b>CBS</b> (harita) ve <b>veri seti</b> ↓</p>
+  <p class="one" style="margin:18px auto 0">Sıradaki iki kavram kendi duraklarında: <b>CBS</b> (harita) ve veri seti ↓</p>
   <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d3">🎓 Öğrenme rehberleri + Moretti kitapları (<span data-lib="ogrenme"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=uzak">Kütüphanede "uzak okuma" ara</a></div>
   <div class="btnrow"><a class="cta" href="#harita">Sıradaki kavram: CBS — harita ↓</a></div>
 </section>
@@ -972,7 +986,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div id="machinejson"></div>
   <p class="one small" style="margin:12px auto 0">"Makinenin gördüğü" düz metnin adı <b>JSON</b>'dur: aynı çekmeceli dolabın makine için yazılmış hali. 4. durakta modelden tam bu biçimi isteyeceksin.</p>
 
-  <p class="one" style="margin:26px auto 0"><b>Ama bir kayıt veri seti değildir.</b> Veri seti, <i>aynı çekmecelere sahip</i> kayıtların tamamıdır. Açtığınız çekmece, yayımlanan EICD-B'nin <b>226 kaydından biri</b>. Diğer 225'i de burada:</p>
+  <p class="one" style="margin:26px auto 0"><b>Ama bir kayıt veri seti değildir.</b> Veri seti, <i>aynı çekmecelere sahip</i> kayıtların tamamıdır. Açtığınız çekmece, yayımlanan EICD-B'nin 226 kaydından biri. Diğer 225'i de burada:</p>
   <div class="kareler" id="kareler" aria-label="226 kayıt"></div>
   <div class="karelegend" id="karelegend"></div>
   <p class="one small" style="margin:9px auto 0;color:var(--muted)">Renkler yayımlanan dağılımdan (EICD-B, Tablo 2 ve Tablo 4). <b>Karelerin sırası temsilîdir</b> — hangi karenin hangi şehir olduğu bu görselde yoktur; burada gösterilen yalnız oranlardır. Siyah çerçeveli kare, yukarıda çekmecelerini açtığınız kayıt.</p>
@@ -997,14 +1011,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one" style="margin:18px auto 0">Dört kavram tamam: <b>uzak okuma · ağ · CBS · veri seti</b>. Şimdi bir araştırmacının bunları hangi sırayla kullandığına bakalım ↓</p>
   <details class="mdeep" style="max-width:640px;margin:14px auto 0;text-align:left"><summary>Dosya biçimleri: .txt · .md/.mARkdown · JSON · CSV nedir?</summary>
     <p><b>.txt</b> (İng. <i>plain text</i>, düz metin): hiçbir biçimlendirme içermeyen saf metin dosyası; her cihazda ve her programda açılır. Klasik metinlerin dijital nüshaları çoğunlukla bu biçimdedir.<br>
-    <b>.md</b> (<i>Markdown</i>): düz metne birkaç basit işaret ekleyerek başlık, liste ve vurgu tanımlayan biçim. OpenITI'nin kullandığı <b>.mARkdown</b> bunun klasik metinlere uyarlanmış hâlidir: <code>### |</code> bölüm başlığı, <code>~~</code> satır devamı, <code>PageV05P022</code> matbu neşrin cilt/sayfa numarası demektir.<br>
-    <b>JSON</b> (<i>JavaScript Object Notation</i>): "etiket": değer çiftleriyle yazılan veri biçimi. Yukarıdaki çekmeceli dolabın makine tarafındaki karşılığı budur; hem insan hem makine okur, düz metindir, özel program gerektirmez.<br>
-    <b>CSV</b> (<i>Comma-Separated Values</i>, virgülle ayrılmış değerler): tablo satırlarını düz metin olarak saklar; Excel ve Google E-Tablolar'da doğrudan açılır. Bir veri seti çoğu zaman aynı anda hem JSON hem CSV olarak yayımlanır.</p>
+    <b>.md</b> (<i>Markdown</i>): düz metne birkaç basit işaret ekleyerek başlık, liste ve vurgu tanımlayan biçim. OpenITI'nin kullandığı .mARkdown bunun klasik metinlere uyarlanmış hâlidir: <code>### |</code> bölüm başlığı, <code>~~</code> satır devamı, <code>PageV05P022</code> matbu neşrin cilt/sayfa numarası demektir.<br>
+    JSON (<i>JavaScript Object Notation</i>): "etiket": değer çiftleriyle yazılan veri biçimi. Yukarıdaki çekmeceli dolabın makine tarafındaki karşılığı budur; hem insan hem makine okur, düz metindir, özel program gerektirmez.<br>
+    CSV (<i>Comma-Separated Values</i>, virgülle ayrılmış değerler): tablo satırlarını düz metin olarak saklar; Excel ve Google E-Tablolar'da doğrudan açılır. Bir veri seti çoğu zaman aynı anda hem JSON hem CSV olarak yayımlanır.</p>
   </details>
   <div class="dolapflow" aria-label="Kaydın hayat hikâyesi">Kaydın hayat hikâyesi:<a href="#uzakb">PASAJ</a><span class="arr">→</span><a href="#dene">TALİMAT</a><span class="arr">→</span><span class="burasi">KAYIT (buradasın)</span><span class="arr">→</span><a href="#dene">DENETİM</a><span class="arr">→</span><a href="#harita">ŞEKİL</a></div>
   <p class="one small" style="margin:10px auto 0;color:var(--muted)">Bu kaydın dolapta 225 kardeşi var; delillerin %91,6'sı kaynağında bulundu (EICD-B). Dolap dolunca üç mercek birden çalışır: sayım da harita da ağ da buradan beslenir.</p>
   <details class="mdeep" style="max-width:640px;margin:10px auto 0;text-align:left"><summary>Meraklısına: bu beş çekmece neden bu beşi? — şemanın savunması</summary>
-    <p><b>Yıl neden sayı?</b> Sıralanabilsin, çizilebilsin diye; "erken dönem" yazan çekmece grafik üretmez. <b>Tür neden kapalı liste?</b> Serbest metin sayılamaz; üç kapı tartışmayı disipline eder — sınıra düşen vaka "çekimser"e gider, yok sayılmaz. <b>Delil neden zorunlu?</b> Zorunlu olmazsa dolap, zarif görünüşlü bir zan yığınına döner. <b>Sened neden ayrı çekmece?</b> Kitap → neşir → dijital sürüm → veri seti zinciri koparsa, beş yıl sonra kimse sayıları yeniden üretemez. Şema, tezinin ilk taslağıdır: hangi çekmeceyi açtığın, neyi soru saydığını ele verir.</p>
+    <p><b>Yıl neden sayı?</b> Sıralanabilsin, çizilebilsin diye; "erken dönem" yazan çekmece grafik üretmez. <b>Tür neden kapalı liste?</b> Serbest metin sayılamaz; üç kapı tartışmayı disipline eder — sınıra düşen vaka "çekimser"e gider, yok sayılmaz. Delil neden zorunlu? Zorunlu olmazsa dolap, zarif görünüşlü bir zan yığınına döner. Sened neden ayrı çekmece? Kitap → neşir → dijital sürüm → veri seti zinciri koparsa, beş yıl sonra kimse sayıları yeniden üretemez. Şema, tezinin ilk taslağıdır: hangi çekmeceyi açtığın, neyi soru saydığını ele verir.</p>
   </details>
   <div class="libgate">📚 Bu durağın rafı:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2">🗃 Hazır veri setleri (<span data-lib="veri"></span>)</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#q=veri%20seti">Kütüphanede "veri seti" ara</a></div>
   <div class="btnrow"><a class="cta" href="#arastirmaci">2 · Araştırmacının yolu ↓</a></div>
@@ -1015,7 +1029,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="arastirmaci">
   <div class="kicker">2 · Araştırmacının yolu</div><span class="seviye orta">Uygulama · çalışmak isteyene</span>
   <h2>Araştırmacı nasıl çalışır: malzemeden ürüne</h2>
-  <p class="one">Beş istasyon; her birinde üç katman var — <b>ilke</b> · yürünmüş <b>gerçek örnek</b> (EICD-B, Oxford DSH 2026) · meraklısına <b>usta notu</b>. İkinci bir yol daha eşlik ediyor: aynı istasyonların bir hadis çalışmasında nasıl görüneceği (tasarım şablonu — henüz yürünmemiş, yol genellensin diye).</p>
+  <p class="one">Beş istasyon; her birinde üç katman var — <b>ilke</b> · yürünmüş gerçek örnek (EICD-B, Oxford DSH 2026) · meraklısına usta notu. İkinci bir yol daha eşlik ediyor: aynı istasyonların bir hadis çalışmasında nasıl görüneceği (tasarım şablonu — henüz yürünmemiş, yol genellensin diye).</p>
   <div class="olcek" role="group" aria-label="Ölçek seç" id="olcek">
     <button data-o="0" aria-pressed="true">Hafta sonu ölçeği</button>
     <button data-o="1" aria-pressed="false">Dönem ödevi</button>
@@ -1207,7 +1221,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="dene" style="text-align:center;align-items:center">
   <div class="kicker">4 · Sıra sende</div><span class="seviye temel">Herkes · 90 saniye</span>
   <h2>90 saniyede ilk denetimin</h2>
-  <p class="one" style="margin:0 auto 26px">Model çıkarır; delilleri SEN denetlersin — geleneğin verdiği adla: <b>mukabele</b>. Aradaki işi buradaki küçük <b>tezgâh</b> yapar: her delili kitapta arar, hükmü sana bırakır. Önce yolunu seç:</p>
+  <p class="one" style="margin:0 auto 26px">Model çıkarır; delilleri SEN denetlersin — geleneğin verdiği adla: <b>mukabele</b>. Aradaki işi buradaki küçük tezgâh yapar: her delili kitapta arar, hükmü sana bırakır. Önce yolunu seç:</p>
   <div class="pathpick" id="pathpick">
     <button class="path" data-p="quick" aria-pressed="false"><b>🚀 Hemen dene</b><span>Asistansız, ~30 saniye. Hazır bir model cevabıyla mukabeleyi yaşa — içine bilerek bir uydurma kayıt koyduk.</span></button>
     <button class="path" data-p="own" aria-pressed="false"><b>🤝 Kendi asistanımla</b><span>~90 saniye. Telefonundaki yapay zekâyla (ChatGPT/Gemini/Claude, ücretsizi yeter) gerçeğini yap.</span></button>
@@ -1308,7 +1322,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="atolye" id="emsal">
     <div class="ah"><span class="an">D</span><h3>Bitmiş bir makale — EICD-B, baştan sona</h3></div>
-    <p class="ap">Şimdiye kadar hep tarif ettik. Burada <b>bitmiş bir iş</b> var: bu sitedeki yöntemin yayımlanmış hâli. Sekiz durakta, aynı altı aletin üzerine geri konuyor — soru nasıl kurulmuş, kaynak nasıl sınırlanmış, model nasıl kullanılmış, doğrulama nasıl yapılmış, hangi sayılar çıkmış, hangi sınırlar açıkça yazılmış, beyan nasıl kaleme alınmış. <b>Rakamların hepsi makalenin kendisinden</b>; hiçbiri bu site için üretilmedi.</p>
+    <p class="ap">Şimdiye kadar hep tarif ettik. Burada <b>bitmiş bir iş</b> var: bu sitedeki yöntemin yayımlanmış hâli. Sekiz durakta, aynı altı aletin üzerine geri konuyor — soru nasıl kurulmuş, kaynak nasıl sınırlanmış, model nasıl kullanılmış, doğrulama nasıl yapılmış, hangi sayılar çıkmış, hangi sınırlar açıkça yazılmış, beyan nasıl kaleme alınmış. Rakamların hepsi makalenin kendisinden; hiçbiri bu site için üretilmedi.</p>
     <div class="anpar" id="emspar"></div>
     <div class="istpanel" id="emspanel"></div>
     <p class="small muted" style="margin-top:10px">Gökalp, H. &amp; Çetinkaya, A. (2026). "The Early Islamic Conquests Database–Balādhurī (EICD-B): large language model extraction of conquest data from <i>Futūḥ al-buldān</i>", <i>Digital Scholarship in the Humanities</i>, 1-17. doi:10.1093/llc/fqag093 · <a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">açık erişim</a> · <b>CC BY 4.0</b> lisansı (Creative Commons Atıf 4.0: künyesi verilmek şartıyla herkes serbestçe kullanabilir, çoğaltabilir ve uyarlayabilir) — buradaki alıntılar bu lisansla ve künyesiyle verilmiştir.</p>
@@ -1324,7 +1338,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="atolye" id="beyan">
     <div class="ah"><span class="an">F</span><h3>Yapay zekâ beyanı — üçüncü fiilin aleti</h3></div>
-    <p class="ap">Bu sitenin omurgası üç fiildi: <b>üret</b> (kendin), <b>doğrula</b> (dışarıda), <b>beyan et</b>. İlk ikisinin aleti vardı; üçüncüsününki burada. Modeli hangi işlerde kullandığını seç, beyan paragrafın Türkçe ve İngilizce olarak çıksın. Gizlemek değil, <i>yazmak</i> güven verir.</p>
+    <p class="ap">Bu sitenin omurgası üç fiildi: <b>üret</b> (kendin), doğrula (dışarıda), beyan et. İlk ikisinin aleti vardı; üçüncüsününki burada. Modeli hangi işlerde kullandığını seç, beyan paragrafın Türkçe ve İngilizce olarak çıksın. Gizlemek değil, <i>yazmak</i> güven verir.</p>
     <div class="altbaslik">Modeli hangi işlerde kullandın?</div>
     <div class="yzsec" id="yzsec"></div>
     <div class="altbaslik">Model adı, sürümü, kullanım tarihi</div>
@@ -1395,19 +1409,19 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="kicker">6 · Yalnız değilsiniz</div><span class="seviye temel">Herkes · adres</span>
   <h2>Bu yöntemin bir adresi var</h2>
   <img class="tclogo" src="tcorpus-logo.png" alt="T-Corpus — TİMAV Dijital Beşerî Bilimler Merkezi" width="900" height="332" loading="lazy">
-  <p class="one" style="margin:8px auto 0">Beş duraktır bir yöntem anlatıyoruz. O yöntemin Türkiye'de kurumsal bir adresi var: <b>T-Corpus</b> — Türkiye İmam Hatipliler Vakfı (TİMAV) bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanının kaynağı olan <b>İslam Tarih Atlası</b>, bu merkezin amiral gemilerinden biridir. Yani gördüğünüz yol tasarım değil; yürünüyor.</p>
+  <p class="one" style="margin:8px auto 0">Beş duraktır bir yöntem anlatıyoruz. O yöntemin Türkiye'de kurumsal bir adresi var: <b>T-Corpus</b> — Türkiye İmam Hatipliler Vakfı (TİMAV) bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanının kaynağı olan İslam Tarih Atlası, bu merkezin amiral gemilerinden biridir. Yani gördüğünüz yol tasarım değil; yürünüyor.</p>
   <div class="tcgap"><b>Merkez neden kuruldu?</b> Kendi ifadesiyle: Türkiye'deki büyük dijital platformlar <b>arama arayüzü</b> sunar; ancak indirilebilir veri seti, API, DOI'li sürümleme ve açık lisans sunan bir İslami ilimler korpusu henüz yoktur. T-Corpus bu boşluğu doldurmak için kuruldu. — Dördüncü durakta "kaynağın sürümünü yaz" derken kastettiğimiz boşluk tam da budur.</div>
 
   <div class="shelfhead" style="max-width:820px;margin:22px auto 2px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Bu sitede öğrendiğiniz dört şey, bir merkezin kurucu ilkesi</h3></div>
   <p class="small muted" style="max-width:760px;margin:0 auto">Sol sütun bu sayfanın tekrar ettiği kurallar; sağ sütun T-Corpus'un kendi yayımladığı dört ilke. Benzerlik tesadüf değil — ikisi de aynı kaygıdan doğdu.</p>
   <div class="ilkeler" id="ilkeler"></div>
 
-  <div class="shelfhead" style="max-width:820px;margin:24px auto 2px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Peki siz ne yapabilirsiniz? — dört kapı</h3></div>
-  <p class="small muted" style="max-width:760px;margin:0 auto">Hiçbiri için önce "araştırmacı olmanız" gerekmiyor; araştırmacı bunları yaparak olunuyor.</p>
+  <div class="shelfhead" style="max-width:820px;margin:24px auto 2px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Peki siz ne yapabilirsiniz? — dört yol</h3></div>
+  <p class="small muted" style="max-width:760px;margin:0 auto">Dördü de bugün başlanabilir; hiçbiri sizden önce "araştırmacı olmanızı" beklemiyor.</p>
   <div class="kapilar" id="tckapilar"></div>
 
   <div class="shelfhead" style="max-width:820px;margin:24px auto 2px;width:100%"><h3 style="font-family:var(--sans);font-size:1.05rem;margin:0">Merkezin proje ailesi — durumuyla birlikte</h3></div>
-  <p class="small muted" style="max-width:760px;margin:0 auto">Rozetler merkezin kendi beyanı: <b>Yayında</b> · <b>Beta</b> · <b>Geliştiriliyor</b>. Bitmemiş iş bitmiş gibi sunulmuyor — bu sitenin dördüncü ilkesinin kurumsal hâli. <b>Beta olanlar el bekliyor.</b></p>
+  <p class="small muted" style="max-width:760px;margin:0 auto">Rozetler merkezin kendi beyanı: <b>Yayında</b> · Beta · Geliştiriliyor. Bitmemiş iş bitmiş gibi sunulmuyor — bu sitenin dördüncü ilkesinin kurumsal hâli. Beta olanlar el bekliyor.</p>
   <div class="tcproj">
     <div class="tcfil" id="tcfil"></div>
     <div class="tcgrid" id="tcgrid"></div>
@@ -1425,7 +1439,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="kayit" id="tckayit">
     <h3>Çalışmak isterseniz — üç kapı</h3>
-    <p class="alt">Hiçbiri için önce "araştırmacı olmanız" gerekmiyor. Ama şunu bilerek yazdık: <b>özgeçmiş en üstteki kapıda ve isteğe bağlı.</b> Merkezin asıl merak ettiği, iş tecrübeniz değil, <b>soru kurabilmeniz</b> — o yüzden orta kapıda beşinci duraktan indirdiğiniz tek sayfalık planı istiyoruz. Soru cümlesi + tablo şeması + takvim. Bir özgeçmişten daha çok şey söyler.</p>
+    <p class="alt">Şunu bilerek yazdık: <b>özgeçmiş en üstteki kapıda ve isteğe bağlı.</b> Merkezin asıl merak ettiği, iş tecrübeniz değil, soru kurabilmeniz — o yüzden orta kapıda beşinci duraktan indirdiğiniz tek sayfalık planı istiyoruz. Soru cümlesi + tablo şeması + takvim. Bir özgeçmişten daha çok şey söyler.</p>
     <div class="kayitrow">
       <div class="kayitqr">
         <img src="qr-tcorpus-kayit.png" alt="Bu bölüme giden kare kod" width="602" height="602" loading="lazy">
@@ -3345,7 +3359,7 @@ function drawKarne(n,nT,nK,nY,pct){
     setTimeout(()=>{ pass.classList.add("neutral"); pass.querySelectorAll("span").forEach(s=>s.className=""); }, reduced?0:1200);
   });
 
-  /* fabrika turu kancaları */
+  /* baştan sona tur kancaları */
   window.MAK={
     tok:s=>{ tokStage=s; renderTok(); },
     emb:w=>{ document.querySelectorAll("#embchips button").forEach(x=>x.setAttribute("aria-pressed", x.textContent===w?"true":"false")); drawEmb(w); },
