@@ -150,7 +150,8 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .wmapnote b{color:var(--rubric)}
 /* makine sahnesi */
 .mstep{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin-bottom:14px;text-align:left;max-width:640px;width:100%;margin-left:auto;margin-right:auto;position:relative}
-.mstep .mno{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--model);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.mstep .mno.kav{width:auto;min-width:34px;height:24px;top:-12px;border-radius:999px;padding:0 10px;font-size:.8rem;letter-spacing:.04em}
+.mno{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--model);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
 .mstep h3{font-family:var(--sans);font-size:1.02rem;margin:4px 0 8px;padding-right:2px}
 .mstep .mwhy{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:10px}
 .termtag{float:right;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;background:var(--chip);color:var(--muted);border-radius:5px;padding:3px 8px;margin-left:8px;margin-top:2px}
@@ -897,8 +898,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <p class="one" style="margin:26px auto 0;font-size:.98rem">Try two of the lenses right now, on this page:</p>
   <div class="mstep" style="text-align:left" id="uzakb">
-    <div class="mno" style="background:var(--korpus)">a</div>
-    <h3><span class="termtag">distant reading</span>Distant reading ( <i>distant reading</i>)</h3>
+    <div class="mno kav" style="background:var(--korpus)">1a</div>
+    <h3><span class="termtag">distant reading</span>Kavram: Uzak okuma (İng. <i>distant reading</i>)</h3>
     <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>close reading</b> ( <i>close reading</i>) is the detailed analysis of a single text; the two are not rivals but complements. The source of the concept is also available in Turkish: Franco Moretti, <a href='https://www.bilgiyay.com/kitap/uzak-okuma/' target='_blank' rel='noopener'>Distant Reading (Turkish ed.)</a>, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021."></div>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Close reading</button><button id="uz-uzak" aria-pressed="true">Distant reading</button></div>
     <div id="uz-body"></div>
@@ -915,8 +916,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p class="mwhy">Close reading is the depth of a single passage; distant reading is the bird’s-eye view of a thousand pages. They are not rivals — they are the two ends of one telescope. <span class="temsili">the count is real: computed live from the al-Balādhurī excerpt</span></p>
   </div>
   <div class="mstep" style="text-align:left" id="netb">
-    <div class="mno" style="background:var(--korpus)">b</div>
-    <h3><span class="termtag">network analysis</span>Network analysis ( <i>network analysis</i>)</h3>
+    <div class="mno kav" style="background:var(--korpus)">1b</div>
+    <h3><span class="termtag">network analysis</span>Kavram: Ağ analizi (İng. <i>network analysis</i>)</h3>
     <div data-terim="ağ analizi" data-ek="Aşağıdaki örnek, tabakat kaynaklarındaki hoca-talebe bağlarıyla kurulmuştur."></div>
     <div class="embwrap"><div id="netmini"></div></div>
     <div id="netinfo"></div>
