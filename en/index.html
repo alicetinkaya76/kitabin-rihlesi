@@ -665,7 +665,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .karelegend .sw{width:11px;height:11px;border-radius:2px;flex:none}
 .karelegend b{font-variant-numeric:tabular-nums}
 .kunyekart{width:100%;max-width:640px;margin:14px auto 0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--korpus);border-radius:14px;padding:15px 18px;text-align:left}
-.kunyekart h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
+.kunyekart h3,.kunyekart h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
 .kunyesat{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);font-size:.79rem;line-height:1.45}
 .kunyesat:last-child{border-bottom:none}
 .kunyesat b{flex:0 0 132px;color:var(--muted);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding-top:2px}
@@ -683,10 +683,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
  /* viewBox'lı şemalar dar ekranda okunmaz hâle geliyordu (10px yazı → 4,6px).
     Küçültmek yerine tasarım genişliğinde bırakıp kutusunun içinde kaydırtıyoruz. */
  .akis,#netmini,#embmap,#attarea{overflow-x:auto;-webkit-overflow-scrolling:touch}
- #attarea>svg{width:560px;max-width:none}
- .akis>svg{width:820px;max-width:none}
- #netmini>svg{width:700px;max-width:none}
- #embmap>svg{width:520px;max-width:none}
+ #attarea>svg{width:min(560px,100%);min-width:460px;max-width:none}
+ .akis>svg{width:min(820px,100%);min-width:600px;max-width:none}
+/* şemalar dar ekranda kayar (küçültülse yazı okunmaz); GENİŞ ekranda kutuya
+   sığdıkları için 'yana kaydırın' ipucu yanıltıcı oluyordu — susturuldu. */
+@media(min-width:700px){.akis::after,#netmini::after,#embmap::after,#attarea::after{display:none}}
+ #netmini>svg{width:min(700px,100%);min-width:520px;max-width:none}
+ #embmap>svg{width:min(520px,100%);min-width:420px;max-width:none}
  .akis::after,#netmini::after,#embmap::after,#attarea::after{content:'→ şemayı yana kaydırabilirsiniz';display:block;position:sticky;left:0;font-family:var(--sans);font-size:.7rem;color:var(--muted);text-align:center;margin-top:2px}
  .kunyesat{flex-direction:column;gap:1px}.kunyesat b{flex:none}#nesepmap{height:220px}}
 
@@ -832,7 +835,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="kapasite">
     <div class="kap">
       <span class="kico">📊</span>
-      <h4>COUNTABLE</h4>
+      <h3>COUNTABLE</h3>
       <span class="ksoru">“How often, in what proportion, in which period?”</span>
       <span class="kklasik">Classical counterpart: muʿjam / concordance</span>
       <span class="kornek">A trend can be measured without reading the whole text line by line. <b>Example:</b> the ratio of treaty to force wording in one section of Futūḥ al-buldān — across the book as a whole, entry by treaty stands at 52.2%, yet in this section the balance is reversed.</span>
@@ -840,7 +843,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
     <div class="kap">
       <span class="kico">🗺</span>
-      <h4>MAPPABLE</h4>
+      <h3>MAPPABLE</h3>
       <span class="ksoru">“Where, along which route, at what density?”</span>
       <span class="kklasik">Classical counterpart: the masālik wa-mamālik literature</span>
       <span class="kornek">Once a place name is tied to coordinates, the pattern becomes visible. <b>Example:</b> when the 226 conquest records are plotted, entry by treaty clusters in the coastal cities and entry by force in the mountainous regions — the pattern is geographical, not literary.</span>
@@ -848,7 +851,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
     <div class="kap">
       <span class="kico">🔍</span>
-      <h4>SEARCHABLE</h4>
+      <h3>SEARCHABLE</h3>
       <span class="ksoru">“Where does this phrase occur, and in what context?”</span>
       <span class="kklasik">Classical counterpart: fihrist / aṭrāf arrangement</span>
       <span class="kornek">A single sentence is found among thousands of pages in seconds and shown with its context. <b>Example:</b> the workbench on this site searches for every evidence sentence in the source text and lays the passage before you together with the lines around it.</span>
@@ -993,7 +996,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one small" style="margin:9px auto 0;color:var(--muted)">The colours come from the published distribution (EICD-B, Tables 2 and 4). <b>The order of the squares is illustrative</b> — which square is which city is not encoded here; only the proportions are shown. The square with the black outline is the record whose drawers you opened above.</p>
 
   <div class="kunyekart">
-    <h4>The eight things that turn a pile of records into a <i>the dataset</i> </h4>
+    <h3>The eight things that turn a pile of records into a <i>the dataset</i> </h3>
     <p class="small muted" style="margin:0 0 8px">The right-hand column gives EICD-B’s own values. If you can fill in these eight lines for your own dataset, you have something publishable.</p>
     <div id="kunyeliste"></div>
   </div>
@@ -1407,7 +1410,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 6 · T-CORPUS -->
 <section class="scene wrap tc" id="tcorpus" style="text-align:center;align-items:center">
-  <div class="kicker">6 · You are not alone</div><span class="seviye temel">Everyone · an address</span>
+  <div class="kicker">6 · T-Corpus</div><span class="seviye temel">Everyone · an address</span>
   <h2>This method has an address</h2>
   <img class="tclogo" src="tcorpus-logo.png" alt="T-Corpus — TIMAV Centre for Digital Humanities" width="900" height="332" loading="lazy">
   <p class="one" style="margin:8px auto 0">For five stops we have been describing a method. That method has an institutional address in Türkiye: <b>T-Corpus</b> — Türkiye İmam Hatipliler Vakfı (TİMAV) bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanının kaynağı olan İslam Tarih Atlası, bu merkezin amiral gemilerinden biridir. Yani gördüğünüz yol tasarım değil; yürünüyor.</p>

@@ -665,7 +665,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .karelegend .sw{width:11px;height:11px;border-radius:2px;flex:none}
 .karelegend b{font-variant-numeric:tabular-nums}
 .kunyekart{width:100%;max-width:640px;margin:14px auto 0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--korpus);border-radius:14px;padding:15px 18px;text-align:left}
-.kunyekart h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
+.kunyekart h3,.kunyekart h4{font-family:var(--sans);font-size:.95rem;margin:0 0 8px}
 .kunyesat{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);font-size:.79rem;line-height:1.45}
 .kunyesat:last-child{border-bottom:none}
 .kunyesat b{flex:0 0 132px;color:var(--muted);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;padding-top:2px}
@@ -683,10 +683,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
  /* viewBox'lı şemalar dar ekranda okunmaz hâle geliyordu (10px yazı → 4,6px).
     Küçültmek yerine tasarım genişliğinde bırakıp kutusunun içinde kaydırtıyoruz. */
  .akis,#netmini,#embmap,#attarea{overflow-x:auto;-webkit-overflow-scrolling:touch}
- #attarea>svg{width:560px;max-width:none}
- .akis>svg{width:820px;max-width:none}
- #netmini>svg{width:700px;max-width:none}
- #embmap>svg{width:520px;max-width:none}
+ #attarea>svg{width:min(560px,100%);min-width:460px;max-width:none}
+ .akis>svg{width:min(820px,100%);min-width:600px;max-width:none}
+/* şemalar dar ekranda kayar (küçültülse yazı okunmaz); GENİŞ ekranda kutuya
+   sığdıkları için 'yana kaydırın' ipucu yanıltıcı oluyordu — susturuldu. */
+@media(min-width:700px){.akis::after,#netmini::after,#embmap::after,#attarea::after{display:none}}
+ #netmini>svg{width:min(700px,100%);min-width:520px;max-width:none}
+ #embmap>svg{width:min(520px,100%);min-width:420px;max-width:none}
  .akis::after,#netmini::after,#embmap::after,#attarea::after{content:'→ şemayı yana kaydırabilirsiniz';display:block;position:sticky;left:0;font-family:var(--sans);font-size:.7rem;color:var(--muted);text-align:center;margin-top:2px}
  .kunyesat{flex-direction:column;gap:1px}.kunyesat b{flex:none}#nesepmap{height:220px}}
 
@@ -832,7 +835,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="kapasite">
     <div class="kap">
       <span class="kico">📊</span>
-      <h4>SAYILABİLİR</h4>
+      <h3>SAYILABİLİR</h3>
       <span class="ksoru">"Kaç kez, hangi oranda, hangi dönemde?"</span>
       <span class="kklasik">Klasik karşılığı: mu'cem / konkordans</span>
       <span class="kornek">Metnin tamamı tek tek okunmadan da bir eğilim ölçülebilir. <b>Örnek:</b> Fütûhu'l-büldân'ın bir bölümünde sulh ve kuvvet ifadelerinin oranı — kitabın genelinde antlaşmayla giriş %52,2 iken bu bölümde tersine dönüyor.</span>
@@ -840,7 +843,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
     <div class="kap">
       <span class="kico">🗺</span>
-      <h4>HARİTALANABİLİR</h4>
+      <h3>HARİTALANABİLİR</h3>
       <span class="ksoru">"Nerede, hangi güzergâhla, hangi yoğunlukta?"</span>
       <span class="kklasik">Klasik karşılığı: mesâlik ve memâlik literatürü</span>
       <span class="kornek">Yer adı koordinata bağlanınca desen görünür hâle gelir. <b>Örnek:</b> 226 fetih kaydı haritaya döküldüğünde, sahil şehirlerinde antlaşma, dağlık bölgelerde kuvvet yoluyla giriş yoğunlaşıyor — desen edebî değil, coğrafî.</span>
@@ -848,7 +851,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
     <div class="kap">
       <span class="kico">🔍</span>
-      <h4>ARANABİLİR</h4>
+      <h3>ARANABİLİR</h3>
       <span class="ksoru">"Bu ibare nerede geçiyor, hangi bağlamda?"</span>
       <span class="kklasik">Klasik karşılığı: fihrist / etrâf tasnifi</span>
       <span class="kornek">Bir cümle, binlerce sayfa içinde saniyeler içinde bulunur ve bağlamıyla gösterilir. <b>Örnek:</b> bu sitedeki tezgâh, her delil cümlesini kaynak metinde arayıp bulduğu yeri çevresindeki satırlarla birlikte önünüze koyar.</span>
@@ -993,7 +996,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one small" style="margin:9px auto 0;color:var(--muted)">Renkler yayımlanan dağılımdan (EICD-B, Tablo 2 ve Tablo 4). <b>Karelerin sırası temsilîdir</b> — hangi karenin hangi şehir olduğu bu görselde yoktur; burada gösterilen yalnız oranlardır. Siyah çerçeveli kare, yukarıda çekmecelerini açtığınız kayıt.</p>
 
   <div class="kunyekart">
-    <h4>Bir kayıt yığınını <i>veri seti</i> yapan sekiz şey</h4>
+    <h3>Bir kayıt yığınını <i>veri seti</i> yapan sekiz şey</h3>
     <p class="small muted" style="margin:0 0 8px">Sağ sütun EICD-B'nin kendi değerleridir. Kendi veri setiniz için bu sekiz satırı doldurabiliyorsanız, elinizde yayımlanabilir bir şey var demektir.</p>
     <div id="kunyeliste"></div>
   </div>
@@ -1407,7 +1410,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 6 · T-CORPUS -->
 <section class="scene wrap tc" id="tcorpus" style="text-align:center;align-items:center">
-  <div class="kicker">6 · Yalnız değilsiniz</div><span class="seviye temel">Herkes · adres</span>
+  <div class="kicker">6 · T-Corpus</div><span class="seviye temel">Herkes · adres</span>
   <h2>Bu yöntemin bir adresi var</h2>
   <img class="tclogo" src="tcorpus-logo.png" alt="T-Corpus — TİMAV Dijital Beşerî Bilimler Merkezi" width="900" height="332" loading="lazy">
   <p class="one" style="margin:8px auto 0">Beş duraktır bir yöntem anlatıyoruz. O yöntemin Türkiye'de kurumsal bir adresi var: <b>T-Corpus</b> — Türkiye İmam Hatipliler Vakfı (TİMAV) bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanının kaynağı olan İslam Tarih Atlası, bu merkezin amiral gemilerinden biridir. Yani gördüğünüz yol tasarım değil; yürünüyor.</p>
