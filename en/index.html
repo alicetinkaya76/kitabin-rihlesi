@@ -845,7 +845,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="yenilik"><b>So what is new?</b> What changed is not the question but <b>scale and speed</b>. A. J. Wensinck’s team completed the concordance of ḥadīth wording over half a century; Muḥammad Fuʾād ʿAbd al-Bāqī prepared his muʿjam of the Qurʾān through years of labour. Today a student can produce a comparable index of a work of their own choosing over a weekend. The labour has not decreased; it has <b>moved</b>: from compiling the index to verifying and interpreting what the index yields.</div>
 
-  <details class="mdeep" style="width:100%;max-width:820px;margin:18px auto 0;text-align:left"><summary>Dört mercek her şey değil — üç mercek daha, dürüst uyarılarıyla</summary>
+  <p class="one" style="margin:20px auto 0;font-size:.98rem"><b>Peki duygu analizi, konu modelleme, metin yeniden kullanımı?</b> Bunlar da bu alanın sık kullanılan araçları — ve üçünün de bir tuzağı var:</p>
+  <details class="mdeep" id="baskamercekler" open style="width:100%;max-width:820px;margin:8px auto 0;text-align:left"><summary><b>Duygu analizi · konu modelleme · metin yeniden kullanımı</b> — üç mercek daha, dürüst uyarılarıyla</summary>
     <p class="small muted" style="margin:0 0 10px">Bu sayfa dört kavram üzerine kuruldu, çünkü ilk projede en çok işe yarayanlar onlar. Ama alanda sık geçen üç yöntem daha var; her birinin bir <b>tuzağı</b> var ve tuzağı bilinmeden kullanılmaz.</p>
     <div class="dou" style="grid-template-columns:1fr">
       <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri <b>modern dille</b> eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını <b>önce ölçün</b>, sonra kullanın — ve o ölçümü makalede verin.</div>
@@ -3494,6 +3495,22 @@ function TERIM_SISTEMI(){
    {a:"ağ analizi",en:"network analysis",v:["ağ analizinin","ağ analizini"],k:"tabakat ve isnad tasnifi",
     d:"Kişiler, eserler veya kurumlar arasındaki ilişkileri düğüm (nokta) ve kenar (bağlantı) olarak modelleyip ölçen yöntem. Bir kişinin derecesi kaç bağlantısı olduğunu, aradalığı kaç ilişki yolunun onun üzerinden geçtiğini gösterir.",
     n:[[K+"#netb","1 · Temeller: imamlar ağı"]],o:"Şâfiî hem Mâlik'ten hem Muhammed b. Hasan eş-Şeybânî'den okuduğu için Hicaz ile Irak havzalarını birleştirir; ağ dilinde buna yüksek aradalık denir.",dk:"Ağ ilişkiyi gösterir, hükmü değil: bir kişinin köprü konumunda olması ilmî üstünlük anlamına gelmez.",il:["prosopografi","the dataset"]},
+   {a:"duygu analizi",en:"sentiment analysis",v:["duygu analizini","duygu analiziyle"],k:"medih-hiciv ayrımı",
+    d:"Bir metnin ya da parçanın olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.",
+    n:[[K+"#baskamercekler","1 · Üç mercek daha"]],o:"Bir kavramın matbuatta 1890-1920 arasında hangi tonla anıldığı yıllara göre çizilebilir; kırılmalar dönemlendirilir.",
+    dk:"Hazır duygu modelleri MODERN dille eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız önce kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurup başarımı ölçün ve o ölçümü makalede verin.",
+    il:["uzak okuma","korpus","normalizasyon"]},
+   {a:"konu modelleme",en:"topic modelling",v:["konu modellemesi","konu modellemeyi"],k:"tasnif ve bablara ayırma",
+    d:"Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; «bu külliyat kaç konuya ayrılıyor?» sorusunun keşif aracı.",
+    n:[[K+"#baskamercekler","1 · Üç mercek daha"]],o:"Bir müellifin bütün risâleleri tek yığında toplandığında hangi konu kümelerinin öne çıktığı görülebilir.",
+    dk:"Konu sayısını siz seçersiniz ve çıkan kümeler yorumlanmayı bekler — model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.",
+    il:["korpus","uzak okuma"]},
+   {a:"metin yeniden kullanımı",en:"text reuse",v:["metin yeniden kullanımını"],k:"iktibas · nakil · şerh zinciri",
+    d:"Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemidir.",
+    n:[[K+"#baskamercekler","1 · Üç mercek daha"],[KUTU+"#q=KITAB","Kütüphane: KITAB projesi"]],
+    o:"Bir hadis şerhinin hangi cümlelerini kendinden önceki şerhten aldığı, ne kadarını değiştirdiğiyle birlikte ölçülebilir.",
+    dk:"Benzerlik eşiğini siz belirlersiniz: eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği beyan edin.",
+    il:["korpus","normalizasyon"]},
    {a:"GIS",en:"GIS — Geographic Information System",v:[],k:"memâlik ve mesâlik literatürü",
     d:"Coğrafî Bilgi Sistemi: mekâna bağlı verileri (koordinat, güzergâh, sınır) saklayan, sorgulayan ve haritaya döken sistem. Metindeki yer adı koordinata bağlandığında eser haritalanabilir hâle gelir.",
     n:[[K+"#harita","1c · CBS durağı"]],o:"226 fetih kaydı koordinatlandığında, sahil şehirlerinde sulh, dağlık bölgelerde kuvvet yoluyla giriş yoğunluğu göze çarpar.",dk:"Modern harita servisleri tarihî adları tanımaz; Tuleytula'yı Toledo, Ohio'ya yerleştirebilir. Tarihî coğrafya sözlüğü şarttır.",il:["gazetteer","the dataset"]},
