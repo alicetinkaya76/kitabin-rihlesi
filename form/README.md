@@ -45,3 +45,27 @@ Metni TİMAV'ın kendi hukuk/yönetim onayından geçirmeden yayına alma.
 
 Üç kapı otomatik olarak forma döner, "form açılmıyorsa e-posta" satırı
 belirir, kare kodlar forma bakacak şekilde yeniden üretilir.
+
+---
+
+# Değerlendirme anketi (sunum sonu)
+
+Betik: `rihle-anket-olustur.gs` — kurulum aynı üç adım.
+
+## Neden ayrı bir kayıt QR'ı yok
+Kapanışta iki kare kod göstermek salonun tarama enerjisini böler. Kayıt
+sorusu anketin **son maddesi**; "hayır" diyen anonim kalır, "evet" diyen
+iletişim sayfasına geçer ve orada açık rıza verir.
+
+## Kalıcı adres
+Kare kod forma değil, **kitabin-rihlesi/anket/** adresine bakar. O sayfa
+form bağlanmadan da çalışır; `anket/index.html` içindeki tek satır
+(`const ANKET_URL = "";`) doldurulunca doğrudan yönlendirir.
+**Böylece QR bugün basılabilir, form sonra kurulabilir.**
+
+## Anketin mantığı
+- 1-7. sorular ANONİM; e-posta toplanmıyor (`setCollectEmail(false)`).
+- 2. ve 3. sorular aynı ölçekte: **farkları** seminerin asıl başarı ölçüsü.
+- 5. soru ("neresi kapalı kaldı") zorunlu ve açık uçlu — bir sonraki sunumu
+  düzeltecek tek soru odur.
+- Sekiz soru. Daha uzunu salonda doldurulmaz.

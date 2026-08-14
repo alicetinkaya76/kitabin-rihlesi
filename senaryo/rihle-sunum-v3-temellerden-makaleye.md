@@ -4,7 +4,17 @@
 **Program:** Rıhle 2026 · **Süre:** 50 dk (içerik hedefi 48:00; erken bitirmek kusur değil, nezakettir)
 **Format:** İzleyici formatı; kayıt YouTube'a girer; bütün ekranlar statik görsel (üç kısa canlı an hariç); perdedeki her şey Türkçedir.
 **v2'den fark (Hüseyin hoca geri bildirimi):** (1) Akış kavram-önce kuruldu: *DH nedir → temel kavramlar → araştırmacı nasıl çalışır → makinenin içi → canlı ispat → makale yolu.* (2) **Merkez vaka baştan sona Belâzürî/EICD-B;** İbn Battûta yalnız CBS kavramının "örnek katmanı" olarak 30 saniye görünür, vaka olarak anlatılmaz. (3) Dil sadeleşti: her teknik/kadim terim ilk geçtiği yerde tek cümleyle tanıtılır; "mukabele" kelimesi tanımından önce kullanılmaz. (4) Sunum ile site (v4.0) aynı 5 duraklı omurgayı paylaşır — izleyici sunumda kaçırdığını sitede aynı sırayla bulur; "kaçırdım" hissi tasarımla kapatılmıştır.
-**Eşlikçi site:** alicetinkaya76.github.io/kitabin-rihlesi (QR: `senaryo/qr-deneyim.png`). Sunum fragmandır, site filmdir; sahnede site yalnız ÜÇ kısa an açılır (EK C).
+**Eşlikçi site:** alicetinkaya76.github.io/kitabin-rihlesi
+(**açılış QR'ı: `senaryo/qr-acilis.png`** — sürüm 6, %30 hata düzeltmeli; projeksiyonda
+en az 8×8 cm bas, arka sıradan okunur. Eski `qr-deneyim.png` bunun düşük hata
+düzeltmeli hâliydi, kullanma.)
+
+> **AÇILIŞ TALİMATI — bunu söylemeden QR'ı gösterme.** Kare kodu perdede
+> tutarken tam olarak şunu söyle: *"Şimdi okutun, sonra telefonu bırakın.
+> Bu sayfayı üç anda birlikte açacağız; şimdi gezerseniz beni kaybedersiniz.
+> Adres ayrıca kapanışta da olacak."* Sebep: site zengin ve etkileşimli;
+> dakika birde açılan bir telefon, elli dakika boyunca rakibindir.
+> QR perdede **30 saniye** kalsın, sonra kaldır. Sunum fragmandır, site filmdir; sahnede site yalnız ÜÇ kısa an açılır (EK C).
 **Omurga bandı (her cep slaytının altında):** `ÜRET (kendin) • DOĞRULA (dışarıda) • BEYAN ET`
 **Sert kapılar:** dk 16 · dk 24 · dk 36 — kapı kaçarsa kırmızı rota (EK B).
 
@@ -135,6 +145,29 @@ SORUMLULUK DEVREDİLEMEZ.
 
 # B6 · KAPANIŞ (45:00–48:00)
 
+**SON KARE — ANKET QR'I (perdede sabit kalır, sunum bitene kadar inmez):**
+`senaryo/qr-anket.png` → kitabin-rihlesi/**anket/**
+Bu adres KALICIDIR: form bağlanmasa da çalışır, bağlanınca kendiliğinden
+yönlendirir. Yani QR bugün basılabilir.
+
+**KONUŞMA (anket için, ~40 sn):**
+> "Son bir ricam var. Perdedeki kareyi okutursanız iki dakikalık bir
+> değerlendirme çıkacak. Anonim — kimlik istemiyoruz. Ama bir sorusu var ki
+> asıl onun için soruyorum: **'neresi kapalı kaldı?'** İşe yarayan kısımları
+> zaten yüzünüzden anlıyorum; anlamadığınız yeri ancak siz yazarsanız
+> öğrenirim ve bir dahakine düzeltirim. Nazik olmaya çalışmayın, açık olun.
+> Sonunda isterseniz iletişim bırakabilirsiniz; istemezseniz anonim kalır ve
+> cevabınız yine tam sayılır."
+
+**NEDEN TEK QR:** kapanışta iki ayrı kare (anket + kayıt) göstermek salonun
+tarama enerjisini böler. Kayıt sorusu anketin SON maddesi olarak duruyor;
+böyle olunca hem anket cevap oranı korunuyor hem kayıt, anketin ivmesini
+kullanıyor. T-Corpus kaydının kendi QR'ı zaten B5.5'te, farklı bir anda.
+
+**ANKETİN ÖLÇTÜĞÜ ASIL ŞEY:** 2. ve 3. sorular kasten aynı ölçekte —
+"önce ne biliyordu" ile "şimdi ne yapabileceğini sanıyor" arasındaki FARK.
+Bu seminerin tek sayısal başarı ölçüsü budur; katılımcı sayısı değil.
+
 **PERDEDE (son kare, sabit):**
 ```
 ÜRET (kendin) • DOĞRULA (dışarıda) • BEYAN ET
@@ -180,7 +213,7 @@ Dijital İslami ilimler kuruluş aşamasında; en çok, İLAHİYAT BİLEN ele ih
 - [ ] "Mukabele" kelimesi B2'deki tanımından önce hiçbir slaytta geçmiyor
 - [ ] İbn Battûta adı yalnız CANLI AN 2'nin altyazısında, "örnek katman: seyahat verisi" ifadesiyle; vaka anlatısı YOK
 - [ ] Arapça metinler birebir; Amiri gömülü; RTL hizalı; telefon okunurluk testi
-- [ ] QR yalnız B0 ve B6'da; kapanış karesi QR ile sabit biter
+- [ ] QR üç yerde: B0 açılış (site) · B5.5 (T-Corpus) · B6 kapanış (ANKET); kapanış karesi anket QR'ıyla sabit biter
 - [ ] Sunum haftası: 101 bağlantı için "linkleri tazele" turu + üç canlı anın provası
 
 **Künye:** Gökalp & Çetinkaya (2026), *EICD-B*, Digital Scholarship in the Humanities, doi:10.1093/llc/fqag093 (açık erişim) · Belâzürî, Fütûhu'l-büldân, de Goeje neşri (Leiden 1866) · OpenITI 2025.1.9 · islamicatlas.org Seyahatnâme Katmanı v1.0.0 · Site: alicetinkaya76.github.io/kitabin-rihlesi

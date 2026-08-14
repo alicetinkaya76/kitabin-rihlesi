@@ -11,6 +11,7 @@ createServer(async (req, res) => {
   try {
     let p = decodeURIComponent(new URL(req.url, "http://x").pathname);
     if (p === "/") p = "/index.html";
+    if (p.endsWith("/")) p += "index.html";
     const file = normalize(join(ROOT, p));
     if (!file.startsWith(ROOT)) { res.writeHead(403); return res.end(); }
     const buf = await readFile(file);
