@@ -33,18 +33,45 @@ Form Google altyapısında çalıştığı için yanıtlar **yurt dışında** s
 bu KVKK m.9 anlamında yurt dışına aktarımdır ve **açık rıza** gerektirir.
 Betikteki `AYDINLATMA_METNI()` fonksiyonu şunları içerir: veri sorumlusu
 (TİMAV, adres, iletişim), işlenen veriler, amaç, hukuki sebep, aktarım,
-**saklama süresi (2 yıl — değiştirmek istersen betikten değiştir)** ve
-KVKK m.11 hakları.
+**saklama** ve KVKK m.11 hakları.
+
+Saklama, bilerek **sabit bir üst süreye bağlanmadı**: "irtibatımız sürdüğü
+sürece; dilediğiniz an silinir." KVKK m.10 aydınlatmada sabit süre şart
+koşmaz — sürenin ölçütünü bildirmek yeter. Sabit 2 yıl yazmak, yıllar sonra
+irtibatta olduğumuz bir araştırmacının kaydını hukuken tutamaz hâle
+getiriyordu.
 
 Metni TİMAV'ın kendi hukuk/yönetim onayından geçirmeden yayına alma.
 
-## Form hazır olduğunda sitede ne değişecek
-`index_template.html` içinde tek satır:
+## Bağlı adresler (14 Ağustos 2026 · sürüm 2, sıralı)
+| | doldurma | kısa |
+|---|---|---|
+| T-Corpus | `…1FAIpQLScFGgVVHJb…WESw/viewform` | forms.gle/isUF2YP5TeP6zu1r6 |
+| Anket | `…1FAIpQLSdZLfN1vmdX…L66A/viewform` | forms.gle/412BSJ5JXaFnoyqr5 |
 
-    const FORM_URL="";      →      const FORM_URL="https://forms.gle/…";
+Sürüm 1'de bütün sorular son bölüme yığılmıştı: `addPageBreakItem()` önce
+çağrıldığı için sonraki `addXxxItem()`'lar hep **en sona** ekleniyordu.
+Sürüm 2 soruları sırayla ekler, dallanmayı en sonda bağlar.
 
-Üç kapı otomatik olarak forma döner, "form açılmıyorsa e-posta" satırı
-belirir, kare kodlar forma bakacak şekilde yeniden üretilir.
+## Var olan formu değiştirmek — `guncelle.gs`
+Üretici betiği yeniden çalıştırmak **yeni adres** üretir; QR'lar ve sitedeki
+bağlantılar bozulur. Metin düzeltmesi için onun yerine `guncelle.gs`
+kullanılır: formları ID ile açar, yalnız ilgili yardım metnini değiştirir,
+adresler aynı kalır. Aynı Apps Script projesine eklenmeli — aydınlatma
+metinlerini iki üretici betikten okur.
+
+## Üst görsel (banner) — elle
+Apps Script form **temasına erişemez**; `FormApp`'te üst görsel metodu yoktur.
+Hazır görseller depoda:
+- `form/banner-tcorpus.png` (1600×400)
+- `form/banner-anket.png` (1600×400)
+
+Formu aç → sağ üstte 🎨 **Temayı özelleştir** → **Üstbilgi** → *Resim seç* →
+**Yükle** → dosyayı sürükle. Kırpma çerçevesi çıkarsa olduğu gibi bırak;
+görsel zaten 4:1 oranında üretildi. Renk paleti logodan alındı
+(lacivert #12427B, altın #B78F4C), o yüzden tema rengini de lacivert seç.
+
+Görselleri yeniden üretmek: `python3 form/banner_uret.py` (depo kökünden).
 
 ---
 
