@@ -76,6 +76,18 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .nedir .num{display:inline-block;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:.72rem;font-weight:800;text-align:center;line-height:22px;margin-right:8px;vertical-align:1px}
 .hemen{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:.84rem;font-weight:700;background:var(--korpus-soft);color:var(--korpus);border:1px solid color-mix(in srgb,var(--korpus) 35%,transparent);border-radius:999px;padding:9px 17px;text-decoration:none;margin-top:4px}
 .hemen:hover{background:var(--korpus);color:#fff}
+
+/* kare kodlar: kapakta (perdeye) ve kapanışta (ankete) */
+.qrkart{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;
+  width:100%;max-width:560px;margin:18px auto 0;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);text-align:left}
+.qrkart img{width:108px;height:108px;flex:none;border:1px solid var(--line);border-radius:10px;background:#fff}
+.qrkart .qm{flex:1;min-width:200px;font-family:var(--sans);font-size:.83rem;line-height:1.6;color:var(--muted)}
+.qrkart .qm b{color:var(--ink);display:block;font-size:.95rem;margin-bottom:3px}
+.qrkart .qm code{font-family:var(--mono);font-size:.78rem;background:var(--chip);border-radius:5px;padding:1px 6px}
+.qrkart.anket{border-color:var(--rubric);border-width:2px}
+.qrkart .qbtn{display:inline-block;margin-top:8px;background:var(--rubric);color:#fff;text-decoration:none;
+  font-weight:700;border-radius:999px;padding:9px 18px;font-size:.84rem}
 .cta{display:inline-block;font-family:var(--sans);font-weight:700;background:var(--rubric);color:#fff;border:none;border-radius:999px;padding:13px 26px;font-size:1rem;cursor:pointer;text-decoration:none;box-shadow:var(--shadow)}
 .cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
@@ -785,7 +797,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 @media(max-width:640px){.atolye{padding:16px 15px;border-radius:13px}.haftalar .fz span{display:none}}
 .nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
 
-<div class="enwip">This English edition is <b>a work in progress</b>: <b>46%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
+<div class="enwip">This English edition is <b>a work in progress</b>: <b>45%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">The Riḥla of a Book</a>
   <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">6 T-Corpus</a>
@@ -810,6 +822,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="btnrow">
     <a class="cta" href="#tanis">Baştan başla ↓</a>
     <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
+  </div>
+  <div class="qrkart">
+    <img src="senaryo/qr-acilis.png" alt="Bu sayfaya giden kare kod" width="640" height="640" loading="lazy">
+    <div class="qm"><b>Salona açtırmak için</b>Sunumu yapan: bu kareyi perdeye yansıtın; dinleyici telefonuyla okutup sayfayı açsın. Sözlü yedek adres: <code>kitabin-rihlesi</code><br><span style="font-size:.78rem">Projeksiyon boyunda basılmış hâli ve söylenecek cümle: <a href="sunum/">sunum sayfası</a></span></div>
   </div>
   <p class="sub" style="font-size:.82rem;margin-top:14px">Beş durak: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu</p>
   <div class="kimsin">
@@ -1404,7 +1420,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
       <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#tezgah">⚒ Full workbench</a>
       <a href="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#adab">⚖️ Ethics &amp; Disclosure</a>
     </div>
-    <div class="vfoot">101 resources · 100 verified one by one (6 Aug 2026) · whatever you type opens directly in the Library search</div>
+    <div class="vfoot">103 kaynak · tek tek denetlendi (14.08.2026) · yazdığın kelime doğrudan Kütüphane aramasında açılır</div>
   </div>
 </section>
 
@@ -1460,12 +1476,17 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" style="text-align:center;align-items:center;min-height:60vh">
   <h2 style="font-size:clamp(1.4rem,3.6vw,2rem)">Three verbs are enough</h2>
   <div class="fiil"><span>PRODUCE (yourself)</span><span>•</span><span>VERIFY (against the source)</span><span>•</span><span>DISCLOSE</span></div>
+  <div class="qrkart anket">
+    <img src="senaryo/qr-anket.png" alt="Değerlendirme anketine giden kare kod" width="640" height="640" loading="lazy">
+    <div class="qm"><b>Seminere katıldıysanız: iki dakika</b>Anket anonimdir. Bir sorusu için soruyoruz: <b style="display:inline">neresi kapalı kaldı?</b> İşe yarayan kısımları zaten yüzlerden okuyoruz; anlaşılmayan yeri ancak siz yazarsanız düzeltebiliriz. Sonunda isterseniz iletişim bırakabilirsiniz; istemezseniz anonim kalır.
+      <a class="qbtn" href="anket/">Değerlendirmeyi aç →</a></div>
+  </div>
   <p class="one" style="margin:0 auto">This field is still being founded — what it needs most is hands trained in the religious sciences.</p>
 </section>
 </main>
 
 <footer><div class="wrap">
-  Companion to the Riḥle 2026 seminar · Data: islamicatlas.org Travelogue Layer v1.0.0 · Texts: OpenITI 2025.1.9 (CC BY-NC-SA) · al-Balādhurī case: EICD-B, DSH 2026, doi:10.1093/llc/fqag093 · The 101 links in the Library were checked one by one on 6 Aug 2026; 100 were verified, and the single tool that was down that day (Voyant Tools) is flagged on its card.
+  Rıhle 2026 semineri eşlikçisi · Veri: islamicatlas.org Seyahatnâme Katmanı v1.0.0 · Metinler: OpenITI 2025.1.9 (CC BY-NC-SA) · Belâzürî vakası: EICD-B, DSH 2026, doi:10.1093/llc/fqag093 · Kütüphanedeki 103 bağlantı 14.08.2026'da tek tek yeniden denetlendi ve hepsi çalışıyor. Altısı otomatik isteklere kapalı (bot koruması); dördü gerçek tarayıcıda açılarak teyit edildi. Voyant Tools'un ana adresi 06.08'den beri kapalı olduğu için kart, çalışan aynasına yönlendirildi.
 </div></footer>
 <div class="narrator" id="narrator" role="status"></div>
 
@@ -1481,7 +1502,7 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* hero stats */
 (function(){
-  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["101","resources · 100 verified"],["10-20 hafta","ilk makale yolu"]]
+  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["103","kaynak · hepsi denetlendi"],["10-20 hafta","ilk makale yolu"]]
     .map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span></div>").join("");
 })();
 

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunum kareleri — Rıhle 2026</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{--ink:#1F2937;--paper:#FAF7F0;--rubric:#B91C1C;--line:#E5E7EB;--muted:#6B7280;--card:#fff;
+        --sans:ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif}
+  @media(prefers-color-scheme:dark){:root{--ink:#E8E6E3;--paper:#14161A;--line:#2A2E35;--muted:#9AA1AC;--card:#1B1E24}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);padding:20px}
+  .u{max-width:1100px;margin:0 auto}
+  h1{font-size:1.2rem;margin:0 0 4px}
+  .alt{color:var(--muted);font-size:.86rem;margin:0 0 18px;line-height:1.6}
+  .kare{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
+  .kare h2{font-size:1.02rem;margin:0 0 6px}
+  .an{display:inline-block;background:var(--ink);color:var(--paper);border-radius:999px;
+      padding:3px 12px;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+  .ic{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .ic img{width:min(320px,58vw);height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .soz{flex:1;min-width:260px}
+  .soz blockquote{margin:0;padding:12px 15px;background:var(--paper);border-left:4px solid var(--rubric);
+    border-radius:8px;font-size:.92rem;line-height:1.7}
+  .not{font-size:.8rem;color:var(--muted);margin-top:10px;line-height:1.6}
+  .adres{font-family:ui-monospace,monospace;font-size:.86rem;background:var(--paper);border:1px solid var(--line);
+    border-radius:7px;padding:3px 9px;display:inline-block;margin-top:6px}
+  .tam{position:fixed;inset:0;background:#fff;display:none;align-items:center;justify-content:center;z-index:99}
+  .tam img{width:min(88vh,88vw);height:auto}
+  .tam.on{display:flex}
+  button.bs{font:inherit;font-weight:700;background:var(--ink);color:var(--paper);border:none;
+    border-radius:999px;padding:9px 18px;cursor:pointer;margin-top:10px}
+  @media print{.alt,.not,button.bs{display:none}.kare{page-break-after:always;border:none}}
+</style>
+</head>
+<body>
+<div class="u">
+  <h1>Sunum kareleri — Rıhle 2026</h1>
+  <p class="alt">Bu sayfa yalnız sunumu yapan içindir. Kareye tıklayınca tam ekran açılır (projeksiyon için).
+     Ayrı slayt kullanıyorsanız kodları <code>senaryo/</code> klasöründen alın; ikisi de %30 hata düzeltmeli,
+     en az 8×8 cm basın.</p>
+
+  <div class="kare">
+    <span class="an">Açılış · dakika 0-1</span>
+    <h2>Siteyi salona açtırma</h2>
+    <div class="ic">
+      <img src="../senaryo/qr-acilis.png" alt="Siteye giden kare kod" data-tam>
+      <div class="soz">
+        <blockquote>“Şimdi okutun, sonra telefonu bırakın. Bu sayfayı üç anda birlikte açacağız;
+        şimdi gezerseniz beni kaybedersiniz. Adres kapanışta da olacak.”</blockquote>
+        <div class="adres">kitabin-rihlesi</div>
+        <p class="not">Kare perdede <b>30 saniye</b> kalsın, sonra kaldırın. Site zengin ve etkileşimli;
+        dakika birde açılan bir telefon elli dakika boyunca rakibinizdir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kare">
+    <span class="an">Kapanış · son kare</span>
+    <h2>Değerlendirme anketi</h2>
+    <div class="ic">
+      <img src="../senaryo/qr-anket.png" alt="Ankete giden kare kod" data-tam>
+      <div class="soz">
+        <blockquote>“Son bir ricam var. Perdedeki kareyi okutursanız iki dakikalık bir değerlendirme
+        çıkacak. Anonim. Ama bir sorusu için soruyorum: <b>neresi kapalı kaldı?</b> İşe yarayan
+        kısımları zaten yüzünüzden anlıyorum; anlamadığınız yeri ancak siz yazarsanız öğrenir ve
+        bir dahakine düzeltirim. Nazik olmaya çalışmayın, açık olun.”</blockquote>
+        <div class="adres">kitabin-rihlesi/anket/</div>
+        <p class="not">Bu kare sunum bitene kadar perdede kalsın. Adres kalıcıdır: form bağlanmasa da
+        çalışır, bağlanınca kendiliğinden yönlendirir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kare">
+    <span class="an">Orta · 43. dakika</span>
+    <h2>T-Corpus adresi</h2>
+    <div class="ic">
+      <img src="../senaryo/qr-tcorpus.png" alt="T-Corpus bölümüne giden kare kod" data-tam>
+      <div class="soz">
+        <blockquote>“Bu yöntemin Türkiye’de kurumsal bir karşılığı var. Kareyi okutursanız
+        üç kapı göreceksiniz; ortadaki asıl kapı: beşinci durakta indirdiğiniz planı gönderin.
+        Özgeçmiş istemiyoruz, soru cümlenizi istiyoruz.”</blockquote>
+        <div class="adres">kitabin-rihlesi/#tcorpus</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tam" id="tam"><img id="tamimg" alt=""></div>
+<script>
+  document.querySelectorAll("img[data-tam]").forEach(i=>i.addEventListener("click",()=>{
+    document.getElementById("tamimg").src=i.getAttribute("src");
+    document.getElementById("tamimg").alt=i.alt;
+    document.getElementById("tam").classList.add("on");
+  }));
+  document.getElementById("tam").addEventListener("click",e=>e.currentTarget.classList.remove("on"));
+  addEventListener("keydown",e=>{ if(e.key==="Escape") document.getElementById("tam").classList.remove("on"); });
+</script>
+</body>
+</html>

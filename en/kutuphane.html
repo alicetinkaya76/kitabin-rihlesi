@@ -323,7 +323,7 @@ hr.sep{border:none;border-top:1px solid var(--line);margin:26px 0}
 .krow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.74rem;color:var(--muted)}
 .krel{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:3px 10px;font-size:.74rem;font-weight:600}
 .krel:hover{background:var(--insan);color:#fff}
-.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
+.nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
 
 <div class="enwip">This English edition is <b>a work in progress</b>: <b>16%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#d1">Skip to content</a>
 <nav class="nav" aria-label="Duraklar"><div class="wrap"><a class="lang" href="/kitabin-rihlesi/kutuphane.html" hreflang="tr" data-lang="tr">TR</a>
@@ -1258,7 +1258,7 @@ $("#tz-dl-csv").addEventListener("click",()=>{
   const nAlet=Object.values(SITE.aletler).reduce((a,b)=>a+b.length,0);
   let nTot=0; for(const arr of Object.values(SITE.shelves)) nTot+=arr.length; nTot+=nAlet;
   const nVeri=(SITE.shelves.veri_setleri||[]).length;
-  $("#libstats").innerHTML=[[nTot,"resources · 100 verified"],[nVeri,"the dataset"],[nAlet,"alet"],[nDergi,"dergi"],["06.08.2026","son doğrulama"]]
+  $("#libstats").innerHTML=[[nTot,"kaynak · tek tek denetlendi"],[nVeri,"the dataset"],[nAlet,"alet"],[nDergi,"dergi"],["06.08.2026","son doğrulama"]]
     .map(r=>'<div class="st"><span class="n">'+r[0]+'</span><span class="l">'+r[1]+'</span></div>').join("");
   /* raf haritası */
   const MAPS=[
