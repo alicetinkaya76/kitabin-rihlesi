@@ -55,7 +55,9 @@ function formuKur() {
   /* ---------- 2. SAYFA: soru ve plan ---------- */
   var sPlan = f.addPageBreakItem().setTitle('Sorun ve planın')
     .setHelpText('Bu sayfa Kapı 2 ve Kapı 3 içindir. Alanları, sitedeki 5. durakta ' +
-                 'indirdiğiniz tek sayfalık plandan doğrudan kopyalayabilirsiniz.');
+                 'indirdiğiniz tek sayfalık plandan doğrudan kopyalayabilirsiniz.\n\n' +
+                 'Planınız yoksa 5 dakikada üretebilirsiniz — 5. durak, "Planını indir":\n' +
+                 'https://alicetinkaya76.github.io/kitabin-rihlesi/#ilham');
 
   f.addParagraphTextItem().setTitle('Soru cümleniz').setRequired(true)
    .setHelpText('Tek cümle. ör. "Fütûh\'un üç bölgesinde yerleşim kayıtları, bölgeden bölgeye nasıl değişiyor?"');
@@ -119,7 +121,8 @@ function AYDINLATMA_METNI() {
 '',
 'YURT DIŞINA AKTARIM: Bu form Google altyapısında çalışır; yanıtlar yurt',
 'dışındaki sunucularda saklanır (KVKK m.9). Üçüncü kişilerle paylaşılmaz.',
-'SAKLAMA: En çok 2 yıl; talebiniz üzerine derhal silinir.',
+'SAKLAMA: Sabit bir üst süre yoktur — irtibatımız sürdüğü sürece saklanır;',
+'dilediğiniz an silinmesini isteyebilirsiniz, talebiniz üzerine derhal silinir.',
 '',
 'Veri sorumlusu Türkiye İmam Hatipliler Vakfı’dır (TİMAV).',
 'AYRINTILI AYDINLATMA METNİ: https://timav.org.tr/kvkk',
