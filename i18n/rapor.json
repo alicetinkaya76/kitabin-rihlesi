@@ -1,10 +1,10 @@
 {
  "index.html": {
-  "toplam_tekil": 3600,
-  "kalan": 1988,
+  "toplam_tekil": 3598,
+  "kalan": 1987,
   "kapsam_%": 44.8,
   "degistirilen": {
-   "metin": 643,
+   "metin": 642,
    "oznitelik": 24,
    "js": 990
   },

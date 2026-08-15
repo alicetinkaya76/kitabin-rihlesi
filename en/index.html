@@ -72,11 +72,18 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 /* açılış: terimsiz üç cümle */
 .nebu{width:100%;max-width:700px;margin:20px auto 4px;text-align:left;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--rubric);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow);font-family:var(--sans)}
 .nebu>b{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rubric);display:block;margin-bottom:6px}
-.nebu p{margin:0 0 9px;font-size:.95rem;line-height:1.62}
+.nebu p{margin:0 0 10px;font-size:.95rem;line-height:1.62}
+.nebu .lede{font-size:1.01rem;line-height:1.7}
+.nebu .lede i{font-style:italic;color:var(--rubric)}
 .nebu p:last-child{margin:0}
 .nebu .degil{background:var(--chip);border-radius:9px;padding:9px 12px;font-size:.87rem;color:var(--muted)}
 .nebu .degil b{color:var(--ink)}
-.nebu .ozgun{font-size:.82rem;color:var(--muted);line-height:1.6;border-top:1px dashed var(--line);padding-top:9px;margin-top:10px}
+.nebu .ozgun{border-top:1px dashed var(--line);padding-top:9px;margin-top:11px}
+.nebu .ozgun>summary{cursor:pointer;font-size:.84rem;font-weight:700;color:var(--rubric);list-style:none}
+.nebu .ozgun>summary::-webkit-details-marker{display:none}
+.nebu .ozgun>summary::after{content:" ▾";font-weight:400}
+.nebu .ozgun[open]>summary::after{content:" ▴"}
+.nebu .ozgun p{font-size:.84rem;color:var(--muted);line-height:1.64;margin:8px 0 0}
 .sunucu{max-width:700px;margin:16px auto 0;text-align:left;font-family:var(--sans)}
 .sunucu>summary{cursor:pointer;font-size:.82rem;color:var(--muted);list-style:none;padding:7px 12px;border:1px dashed var(--line);border-radius:999px;display:inline-block}
 .sunucu>summary::-webkit-details-marker{display:none}
@@ -826,23 +833,24 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="sub">Raftaki kitaptan hakemli makaleye.</p>
 
   <div class="nebu">
-    <b>Önce: bu sayfa nedir?</b>
-    <p>Rıhle 2026'daki <b>50 dakikalık sunumun kendisidir</b> — slayt yok, konuşma bu sayfa üzerinden yapılıyor. Salonda değilseniz de aynı yolu kendi hızınızda yürüyebilirsiniz; sunumdan sonra da açık kalacak. Sonunda elinizde, danışmanınıza götürebileceğiniz <b>bir sayfalık araştırma planı</b> olur.</p>
-    <p class="degil"><b>Ne değil:</b> uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üye olmak, program kurmak, kod yazmak gerekmez. Hiçbir bilginizi toplamaz.</p>
-    <p style="margin-top:9px">Beş durak var ama <b>hepsini gezmek şart değil.</b> Aşağıdaki iki düğmeden biri size yeter; hangisini seçeceğinizi bilmiyorsanız <b>ilkinden</b> başlayın.</p>
-    <p class="ozgun"><b>«Yazılımı özgün mü, yabancı benzeri var mı?»</b> — Yöntem bize ait değil: dünyada yerleşik bir alanın (dijital beşerî bilimler) yöntemi, biz onu İslami ilimlere uyguluyoruz. Kullandığımız aletlerin neredeyse hepsi başkalarının açık aletleri ve <b>hiçbiri saklı değil</b> — 103'ünü adıyla, bağlantısıyla <a href="kutuphane.html">Kütüphane</a>'de listeledik. Bu sayfanın kendisi bu sunum için yazıldı.</p>
+    <b>Bu sayfa nedir?</b>
+    <p class="lede">Rıhle 2026'da yapılacak <b>elli dakikalık sunumun kendisidir</b>. Slayt yoktur; konuşma bu sayfanın üzerinde yürür. Sebebi şu: anlatılan şey bir bilgi değil, bir <i>yol</i>dur — ve yol ancak yürünerek gösterilir. Salonda değilseniz kaybınız yok; aynı yol kendi hızınızda yürünür ve sunumdan sonra da açık kalır. Sonunda elinizde bir sayfa olur: danışmanınızın karşısına eli boş oturmamanız için.</p>
+    <p class="degil"><b>Ne değil</b> — uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üyelik yok, kurulum yok, kod yok; bu sayfa sizden hiçbir bilgi toplamaz. Buradan bir aletle değil, <b>bir soru cümlesi</b> ve onu taşıyacak bir planla çıkarsınız.</p>
+    <p>Beş durak var, hepsini gezmek şart değil. Rıhle de öyleydi zaten: kimse bütün şehirleri dolaşmadı, herkes kendi hocasına giden yolu yürüdü. Aşağıdaki iki düğmeden biri size yeter — hangisi olduğunu bilmiyorsanız <b>ilkinden</b> başlayın.</p>
+    <details class="ozgun"><summary>«Yazılımı özgün mü, yabancıda benzeri var mı?»</summary>
+    <p>Bu soru bize soruldu; cevabı açık. Yöntem bize ait değil: dijital beşerî bilimler dünyada yerleşik bir alan, biz onu İslami ilimlerin malzemesine uyguluyoruz. Kullandığımız aletlerin neredeyse hepsi başkalarının açık aletleri — ve hiçbiri saklı değil; 103'ünü adıyla, bağlantısıyla <a href="kutuphane.html">Kütüphane</a>'ye koyduk. Özgün olan alet değil, onu bu malzemeye ve bu soruya bağlayan yoldur. Sayfanın kendisi de bu sunum için yazıldı.</p></details>
   </div>
 
+  <div class="btnrow">
+    <a class="cta" href="#tanis">Baştan başla — 30 dakika ↓</a>
+    <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
+  </div>
   <div class="nedir">
     <p><span class="num">1</span>Elinizde bir kitap var — diyelim bin yıllık bir tarih kitabı. Onu baştan sona okumak aylar sürer.</p>
     <p><span class="num">2</span>Bilgisayar o kitabı okuyamaz, ama içindeki bilgiyi <i>sayılabilir</i> hâle getirmenize yardım edebilir: hangi şehir, hangi yılda, nasıl alınmış — hepsi bir tabloya. Sonra siz o tabloyu sayar, haritalar, karşılaştırırsınız.</p>
     <p><span class="num">3</span>Bu sayfa, o işi baştan sona bir kere yaptırıyor. Sonunda elinizde danışmanınıza götürebileceğiniz bir araştırma planı oluyor. <b>Kod yazmanız gerekmiyor.</b></p>
   </div>
   <div class="stats" id="hstats"></div>
-  <div class="btnrow">
-    <a class="cta" href="#tanis">Baştan başla — 30 dakika ↓</a>
-    <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
-  </div>
   <details class="sunucu"><summary>🎤 Sunumu siz mi yapıyorsunuz? — dinleyicinin kendi telefonunda açması için kare kod</summary>
   <div class="qrkart">
     <img src="senaryo/qr-acilis.png" alt="Bu sayfaya giden kare kod" width="640" height="640" loading="lazy">
@@ -852,7 +860,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="sub" style="font-size:.82rem;margin-top:14px">Beş durak: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu</p>
   <div class="kimsin">
     <b>First, a question for you</b>
-    <div class="alt">There are five stops on this page; you do not have to visit them all. Tell us who you are and we will mark the route that suits you.</div>
+    <div class="alt">Kim olduğunuzu söyleyin, beş durak içinden size uygun rotayı işaretleyelim.</div>
     <div class="kimsec" id="kimsec">
       <button data-k="0" aria-pressed="false">🎓 I’m an undergraduate<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">Curious — could this help with a term paper?</span></button>
       <button data-k="1" aria-pressed="false">📚 Thesis / graduate work<br><span style="font-weight:400;color:var(--muted);font-size:.78rem">I want to apply this to serious research</span></button>
