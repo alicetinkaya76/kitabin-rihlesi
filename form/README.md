@@ -68,7 +68,13 @@ Hazır görseller depoda:
 
 Formu aç → sağ üstte 🎨 **Temayı özelleştir** → **Üstbilgi** → *Resim seç* →
 **Yükle** → dosyayı sürükle. Kırpma çerçevesi çıkarsa olduğu gibi bırak;
-görsel zaten 4:1 oranında üretildi. Renk paleti logodan alındı
+görsel zaten 4:1 oranında üretildi.
+
+**Punto neden büyük:** banner 1600 px üretiliyor ama telefonda ~340 px'e
+düşüyor — 4,7 kat. İlk sürümdeki 26/30 punto satırlar telefonda 6 px'e inip
+okunmaz oldu. Şimdiki 38/58/44 punto, telefonda 8/12/9 px eder. Bannerı
+değiştirirsen `form/banner_uret.py` çıktısını 340 px'e küçültüp bak —
+okunmuyorsa punto küçüktür. Renk paleti logodan alındı
 (lacivert #12427B, altın #B78F4C), o yüzden tema rengini de lacivert seç.
 
 Görselleri yeniden üretmek: `python3 form/banner_uret.py` (depo kökünden).

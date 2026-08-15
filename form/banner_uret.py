@@ -23,7 +23,7 @@ def f(indeks, boy):
 def genislik(d, metin, font):
     return d.textbbox((0, 0), metin, font=font)[2]
 
-def banner(cikti, ust, alt, etiket, panel=640):
+def banner(cikti, ust, alt, etiket, panel=560):
     im = Image.new("RGB", (W, H), LACI)
     d = ImageDraw.Draw(im)
 
@@ -37,31 +37,31 @@ def banner(cikti, ust, alt, etiket, panel=640):
     d.rectangle([0, 0, panel, H], fill=(255, 255, 255))
     d.rectangle([panel, 0, panel + 6, H], fill=ALTIN)
     lg = Image.open(LOGO).convert("RGBA")
-    hedef = panel - 96
+    hedef = panel - 80
     lg = lg.resize((hedef, round(lg.height * hedef / lg.width)), Image.LANCZOS)
     im.paste(lg, ((panel - lg.width) // 2, (H - lg.height) // 2), lg)
 
     # sağ metin bloğu
     x0 = panel + 64
-    fe = f(0, 26)      # etiket
-    d.text((x0, 96), etiket.upper(), font=fe, fill=ALTIN)
+    fe = f(1, 38)      # etiket — telefonda ~8 px eder
+    d.text((x0, 84), etiket.upper(), font=fe, fill=ALTIN)
 
     boy = 58
     fu = f(1, boy)
     while genislik(d, ust, fu) > W - x0 - 64 and boy > 30:
         boy -= 2
         fu = f(1, boy)
-    d.text((x0, 140), ust, font=fu, fill=(255, 255, 255))
+    d.text((x0, 138), ust, font=fu, fill=(255, 255, 255))
 
-    y = 140 + boy + 22
+    y = 138 + boy + 20
     d.rectangle([x0, y, x0 + 96, y + 4], fill=ALTIN)
 
-    boy2 = 30
+    boy2 = 44
     fa = f(7, boy2)
-    while genislik(d, alt, fa) > W - x0 - 64 and boy2 > 18:
+    while genislik(d, alt, fa) > W - x0 - 64 and boy2 > 34:
         boy2 -= 1
         fa = f(7, boy2)
-    d.text((x0, y + 24), alt, font=fa, fill=(206, 220, 238))
+    d.text((x0, y + 26), alt, font=fa, fill=(206, 220, 238))
 
     im.save(cikti, "PNG", optimize=True)
     print(cikti, im.size, str(os.path.getsize(cikti) // 1024) + " KB")
@@ -73,5 +73,5 @@ if __name__ == "__main__":
            "T-Corpus")
     banner(os.path.join(KOK, "form", "banner-anket.png"),
            "Sunum değerlendirmesi",
-           "Dijital İslami İlimler ve Yapay Zekâ · Yöntem ve Uygulamalar",
+           "Dijital İslami İlimler ve Yapay Zekâ",
            "Rıhle 2026")
