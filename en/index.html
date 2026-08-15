@@ -70,6 +70,17 @@ h1,h2{line-height:1.12;text-wrap:balance;margin:0}
 .hero .stats span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* açılış: terimsiz üç cümle */
+.nebu{width:100%;max-width:700px;margin:20px auto 4px;text-align:left;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--rubric);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow);font-family:var(--sans)}
+.nebu>b{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rubric);display:block;margin-bottom:6px}
+.nebu p{margin:0 0 9px;font-size:.95rem;line-height:1.62}
+.nebu p:last-child{margin:0}
+.nebu .degil{background:var(--chip);border-radius:9px;padding:9px 12px;font-size:.87rem;color:var(--muted)}
+.nebu .degil b{color:var(--ink)}
+.nebu .ozgun{font-size:.82rem;color:var(--muted);line-height:1.6;border-top:1px dashed var(--line);padding-top:9px;margin-top:10px}
+.sunucu{max-width:700px;margin:16px auto 0;text-align:left;font-family:var(--sans)}
+.sunucu>summary{cursor:pointer;font-size:.82rem;color:var(--muted);list-style:none;padding:7px 12px;border:1px dashed var(--line);border-radius:999px;display:inline-block}
+.sunucu>summary::-webkit-details-marker{display:none}
+.sunucu[open]>summary{margin-bottom:10px}
 .nedir{max-width:640px;margin:14px auto 0;font-family:var(--serif);font-size:clamp(1.02rem,2.5vw,1.16rem);line-height:1.75;text-align:left}
 .nedir p{margin:0 0 9px}
 .nedir p:last-child{margin:0}
@@ -813,6 +824,15 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="kicker">Riḥle 2026 · Digital Islamic Studies and Artificial Intelligence</div>
   <h1>The Riḥla of a Book</h1>
   <p class="sub">Raftaki kitaptan hakemli makaleye.</p>
+
+  <div class="nebu">
+    <b>Önce: bu sayfa nedir?</b>
+    <p>Rıhle 2026'da yapılacak <b>50 dakikalık bir sunumun eşlikçi sayfasıdır</b>. Sunumu izlemediyseniz de tek başına yürünür — sonunda elinizde, danışmanınıza götürebileceğiniz <b>bir sayfalık araştırma planı</b> olur.</p>
+    <p class="degil"><b>Ne değil:</b> uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üye olmak, program kurmak, kod yazmak gerekmez. Hiçbir bilginizi toplamaz.</p>
+    <p style="margin-top:9px">Beş durak var ama <b>hepsini gezmek şart değil.</b> Aşağıdaki iki düğmeden biri size yeter; hangisini seçeceğinizi bilmiyorsanız <b>ilkinden</b> başlayın.</p>
+    <p class="ozgun"><b>«Yazılımı özgün mü, yabancı benzeri var mı?»</b> — Yöntem bize ait değil: dünyada yerleşik bir alanın (dijital beşerî bilimler) yöntemi, biz onu İslami ilimlere uyguluyoruz. Kullandığımız aletlerin neredeyse hepsi başkalarının açık aletleri ve <b>hiçbiri saklı değil</b> — 103'ünü adıyla, bağlantısıyla <a href="kutuphane.html">Kütüphane</a>'de listeledik. Bu sayfanın kendisi bu sunum için yazıldı.</p>
+  </div>
+
   <div class="nedir">
     <p><span class="num">1</span>Elinizde bir kitap var — diyelim bin yıllık bir tarih kitabı. Onu baştan sona okumak aylar sürer.</p>
     <p><span class="num">2</span>Bilgisayar o kitabı okuyamaz, ama içindeki bilgiyi <i>sayılabilir</i> hâle getirmenize yardım edebilir: hangi şehir, hangi yılda, nasıl alınmış — hepsi bir tabloya. Sonra siz o tabloyu sayar, haritalar, karşılaştırırsınız.</p>
@@ -820,13 +840,15 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div class="stats" id="hstats"></div>
   <div class="btnrow">
-    <a class="cta" href="#tanis">Baştan başla ↓</a>
+    <a class="cta" href="#tanis">Baştan başla — 30 dakika ↓</a>
     <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
   </div>
+  <details class="sunucu"><summary>🎤 Sunumu siz mi yapıyorsunuz? — salona açtıracağınız kare kod</summary>
   <div class="qrkart">
     <img src="senaryo/qr-acilis.png" alt="Bu sayfaya giden kare kod" width="640" height="640" loading="lazy">
     <div class="qm"><b>Salona açtırmak için</b>Sunumu yapan: bu kareyi perdeye yansıtın; dinleyici telefonuyla okutup sayfayı açsın. Sözlü yedek adres: <code>kitabin-rihlesi</code><br><span style="font-size:.78rem">Projeksiyon boyunda basılmış hâli ve söylenecek cümle: <a href="sunum/">sunum sayfası</a></span></div>
   </div>
+  </details>
   <p class="sub" style="font-size:.82rem;margin-top:14px">Beş durak: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu</p>
   <div class="kimsin">
     <b>First, a question for you</b>
