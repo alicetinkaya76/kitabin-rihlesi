@@ -6,7 +6,7 @@
 **Program:** Rıhle 2026 · **Süre:** 50 dk (içerik hedefi 47:30; erken bitirmek kusur değil, nezakettir)
 **Format:** İzleyici formatı — etkileşim yok; kayıt YouTube'da yayımlanır; bütün ekranlar statik görsel; perdedeki her şey Türkçedir.
 **v1'den fark:** Omurga değişti. v1'in LLM tarih hattı (Harezmî→Descartes→Turing) tek geçiş cümlesine indi; yeni omurga **bir kitabın yolculuğu**: rafta duran kitap → korpusta metin → yapılandırılmış veri → araştırma sorusu → makale → yayın. İki yarım vaka: **Belâzürî = yayımlanmış ispat** (kısa), **İbn Battûta = sizin yapacağınız** (uzun). Program adıyla üçlü tevriye omurganın kendisi: *Rıhle programında, İbn Battûta'nın Rihle'siyle, kitabın rıhlesini izliyoruz.*
-**Eşlikçi:** Sunuma özel web sitesi (QR ile). Sunum anlatır; site dokundurur ve arşivler. Perdede ne varsa sitede fazlası var — bu cümle sunumda iki kez kurulur (B0 ve B6).
+**Sunum ortamı:** Sunuma özel web sitesi (QR ile). Sunum anlatır; site dokundurur ve arşivler. Perdede ne varsa sitede fazlası var — bu cümle sunumda iki kez kurulur (B0 ve B6).
 **Omurga bandı (her cep slaytının altında):** `ÜRET (kendin) • DOĞRULA (dışarıda) • BEYAN ET`
 **Sert kapılar:** dk 16 · dk 28 · dk 45 — kapı kaçarsa kırmızı rota (sonda).
 

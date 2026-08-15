@@ -9,6 +9,10 @@
  *   1. T-Corpus formunun 2. sayfasına 5. durak (Planını indir) bağlantısını ekler.
  *   2. Her iki formdaki aydınlatma metnini yeniler (SAKLAMA maddesi:
  *      sabit 2 yıl yerine ölçüte bağlı ifade).
+ *   3. Anketin 6. sorusunu düzeltir. Sunum SİTENİN KENDİSİ üzerinden
+ *      yapılıyor; "eşlikçi siteyi açtınız mı" sorusu anlamsızdı, çünkü
+ *      herkes onu perdede gördü. Sorulan artık: kendi cihazında da açtı mı.
+ *   4. Anketin teşekkür mesajındaki "eşlikçi site" ifadesini düzeltir.
  *
  * KULLANIM
  *   Tek başına çalışır — hiçbir dosyaya bağımlı değildir. Apps Script
@@ -78,6 +82,17 @@ function AYDINLATMA_ANKET_() {
   ].join('\n');
 }
 
+var S6_BASLIK = '6. Sunum sayfasını kendi telefonunuzda ya da bilgisayarınızda da açtınız mı?';
+var S6_YARDIM = 'Perdede zaten gördünüz; sorduğumuz, kendi cihazınızda açıp açmadığınız.';
+var S6_SECENEK = ['Evet, sunum sırasında kendi cihazımda da açtım',
+                  'Evet, sunumdan sonra kendim gezdim',
+                  'Henüz açmadım ama açacağım',
+                  'Hayır, perdede izlemek yetti'];
+var ONAY_MESAJI = 'Teşekkür ederiz — cevabınız kaydedildi.\n\n' +
+                  'Sunumun yapıldığı sayfa açık kalmaya devam ediyor; kendi hızınızda\n' +
+                  'yeniden gezebilirsiniz:\n' +
+                  'alicetinkaya76.github.io/kitabin-rihlesi';
+
 function guncelle() {
   var n = 0;
 
@@ -90,9 +105,13 @@ function guncelle() {
   n += yaz_(an, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma ve açık rıza',
             AYDINLATMA_ANKET_());
 
-  Logger.log('Güncellenen bölüm sayısı: ' + n + ' / 3');
-  if (n < 3) {
-    Logger.log('UYARI: beklenen 3 bölümün hepsi bulunamadı — başlıklar elle ' +
+  n += soru6_(an);
+  an.setConfirmationMessage(ONAY_MESAJI);
+  Logger.log('✓ teşekkür mesajı yenilendi');
+
+  Logger.log('Güncellenen bölüm sayısı: ' + n + ' / 4');
+  if (n < 4) {
+    Logger.log('UYARI: beklenen 4 bölümün hepsi bulunamadı — başlıklar elle ' +
                'değiştirilmiş olabilir. Aşağıdaki dökümü kontrol edin.');
     dokum_(tc, 'T-CORPUS');
     dokum_(an, 'ANKET');
@@ -118,6 +137,22 @@ function yaz_(form, tip, baslik, metin) {
     }
   }
   Logger.log('✗ bulunamadı: ' + baslik);
+  return 0;
+}
+
+/** Anketin 6. sorusunu yeniden başlıklandırır. Başlığın "6." ile
+    başlamasına bakar; ikinci kez çalıştırılırsa da doğru öğeyi bulur. */
+function soru6_(form) {
+  var ogeler = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
+  for (var i = 0; i < ogeler.length; i++) {
+    if (ogeler[i].getTitle().indexOf('6.') === 0) {
+      ogeler[i].asMultipleChoiceItem()
+        .setTitle(S6_BASLIK).setHelpText(S6_YARDIM).setChoiceValues(S6_SECENEK);
+      Logger.log('✓ güncellendi: anket 6. soru');
+      return 1;
+    }
+  }
+  Logger.log('✗ bulunamadı: anket 6. soru');
   return 0;
 }
 

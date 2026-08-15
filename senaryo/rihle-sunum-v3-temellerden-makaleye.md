@@ -4,7 +4,7 @@
 **Program:** Rıhle 2026 · **Süre:** 50 dk (içerik hedefi 48:00; erken bitirmek kusur değil, nezakettir)
 **Format:** İzleyici formatı; kayıt YouTube'a girer; bütün ekranlar statik görsel (üç kısa canlı an hariç); perdedeki her şey Türkçedir.
 **v2'den fark (Hüseyin hoca geri bildirimi):** (1) Akış kavram-önce kuruldu: *DH nedir → temel kavramlar → araştırmacı nasıl çalışır → makinenin içi → canlı ispat → makale yolu.* (2) **Merkez vaka baştan sona Belâzürî/EICD-B;** İbn Battûta yalnız CBS kavramının "örnek katmanı" olarak 30 saniye görünür, vaka olarak anlatılmaz. (3) Dil sadeleşti: her teknik/kadim terim ilk geçtiği yerde tek cümleyle tanıtılır; "mukabele" kelimesi tanımından önce kullanılmaz. (4) Sunum ile site (v4.0) aynı 5 duraklı omurgayı paylaşır — izleyici sunumda kaçırdığını sitede aynı sırayla bulur; "kaçırdım" hissi tasarımla kapatılmıştır.
-**Eşlikçi site:** alicetinkaya76.github.io/kitabin-rihlesi
+**Sunum sayfası (sunum bunun üzerinden yapılır):** alicetinkaya76.github.io/kitabin-rihlesi
 (**açılış QR'ı: `senaryo/qr-acilis.png`** — sürüm 6, %30 hata düzeltmeli; projeksiyonda
 en az 8×8 cm bas, arka sıradan okunur. Eski `qr-deneyim.png` bunun düşük hata
 düzeltmeli hâliydi, kullanma.)

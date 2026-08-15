@@ -25,7 +25,8 @@ function anketiKur() {
   f.setProgressBar(true);
   f.setConfirmationMessage(
     'Teşekkür ederiz — cevabınız kaydedildi.\n\n' +
-    'Seminerin eşlikçi sitesi açık kalmaya devam ediyor:\n' +
+    'Sunumun yapıldığı sayfa açık kalmaya devam ediyor; kendi hızınızda\n' +
+    'yeniden gezebilirsiniz:\n' +
     'alicetinkaya76.github.io/kitabin-rihlesi'
   );
 
@@ -56,9 +57,14 @@ function anketiKur() {
                 'değiştirecek — lütfen nazik olmaya çalışmayın, açık olun.')
    .setRequired(true);
 
-  f.addMultipleChoiceItem().setTitle('6. Eşlikçi siteyi (kitabin-rihlesi) açtınız mı?')
-   .setChoiceValues(['Evet, seminer sırasında açtım','Evet, kendim gezdim',
-                     'Henüz açmadım ama açacağım','Hayır, açmayı düşünmüyorum']);
+  /* Sunum bu sayfa üzerinden yapıldığı için herkes onu PERDEDE gördü.
+     Ölçmek istediğimiz, kendi cihazında da açıp açmadığı. */
+  f.addMultipleChoiceItem().setTitle('6. Sunum sayfasını kendi telefonunuzda ya da bilgisayarınızda da açtınız mı?')
+   .setHelpText('Perdede zaten gördünüz; sorduğumuz, kendi cihazınızda açıp açmadığınız.')
+   .setChoiceValues(['Evet, sunum sırasında kendi cihazımda da açtım',
+                     'Evet, sunumdan sonra kendim gezdim',
+                     'Henüz açmadım ama açacağım',
+                     'Hayır, perdede izlemek yetti']);
 
   f.addScaleItem().setTitle('7. Bu semineri alanındaki bir arkadaşınıza tavsiye eder misiniz?')
    .setBounds(1,5).setLabels('Kesinlikle hayır','Kesinlikle evet');
