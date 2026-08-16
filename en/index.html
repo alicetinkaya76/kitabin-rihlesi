@@ -10,7 +10,7 @@
   --paper:#FAF7F0; --card:#FFFFFF; --ink:#1F2937; --muted:#6B7280; --line:#E5E7EB;
   --korpus:#1E7A46; --model:#B45309; --insan:#1D4ED8; --rubric:#B91C1C;
   --korpus-soft:#E7F2EB; --model-soft:#F7EDE2; --insan-soft:#E8EDFB; --rubric-soft:#F8E9E7;
-  --chip:#F1EEE6; --code-bg:#F4F1EA; --shadow:0 1px 2px rgba(31,41,55,.06),0 10px 30px -14px rgba(31,41,55,.22);
+  --chip:#F1EEE6; --band:#F4F0E5; --code-bg:#F4F1EA; --shadow:0 1px 2px rgba(31,41,55,.06),0 10px 30px -14px rgba(31,41,55,.22);
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -20,16 +20,16 @@
   :root{ --paper:#15171C; --card:#1D2026; --ink:#EAE5D9; --muted:#9CA3AF; --line:#2E323A;
   --korpus:#4CAF7A; --model:#DE8B33; --insan:#8AA6F5; --rubric:#E06B5F;
   --korpus-soft:#1C2B22; --model-soft:#2C231A; --insan-soft:#1D2333; --rubric-soft:#2E1D1B;
-  --chip:#262A31; --code-bg:#181B20; --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px -16px rgba(0,0,0,.65); }
+  --chip:#262A31; --band:#191C23; --code-bg:#181B20; --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px -16px rgba(0,0,0,.65); }
 }
 :root[data-theme="light"]{ --paper:#FAF7F0; --card:#FFFFFF; --ink:#1F2937; --muted:#6B7280; --line:#E5E7EB;
   --korpus:#1E7A46; --model:#B45309; --insan:#1D4ED8; --rubric:#B91C1C;
   --korpus-soft:#E7F2EB; --model-soft:#F7EDE2; --insan-soft:#E8EDFB; --rubric-soft:#F8E9E7;
-  --chip:#F1EEE6; --code-bg:#F4F1EA; --shadow:0 1px 2px rgba(31,41,55,.06),0 10px 30px -14px rgba(31,41,55,.22); }
+  --chip:#F1EEE6; --band:#F4F0E5; --code-bg:#F4F1EA; --shadow:0 1px 2px rgba(31,41,55,.06),0 10px 30px -14px rgba(31,41,55,.22); }
 :root[data-theme="dark"]{ --paper:#15171C; --card:#1D2026; --ink:#EAE5D9; --muted:#9CA3AF; --line:#2E323A;
   --korpus:#4CAF7A; --model:#DE8B33; --insan:#8AA6F5; --rubric:#E06B5F;
   --korpus-soft:#1C2B22; --model-soft:#2C231A; --insan-soft:#1D2333; --rubric-soft:#2E1D1B;
-  --chip:#262A31; --code-bg:#181B20; --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px -16px rgba(0,0,0,.65); }
+  --chip:#262A31; --band:#191C23; --code-bg:#181B20; --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px -16px rgba(0,0,0,.65); }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -49,6 +49,15 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .nav .brand{font-weight:800;color:var(--rubric)}
 .nav .lib{margin-left:auto;background:var(--ink);color:var(--paper);font-weight:600}
 /* scenes */
+/* ---- BÖLÜM BANTLARI ----------------------------------------------------
+   Duraklar arka plan tonuyla ayrılır: kaydırırken "yeni bölüm" hissedilir.
+   Tam genişlik, yapı bozulmadan — sözde öğe pencere genişliğine açılır;
+   html{overflow-x:clip} yatay kaymayı zaten kesiyor. Bant durak GRUBUNA
+   göre verilir (Temeller'in üç sahnesi tek bant), böylece renk değişimi
+   bölüm sınırıyla çakışır.                                               */
+.scene.band{position:relative}
+.scene.band::before{content:"";position:absolute;inset:0 calc(50% - 50vw);
+  background:var(--band);z-index:-1;pointer-events:none}
 .scene{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:64px 0}
 .scene .kicker{display:inline-block;font-family:var(--sans);font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800;margin-bottom:14px;background:var(--rubric-soft);border:1px solid color-mix(in srgb,var(--rubric) 30%,transparent);border-radius:999px;padding:8px 18px}
 .scene h2{font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:650;margin-bottom:10px}
@@ -820,7 +829,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <div class="enwip">This English edition is <b>a work in progress</b>: <b>45%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">The Riḥla of a Book</a>
-  <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">6 T-Corpus</a>
+  <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">Kapanış · T-Corpus</a>
   <a class="tp-open-btn" href="#" role="button">📖 Terms</a><a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html">📚 Library</a><a class="lang" href="/kitabin-rihlesi/index.html" hreflang="tr" data-lang="tr">TR</a>
 </div></nav>
 
@@ -838,14 +847,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <b>Bu sayfa nedir?</b>
     <p class="lede">Rıhle 2026'da yapılacak <b>elli dakikalık sunumun kendisidir</b>. Slayt yoktur; konuşma bu sayfanın üzerinde yürür. Sebebi şu: anlatılan şey bir bilgi değil, bir <i>yol</i>dur — ve yol ancak yürünerek gösterilir. Salonda değilseniz kaybınız yok; aynı yol kendi hızınızda yürünür ve sunumdan sonra da açık kalır. Sonunda elinizde bir sayfa olur: danışmanınızın karşısına eli boş oturmamanız için.</p>
     <p class="degil"><b>Ne değil</b> — uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üyelik yok, kurulum yok, kod yok; bu sayfa sizden hiçbir bilgi toplamaz. Buradan bir aletle değil, <b>bir soru cümlesi</b> ve onu taşıyacak bir planla çıkarsınız.</p>
-    <p>Beş durak var, hepsini gezmek şart değil. Rıhle de öyleydi zaten: kimse bütün şehirleri dolaşmadı, herkes kendi hocasına giden yolu yürüdü. Aşağıdaki iki düğmeden biri size yeter — hangisi olduğunu bilmiyorsanız <b>ilkinden</b> başlayın.</p>
+    <p><b>Canlı oturum elli dakikadır; sayfayı kendi başınıza ana rotada gezmek yaklaşık otuz dakika sürer.</b> Beş yöntem durağı ve bir kapanış adresi var — hepsini gezmek şart değil. Rıhle de öyleydi zaten: kimse bütün şehirleri dolaşmadı, herkes kendi hocasına giden yolu yürüdü. Aşağıdaki iki düğmeden biri size yeter; hangisi olduğunu bilmiyorsanız <b>ilkinden</b> başlayın.</p>
     <details class="ozgun"><summary>«Yazılımı özgün mü, yabancıda benzeri var mı?»</summary>
     <p>Bu soru bize soruldu; cevabı açık. Yöntem bize ait değil: dijital beşerî bilimler dünyada yerleşik bir alan, biz onu İslami ilimlerin malzemesine uyguluyoruz. Kullandığımız aletlerin neredeyse hepsi başkalarının açık aletleri — ve hiçbiri saklı değil; 103'ünü adıyla, bağlantısıyla <a href="kutuphane.html">Kütüphane</a>'ye koyduk. Özgün olan alet değil, onu bu malzemeye ve bu soruya bağlayan yoldur. Sayfanın kendisi de bu sunum için yazıldı.</p></details>
   </div>
 
   <div class="btnrow">
-    <a class="cta" href="#tanis">Baştan başla — 30 dakika ↓</a>
-    <a class="hemen" href="#dene">⚡ Acelem var — 90 saniyede kendim deneyeyim</a>
+    <a class="cta" href="#tanis">Baştan başla ↓</a>
+    <a class="hemen" href="#dene">⚡ Acelem var — hazır örnekle 30 saniyede göreyim</a>
   </div>
   <div class="nedir">
     <p><span class="num">1</span>Elinizde bir kitap var — diyelim bin yıllık bir tarih kitabı. Onu baştan sona okumak aylar sürer.</p>
@@ -859,7 +868,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="qm"><b>Salona açtırmak için</b>Sunumu yapan: bu kareyi perdeye yansıtın; dinleyici telefonuyla okutup sayfayı açsın. Sözlü yedek adres: <code>kitabin-rihlesi</code><br><span style="font-size:.75rem">Projeksiyon boyunda basılmış hâli ve söylenecek cümle: <a href="sunum/">sunum sayfası</a></span></div>
   </div>
   </details>
-  <p class="sub" style="font-size:.82rem;margin-top:14px">Beş durak: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu</p>
+  <p class="sub" style="font-size:.82rem;margin-top:14px">Beş yöntem durağı: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu — ve bir kapanış adresi: T-Corpus</p>
   <div class="kimsin">
     <b>First, a question for you</b>
     <div class="alt">Kim olduğunuzu söyleyin, beş durak içinden size uygun rotayı işaretleyelim.</div>
@@ -875,7 +884,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <main>
 <!-- 0 · TANIŞ -->
-<section class="scene wrap" id="tanis" style="text-align:center;align-items:center">
+<section class="scene wrap band" id="tanis" style="text-align:center;align-items:center">
   <div class="kicker">1 · Foundations</div><span class="seviye temel">Basic · everyone</span>
   <h2>What are the digital humanities?</h2>
   <p class="one" style="margin:0 auto 8px">The humanities ask their old questions of material that is now <b>countable, mappable and searchable</b> malzemeyle sormak. Müstakil yeni bir ilim değil; mu'cem, fihrist ve tabakat geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
@@ -909,7 +918,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <p class="one small" style="margin:12px auto 0;color:var(--muted)">This threefold division is not arbitrary: in <i>Graphs, Maps, Trees</i> (Verso, 2005) Franco Moretti proposed three abstract models for looking at literary history —<b> graphs, maps, trees </b>— in that same order; we apply the same triad to the classical textual tradition. The collection that gathers his conceptual framework is also available in Turkish: <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Distant Reading (Turkish ed.)</a>, trans. Onur Gayretli, İstanbul Bilgi University Press, 2021.</p>
 
-  <div class="yenilik"><b>So what is new?</b> What changed is not the question but <b>scale and speed</b>. A. J. Wensinck’s team completed the concordance of ḥadīth wording over half a century; Muḥammad Fuʾād ʿAbd al-Bāqī prepared his muʿjam of the Qurʾān through years of labour. Today a student can produce a comparable index of a work of their own choosing over a weekend. The labour has not decreased; it has <b>moved</b>: from compiling the index to verifying and interpreting what the index yields.</div>
+  <div class="yenilik"><b>So what is new?</b> What changed is not the question but <b>scale and speed</b>. A. J. Wensinck'in heyeti hadis lafızlarının dizinini yarım asırda tamamladı; Muhammed Fuâd Abdülbâkī Kur'ân-ı Kerîm mu'cemini yıllar süren bir emekle hazırladı. Bugün bir öğrenci, kendi seçtiği bir eserin <b>temizlenmiş küçük bir kesitinin</b> ilk dizinini bir hafta sonunda çıkarabiliyor; tam eser çalışması ayrıca temizlik ve denetim ister. Emek azalmadı; <b>moved</b>: from compiling the index to verifying and interpreting what the index yields.</div>
 
   <p class="one" style="margin:20px auto 0;font-size:1rem"><b>Peki duygu analizi, konu modelleme, metin yeniden kullanımı?</b> Bunlar da bu alanın sık kullanılan araçları — ve üçünün de bir tuzağı var:</p>
   <details class="mdeep" id="baskamercekler" open style="width:100%;max-width:820px;margin:8px auto 0;text-align:left"><summary><b>Duygu analizi · konu modelleme · metin yeniden kullanımı</b> — üç mercek daha, dürüst uyarılarıyla</summary>
@@ -962,7 +971,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         <span class="arr">→</span>
         <div><span>3 · SCAN</span><code class="ar">ف<mark>فتح</mark>ها <mark>عنو</mark>ه</code><em>does the root sequence occur? if so, +1</em></div>
       </div>
-      <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:6px 0 0">The only difference from Ctrl+F is that we wrote the rules <b>down explicitly</b> — which letter becomes what, and whether the count looks at the root or the spelling. When the rule is explicit the count is <b>reproducible</b> ; when it is reproducible it is scholarship. The same normalisation drives the evidence check at the fourth stop — PARTIAL matches are born from precisely this table.</p>
+      <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:6px 0 0">The only difference from Ctrl+F is that we wrote the rules <b>down explicitly</b> — which letter becomes what, and whether the count looks at the root or the spelling. When the rule is explicit the count is <b>reproducible</b> olur; kuralı açık olunca tekrarlanabilir olur — bu, sayımın denetlenebilmesinin şartlarından biridir; yorumun doğruluğunu tek başına garanti etmez. Aynı normalizasyon, 4. duraktaki delil denetiminin de motorudur — KISMÎ eşleşmeler tam bu tablodan doğar.</p>
     </details>
     <p class="mwhy">Close reading is the depth of a single passage; distant reading is the bird’s-eye view of a thousand pages. They are not rivals — they are the two ends of one telescope. <span class="temsili">the count is real: computed live from the al-Balādhurī excerpt</span></p>
   </div>
@@ -992,7 +1001,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <!-- 2 · HARİTA -->
-<section class="scene wrap" id="harita">
+<section class="scene wrap band" id="harita">
   <div class="kicker">1c · Concept: GIS</div><span class="seviye temel">Basic · everyone</span>
   <h2>Given coordinates, a book turns into a map</h2>
   <div data-terim="CBS" data-ek="Tarihî yer adları için modern harita servisleri değil, tarihî coğrafya sözlükleri (gazetteer) kullanılır." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
@@ -1025,7 +1034,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <!-- 3 · KAYIT -->
-<section class="scene dresser-scene wrap" id="kayit">
+<section class="scene dresser-scene wrap band" id="kayit">
   <div class="kicker">1d · Concept: the dataset</div><span class="seviye temel">Basic · everyone</span>
   <h2>The dataset: a chest of labelled drawers</h2>
   <div data-terim="veri seti" data-ek="Aşağıdaki dolap, yayımlanmış bir veri setinden alınmış gerçek bir kaydın çekmeceleridir." style="max-width:640px;margin-left:auto;margin-right:auto"></div>
@@ -1095,7 +1104,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="btnrow"><a class="cta" href="#makine">Inside the machine ↓</a></div>
 </section>
 
-<section class="scene wrap" id="makine" style="text-align:center;align-items:center">
+<section class="scene wrap band" id="makine" style="text-align:center;align-items:center">
   <div class="kicker">3 · Inside the machine</div><span class="seviye derin">For the curious · skippable</span>
   <h2>How does the machine do this?</h2>
   <p class="one" style="margin:0 auto 6px">First, the clue in your pocket — your phone’s keyboard has been playing the same game for years:</p>
@@ -1261,10 +1270,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <!-- 3b · SÖZLÜK -->
-<section class="scene wrap" id="sozluk" style="text-align:center;align-items:center;min-height:60vh">
+<section class="scene wrap band" id="sozluk" style="text-align:center;align-items:center;min-height:60vh">
   <div class="kicker">Interlude · The old lexicon</div><span class="seviye temel">Basic · everyone</span>
   <h2>This world is not foreign to you</h2>
-  <p class="one" style="margin:0 auto">Touch the cards: every technical concept has a thousand-year-old counterpart.</p>
+  <p class="one" style="margin:0 auto">Kartlara dokun: her teknik kavrama klasik gelenekten yaklaştırıcı bir benzetme var. Bunlar işlevsel benzetmedir, tarihsel özdeşlik iddiası değil.</p>
   <div class="flipgrid" id="flipgrid"></div>
   <div class="btnrow"><button class="wbtn alt" id="flipall">Flip them all</button><a class="cta" href="#dene">Now run it yourself ↓</a></div>
 </section>
@@ -1319,7 +1328,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 </section>
 
 <!-- 5 · İLHAM -->
-<section class="scene wrap" id="ilham">
+<section class="scene wrap band" id="ilham">
   <div class="kicker">5 · The road to your first article</div><span class="seviye orta">Practice · produces a plan</span>
   <h2>The road to your first article</h2>
   <p class="one">This stop is a <b>workshop</b>: choose your field, use the six tools in order, and end up with a single file you can take to your supervisor. No tool decides for you; every one of them simply makes the decision <i>visible</i> .</p>
@@ -1458,7 +1467,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
 <!-- 6 · T-CORPUS -->
 <section class="scene wrap tc" id="tcorpus" style="text-align:center;align-items:center">
-  <div class="kicker">6 · T-Corpus</div><span class="seviye temel">Everyone · an address</span>
+  <div class="kicker">Kapanış · T-Corpus</div><span class="seviye temel">Everyone · an address</span>
   <h2>This method has an address</h2>
   <img class="tclogo" src="tcorpus-logo.png" alt="T-Corpus — TIMAV Centre for Digital Humanities" width="900" height="332" loading="lazy">
   <p class="one" style="margin:8px auto 0">For five stops we have been describing a method. That method has an institutional address in Türkiye: <b>T-Corpus</b> — Türkiye İmam Hatipliler Vakfı (TİMAV) bünyesinde 2026'da kurulan dijital beşerî bilimler merkezi. Birinci durakta haritasıyla oynadığınız İbn Battûta katmanının kaynağı olan İslam Tarih Atlası, bu merkezin amiral gemilerinden biridir. Yani gördüğünüz yol tasarım değil; yürünüyor.</p>

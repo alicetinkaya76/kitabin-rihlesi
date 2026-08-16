@@ -521,7 +521,7 @@ Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}</pre>
 <section class="stop tz" id="tezgah">
   <div class="marker" aria-hidden="true">⚒</div>
   <div class="eyebrow">Canlı tezgâh</div>
-  <h2>Tezgâh: kitaptan doğrulanmış tabloya, bu sayfada</h2>
+  <h2>Tezgâh: kitaptan <b>delili kaynakta bulunan</b> tabloya, bu sayfada</h2>
   <div class="intro">
     <p>Burası sitenin atölyesi. İş bölümü, seminerdeki ilkenin kendisi: <b>çıkarımı model yapar, mukabeleyi tezgâh yapar, sorumluluğu siz taşırsınız.</b> Dört adım; kod yok, kurulum yok, hesap-şifre derdi yok.</p>
   </div>
@@ -572,8 +572,9 @@ Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}</pre>
     <div class="btnrow">
       <button class="btn" id="tz-verify">Mukabele et</button>
       <button class="btn ghost" id="tz-copy-report" disabled>Rapor cümlesini kopyala</button>
-      <button class="btn ghost" id="tz-dl-csv" disabled>Doğrulanmış tabloyu indir (CSV)</button>
+      <button class="btn ghost" id="tz-dl-csv" disabled>Delili bulunan satırları indir (CSV)</button>
     </div>
+    <p class="intro small" style="margin:12px 0 0;border-left:3px solid var(--rubric);padding-left:12px"><b>TAM / KISMÎ ne demek — ne demek değil.</b> Bu etiketler yalnız <b>delil ibaresinin kaynakta bulunduğunu</b> gösterir. Şehir, yıl, fetih türü ve kişi alanları modelin o ibareden çıkardığı hükümlerdir; <b>bağlamdan ayrıca insan tarafından denetlenmelidir</b>. Gerçek bir alıntının kitapta bulunması, o alıntıdan çıkarılan hükmün doğru olduğu anlamına gelmez. İndirilen dosyada <code>alan_denetimi</code> sütunu bu yüzden <code>BEKLIYOR</code> yazar.</p>
     <div id="tz-report"></div>
   </div>
   <p class="intro small muted" style="margin-top:14px">Tezgâhın sınırı — bilerek: çıkarımın kendisini burada çalıştırmıyoruz; o, sizin asistanınızda ve sizin gözetiminizde olur. Tezgâh yalnız deterministik işleri yapar: ayrıştırma, paketleme, arama. Böylece rapordaki her sayının hesabını verebilirsiniz.</p>
@@ -1208,8 +1209,10 @@ $("#tz-dl-csv").addEventListener("click",()=>{
   if(!TZ.records) return;
   const q=s=>'"'+String(s??"").replace(/"/g,'""')+'"';
   const rows=TZ.records.filter(r=>r.st!=="YOK");
-  const csv="﻿"+["kayit;yil;tur;komutan;delil;durum",...rows.map(r=>[r.label,r.yil,r.tur,r.komutan,r.delil,r.st].map(q).join(";"))].join("\n");
-  tzDownload("dogrulanmis-tablo.csv", csv, "text/csv;charset=utf-8");
+  /* alan_denetimi sütunu bilerek BEKLIYOR: Tezgâh yalnız DELİL İBARESİNİN
+     kaynakta bulunduğunu denetler; şehir/yıl/tür/kişi hükümleri denetlenmez. */
+  const csv="﻿"+["kayit;yil;tur;komutan;delil;durum;alan_denetimi",...rows.map(r=>[r.label,r.yil,r.tur,r.komutan,r.delil,r.st,"BEKLIYOR"].map(q).join(";"))].join("\n");
+  tzDownload("delili-kaynakta-bulunan-tablo.csv", csv, "text/csv;charset=utf-8");
 });
 
 /* ---------- raf akordeonu ---------- */
