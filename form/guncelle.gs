@@ -145,15 +145,50 @@ function yaz_(form, tip, baslik, metin) {
 function soru6_(form) {
   var ogeler = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
   for (var i = 0; i < ogeler.length; i++) {
-    if (ogeler[i].getTitle().indexOf('6.') === 0) {
-      ogeler[i].asMultipleChoiceItem()
-        .setTitle(S6_BASLIK).setHelpText(S6_YARDIM).setChoiceValues(S6_SECENEK);
-      Logger.log('✓ güncellendi: anket 6. soru');
+    if (ogeler[i].getTitle().indexOf('6.') !== 0) continue;
+
+    var s = ogeler[i].asMultipleChoiceItem();
+    Logger.log('  6. soru — ÖNCEKİ şıklar: ' + sikDizgi_(s));
+
+    /* Zincirleme YAPMA. v3'te .setTitle().setHelpText().setChoiceValues()
+       zinciri hata vermeden çalıştı ama şıklar değişmedi; başlık ve yardım
+       metni geçti. Ayrı ayrı çağırıp geri okuyoruz. */
+    s.setTitle(S6_BASLIK);
+    s.setHelpText(S6_YARDIM);
+
+    var secimler = [];
+    for (var j = 0; j < S6_SECENEK.length; j++) secimler.push(s.createChoice(S6_SECENEK[j]));
+    s.setChoices(secimler);
+
+    /* aynı öğeyi FORMDAN YENİDEN okuyup bak — nesne üstünden değil */
+    var kontrol = sikDizgi_(taze6_(form));
+    Logger.log('  6. soru — SONRAKİ şıklar: ' + kontrol);
+    if (kontrol.indexOf('perdede izlemek yetti') >= 0) {
+      Logger.log('✓ güncellendi: anket 6. soru (şıklar dahil)');
       return 1;
     }
+    Logger.log('✗ anket 6. soru: başlık geçti ama ŞIKLAR GEÇMEDİ. Yukarıdaki');
+    Logger.log('  iki satırı Claude\'a gönderin; şıkları elle de düzeltebilirsiniz.');
+    return 0;
   }
   Logger.log('✗ bulunamadı: anket 6. soru');
   return 0;
+}
+
+/** Formdan 6. soruyu taze okur. */
+function taze6_(form) {
+  var o = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
+  for (var i = 0; i < o.length; i++)
+    if (o[i].getTitle().indexOf('6.') === 0) return o[i].asMultipleChoiceItem();
+  return null;
+}
+
+/** Şıkları tek satırlık okunur dizgiye çevirir. */
+function sikDizgi_(mc) {
+  if (!mc) return '(öğe yok)';
+  var c = mc.getChoices(), a = [];
+  for (var i = 0; i < c.length; i++) a.push(c[i].getValue());
+  return a.join(' | ');
 }
 
 /** Yazılan metni geri okur: yenisi girdi mi, eskisi gitti mi. */
