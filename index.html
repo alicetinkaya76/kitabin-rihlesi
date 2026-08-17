@@ -830,7 +830,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">Kitabın Rıhlesi</a>
   <a href="#tanis">1 Temeller</a><a href="#arastirmaci">2 Yol</a><a href="#makine">3 Makine</a><a href="#sozluk">Sözlük</a><a href="#dene">4 Dene</a><a href="#ilham">5 Makale</a><a href="#tcorpus">Kapanış · T-Corpus</a>
-  <a class="tp-open-btn" href="#" role="button">📖 Terimler</a><a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a><a class="lang" href="/kitabin-rihlesi/en/index.html" hreflang="en" data-lang="en" title="İngilizce sürüm — çeviri sürüyor">EN · %45 taslak</a>
+  <a class="tp-open-btn" href="#" role="button">📖 Terimler</a><a class="lib" href="https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html">📚 Kütüphane</a><a class="lang" href="/kitabin-rihlesi/en/index.html" hreflang="en" data-lang="en" title="İngilizce sürüm — çeviri sürüyor">EN · %44 taslak</a>
 </div></nav>
 
 <div class="dots" id="dots" aria-hidden="true">
@@ -1358,7 +1358,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="altbaslik" style="max-width:820px;margin:26px auto 0;font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700">Sorun kurulduysa: dört evrelik plan</div>
   <div class="planbar" style="max-width:820px;margin-left:auto;margin-right:auto;width:100%">
     <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
-    <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.75rem">📄 Dosyanı indir</button>
+    <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.75rem">📄 Tek sayfalık planı indir</button>
   </div>
   <div class="steps" id="trackplan" style="max-width:820px"></div>
 
@@ -1444,9 +1444,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p class="small muted" style="margin:6px 0 0">[köşeli] alanları kendine göre doldur; planın tek sayfalık halini "Planı indir"den al, ekle.</p>
   </div>
   <div class="dosyakart">
-    <h3>📄 Altı aletin çıktısı: tek dosya</h3>
-    <p>Soru cümlen, tablonun sütunları, saat bütçene göre takvimin, dört evrelik planın, makale iskeletin, hakem listendeki eksiklerin, yapay zekâ beyanın ve danışman e-postan — hepsi tek bir <b>.md</b> dosyasında. Danışman randevusuna bununla git.</p>
-    <button class="cta" id="plandl2">Dosyanı indir (.md)</button>
+    <h3>📄 İki çıktı: biri danışman için, biri kendin için</h3>
+    <p><b>Tek sayfalık plan</b> — danışman randevusuna götüreceğin belge: soru cümlen, eserin ve kesitin, tablonun satır birimi ve sütunları, delil kuralın, dört dönüm noktası, en büyük yöntem riskin ve danışmandan istediğin karar. Açıp yazdırabilirsin; bir sayfaya sığar.</p>
+    <p class="small muted"><b>Ayrıntılı çalışma dosyası</b> ise senin masan için: yukarıdakilere ek olarak haftalık takvim, dört evrelik plan, makale iskeleti, hakem kontrol listesi, yapay zekâ beyanı ve danışman e-postası taslağı. Danışmana bunu götürme; kendine sakla.</p>
+    <div class="btnrow" style="justify-content:flex-start">
+      <button class="cta" id="plandl2">Tek sayfalık planı indir</button>
+      <button class="wbtn alt" id="plandl-tam">Ayrıntılı çalışma dosyası (.md)</button>
+    </div>
   </div>
   <div class="shelfhead" style="max-width:820px;margin:22px auto 4px;width:100%"><h3 style="font-family:var(--sans);font-size:1rem;margin:0">Yolun sonu böyle görünür — emsaller</h3></div>
   <div class="rail" id="rail"></div>
@@ -2565,7 +2569,7 @@ $("#ep-copy").addEventListener("click",async e=>{
   catch(err){ e.target.textContent="Pano engellendi — metni elle seç"; }
   setTimeout(()=>{ e.target.textContent="Şablonu kopyala"; },2500);
 });
-$("#plandl").addEventListener("click",()=>dosyaIndir());
+$("#plandl").addEventListener("click",()=>tekSayfaIndir());
 
 
 /* ---------- VERİ SETİ: 226 kare · künye · kod defteri ---------- */
@@ -3215,8 +3219,60 @@ function dosyaMd(){
     "ÜRET (kendin) · DOĞRULA (dışarıda) · BEYAN ET"]).join("\n");
 }
 $("#iskeletdl").addEventListener("click",()=>mdIndir("makale-iskeleti-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md",iskeletMd()));
-function dosyaIndir(){ mdIndir("yol-haritasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md",dosyaMd()); }
-$("#plandl2").addEventListener("click",dosyaIndir);
+function dosyaIndir(){ mdIndir("ayrintili-calisma-dosyasi-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".md",dosyaMd()); }
+
+/* ---------- TEK SAYFALIK PLAN ----------------------------------------------
+   Vaat "danışmanına götürebileceğin tek sayfa"ydı; üretilen dosya ise A–G
+   bölümlü uzun bir çalışma dosyasıydı. İkisi ayrıldı. Bu çıktı bilerek
+   yazdırılabilir HTML: öğrenci .md dosyasını danışmanın önünde açamaz.
+   İçerik tek sayfaya sığacak kadar: soru · malzeme · birim+sütunlar ·
+   delil kuralı · dört dönüm noktası · en büyük risk · istenen karar.      */
+function tekSayfaHtml(){
+  const d=SORU[curTrack], m=d.m[sSec.m], b=d.b[sSec.b], e=d.e[sSec.e];
+  const S=SAAT[curSaat]; let acc=0; const ends=S.f.map(w=>(acc+=w));
+  const M=TRACKMETA[curTrack];
+  const donum=FAZ.map((f,i)=>"<li><b>H"+ends[i]+" sonu — "+esc(f.ad)+":</b> "+esc(MTAS[i])+"</li>").join("");
+  const risk = e.st
+    ? "Eksen karşılaştırması (" + esc(e.ad) + ") kaynakta eşit yoğunlukta temsil edilmeyebilir; fark gerçek olmayıp kaynağın ilgisinden doğabilir."
+    : "Betimleyici bir sayım yaptığım için, bulunan dağılım kaynağın kapsamıyla sınırlıdır; genelleme iddiası kurmuyorum.";
+  return ['<!doctype html><html lang="tr"><head><meta charset="utf-8">',
+   '<title>Araştırma planı — tek sayfa</title><style>',
+   '@page{size:A4;margin:16mm}',
+   'body{font:12pt/1.45 "Iowan Old Style",Palatino,Georgia,serif;color:#1F2937;max-width:720px;margin:0 auto;padding:18px}',
+   'h1{font-size:17pt;margin:0 0 2px}h2{font-size:11pt;margin:14px 0 4px;text-transform:uppercase;letter-spacing:.08em;color:#B91C1C;font-family:system-ui,sans-serif}',
+   '.k{font:9.5pt system-ui,sans-serif;color:#6B7280;margin:0 0 10px}',
+   'table{border-collapse:collapse;width:100%;font-size:10.5pt}th,td{border:1px solid #D1D5DB;padding:5px 7px;text-align:left}th{background:#F4F0E5}',
+   'ul{margin:4px 0 0 18px;padding:0}li{margin:2px 0}',
+   '.soru{font-size:13.5pt;font-weight:700;margin:2px 0 0}',
+   '.imza{margin-top:16px;border-top:1px solid #D1D5DB;padding-top:7px;font:9pt system-ui,sans-serif;color:#6B7280}',
+   '@media print{body{padding:0}}</style></head><body>',
+   '<h1>Araştırma planı — '+esc(curTrack)+'</h1>',
+   '<p class="k">Hedef ürün: '+esc(M.urun)+' · Hazırlayan: [adınız] · Tarih: '+new Date().toLocaleDateString("tr-TR")+'</p>',
+   '<h2>Araştırma sorum</h2><p class="soru">'+esc(soruCumle())+'</p>',
+   '<h2>Eser ve kesit</h2><p>'+esc(m.ad)+' ('+esc(m.no)+') — '+esc(m.ol)+'</p>',
+   '<h2>Tablonun satır birimi ve sütunları</h2>',
+   '<p>Bir satır = '+esc(b.ad)+'</p>',
+   '<table><tr><th>#</th><th>'+esc(b.st)+'</th><th>'+esc(e.st||"—")+'</th><th>delil (sayfa · ibare)</th></tr>',
+   '<tr><td>1</td><td>'+esc(b.or)+'</td><td>'+esc(e.or||"—")+'</td><td>'+esc(d.dl)+'</td></tr></table>',
+   '<h2>Delil kuralı</h2><p>Delil sütunu boş kalan satır tabloya girmez. Delilin kaynakta bulunması, o satırdan çıkarılan hükmün doğru olduğu anlamına gelmez; alan denetimi ayrıca yapılır.</p>',
+   '<h2>Dört dönüm noktası ('+curSaat+' saat/hafta · '+S.h+' hafta)</h2><ul>'+donum+'</ul>',
+   '<h2>En büyük yöntem riski</h2><p>'+risk+'</p>',
+   '<h2>Danışmanımdan istediğim karar</h2><p>Bu soru ve bu kesit, hedeflenen ürün için uygun mu? Kapsamı daraltmam mı, yoksa eksen eklemem mi gerekir?</p>',
+   '<p class="imza">Bu plan <i>Bir Kitabın Rıhlesi</i> ile hazırlandı · alicetinkaya76.github.io/kitabin-rihlesi</p>',
+   /* Kapanış etiketi bilerek bölünmüş: bu dizge sayfadaki TEK "</body>"
+      idi ve enjeksiyon yapan betikler onu belgenin sonu sanıp kodu
+      ortadan bölüyordu. Bölünce hem o hata hem HTML ayrıştırıcı riski biter. */
+   '</bo'+'dy></html>'].join("");
+}
+function tekSayfaIndir(){
+  const ad="arastirma-plani-tek-sayfa-"+curTrack.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".html";
+  const blob=new Blob([tekSayfaHtml()],{type:"text/html;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=ad;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+$("#plandl2").addEventListener("click",tekSayfaIndir);
+$("#plandl-tam").addEventListener("click",dosyaIndir);
 
 /* açılış */
 try{ const sv=+localStorage.getItem("rihle_saat"); if(SAAT[sv]){ curSaat=sv;

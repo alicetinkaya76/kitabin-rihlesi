@@ -1,30 +1,41 @@
 # -*- coding: utf-8 -*-
 """TR sayfalarından EN sayfaları üretir + dil değiştiriciyi her ikisine enjekte eder."""
 import io,os,re,json,sys,subprocess
-sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+"/i18n")
 import i18n_lib as L
 
-R=os.path.expanduser("~/Desktop/rihle2026/")
+R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+"/"
 SOZ=R+"i18n/tr-en.json"
 
-SWITCH_TR='<a class="lang" href="/kitabin-rihlesi/en/{alt}" hreflang="en" data-lang="en">EN</a>'
+# EN rozeti kapsamı söyler: yalın "EN", tam çeviri beklentisi yaratıyordu.
+# Yüzde build sırasında _KAPSAM'dan basılır (bkz. switcher_ekle).
+SWITCH_TR='<a class="lang" href="/kitabin-rihlesi/en/{alt}" hreflang="en" data-lang="en" title="İngilizce sürüm — çeviri sürüyor">EN{rozet}</a>'
 SWITCH_EN='<a class="lang" href="/kitabin-rihlesi/{alt}" hreflang="tr" data-lang="tr">TR</a>'
 SWITCH_CSS=(".nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;"
             "letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}"
             ".nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}"
             ".nav .lib+.lang{margin-left:6px}")
 
-def switcher_ekle(s, hedef_dosya, en):
+def switcher_ekle(s, hedef_dosya, en, kapsam_anahtari=None):
     """Gezinme çubuğuna dil düğmesi; hash korunur."""
     # var olan düğmeyi temizle: EN sayfa TR kaynaktan üretildiği için onun
     # düğmesini miras alıyordu (yanlış hreflang).
     s=re.sub(r'<a class="lang"[^>]*>[^<]*</a>','',s)
-    tag=(SWITCH_EN if en else SWITCH_TR).format(alt=hedef_dosya)
+    if en:
+        tag=SWITCH_EN.format(alt=hedef_dosya)
+    else:
+        # Rozet kapsamı söyler: yalın "EN" tam çeviri beklentisi yaratıyordu.
+        p=_KAPSAM.get(kapsam_anahtari)
+        rozet='' if (p is None or p>=99.5) else ' · %%%d taslak'%round(p)
+        tag=SWITCH_TR.format(alt=hedef_dosya, rozet=rozet)
     # .lib bağlantısından hemen sonra (yoksa nav'ın sonuna)
     m=re.search(r'(<a class="(?:lib|geri)"[^>]*>.*?</a>)', s, re.S)
     if m: s=s[:m.end(1)]+tag+s[m.end(1):]
     else: s=re.sub(r'(<nav class="nav"[^>]*><div class="wrap">)', lambda m: m.group(1)+tag, s, count=1)
-    s=s.replace("</style>", SWITCH_CSS+"</style>", 1)
+    # KORUMA: kutuphane.html kendi uzerine yazildigi icin bu satir korumasizken
+    # her derlemede bir kopya daha ekliyordu (depoda 8 kopya birikmisti).
+    if SWITCH_CSS not in s:
+        s=s.replace("</style>", SWITCH_CSS+"</style>", 1)
     # hash'i koru
     js=("\n<script>(function(){var a=document.querySelector('.nav .lang');if(!a)return;"
         "a.addEventListener('click',function(){try{localStorage.setItem('rihle_lang',a.dataset.lang);}catch(e){}"
@@ -78,15 +89,14 @@ def main():
     for tr_dosya,en_dosya,alt in [("index.html","index.html","index.html"),
                                   ("kutuphane.html","kutuphane.html","kutuphane.html")]:
         s=io.open(R+tr_dosya,encoding="utf-8").read()
-        # TR sayfaya EN düğmesi
-        tr=switcher_ekle(s, alt, en=False)
-        io.open(R+tr_dosya,"w",encoding="utf-8").write(tr)
-        # EN sayfa
-        # kapsamı ÖNCE hesapla ki şerit doğru yüzdeyi yazsın
+        # kapsamı ÖNCE hesapla: hem EN şeridi hem TR'deki rozet ondan beslenir
         _on,_ = en_yap(s,sozluk,tr_dosya)
         _kalan=L.kapsam(_on, set(sozluk.values()))
         _toplam=len({t.strip() for _,t in L.cikar(s)})
         _KAPSAM[tr_dosya]=round((_toplam-len(_kalan))/_toplam*100,1) if _toplam else 100.0
+        # TR sayfaya EN düğmesi (rozet kapsamı söyler)
+        tr=switcher_ekle(s, alt, en=False, kapsam_anahtari=tr_dosya)
+        io.open(R+tr_dosya,"w",encoding="utf-8").write(tr)
         en,sayac=en_yap(s,sozluk,tr_dosya)
         en=switcher_ekle(en, alt, en=True)
         # DÜRÜST DURUM (sitenin 4. ilkesi): çeviri bitmediyse sayfa bunu
