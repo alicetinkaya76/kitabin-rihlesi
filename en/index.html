@@ -868,7 +868,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="nebu">
     <b>Bu sayfa nedir?</b>
-    <p class="lede">Rıhle 2026'da yapılacak <b>elli dakikalık sunumun kendisidir</b>. Slayt yoktur; konuşma bu sayfanın üzerinde yürür. Sebebi şu: anlatılan şey bir bilgi değil, bir <i>yol</i>dur — ve yol ancak yürünerek gösterilir. Salonda değilseniz kaybınız yok; aynı yol kendi hızınızda yürünür ve sunumdan sonra da açık kalır. Sonunda elinizde bir sayfa olur: danışmanınızın karşısına eli boş oturmamanız için.</p>
+    <p class="lede">Rıhle 2026'nın <b id="sunumgun">25 Ağustos 2026</b> oturumunda <span id="sunumzaman">yapılacak</span> <b>elli dakikalık sunumun kendisidir</b>. Slayt yoktur; konuşma bu sayfanın üzerinde yürür. Sebebi şu: anlatılan şey bir bilgi değil, bir <i>yol</i>dur — ve yol ancak yürünerek gösterilir. Salonda değilseniz kaybınız yok; aynı yol kendi hızınızda yürünür ve sunumdan sonra da açık kalır. Sonunda elinizde bir sayfa olur: danışmanınızın karşısına eli boş oturmamanız için.</p>
     <p class="degil"><b>Ne değil</b> — uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üyelik yok, kurulum yok, kod yok; bu sayfa sizden hiçbir bilgi toplamaz. Buradan bir aletle değil, <b>bir soru cümlesi</b> ve onu taşıyacak bir planla çıkarsınız.</p>
     <p><b>Canlı oturum elli dakikadır; sayfayı kendi başınıza ana rotada gezmek yaklaşık otuz dakika sürer.</b> Beş yöntem durağı ve bir kapanış adresi var — hepsini gezmek şart değil. Rıhle de öyleydi zaten: kimse bütün şehirleri dolaşmadı, herkes kendi hocasına giden yolu yürüdü. Aşağıdaki iki düğmeden biri size yeter; hangisi olduğunu bilmiyorsanız <b>ilkinden</b> başlayın.</p>
     <details class="ozgun"><summary>«Yazılımı özgün mü, yabancıda benzeri var mı?»</summary>
@@ -3376,6 +3376,16 @@ function tekSayfaIndir(){
 }
 $("#plandl2").addEventListener("click",tekSayfaIndir);
 $("#plandl-tam").addEventListener("click",dosyaIndir);
+
+/* ---------- SUNUM GÜNÜ ----------------------------------------------
+   Sayfa sunumdan sonra da açık kalacak. "yapılacak" 26 Ağustos'ta yanlış
+   olur; tarih geçince cümle kendi kendini düzeltir. Sabit metin yazıp
+   sonra unutmak, sitenin savunduğu dürüstlüğün ilk kurbanı olurdu.      */
+(function(){
+  const s=document.getElementById("sunumzaman"); if(!s) return;
+  const gun=new Date(2026,7,25,23,59);          // 25 Ağustos 2026 (ay 0-tabanlı)
+  if(new Date()>gun) s.textContent="yapılan";
+})();
 
 /* açılış */
 try{ const sv=+localStorage.getItem("rihle_saat"); if(SAAT[sv]){ curSaat=sv;
