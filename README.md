@@ -37,7 +37,7 @@ Az metinli, ekran-ekran, dokunmatik bir yolculuk:
 ## İlkeler
 
 - **Sayı uydurulmaz:** sitedeki her sayı ya kaynağından gelir ya "temsilî" diye etiketlidir (temsilî olanların yanında gerçeğini gösteren araç bağlantısı vardır: tiktokenizer, Transformer Explainer, bbycroft).
-- **Her bağlantı doğrulanmıştır** (06.08.2026; ayrıntı sayfa altındaki doğrulama beyanında).
+- **Her bağlantı doğrulanmıştır** (14.08.2026; ayrıntı sayfa altındaki doğrulama beyanında).
 - **Çıkarımı model yapar, doğrulamayı tezgâh yapar, sorumluluğu insan taşır.**
 
 ## Lisans ve atıflar
