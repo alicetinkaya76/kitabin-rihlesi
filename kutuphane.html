@@ -527,17 +527,25 @@ Yalnızca şu biçimde cevap ver:  {"olaylar": [...], "çekimser": [...]}</pre>
   </div>
 
   <h3><span class="stepno">1</span>Kitabı getir</h3>
-  <p class="intro small muted">Bir OpenITI ham dosya adresi yapıştırın, hazır kitaplardan birini seçin, bilgisayarınızdan dosya yükleyin ya da gömülü atölye metniyle (çevrimdışı da çalışır) başlayın. Not: bazı kısıtlı ortamlarda dış siteden çekim engellenebilir — o zaman dosya yükleme ve gömülü metin yolları her zaman açıktır.</p>
-  <div class="tz-io">
-    <input type="url" id="tz-url" placeholder="https://raw.githubusercontent.com/OpenITI/.../kitap.mARkdown" aria-label="OpenITI ham dosya adresi">
-    <button class="btn" id="tz-fetch">Getir</button>
-  </div>
-  <div class="btnrow">
-    <button class="btn ghost" id="tz-quick-baladhuri">Belâzürî — Fütûh (tam kitap)</button>
-    <button class="btn ghost" id="tz-quick-battuta">İbn Battûta — Rihle (tam kitap)</button>
-    <button class="btn ghost" id="tz-embedded">Gömülü atölye metni (Mısır bölümü)</button>
+  <p class="intro small muted">En kısa yol: çalıştığınız metni doğrudan buraya yapıştırın. Telefondan geldiyseniz bu yolu kullanın — dosya bulmak ya da uzun bir adres yazmak gereksiz.</p>
+  <textarea id="tz-paste" rows="5" placeholder="Metninizi buraya yapıştırın — bir bab, bir fasıl, birkaç sayfa…" style="width:100%;font-family:var(--mono);font-size:.82rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"></textarea>
+  <div class="btnrow" style="margin-top:8px">
+    <button class="btn" id="tz-usepaste">Bu metinle çalış</button>
     <label class="btn ghost" style="cursor:pointer;position:relative">Dosya yükle<input type="file" id="tz-file" accept=".txt,.md,.mARkdown,.completed,.inProgress,text/plain" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer"></label>
+    <button class="btn ghost" id="tz-embedded">Hazır örnek (Belâzürî, Mısır bölümü)</button>
   </div>
+  <details style="margin-top:10px">
+    <summary class="small muted" style="cursor:pointer">İleri seçenek: OpenITI\'den doğrudan kitap çek</summary>
+    <p class="intro small muted" style="margin:8px 0">Ham dosya adresini yapıştırın; tam kitap gelir. Bazı kısıtlı ağlarda dış siteden çekim engellenebilir — o durumda yukarıdaki yapıştırma ve dosya yolları her zaman açıktır.</p>
+    <div class="tz-io">
+      <input type="url" id="tz-url" placeholder="https://raw.githubusercontent.com/OpenITI/.../kitap.mARkdown" aria-label="OpenITI ham dosya adresi">
+      <button class="btn" id="tz-fetch">Getir</button>
+    </div>
+    <div class="btnrow" style="margin-top:8px">
+      <button class="btn ghost" id="tz-quick-baladhuri">Belâzürî — Fütûh (tam kitap)</button>
+      <button class="btn ghost" id="tz-quick-battuta">İbn Battûta — Rihle (tam kitap)</button>
+    </div>
+  </details>
   <div class="tz-status" id="tz-status">Henüz kitap yüklenmedi.</div>
 
   <div id="tz-bookarea" style="display:none">
@@ -1065,7 +1073,14 @@ async function tzFetch(url){
 $("#tz-fetch").addEventListener("click",()=>{ const u=$("#tz-url").value.trim(); if(u) tzFetch(u); });
 $("#tz-quick-baladhuri").addEventListener("click",()=>{ $("#tz-url").value=TZ_URLS.baladhuri; tzFetch(TZ_URLS.baladhuri); });
 $("#tz-quick-battuta").addEventListener("click",()=>{ $("#tz-url").value=TZ_URLS.battuta; tzFetch(TZ_URLS.battuta); });
-$("#tz-embedded").addEventListener("click",()=>{ tzParse(FUTUH,"Gömülü atölye metni (Belâzürî, Mısır–Mağrib)"); });
+/* Yapıştırma birincil yol: telefonda dosya bulmak ya da uzun bir ham
+   adres yazmak, panodan yapıştırmaya göre çok daha yüksek eşikti. */
+$("#tz-usepaste").addEventListener("click",()=>{
+  const m=$("#tz-paste").value.trim();
+  if(m.length<200){ $("#tz-status").textContent="Metin çok kısa görünüyor (en az ~200 karakter). Bir bab ya da birkaç sayfa yapıştırın."; return; }
+  tzParse(m,"Yapıştırılan metin ("+m.length.toLocaleString("tr-TR")+" karakter)");
+});
+$("#tz-embedded").addEventListener("click",()=>{ tzParse(FUTUH,"Hazır örnek (Belâzürî, Mısır–Mağrib)"); });
 $("#tz-file").addEventListener("change",async e=>{
   const f=e.target.files[0]; if(!f) return;
   tzParse(await f.text(), f.name);
