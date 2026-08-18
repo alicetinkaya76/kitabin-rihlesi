@@ -9,7 +9,7 @@ SOZ=R+"i18n/tr-en.json"
 
 # EN rozeti kapsamı söyler: yalın "EN", tam çeviri beklentisi yaratıyordu.
 # Yüzde build sırasında _KAPSAM'dan basılır (bkz. switcher_ekle).
-SWITCH_TR='<a class="lang" href="/kitabin-rihlesi/en/{alt}" hreflang="en" data-lang="en" title="İngilizce sürüm — çeviri sürüyor">EN{rozet}</a>'
+SWITCH_TR='<a class="lang" href="/kitabin-rihlesi/en/{alt}" hreflang="en" data-lang="en" title="İngilizce sürüm — çeviri sürüyor">EN</a>'
 SWITCH_EN='<a class="lang" href="/kitabin-rihlesi/{alt}" hreflang="tr" data-lang="tr">TR</a>'
 SWITCH_CSS=(".nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;"
             "letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}"
@@ -24,10 +24,10 @@ def switcher_ekle(s, hedef_dosya, en, kapsam_anahtari=None):
     if en:
         tag=SWITCH_EN.format(alt=hedef_dosya)
     else:
-        # Rozet kapsamı söyler: yalın "EN" tam çeviri beklentisi yaratıyordu.
-        p=_KAPSAM.get(kapsam_anahtari)
-        rozet='' if (p is None or p>=99.5) else ' · %%%d taslak'%round(p)
-        tag=SWITCH_TR.format(alt=hedef_dosya, rozet=rozet)
+        # Rozet KALDIRILDI (Ali, 17.08): "%16 taslak" düğmede kötü duruyordu.
+        # Dürüstlük görevi EN sayfasının kendi üst şeridinde sürüyor — oraya
+        # kapsam yüzdesi her derlemede yeniden basılıyor.
+        tag=SWITCH_TR.format(alt=hedef_dosya)
     # .lib bağlantısından hemen sonra (yoksa nav'ın sonuna)
     m=re.search(r'(<a class="(?:lib|geri)"[^>]*>.*?</a>)', s, re.S)
     if m: s=s[:m.end(1)]+tag+s[m.end(1):]

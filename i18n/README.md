@@ -1,3 +1,8 @@
+
+> **Not (17.08.2026):** `build_i18n.py` ve `build_lib.py` buradan kaldırıldı;
+> güncel derleyiciler **`kaynak/`** klasöründe. Buradaki `i18n_lib.py` ve
+> `tr-en.json` yerinde duruyor — `kaynak/build_i18n.py` onları buradan okur.
+> İki kopya tutmak, birinin eski kalıp yanlış çıktı üretmesiyle bitiyordu.
 # İki dilli üretim (TR → EN)
 
 Kaynak dil **Türkçe**. İngilizce sayfalar `en/` altında, derlenmiş Türkçe
