@@ -891,7 +891,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <p><span class="num">2</span>Bilgisayar o kitabı okuyamaz, ama içindeki bilgiyi <i>sayılabilir</i> hâle getirmenize yardım edebilir: hangi şehir, hangi yılda, nasıl alınmış — hepsi bir tabloya. Sonra siz o tabloyu sayar, haritalar, karşılaştırırsınız.</p>
     <p><span class="num">3</span>Bu sayfa, o işi baştan sona bir kere yaptırıyor. Sonunda elinizde danışmanınıza götürebileceğiniz bir araştırma planı oluyor. <b>Kod yazmanız gerekmiyor.</b></p>
   </div>
-  <div class="stats" id="hstats"></div>
   <p class="sub" style="font-size:.82rem;margin-top:14px">Beş yöntem durağı: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu — ve bir kapanış adresi: T-Corpus</p>
   <div class="kimsin">
     <b>First, a question for you</b>
@@ -1584,8 +1583,6 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* hero stats */
 (function(){
-  $("#hstats").innerHTML=[["5","durak"],["90 sn","ilk denemen"],["103","kaynak · hepsi denetlendi"],["10-20 hafta","ilk makale yolu"]]
-    .map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span></div>").join("");
 })();
 
 /* ---------- MAP ---------- */
