@@ -68,6 +68,10 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    sırasında dinleyici konuşmacıyı takip ederken bunu yapamıyor. Şemadan
    önce "girdi → işlem → çıktı" özeti konuyor; şema yerinde kalıyor.
    Masaüstünde özet gizli, şema zaten tek bakışta görünüyor.              */
+/* Açılış QR'ı telefonda gizli: kendi ekranını okutamazsın; kare yalnız
+   perde/masaüstünde işe yarar. Katlamak yanlış çözümdü — sunum günü
+   perdede görünmez kalıyordu (Ali yakaladı, 17.08). */
+@media (max-width:700px){ #acilisqr{display:none} }
 .telozet{display:none}
 @media (max-width:700px){
   .telozet{display:block;background:var(--chip);border-radius:10px;padding:10px 12px;
@@ -869,9 +873,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <div class="nebu">
     <b>Bu sayfa nedir?</b>
-    <p class="lede">Rıhle 2026'nın <b id="sunumgun">25 Ağustos 2026</b> oturumunda <span id="sunumzaman">yapılacak</span> <b>elli dakikalık sunumun kendisidir</b>. Slayt yoktur; konuşma bu sayfanın üzerinde yürür. Sebebi şu: anlatılan şey bir bilgi değil, bir <i>yol</i>dur — ve yol ancak yürünerek gösterilir. Salonda değilseniz kaybınız yok; aynı yol kendi hızınızda yürünür ve sunumdan sonra da açık kalır. Sonunda elinizde bir sayfa olur: danışmanınızın karşısına eli boş oturmamanız için.</p>
-    <p class="degil"><b>Ne değil</b> — uygulama değil, arama motoru değil, sorgulayacağınız bir veri tabanı değil. Üyelik yok, kurulum yok, kod yok; bu sayfa sizden hiçbir bilgi toplamaz. Buradan bir aletle değil, <b>bir soru cümlesi</b> ve onu taşıyacak bir planla çıkarsınız.</p>
-    <p><b>Canlı oturum elli dakikadır; sayfayı kendi başınıza ana rotada gezmek yaklaşık otuz dakika sürer.</b> Beş yöntem durağı ve bir kapanış adresi var — hepsini gezmek şart değil. Rıhle de öyleydi zaten: kimse bütün şehirleri dolaşmadı, herkes kendi hocasına giden yolu yürüdü. Aşağıdaki iki düğmeden biri size yeter; hangisi olduğunu bilmiyorsanız <b>ilkinden</b> başlayın.</p>
+    <p class="lede">Bu sayfa, Rıhle 2026'nın <b id="sunumgun">25 Ağustos 2026</b> oturumunda <span id="sunumzaman">yapılacak</span> elli dakikalık sunumun kendisidir — slayt yok; çünkü anlattığımız şey bir bilgi değil, raftaki bir kitaptan hakemli bir makaleye giden bir <i>yol</i>dur ve yol ancak yürünerek gösterilir. Uygulama ya da veri tabanı değildir; üyelik, kurulum, kod istemez, sizden hiçbir bilgi toplamaz. Beş durağın hepsini gezmek de şart değil — rıhlede de kimse bütün şehirleri dolaşmazdı; herkes kendi hocasına giden yolu yürürdü. Salonda olsanız da olmasanız da aşağıdaki <b>ilk düğmeden</b> başlayın: sonunda elinizde, danışmanınıza götürebileceğiniz <b>tek sayfalık bir araştırma planı</b> kalır ve sayfa sunumdan sonra da açık kalır.</p>
     <details class="ozgun"><summary>«Yazılımı özgün mü, yabancıda benzeri var mı?»</summary>
     <p>Bu soru bize soruldu; cevabı açık. Yöntem bize ait değil: dijital beşerî bilimler dünyada yerleşik bir alan, biz onu İslami ilimlerin malzemesine uyguluyoruz. Kullandığımız aletlerin neredeyse hepsi başkalarının açık aletleri — ve hiçbiri saklı değil; 103'ünü adıyla, bağlantısıyla <a href="kutuphane.html">Kütüphane</a>'ye koyduk. Özgün olan alet değil, onu bu malzemeye ve bu soruya bağlayan yoldur. Sayfanın kendisi de bu sunum için yazıldı.</p></details>
   </div>
@@ -880,18 +882,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <a class="cta" href="#tanis">Baştan başla ↓</a>
     <a class="hemen" href="#dene">⚡ Acelem var — hazır örnekle 30 saniyede göreyim</a>
   </div>
+  <div class="qrkart" id="acilisqr">
+    <img src="senaryo/qr-acilis.png" alt="Bu sayfaya giden kare kod" width="640" height="640" loading="lazy">
+    <div class="qm"><b>📱 Bu sayfayı telefonunuza alın</b>Perdede ya da bilgisayarda görüyorsanız kareyi telefonunuzla okutun — sayfa sizde kalsın, sunumdan sonra da açık. Sözlü adres: <code>kitabin-rihlesi</code><br><span style="font-size:.75rem">Sunumu yapan için projeksiyon boyu baskı ve söylenecek cümle: <a href="sunum/">sunum sayfası</a></span></div>
+  </div>
   <div class="nedir">
     <p><span class="num">1</span>Elinizde bir kitap var — diyelim bin yıllık bir tarih kitabı. Onu baştan sona okumak aylar sürer.</p>
     <p><span class="num">2</span>Bilgisayar o kitabı okuyamaz, ama içindeki bilgiyi <i>sayılabilir</i> hâle getirmenize yardım edebilir: hangi şehir, hangi yılda, nasıl alınmış — hepsi bir tabloya. Sonra siz o tabloyu sayar, haritalar, karşılaştırırsınız.</p>
     <p><span class="num">3</span>Bu sayfa, o işi baştan sona bir kere yaptırıyor. Sonunda elinizde danışmanınıza götürebileceğiniz bir araştırma planı oluyor. <b>Kod yazmanız gerekmiyor.</b></p>
   </div>
   <div class="stats" id="hstats"></div>
-  <details class="sunucu"><summary>🎤 Sunumu siz mi yapıyorsunuz? — dinleyicinin kendi telefonunda açması için kare kod</summary>
-  <div class="qrkart">
-    <img src="senaryo/qr-acilis.png" alt="Bu sayfaya giden kare kod" width="640" height="640" loading="lazy">
-    <div class="qm"><b>Salona açtırmak için</b>Sunumu yapan: bu kareyi perdeye yansıtın; dinleyici telefonuyla okutup sayfayı açsın. Sözlü yedek adres: <code>kitabin-rihlesi</code><br><span style="font-size:.75rem">Projeksiyon boyunda basılmış hâli ve söylenecek cümle: <a href="sunum/">sunum sayfası</a></span></div>
-  </div>
-  </details>
   <p class="sub" style="font-size:.82rem;margin-top:14px">Beş yöntem durağı: <b>1</b> Temeller · 2 Araştırmacının yolu · 3 Makinenin içi · 4 Sıra sende · 5 Makale yolu — ve bir kapanış adresi: T-Corpus</p>
   <div class="kimsin">
     <b>First, a question for you</b>
