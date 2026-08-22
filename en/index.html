@@ -322,6 +322,40 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    sorusu cevapsızdı. Kaynak pasaj renk renk işaretlenip her alanın hangi
    kelimeden doğduğu yan yana konuyor. Dürüst kısmı da görünür oluyor:
    HER ALAN AYNI CÜMLEDEN ÇIKMAZ; çıkmayan alan uyarı kutusuna düşer.   */
+/* ---- METİNDEN HARİTAYA --------------------------------------------------
+   317 nokta soyut duruyordu; metinle bağı ancak noktaya tıklayınca
+   görünüyordu. Burada üç aşama açıkta: eserdeki cümle → kaydın alanları →
+   haritadaki nokta. Örnekler gerçek: pasajlar da koordinatlar da veri
+   setinden geliyor, elle yazılmadı.                                       */
+.mhb{width:100%;max-width:980px;margin:18px auto 0;text-align:left}
+.mhsec{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.mhsec button{font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;color:var(--ink)}
+.mhsec button[aria-pressed="true"]{border-color:var(--korpus);background:var(--korpus-soft);color:var(--korpus)}
+.mhg{display:grid;grid-template-columns:1.1fr .9fr .75fr;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.mhg>div{padding:16px 18px}
+.mhg>div+div{border-left:1px solid var(--line)}
+.mhg .et{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--korpus);font-weight:800;display:block;margin-bottom:8px}
+.mhg .ar{font-family:var(--arabic);font-size:1.25rem;line-height:2.05;direction:rtl;text-align:right}
+.mhg .ar mark{background:color-mix(in srgb,var(--korpus) 26%,transparent);
+  border-bottom:2.5px solid var(--korpus);border-radius:3px;padding:0 3px;color:inherit}
+.mhg .cv{font-family:var(--sans);font-size:.9rem;color:var(--muted);line-height:1.6;margin:10px 0 0;
+  padding-top:10px;border-top:1px dashed var(--line)}
+.mhg .kv{display:block;margin-bottom:9px}
+.mhg .kv .k{font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);font-weight:800;display:block}
+.mhg .kv .v{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);display:block}
+.mhg .kv .v.mono{font-family:var(--mono);font-size:.95rem;letter-spacing:-.01em}
+.mhgo{font-family:var(--sans);font-weight:700;font-size:.92rem;cursor:pointer;border:none;
+  background:var(--korpus);color:#fff;border-radius:999px;padding:11px 18px;width:100%}
+.mhg .nokta{width:100%;height:64px;border-radius:10px;background:var(--korpus-soft);
+  display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+.mhg .nokta span{width:16px;height:16px;border-radius:50%;background:var(--korpus);
+  box-shadow:0 0 0 5px var(--card),0 0 0 7px var(--korpus)}
+.mhnot{font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.6;margin:10px 0 0}
+@media(max-width:860px){.mhg{grid-template-columns:1fr}.mhg>div+div{border-left:0;border-top:1px solid var(--line)}}
 .ndc{width:100%;max-width:980px;margin:18px auto 0;text-align:left}
 .ndc-h{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--rubric);font-weight:800;margin-bottom:10px}
@@ -1195,6 +1229,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <div class="vchips below" id="vchips"></div>
   <p class="mapnote" id="mapnote">317 stops from al-Riḥla · data from islamicatlas.org · basemap: OpenStreetMap · place names given in their common English or transliterated forms; the underlying data are unchanged</p>
+  <div class="mhb" id="mhb"></div>
   <p class="one" style="margin:16px auto 0">Every point on the map is in fact a <b>record</b>: a city, a date and the sentence in its source. The next concept is where that record is kept ↓</p>
   <div class="libgate">📚 The shelf for this stop:<a href="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#d3">🧰 Mapping tools</a><a href="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#q=gazetteer">Search for al-Ṯurayyā &amp; gazetteer</a></div>
   <div class="btnrow"><a class="cta" href="#kayit">Next concept: the dataset ↓</a></div>
@@ -2568,6 +2603,57 @@ $("#w-verify").addEventListener("click",()=>{
     box.innerHTML='<div class="ctx"><div class="ar">…'+esc(CLEANX.slice(Math.max(0,rs-70),rs))+'<mark>'+esc(CLEANX.slice(rs,re+1))+'</mark>'+esc(CLEANX.slice(re+1,re+70))+'…</div></div>';
   }));
 });
+
+/* ---------- METİNDEN HARİTAYA ---------- */
+(function(){
+  const kutu=document.getElementById("mhb");
+  if(!kutu || typeof IBB==="undefined" || !IBB.showcase) return;
+  /* Yalnız yer adı KENDİ pasajında geçen duraklar: vurgu uydurma olmasın. */
+  const V=IBB.showcase.filter(s=>s.ar && s.quote_ar && s.quote_ar.indexOf(s.ar)>=0);
+  if(!V.length){ kutu.remove(); return; }
+  let se=0;
+  const ay=["Muharrem","Safer","Rebîülevvel","Rebîülâhir","Cemâziyelevvel","Cemâziyelâhir",
+            "Receb","Şâban","Ramazan","Şevvâl","Zilkade","Zilhicce"];
+  function hicri(s){ if(!s) return "—"; const p=String(s).split("-");
+    return p.length>1 ? p[0]+" / "+(ay[+p[1]-1]||p[1]) : p[0]; }
+  function ciz(){
+    const s=V[se];
+    const q=s.quote_ar, i=q.indexOf(s.ar);
+    const ar=esc(q.slice(0,i))+'<mark>'+esc(s.ar)+'</mark>'+esc(q.slice(i+s.ar.length));
+    kutu.innerHTML=
+      '<div class="mhsec" role="group" aria-label="Örnek durak">'
+      + V.map((x,k)=>'<button data-i="'+k+'" aria-pressed="'+(k===se)+'">'+esc(x.tr)+'</button>').join("")
+      + '</div>'
+      + '<div class="mhg">'
+      +   '<div><span class="et">1 · Eserdeki cümle</span><div class="ar" dir="rtl">'+ar+'</div>'
+      +     '<p class="cv">'+esc(s.quote_tr||"")+'</p></div>'
+      +   '<div><span class="et">2 · Kayda düşen alanlar</span>'
+      +     '<span class="kv"><span class="k">yer adı</span><span class="v">'+esc(s.tr)+' · <span style="font-family:var(--arabic)">'+esc(s.ar)+'</span></span></span>'
+      +     '<span class="kv"><span class="k">koordinat</span><span class="v mono">'+s.lat.toFixed(4)+', '+s.lon.toFixed(4)+'</span></span>'
+      +     '<span class="kv"><span class="k">varış</span><span class="v">'+(s.arr?esc(s.arr):"—")+(s.arr_ah?' <span style="font-weight:400;color:var(--muted)">(h. '+esc(hicri(s.arr_ah))+')</span>':"")+'</span></span>'
+      +     '<span class="kv" style="margin:0"><span class="k">delil</span><span class="v" style="font-weight:400;font-size:.9rem;color:var(--muted)">yukarıdaki cümlenin kendisi</span></span></div>'
+      +   '<div><span class="et">3 · Haritadaki nokta</span><div class="nokta"><span></span></div>'
+      +     '<button class="mhgo" id="mh-go">Haritada göster →</button>'
+      +     '<p class="mhnot" style="margin-top:9px">Nokta, cümleyi taşır: üstüne tıklayınca delil pasajı açılır.</p></div>'
+      + '</div>'
+      + '<p class="mhnot"><b>Zincir bu:</b> eserde geçen yer adı, tarihî coğrafya sözlüğüyle koordinata bağlanır; koordinat haritada nokta olur. Adı koordinata bağlayan adım <b>elle denetlenir</b>, çünkü tarihî adlar modern harita servislerinde çoğu zaman yoktur ya da başka bir yeri gösterir. Bu sekiz durak veri setinden alınmıştır; toplam 317 durağın hepsi aynı kurala tâbidir.</p>';
+  }
+  kutu.addEventListener("click",e=>{
+    const s=e.target.closest(".mhsec button");
+    if(s){ se=+s.dataset.i; ciz(); return; }
+    if(e.target.closest("#mh-go")){
+      const v=V[se], g=document.getElementById("gmap");
+      /* Harita tembel yükleniyor: görüş alanına girmeden kurulmuyor.
+         Önce kaydır (kurulumu tetikler), sonra hazır olana kadar bekle. */
+      if(g) g.scrollIntoView({block:"center",behavior:"smooth"});
+      (function ucur(kalan){
+        if(typeof map!=="undefined" && map){ map.flyTo([v.lat,v.lon],6,{duration:1.1}); return; }
+        if(kalan>0) setTimeout(()=>ucur(kalan-1),200);
+      })(20);
+    }
+  });
+  ciz();
+})();
 
 /* ---------- NEREDEN ÇIKTI: kaydın kaynağı ---------- */
 (function(){
