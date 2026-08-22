@@ -331,6 +331,12 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    İstasyonlar ilkeyi ve kararı anlatıyordu ama "ben tam olarak ne
    yapacağım" ve "bittiğini nasıl anlayacağım" hiçbir yerde yoktu.
    Yeni başlayan için asıl soyutluk buradaydı.                             */
+/* T-Corpus: üç kapı ve Google Form kaldırıldı; doğrudan e-posta. */
+.epk{flex:1;min-width:240px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.epl{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--tc-mavi);font-weight:800}
+.epa{font-family:var(--sans);font-size:1.15rem;font-weight:800;color:#fff;background:var(--tc-mavi);
+  text-decoration:none;border-radius:12px;padding:15px 20px;text-align:center;letter-spacing:.01em;word-break:break-all}
+.epn{font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.6}
 .neyap{margin:14px 0 0;background:var(--korpus-soft);border:1px solid color-mix(in srgb,var(--korpus) 28%,transparent);
   border-radius:12px;padding:14px 18px 16px}
 .neyap>b{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
@@ -838,12 +844,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .kayitqr{flex:0 0 156px;text-align:center}
 .kayitqr img{width:156px;height:156px;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
 .kayitqr span{font-family:var(--sans);font-size:.66rem;color:var(--muted);display:block;margin-top:5px;line-height:1.3}
-.kapitek{flex:1;min-width:250px;display:grid;gap:8px}
-.kapitek a{display:block;background:var(--code-bg);border:1px solid var(--line);border-left:5px solid var(--tc-altin);border-radius:10px;padding:10px 13px;text-decoration:none;color:inherit}
-.kapitek a:hover{border-left-color:var(--tc-mavi);background:var(--chip)}
-.kapitek b{font-family:var(--sans);font-size:.92rem;display:block}
-.kapitek span{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.5;display:block;margin-top:2px}
-.kapitek .zor{font-family:var(--sans);font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--tc-mavi);font-weight:800}
 .kvkk{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.5;margin:13px 0 0;border-top:1px dashed var(--line);padding-top:10px}
 .kapilar{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));width:100%;max-width:820px;margin:16px auto 0}
 .kapi4k{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--tc-mavi);border-radius:16px;padding:14px 16px;text-align:left}
@@ -1740,16 +1740,20 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
 
   <div class="kayit" id="tckayit">
-    <h3>Çalışmak isterseniz: üç kapı</h3>
-    <p class="alt">Şunu bilerek yazdık: <b>a CV belongs only to the highest door, and even there it is optional.</b> Merkezin asıl merak ettiği, iş tecrübeniz değil, soru kurabilmeniz. O yüzden orta kapıda beşinci duraktan indirdiğiniz tek sayfalık planı istiyoruz. Soru cümlesi + tablo şeması + takvim. Bir özgeçmişten daha çok şey söyler.</p>
+    <h3>Çalışmak isterseniz</h3>
+    <p class="alt">Merkezin merak ettiği, iş tecrübeniz değil: <b>soru kurabilmeniz.</b> O yüzden en iyi ilk mesaj, beşinci duraktan indirdiğiniz <b>tek sayfalık planı</b> ekleyen bir e-postadır. Soru cümlesi, tablo şeması, takvim. Bir özgeçmişten daha çok şey söyler. Planınız yoksa da yazın; hangi metinle ilgilendiğinizi bir paragrafta anlatmanız yeter.</p>
     <div class="kayitrow">
       <div class="kayitqr">
         <img src="qr-tcorpus-kayit-en.png" alt="QR code leading to this section" width="602" height="602" loading="lazy">
-        <span>Telefonla okutun: bu bölüme gelir, kapıyı orada seçersiniz.<br>kitabin-rihlesi/#tcorpus</span>
+        <span>Telefonla okutun: bu bölüme gelir, adres burada yazılıdır.<br>kitabin-rihlesi/#tcorpus</span>
       </div>
-      <div class="kapitek" id="kapitek"></div>
+      <div class="epk">
+        <span class="epl">Yazacağınız adres</span>
+        <a class="epa" href="mailto:bilgi@timav.org.tr?subject=T-Corpus%20%E2%80%94%20ilgi%20ve%20ba%C5%9Fvuru&amp;body=Merhaba%2C%0A%0AR%C4%B1hle%202026%20sunumunda%20T-Corpus%27u%20duydum.%0A%0A%C4%B0lgilendi%C4%9Fim%20metin%2Falan%3A%0A%0ASorum%20(tek%20c%C3%BCmle)%3A%0A%0AHaftada%20ay%C4%B1rabilece%C4%9Fim%20s%C3%BCre%3A%0A%0A%5BVarsa%20tek%20sayfal%C4%B1k%20plan%C4%B1n%C4%B1z%C4%B1%20ekleyin.%5D%0A">bilgi@timav.org.tr</a>
+        <span class="epn">Düğmeye dokunursanız konu ve soru başlıkları hazır gelir: ilgilendiğiniz metin, tek cümlelik sorunuz, haftada ayırabileceğiniz süre. Üçü de yeter.</span>
+      </div>
     </div>
-    <p class="kvkk"><b>What happens to your data:</b> <b>Bu sayfa hiçbir bilgi toplamaz</b> burada form ve sunucu yok; kapılar sizi TİMAV'ın kendi formuna götürür. Orada verdiğiniz bilgiler yalnızca size dönüş yapmak ve uygun projeye yönlendirmek için kullanılır; üçüncü kişilerle paylaşılmaz. Form Google altyapısında çalıştığı için yanıtlar yurt dışında saklanır (KVKK m.9) ve bu, formdaki açık rızanıza tabidir. Veri sorumlusu Türkiye İmam Hatipliler Vakfı'dır. Ayrıntılı aydınlatma metni: <a href="https://timav.org.tr/kvkk" target="_blank" rel="noopener">timav.org.tr/kvkk</a> · Haklarınız ve başvuru: <a href="https://timav.org.tr/iletisim" target="_blank" rel="noopener">timav.org.tr/iletisim</a></p>
+    <p class="kvkk"><b>What happens to your data:</b> <b>Bu sayfa hiçbir bilgi toplamaz</b> burada form da sunucu da yok; doğrudan e-posta yazıyorsunuz. Yazdıklarınız yalnızca size dönüş yapmak ve uygun projeye yönlendirmek için kullanılır; üçüncü kişilerle paylaşılmaz. Veri sorumlusu Türkiye İmam Hatipliler Vakfı'dır. Ayrıntılı aydınlatma metni: <a href="https://timav.org.tr/kvkk" target="_blank" rel="noopener">timav.org.tr/kvkk</a> · Haklarınız ve başvuru: <a href="https://timav.org.tr/iletisim" target="_blank" rel="noopener">timav.org.tr/iletisim</a></p>
   </div>
   <p class="one" style="margin:18px auto 0">Şimdi kapanış ve tek cümlelik davet ↓</p>
 </section>
@@ -3164,30 +3168,10 @@ $("#plandl").addEventListener("click",()=>tekSayfaIndir());
   }
   $("#tcfil").addEventListener("click",e=>{ const b=e.target.closest("button[data-f]"); if(!b) return; f=b.dataset.f; ciz(); });
   ciz();
-  /* ---- kayıt kapıları ----------------------------------------------
-     FORM_URL boşsa kapılar doğrudan e-postaya gider (altyapı gerektirmez).
-     Google Form kurulduğunda BU SATIRA adresi yaz; kapılar, kısa adres ve
-     kare kod metni kendiliğinden forma döner. Tek değişiklik burasıdır. */
-  const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLScFGgVVHJb6iiImgzFUJimaARQUSbjDwq-gcVHdCG7HaWWESw/viewform";
-  const EP="mailto:bilgi@timav.org.tr?subject=";
-  const KAPILAR=[
-   ["Door 1 · lightest","📬 I’d like to be kept informed",
-    "Let me know when new datasets and new openings are announced. All it takes: your name and your field of interest.",
-    EP+encodeURIComponent("T-Corpus · haberdar olmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. T-Corpus'un yeni veri setlerinden ve açılan projelerinden haberdar olmak istiyorum.\n\nAd soyad:\nKurum / bölüm:\nİlgi alanım:\n")],
-   ["Door 2 · the real door","📄 I’d like to work with the data",
-    "Beşinci duraktan indirdiğiniz planı ekleyin. Özgeçmiş gerekmez; plan, sizin adınıza konuşur.",
-    EP+encodeURIComponent("T-Corpus · veriyle çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Kendi sorumla çalışmaya başlamak istiyorum.\n\nEKTE: 5. duraktan indirdiğim tek sayfalık plan (yol-haritasi-….md)\n\nAd soyad:\nKurum / bölüm / sınıf:\nSoru cümlem:\n")],
-   ["Door 3 · heaviest","🤝 I’d like to join the team",
-    "For those who want to take responsibility in a running project: the plan + a CV + how many hours a week you can give.",
-    EP+encodeURIComponent("T-Corpus · ekipte çalışmak istiyorum")+"&body="+encodeURIComponent("Merhaba,\n\nRıhle 2026 seminerinden geliyorum. Merkezin yürüyen bir projesinde çalışmak istiyorum.\n\nEKTE: (1) 5. duraktan indirdiğim plan (2) özgeçmiş\n\nAd soyad:\nKurum / bölüm / sınıf:\nHangi proje ilgimi çekiyor:\nAyırabileceğim zaman (saat/hafta):\n")]
-  ];
-  const hedef=k=>FORM_URL||k[3];
-  const disari=FORM_URL?' target="_blank" rel="noopener"':"";
-  $("#kapitek").innerHTML=KAPILAR.map(k=>'<a href="'+hedef(k)+'"'+disari+'><span class="zor">'+esc(k[0])+'</span><b>'+esc(k[1])+'</b><span>'+esc(k[2])+'</span></a>').join("")
-   + (FORM_URL? '<p class="small muted" style="margin:2px 0 0">Form açılmıyorsa doğrudan yazabilirsiniz: <a href="mailto:bilgi@timav.org.tr">bilgi@timav.org.tr</a></p>' : "");
-
-  $("#tcband").innerHTML=[["2","live platforms"],["20+","digital projects"],["9","research lines"],["3","languages · TR EN AR"]]
-    .map(x=>'<div><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>').join("");
+  /* ---- kayıt: doğrudan e-posta ---------------------------------------
+     19.08.2026: üç kapı ve Google Form kaldırıldı (Ali'nin kararı).
+     Başvuru artık doğrudan e-postayla; adres ve konu/gövde şablonu
+     HTML'de duruyor, burada üretilen bir şey kalmadı. */
 })();
 
 /* ---------- MAKALE ATÖLYESİ (5. durak) ---------- */
