@@ -18,10 +18,10 @@ Bunları benim yapmam gerekiyor; bana "24 Ağustos kontrolü" de yeter.
 - [ ] **Dış servisler.** Voyant (ana + aynalar), OpenITI ham dosya çekimi,
       DergiPark, sunnah.com, Zenodo. Voyant'ın ana sunucusu 6 Ağustos'tan beri
       kesintide; o gün de kesikse kart zaten aynaya bakıyor, sözle söylenir.
-- [ ] **İki form.** T-Corpus kayıt formu ve değerlendirme anketi açılıyor mu,
-      dallanma çalışıyor mu, banner yerinde mi.
-- [ ] **`/anket/` yönlendirmesi.** QR forma değil bu adrese bakıyor; adres
-      doğru forma gidiyor mu.
+- [ ] **T-Corpus kayıt formu.** Açılıyor mu, dallanma çalışıyor mu, banner yerinde mi.
+      (Değerlendirme anketi 19.08'de kaldırıldı; geri bildirim e-postayla geliyor.)
+- [ ] **`/anket/` sayfası.** QR bu adrese bakıyor; sayfa açılıyor ve
+      "Görüşünüzü yazın" düğmesi ali.cetinkaya@gmail.com'a giden e-postayı açıyor mu.
 - [ ] **Üç QR.** Basılı hâlleri telefonla okutulur — perdeden değil, kâğıttan.
 - [ ] **Pages derlemesi.** Son commit canlıda mı (`index.html` md5 = depo md5).
 
@@ -41,10 +41,10 @@ açılışını gör. Yedek: sözlü adres `kitabin-rihlesi`.
 *Ne ters gider:* hazır örnek yolu (30 sn) internetsiz de çalışır; kendi
 asistanınla yol dış siteye bağlı. Salon ağı zayıfsa hazır örnekle git.
 
-**3 · Kapanış anketi.** QR'ı göster, kendi telefonundan doldur, cevabın
-Google Forms'a düştüğünü gör.
-*Ne ters gider:* anket sekiz soru; iki dakika. Salonu beklerken ayakta
-tutma — QR'ı bırak, kendin kapanış cümlesini söyle.
+**3 · Kapanış geri bildirimi.** QR'ı göster, kendi telefonundan okut, e-posta
+yazma ekranının konu ve soru satırı dolu açıldığını gör.
+*Ne ters gider:* telefonda tanımlı bir e-posta hesabı yoksa düğme boşa
+düşer; sayfada adres düz metin olarak da yazılı, sözle de söyle.
 
 ## Sunum akışı — süre çerçevesi
 
@@ -56,11 +56,12 @@ sayfanın kendisi de bunu söylüyor.
 
 ## Sunumdan sonra
 
-- [ ] **26 Ağustos:** anket cevaplarına bak. Asıl ölçü, 2. ve 3. sorunun
-      **farkı** — "önce ne kadar aşinaydınız" ile "şu an başlatabilir
-      misiniz" arasındaki mesafe. Tek sayısal başarı ölçüsü bu.
-- [ ] 5. sorunun ("neresi kapalı kaldı") cevapları bir sonraki sunumu
-      düzeltecek tek girdi. Hepsini oku, özet çıkarma.
+- [ ] **26 Ağustos:** gelen e-postaları oku. Anket kaldırıldığı için artık
+      sayısal ölçü yok; elde kalan tek girdi "neresi kapalı kaldı"
+      cevapları. Hepsini oku, özet çıkarma — bir sonraki sunumu bunlar
+      düzeltecek.
+- [ ] Cevap yazana **dönüş yap**. Sayı toplamıyorsan, hiç değilse yazana
+      cevap vermiş ol.
 - [ ] T-Corpus kayıtlarına **kim dönecek** — bu hâlâ karara bağlanmadı.
       Cevapsız kalan kayıt, kaydın kendisinden kötüdür.
 

@@ -1,7 +1,8 @@
 # Anlatım rehberi — 25 Ağustos 2026, 50 dakika
 
 Bu rehber sitenin **bugünkü** hâline göre yazıldı (17.08 sürümü: kimlik
-bloğu, bölüm bantları, 0. adım eşiği, tek sayfalık plan, kapanış anketi).
+bloğu, bölüm bantları, 0. adım eşiği, tek sayfalık plan, kapanış geri
+bildirimi).
 Senaryo v3'ün yerini almaz; onun üstüne **nasıl anlatılır** katmanıdır.
 
 ---
@@ -47,7 +48,7 @@ en alttaki tabloda.
 | 21–28 | 3 · Makinenin içi | tahmin oyunu + bir kat |
 | 28–40 | 4 · Sıra sende — CANLI | 0. adım + tezgâh demosu |
 | 40–46 | 5 · Makale yolu | tek sayfalık plan + merdiven |
-| 46–50 | Kapanış | T-Corpus + anket QR |
+| 46–50 | Kapanış | T-Corpus + geri bildirim QR |
 
 **Kural:** 28. dakikada 4. durakta değilsen bir şeyleri atlıyorsun demektir
 — aşağıdaki kesme sırasını uygula, canlı demoyu asla kısaltma. Sunumun
@@ -203,16 +204,17 @@ Perdede: 5. durak, alan seçici.
 
 ### Kapanış (46–50) — iki QR, tek sıra
 
-Perdede: önce T-Corpus bölümü, sonra anket.
+Perdede: önce T-Corpus bölümü, sonra geri bildirim kartı.
 
 - T-Corpus'u **iki cümlede** geç: *"Bu yöntemin Türkiye'de kurumsal bir
   adresi var: t-corpus.ai. Haberdar olmak, veriyle çalışmak ya da ekipte
   yer almak isteyenler için sayfanın sonunda üç kapı var — hiçbiri için
   önce 'araştırmacı olmanız' gerekmiyor."* Proje listesini sayma;
   sayfa orada, duran okur.
-- Son iki dakika **anket**: QR'ı bas, şunu söyle: *"Sekiz soru, iki
-  dakika, tamamen anonim. Benim için en kıymetlisi beşinci soru: neresi
-  kapalı kaldı? Bir sonraki sunumu o cevaplar düzeltecek."*
+- Son iki dakika **geri bildirim**: QR'ı bas, şunu söyle: *"Kareyi
+  okutursanız bana doğrudan yazabileceğiniz bir ekran açılır. Tek bir şey
+  soruyorum: neresi kapalı kaldı? İki satır yeter; bir sonraki sunumu o
+  cevaplar düzeltecek."*
 - Kapanış cümlen dersin tek cümlesidir (bkz. §0) — onunla bitir,
   "sorularınızı alayım"la değil. Sorular zaten gelecek.
 
@@ -228,7 +230,7 @@ Sırayla kes; her kesik ~2-3 dk kazandırır:
 4. 5. durakta alan seçmeyi salona bırak: "planınızı çıkışta indirin"
 
 **Asla kesilmeyecekler:** kimlik bloğu ("ne değil"), 4. duraktaki 0. adım
-+ mukabele, tek sayfalık planın gösterilmesi, anket QR'ı.
++ mukabele, tek sayfalık planın gösterilmesi, geri bildirim QR'ı.
 
 ## 4 · Dört persona — kim nerede kopar, ne söylersin
 

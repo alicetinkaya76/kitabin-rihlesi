@@ -29,7 +29,12 @@
  */
 
 var TCORPUS_ID = '1u0HZFHSJcTeumgymV8CqGMJ5Tc7RE_Qbc42Lh-H9je0';
-var ANKET_ID   = '1OhjOPP39QkUSWEV8AzCEBDCV4UmdTrcjyn9V1q-oTIc';
+/* ANKET KALDIRILDI (19.08.2026): sunum sonu degerlendirme anketi yerine
+   geri bildirim dogrudan ali.cetinkaya@gmail.com adresine gidiyor.
+   Bu betik artik yalniz T-Corpus formunu yamalar. Anket geri istenirse
+   form/arsiv/rihle-anket-olustur.gs ile kurulur ve asagidaki satirlar
+   geri acilir. */
+// var ANKET_ID = '1OhjOPP39QkUSWEV8AzCEBDCV4UmdTrcjyn9V1q-oTIc';
 
 var PLAN_YARDIM =
   'Bu sayfa Kapı 2 ve Kapı 3 içindir. Alanları, sitedeki 5. durakta ' +
@@ -101,29 +106,28 @@ function guncelle() {
   n += yaz_(tc, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma metni ve açık rıza',
             AYDINLATMA_TCORPUS_());
 
-  var an = FormApp.openById(ANKET_ID);
-  n += yaz_(an, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma ve açık rıza',
-            AYDINLATMA_ANKET_());
+// var an = FormApp.openById(ANKET_ID);
+// n += yaz_(an, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma ve açık rıza',
+// AYDINLATMA_ANKET_());
 
-  n += soru6_(an);
-  an.setConfirmationMessage(ONAY_MESAJI);
-  Logger.log('✓ teşekkür mesajı yenilendi');
+// n += soru6_(an);
+// an.setConfirmationMessage(ONAY_MESAJI);
+// Logger.log('✓ teşekkür mesajı yenilendi');
 
-  Logger.log('Güncellenen bölüm sayısı: ' + n + ' / 4');
-  if (n < 4) {
-    Logger.log('UYARI: beklenen 4 bölümün hepsi bulunamadı — başlıklar elle ' +
+  Logger.log('Güncellenen bölüm sayısı: ' + n + ' / 2');
+  if (n < 2) {
+    Logger.log('UYARI: beklenen 2 bölümün hepsi bulunamadı — başlıklar elle ' +
                'değiştirilmiş olabilir. Aşağıdaki dökümü kontrol edin.');
     dokum_(tc, 'T-CORPUS');
-    dokum_(an, 'ANKET');
+
   }
   /* yazdıktan sonra GERİ OKU — "güncelledim" demek yetmez */
   denetle_(tc, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma metni ve açık rıza',
            'Sabit bir üst süre yoktur', 'En çok 2 yıl');
-  denetle_(an, FormApp.ItemType.SECTION_HEADER, 'Aydınlatma ve açık rıza',
-           'kimliğe bağlanamaz', 'En çok 2 yıl');
+
 
   Logger.log('T-CORPUS: ' + tc.getPublishedUrl());
-  Logger.log('ANKET   : ' + an.getPublishedUrl());
+// Logger.log('ANKET   : ' + an.getPublishedUrl());
 }
 
 /** Başlığı eşleşen ilk öğenin yardım metnini değiştirir; 1 ya da 0 döner. */

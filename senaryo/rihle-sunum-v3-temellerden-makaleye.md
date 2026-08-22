@@ -145,28 +145,29 @@ SORUMLULUK DEVREDİLEMEZ.
 
 # B6 · KAPANIŞ (45:00–48:00)
 
-**SON KARE — ANKET QR'I (perdede sabit kalır, sunum bitene kadar inmez):**
+**SON KARE — GERİ BİLDİRİM QR'I (perdede sabit kalır, sunum bitene kadar inmez):**
 `senaryo/qr-anket.png` → kitabin-rihlesi/**anket/**
-Bu adres KALICIDIR: form bağlanmasa da çalışır, bağlanınca kendiliğinden
-yönlendirir. Yani QR bugün basılabilir.
+Bu adres KALICIDIR; dosya adı eski kaldı ama sayfanın içeriği değişti.
+Okutan kişi, konusu ve sorusu önceden yazılmış bir e-posta ekranına düşer.
 
-**KONUŞMA (anket için, ~40 sn):**
-> "Son bir ricam var. Perdedeki kareyi okutursanız iki dakikalık bir
-> değerlendirme çıkacak. Anonim — kimlik istemiyoruz. Ama bir sorusu var ki
-> asıl onun için soruyorum: **'neresi kapalı kaldı?'** İşe yarayan kısımları
-> zaten yüzünüzden anlıyorum; anlamadığınız yeri ancak siz yazarsanız
-> öğrenirim ve bir dahakine düzeltirim. Nazik olmaya çalışmayın, açık olun.
-> Sonunda isterseniz iletişim bırakabilirsiniz; istemezseniz anonim kalır ve
-> cevabınız yine tam sayılır."
+**KONUŞMA (geri bildirim için, ~40 sn):**
+> "Son bir ricam var. Perdedeki kareyi okutursanız bana doğrudan
+> yazabileceğiniz bir ekran açılacak. Tek bir şey soruyorum:
+> **'neresi kapalı kaldı?'** İşe yarayan kısımları zaten yüzünüzden
+> anlıyorum; anlamadığınız yeri ancak siz yazarsanız öğrenirim ve bir
+> dahakine düzeltirim. İki satır yeter. Nazik olmaya çalışmayın, açık olun."
 
-**NEDEN TEK QR:** kapanışta iki ayrı kare (anket + kayıt) göstermek salonun
-tarama enerjisini böler. Kayıt sorusu anketin SON maddesi olarak duruyor;
-böyle olunca hem anket cevap oranı korunuyor hem kayıt, anketin ivmesini
-kullanıyor. T-Corpus kaydının kendi QR'ı zaten B5.5'te, farklı bir anda.
+**ANKET NEDEN KALDIRILDI (19.08.2026, Ali'nin kararı):** Google Form
+anketi devreden çıkarıldı; cevaplar artık bir tabloya değil, doğrudan
+`ali.cetinkaya@gmail.com` adresine gidiyor. Kazanç: form doldurma sürtünmesi
+yok, KVKK yükü yok, cevap yazana dönüş yapmak kolay. Bedeli dürüstçe
+söylenmeli: **sayısal başarı ölçüsü artık yok.** Eski ankette 2. ve 3.
+sorular kasten aynı ölçekteydi ve aradaki fark seminerin tek niceliksel
+ölçüsüydü. Şimdi elde kalan tek girdi, yazanların cümleleri.
 
-**ANKETİN ÖLÇTÜĞÜ ASIL ŞEY:** 2. ve 3. sorular kasten aynı ölçekte —
-"önce ne biliyordu" ile "şimdi ne yapabileceğini sanıyor" arasındaki FARK.
-Bu seminerin tek sayısal başarı ölçüsü budur; katılımcı sayısı değil.
+**NEDEN TEK QR:** kapanışta iki ayrı kare göstermek salonun tarama
+enerjisini böler. T-Corpus kaydının kendi QR'ı zaten B5.5'te, farklı bir
+anda duruyor.
 
 **PERDEDE (son kare, sabit):**
 ```

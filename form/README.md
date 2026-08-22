@@ -1,3 +1,8 @@
+> **Not (19.08.2026):** Değerlendirme anketi **kaldırıldı**. Geri bildirim
+> artık `ali.cetinkaya@gmail.com` adresine doğrudan e-postayla geliyor.
+> Anket betiği `form/arsiv/` altında; `guncelle.gs` yalnız T-Corpus formunu
+> yamalıyor. Aşağıdaki anket bölümleri **tarihî kayıt** olarak duruyor.
+
 # T-Corpus kayıt formu — kurulum
 
 ## Neden ben kuramıyorum
