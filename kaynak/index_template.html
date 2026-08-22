@@ -338,6 +338,42 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    panelinin içine gömülüydü. Burada üç adımda, sitenin 1. durakta
    kurduğu KOORDİNAT fikrine bağlanarak anlatılıyor. Koordinatlar
    temsilî; kosinüs hesabı gerçek ve adım adım gösteriliyor.            */
+/* ---- ATÖLYE HARİTASI ---------------------------------------------------
+   Yedi alet düz bir link satırıydı: sıra yok, her aletin ne ürettiği
+   yazmıyordu. Görsel olarak kalabalık, bilgi olarak boş — "karmaşık ama
+   basit" hissi buradan geliyordu. Üç takıma ayrıldı: kuran · karşılaştıran
+   · koruyan. Her alet ne ürettiğini kendi söylüyor.                       */
+/* Yolun kimliği: üç bilgi üç kutuya ayrıldı, soru başlıklarıyla. */
+.yolkim{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px 16px;margin:0 0 12px;box-shadow:var(--shadow)}
+.yke{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rubric);font-weight:800;display:block;margin-bottom:10px}
+.ykg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ykk{background:var(--chip);border-radius:10px;padding:10px 13px}
+.ykk .k{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:3px}
+.ykk .v{display:block;font-family:var(--sans);font-size:.92rem;line-height:1.5;color:var(--ink)}
+.ykk .v a{color:var(--insan)}
+.ilk60{margin-top:12px}
+.ilk60>summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--korpus)}
+.ilk60>summary::-webkit-details-marker{display:none}
+.ilk60 ol{margin:9px 0 0;padding-left:20px;font-family:var(--sans);font-size:.9rem;line-height:1.65;color:var(--ink)}
+.ilk60 li{margin-bottom:5px}
+@media(max-width:720px){.ykg{grid-template-columns:1fr}}
+.atolyeharita{width:100%;max-width:900px;margin:16px auto 4px;display:grid;gap:10px}
+.athsat{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:start}
+.athet{font-family:var(--sans);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:800;color:var(--u);padding-top:9px;line-height:1.5}
+.athet span{display:block;font-size:.7rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted)}
+.athk{display:flex;flex-wrap:wrap;gap:8px}
+.athk a{display:flex;align-items:center;gap:9px;text-decoration:none;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--u);border-radius:11px;padding:9px 14px 9px 11px;
+  color:var(--ink);transition:border-color .15s ease,transform .15s ease}
+.athk a:hover{transform:translateY(-1px);border-color:var(--u)}
+.athk .hf{flex:none;width:24px;height:24px;border-radius:7px;background:var(--u);color:#fff;
+  font-family:var(--sans);font-weight:800;font-size:.82rem;text-align:center;line-height:24px}
+.athk .hi{display:block;font-family:var(--sans);font-size:.92rem;font-weight:700;line-height:1.3}
+.athk .hc{display:block;font-family:var(--sans);font-size:.8rem;color:var(--muted);line-height:1.4;margin-top:1px}
+.athk .ind{font-family:var(--sans);font-size:.68rem;font-weight:800;color:var(--korpus);
+  background:var(--korpus-soft);border-radius:999px;padding:2px 7px;margin-left:2px}
+@media(max-width:720px){.athsat{grid-template-columns:1fr;gap:5px}.athet{padding-top:0}}
 .vk{margin:12px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .vk>summary{cursor:pointer;list-style:none;padding:13px 18px;font-family:var(--sans);font-size:.95rem;
   font-weight:700;color:var(--insan);background:var(--insan-soft);display:flex;align-items:center;gap:8px}
@@ -1607,10 +1643,31 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <section class="scene wrap" id="ilham">
   <div class="kicker">5 · İlk makalene giden yol</div><span class="seviye orta">Uygulama · plan çıkarır</span>
   <h2>İlk makalene giden yol</h2>
-  <p class="one">Bu durak bir <b>atölyedir</b>: alanını seç, altı aleti sırayla kullan, sonunda danışmanına götürebileceğin tek dosya çıksın. Hiçbir alet senin yerine karar vermez; hepsi kararı <i>görünür</i> kılar.</p>
+  <p class="one">Bu durak bir <b>atölyedir</b>: alanını seç, aletleri sırayla kullan, sonunda danışmanına götürebileceğin tek sayfa çıksın. Hiçbir alet senin yerine karar vermez; hepsi kararı <i>görünür</i> kılar.</p>
   <div class="trackchips" id="trackchips"></div>
-  <div class="atlas" aria-label="Atölyedeki aletler">
-    <a href="#soru">A · Soru tezgâhı</a><a href="#takvim">B · Dönem takvimi</a><a href="#anatomi">C · Makalenin anatomisi</a><a href="#emsal">D · Bitmiş bir makale</a><a href="#hakem">E · Hakem gözü</a><a href="#beyan">F · Yapay zekâ beyanı</a><a href="#kurtarma">G · İşler yolunda gitmezse</a>
+  <div class="atolyeharita" aria-label="Atölyedeki aletler">
+    <div class="athsat" style="--u:var(--rubric)">
+      <div class="athet">Kurar<span>planını üretir</span></div>
+      <div class="athk">
+        <a href="#soru"><span class="hf">A</span><span><span class="hi">Soru tezgâhı</span><span class="hc">çıktı: tek cümlelik soru + tablonun sütunları</span></span></a>
+        <a href="#takvim"><span class="hf">B</span><span><span class="hi">Dönem takvimi</span><span class="hc">çıktı: saat bütçene göre dört dönüm noktası</span></span></a>
+        <a href="#anatomi"><span class="hf">C</span><span><span class="hi">Makalenin anatomisi</span><span class="hc">çıktı: bölüm bölüm iskelet <span class="ind">indirilir</span></span></span></a>
+      </div>
+    </div>
+    <div class="athsat" style="--u:var(--insan)">
+      <div class="athet">Karşılaştırır<span>örneğe bakar</span></div>
+      <div class="athk">
+        <a href="#emsal"><span class="hf">D</span><span><span class="hi">Bitmiş bir makale</span><span class="hc">yayımlanmış EICD-B, sekiz durakta baştan sona</span></span></a>
+        <a href="#hakem"><span class="hf">E</span><span><span class="hi">Hakem gözü</span><span class="hc">on iki maddelik kontrol; eksiği şimdi gör</span></span></a>
+      </div>
+    </div>
+    <div class="athsat" style="--u:var(--korpus)">
+      <div class="athet">Korur<span>yayına hazırlar</span></div>
+      <div class="athk">
+        <a href="#beyan"><span class="hf">F</span><span><span class="hi">Yapay zekâ beyanı</span><span class="hc">çıktı: iki dilde kullanım beyanı</span></span></a>
+        <a href="#kurtarma"><span class="hf">G</span><span><span class="hi">İşler yolunda gitmezse</span><span class="hc">tıkandığın yerin çıkışı</span></span></a>
+      </div>
+    </div>
   </div>
   <div id="trackhead" style="max-width:820px;margin:0 auto;width:100%"></div>
 
@@ -3122,10 +3179,16 @@ function renderTrack(name){
   $("#trackplan").innerHTML=TRACKS[name].map((s,i)=>'<div class="step" style="text-align:left"><label class="chk"><input type="checkbox" data-i="'+i+'"'+(st[name+":"+i]?" checked":"")+'> yaptım</label><span class="when">'+EVRE[i]+' '+esc(s[0])+'</span><br><b>'+esc(s[1])+'</b> — '+esc(s[2])+'<br>'+s[3]+'<div class="btgrid"><div class="bittibox"><b>✅ Bitti sayılır</b>'+esc(s[4])+'</div><div class="tuzakbox"><b>⚠️ Tuzak</b>'+esc(s[5])+'</div></div></div>').join("");
   document.querySelectorAll("#trackchips button").forEach(b=>b.setAttribute("aria-pressed", b.textContent===name?"true":"false"));
   const m=TRACKMETA[name];
-  $("#trackhead").innerHTML='<div class="card pv k" style="margin:0 0 10px"><span class="pvlabel">Bu yolun kimliği</span>'
-    +'<p class="sum" style="margin:4px 0 0"><b>Ürün:</b> '+esc(m.urun)+'</p>'
-    +'<p class="sum" style="margin:2px 0 0"><b>Emsal:</b> '+m.emsal+' · <b>Hedef raf:</b> '+esc(m.hedef)+'</p>'
-    +'<details class="mdeep ustanotu" style="margin-top:8px"><summary>⚡ İlk 60 dakika: bugün başla</summary><p>'+m.ilk60.map((x,j)=>(j+1)+". "+esc(x)).join("<br>")+'</p></details></div>';
+  /* Yolun kimliği düz metindi; üç ayrı bilgi (ne üretiyorsun · kime
+     benziyor · nereye gönderiyorsun) aynı paragrafta eziliyordu. */
+  $("#trackhead").innerHTML='<div class="yolkim">'
+    +'<span class="yke">Bu yolu seçersen</span>'
+    +'<div class="ykg">'
+    +  '<div class="ykk"><span class="k">Sonunda elinde ne olur</span><span class="v">'+esc(m.urun)+'</span></div>'
+    +  '<div class="ykk"><span class="k">Neye benzeyecek</span><span class="v">'+m.emsal+'</span></div>'
+    +  '<div class="ykk"><span class="k">Nereye gönderilir</span><span class="v">'+esc(m.hedef)+'</span></div>'
+    +'</div>'
+    +'<details class="ilk60"><summary>⚡ İlk 60 dakika: bugün başla</summary><ol>'+m.ilk60.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol></details></div>';
   const ep=$("#ep-text"); if(ep) ep.textContent=epostaText();
   if(typeof soruLoad==="function"){ soruLoad(); soruSecCiz(); soruRender(); }
   planProg();
