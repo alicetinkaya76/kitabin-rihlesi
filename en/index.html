@@ -327,6 +327,27 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    görünüyordu. Burada üç aşama açıkta: eserdeki cümle → kaydın alanları →
    haritadaki nokta. Örnekler gerçek: pasajlar da koordinatlar da veri
    setinden geliyor, elle yazılmadı.                                       */
+/* ---- SEN NE YAPARSIN ----------------------------------------------------
+   İstasyonlar ilkeyi ve kararı anlatıyordu ama "ben tam olarak ne
+   yapacağım" ve "bittiğini nasıl anlayacağım" hiçbir yerde yoktu.
+   Yeni başlayan için asıl soyutluk buradaydı.                             */
+.neyap{margin:14px 0 0;background:var(--korpus-soft);border:1px solid color-mix(in srgb,var(--korpus) 28%,transparent);
+  border-radius:12px;padding:14px 18px 16px}
+.neyap>b{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--korpus);display:block;margin-bottom:9px}
+.neyap ol{margin:0;padding:0;list-style:none;counter-reset:ny}
+.neyap li{counter-increment:ny;position:relative;padding-left:32px;margin:0 0 9px;
+  font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink)}
+.neyap li::before{content:counter(ny);position:absolute;left:0;top:1px;width:22px;height:22px;
+  border-radius:50%;background:var(--korpus);color:#fff;font-size:.78rem;font-weight:800;
+  text-align:center;line-height:22px}
+.neyap li:last-of-type{margin-bottom:0}
+.neyap .bitti{display:flex;gap:9px;align-items:flex-start;margin-top:12px;padding-top:11px;
+  border-top:1px dashed color-mix(in srgb,var(--korpus) 34%,transparent);
+  font-family:var(--sans);font-size:.92rem;line-height:1.6;color:var(--ink)}
+.neyap .bitti .tik{flex:none;width:20px;height:20px;border-radius:5px;background:var(--korpus);
+  color:#fff;text-align:center;line-height:20px;font-size:.8rem;font-weight:800;margin-top:1px}
+.neyap .bitti b{color:var(--korpus)}
 .mhb{width:100%;max-width:980px;margin:18px auto 0;text-align:left}
 .mhsec{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
 .mhsec button{font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;
@@ -1010,7 +1031,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .nebu .lede, .nebu .degil, .nebu .ozgun p{font-family:var(--serif);line-height:1.7}
 .nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
 
-<div class="enwip">This English edition is <b>a work in progress</b>: <b>36%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
+<div class="enwip">This English edition is <b>a work in progress</b>: <b>35%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">The Riḥla of a Book</a>
   <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">Kapanış · T-Corpus</a>
@@ -2044,6 +2065,8 @@ else window.addEventListener("load", initMap, {once:true});
   var KURL2="https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html";
   var IST=[
    {no:"1",ad:"Malzeme",ico:"📦",pay:10,sure:"1-3 days · ~10% of the effort",
+    adim:["Kütüphane'nin <b>Kitabı Bul</b> rafından eserini ara; OpenITI'de varsa ham dosya adresini kopyala.","Metni indir ve bir <b>kesit</b> seç: tek bölüm ya da tek bab, 2-3 bin kelime. Tamamını alma.","Kesiti bir metin dosyasına kaydet; <b>künyeyi ve sürüm numarasını</b> dosyanın başına yaz."],
+    bitti:"Bilgisayarında bir metin dosyası var; başında eserin künyesi ve sürümü yazılı, içi Ctrl+F ile aranabiliyor.",
     ilke:"Elinde ne var? Soruyu taşıyacak, makine tarafından işlenebilir ve hakları açık bir metin.",
     gir:"A curiosity + the sources you can reach",
     cik:"A text file on your computer that opens and can be searched",
@@ -2059,6 +2082,8 @@ else window.addEventListener("load", initMap, {once:true});
     bag:[[KURL2+"#d1","📚 “Find the book” shelves"],[KURL2+"#d2","🗃 Ready-made datasets"]]},
 
    {no:"2",ad:"Soru",ico:"❓",pay:15,sure:"2-5 days (weeks in the mind) · ~15%",
+    adim:["Merakını <b>tek cümleye</b> indir. Cümlede sayılabilir bir yüklem olsun: hangi, kaç, nasıl dağılıyor, neye göre değişiyor.","O cümlenin tablosunu <b>boş olarak</b> çiz: bir satır neyi temsil edecek, hangi sütunlar olacak?","Sütunlardan birinin adını <b>delil</b> koy. Delil sütunu olmayan tablo kurma."],
+    bitti:"Boş tablonun başlıklarını yazabiliyorsan soru hazırdır. Yazamıyorsan soru henüz sohbet düzeyindedir.",
     ilke:"A single question that can be counted, mapped or linked. This is the hardest and most decisive step of the whole road.",
     gir:"Metin + merak",
     cik:"A one-sentence question whose table can be drawn, plus that table’s empty headings",
@@ -2075,6 +2100,8 @@ else window.addEventListener("load", initMap, {once:true});
     bag:[[KURL2+"#d3","📚 Four question patterns"]]},
 
    {no:"3",ad:"Veri",ico:"🗄",pay:25,sure:"1-3 weeks · ~25%",
+    adim:["Önce <b>elle</b> 10 kayıtlık bir pilot çıkar. Şema ancak kendi gözünle çıkardığın kayıtlarda oturur.","Talimatını yaz: alan adları, kapalı listeler (ör. sulhan / anveten / bozulan ahd), <b>delil zorunluluğu</b> ve çekimser kanalı.","Metni ve talimatı modele ver; cevabı JSON olarak al, doğrudan tabloya dökme."],
+    bitti:"Her satırda delil sütunu dolu. Boş olan satır tabloya girmiyor; emin olamadıkların ayrı bir çekimser listesinde duruyor.",
     ilke:"Turning the material into a dataset in which every record has the same drawers. Building the schema is writing the first draft of your thesis.",
     gir:"Soru + metin",
     cik:"N records with a filled evidence column (JSON or a table)",
@@ -2090,6 +2117,8 @@ else window.addEventListener("load", initMap, {once:true});
     bag:[["#kayit","Sayfada: dolabı aç"],["#dene","Sayfada: tezgâhta dene"],[KURL2+"#tezgah","📚 Tam Tezgâh"]]},
 
    {no:"4",ad:"Denetim",ico:"⚖",pay:35,sure:"1-2 hafta · ~%35 · en uzun adım",
+    adim:["Her delil cümlesini <b>kaynak dosyada ara</b>: Ctrl+F ya da Kütüphane'deki Tezgâh.","Sonucu üçe ayır: harfiyen bulundu (TAM) · imlâ farkıyla bulundu (KISMÎ) · bulunamadı.","Bulunamayanları <b>silme</b>. Ayrı listede tut ve sayısını raporunda yaz."],
+    bitti:"Elinde tek cümlelik bir rapor var: «N kayıttan M'si delille doğrulandı; K kayıt sonuç dışı.» Bu cümleyi yazamıyorsan denetim bitmemiştir.",
     ilke:"Comparing every record’s evidence against the source; in the language of the tradition, muqābala. A record that cannot be found does not enter the results.",
     gir:"Ham kayıtlar",
     cik:"Verified records + a breakdown of those discarded",
@@ -2105,6 +2134,8 @@ else window.addEventListener("load", initMap, {once:true});
     bag:[["#dene","Sayfada: canlı denetim"],[KURL2+"#tezgah","📚 Tam Tezgâh"]]},
 
    {no:"5",ad:"Ürün",ico:"📤",pay:15,sure:"2-4 weeks · ~15%",
+    adim:["Veri setini Zenodo'ya yükle, <b>DOI al</b>, sürüm numarası ver. Makaleden önce veri yayımlanır.","Yöntem paragrafını yaz: kaynak sürümü, çıkarım aracı, denetim oranı, <b>elenen kayıt sayısı</b>.","Yapay zekâ kullanım beyanını ekle; dergi seçiciyle hedef dergiyi belirle."],
+    bitti:"Veri setinin DOI'si var ve yöntem paragrafında denetim oranı yazılı. İkisinden biri eksikse çalışma henüz gönderilmeye hazır değil.",
     ilke:"Three products at once: the figure, the text and the dataset itself. A dataset is also a publication.",
     gir:"Doğrulanmış veri",
     cik:"A figure + an article draft + a dataset archived with a persistent identifier (DOI)",
@@ -2148,6 +2179,9 @@ else window.addEventListener("load", initMap, {once:true});
     var h='<div class="ph"><h3>'+t.ico+' '+t.no+' · '+esc(t.ad)+'</h3><span class="sure">'+esc(t.sure)+'</span></div>'
       +'<p class="the principle">'+esc(t.ilke)+'</p>'
       +'<div class="io2"><div class="gir"><b>Girdi</b>'+esc(t.gir)+'</div><div class="cik"><b>Çıktı</b>'+esc(t.cik)+'</div></div>'
+      +'<div class="neyap"><b>Sen ne yaparsın</b><ol>'
+      + t.adim.map(function(a){ return '<li>'+a+'</li>'; }).join("")
+      + '</ol><div class="bitti"><span class="tik">✓</span><span><b>Bitti sayılır:</b> '+esc(t.bitti)+'</span></div></div>'
       +'<div class="karar"><b>Karar anı</b><span class="ks">'+esc(t.ksoru)+'</span>'
       + t.sec.map(function(o){ var m=o[0]==="iyi"?"✓":(o[0]==="kotu"?"!":"·");
           return '<div class="secenek '+o[0]+'"><span class="mark">'+m+'</span><span><b>'+esc(o[1])+'</b> '+esc(o[2])+'</span></div>'; }).join("")
