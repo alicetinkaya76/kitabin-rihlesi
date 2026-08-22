@@ -312,6 +312,49 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    metnin kendisi işaretleniyor: kip değişince vurgular da değişir, öğrenci
    "kök mü yazım mı" farkını çubukta değil METİNDE görür. Bir çubuğa
    dokununca yalnız o kök kalır.                                            */
+/* ---- BİR OK NASIL DOĞAR ------------------------------------------------
+   Üç ayrı iş vardı (fiili bul · tipi oku · kenarı çiz) ama üçü tek satıra
+   ve .82rem puntoya gömülmüştü. Numaralı üç aşama, aralarında ok; kalıp
+   fiiller de rastgele etiket yığını değil, "ne demek / hangi kenar"
+   sütunlu bir tablo.                                                       */
+.okadim{list-style:none;display:grid;grid-template-columns:1.25fr 1fr .95fr;gap:0;margin:14px 0 0;padding:0}
+.okadim li{position:relative;background:var(--card);border:1px solid var(--line);padding:16px 18px 18px;
+  display:flex;flex-direction:column;gap:7px}
+.okadim li:first-child{border-radius:12px 0 0 12px}
+.okadim li:last-child{border-radius:0 12px 12px 0}
+.okadim li+li{border-left:0}
+.okadim li+li::before{content:"→";position:absolute;left:-15px;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border-radius:50%;background:var(--insan);color:#fff;text-align:center;
+  line-height:30px;font-family:var(--sans);font-weight:800;font-size:.95rem;z-index:1;
+  box-shadow:0 0 0 4px var(--paper)}
+.okadim .no{font-family:var(--sans);font-size:.72rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--insan)}
+.okadim .bs{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);line-height:1.4}
+.okadim .ar{font-family:var(--arabic);font-size:1.4rem;line-height:1.95;direction:rtl;text-align:right;
+  background:var(--code-bg);border-radius:8px;padding:9px 12px}
+.okadim .ac{font-family:var(--sans);font-size:.92rem;color:var(--muted);line-height:1.6}
+.okadim .ar mark{white-space:nowrap}
+.okadim mark.f{background:color-mix(in srgb,var(--korpus) 26%,transparent);border-bottom:2.5px solid var(--korpus);border-radius:3px;padding:0 3px;color:inherit}
+.okadim mark.k{background:color-mix(in srgb,var(--model) 26%,transparent);border-bottom:2.5px solid var(--model);border-radius:3px;padding:0 3px;color:inherit}
+.okadim .kenar{font-family:var(--sans);font-size:1.05rem;font-weight:800;color:var(--insan);
+  background:var(--insan-soft);border-radius:8px;padding:11px 14px;text-align:center;letter-spacing:.02em}
+.fiiltab{width:100%;border-collapse:collapse;margin:16px 0 0;font-family:var(--sans);font-size:.92rem}
+.fiiltab th{text-align:left;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-weight:800;padding:0 10px 7px;border-bottom:1px solid var(--line)}
+.fiiltab td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.fiiltab td:first-child{font-family:var(--arabic);font-size:1.3rem;direction:rtl;text-align:right;white-space:nowrap;width:1%}
+.fiiltab tr.ayri td{color:var(--muted)}
+.fiiltab .tip{font-weight:700;color:var(--insan)}
+.fiiltab tr.ayri .tip{color:var(--muted)}
+.okkural{margin:16px 0 0;background:var(--rubric-soft);border-left:4px solid var(--rubric);
+  border-radius:0 10px 10px 0;padding:13px 16px;font-family:var(--sans);font-size:.95rem;line-height:1.65}
+.okkural b{color:var(--rubric)}
+@media(max-width:760px){
+  .okadim{grid-template-columns:1fr}
+  .okadim li{border-radius:12px!important;border-left:1px solid var(--line)!important}
+  .okadim li+li{margin-top:22px}
+  .okadim li+li::before{content:"↓";left:50%;top:-15px;transform:translateX(-50%)}
+}
 .uzlgnd{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;font-family:var(--sans);font-size:.82rem}
 .uzlgnd button{font:inherit;cursor:pointer;background:var(--card);border:1.5px solid var(--line);
   border-radius:999px;padding:5px 12px;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
@@ -1056,10 +1099,32 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="embwrap"><div class="telozet"><b>Ağ analizi · telefon özeti</b><ol><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">Girdi:</b> Kayıtlar giriyor (kim kimden rivayet etti)</li><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">İşlem:</b> Her kişi bir düğüm, her rivayet bir bağ oluyor</li><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">Çıktı:</b> Kimin merkezde olduğu görünüyor</li></ol></div><div id="netmini"></div></div>
     <div id="netinfo"></div>
     <details class="mdeep"><summary>Meraklısına: bir ok nasıl doğar?</summary>
-      <div class="okdogar"><div class="ar">أَخَذَ الشافعيُّ عن <mark style="background:var(--model-soft)">محمدِ بن الحسن</mark></div><span class="arr">⇒</span><div class="okedge">Şeybânî ─▶ Şâfiî</div></div>
-      <p style="font-family:var(--sans);font-size:.82rem;margin:4px 0 0">Kenarı doğuran şey, tabakat metnindeki <b>kalıp fiillerdir</b>:</p>
-      <div class="fiiller"><span>أخذ عن</span><span>تفقه على</span><span>سمع من</span><span>قرأ على</span><span style="opacity:.65">روى عن: rivayet kenarı, ayrı tutulur</span></div>
-      <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:8px 0 0">Kural, delil şartımızın ağdaki hâlidir: <b>ibaresiz ok çizilmez</b> : her kenarın delili, kaynağından bir cümledir. (Kalıplar gerçek; örnek cümle temsilîdir.) Elle 6 âlimde yaptığımızı, Gephi binlerce âlimde yapar; kural aynı kalır. <b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor: dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
+      <ol class="okadim">
+        <li><span class="no">1. adım</span><span class="bs">Metinde kalıp fiili bul</span>
+          <div class="ar">أَخَذَ الشافعيُّ <mark class="f">عن</mark> <mark class="k">محمدِ بن الحسن</mark></div>
+          <span class="ac">Tabakat kaynağındaki cümle. Yeşil olan <b>kalıp fiil</b>, turuncu olan <b>hocanın adı</b>.</span></li>
+        <li><span class="no">2. adım</span><span class="bs">Fiilin tipini ve yönünü oku</span>
+          <span class="ac"><b>أخذ عن</b> = &laquo;ondan aldı&raquo;, yani ders okudu. Bu bir <b>talebelik</b> kenarıdır ve yönü kesindir: ok, <b>okuyandan okutana değil, okutandan okuyana</b> gider. Kural tek cümle: ok <b>kimden okudu</b> sorusunu gösterir.</span></li>
+        <li><span class="no">3. adım</span><span class="bs">Kenarı çiz, delilini yanına yaz</span>
+          <div class="kenar">Şeybânî &#9472;&#9654; Şâfiî</div>
+          <span class="ac">Kenar tek başına yayımlanmaz: yukarıdaki cümle, kaynağı ve sayfasıyla birlikte kenarın delili olarak kaydedilir.</span></li>
+      </ol>
+
+      <table class="fiiltab">
+        <thead><tr><th>Kalıp fiil</th><th>Ne demek</th><th>Doğurduğu kenar</th></tr></thead>
+        <tbody>
+          <tr><td>أَخَذَ عن</td><td>ondan aldı (ders okudu)</td><td class="tip">talebelik</td></tr>
+          <tr><td>تَفَقَّهَ على</td><td>onun yanında fıkıh tahsil etti</td><td class="tip">talebelik</td></tr>
+          <tr><td>سَمِعَ من</td><td>ondan işitti (semâ yoluyla)</td><td class="tip">talebelik</td></tr>
+          <tr><td>قَرَأَ على</td><td>ona okudu (kıraat yoluyla)</td><td class="tip">talebelik</td></tr>
+          <tr class="ayri"><td>رَوَى عن</td><td>ondan rivayet etti</td><td class="tip">rivayet &mdash; ayrı tutulur</td></tr>
+        </tbody>
+      </table>
+      <p class="ac" style="font-family:var(--sans);font-size:.88rem;color:var(--muted);margin:8px 0 0">Son satır neden ayrı: rivayet, ders halkasında bulunmayı gerektirmez. İkisini aynı kenar saymak, hoca-talebe ağını olduğundan yoğun gösterir. Kalıplar gerçek; yukarıdaki örnek cümle temsilîdir.</p>
+
+      <div class="okkural"><b>İbaresiz ok çizilmez.</b> Bu, sayfanın baştan beri tekrar ettiği delil şartının ağdaki hâlidir: her kenarın arkasında kaynağından alınmış bir cümle durur. Elle altı âlimde yaptığımızı Gephi binlerce âlimde yapar; değişen ölçek, kural değil.</div>
+
+      <p style="font-family:var(--sans);font-size:.92rem;color:var(--muted);margin:12px 0 0;line-height:1.65"><b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor: dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
     <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından; ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür: <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> ; canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
   </div>
