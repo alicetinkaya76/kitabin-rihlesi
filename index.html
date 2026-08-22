@@ -307,6 +307,22 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .alan.merkez .dj::before{background:var(--rubric)}
 .alan .mrk{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
   text-transform:uppercase;color:var(--rubric);margin-top:8px}
+/* ---- UZAK OKUMA: metinde vurgulama --------------------------------------
+   Çubuklar sayıyı söylüyordu ama sayı soyut kalıyordu. Aynı sayım kuralıyla
+   metnin kendisi işaretleniyor: kip değişince vurgular da değişir, öğrenci
+   "kök mü yazım mı" farkını çubukta değil METİNDE görür. Bir çubuğa
+   dokununca yalnız o kök kalır.                                            */
+.uzlgnd{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;font-family:var(--sans);font-size:.82rem}
+.uzlgnd button{font:inherit;cursor:pointer;background:var(--card);border:1.5px solid var(--line);
+  border-radius:999px;padding:5px 12px;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.uzlgnd button[aria-pressed="true"]{border-color:var(--u);background:color-mix(in srgb,var(--u) 12%,transparent)}
+.uzlgnd .nk{width:10px;height:10px;border-radius:50%;background:var(--u);flex:none}
+.uzmetin{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;max-height:300px;overflow:auto;direction:rtl;text-align:right;
+  font-family:var(--arabic);font-size:1.35rem;line-height:2.15}
+.uzmetin mark{background:color-mix(in srgb,var(--u) 24%,transparent);color:inherit;
+  border-bottom:2.5px solid var(--u);border-radius:3px;padding:0 3px}
+.uznot{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:8px 0 0;line-height:1.6}
 .alan.genis{grid-column:1/-1}
 @media(min-width:761px){
   /* Geniş kartta flex yetmiyor: etiket ile soru aynı satıra düşüyordu.
@@ -2467,11 +2483,58 @@ $("#w-verify").addEventListener("click",()=>{
   const ROOTS=[["صلح","sulh ailesi","var(--korpus)"],["عنوة","anve","var(--rubric)"],["فتح","fetih kökü","var(--model)"],["جزية","cizye","var(--insan)"]];
   const cntKok=r=>{ const n=wNorm(r); let c=0,i=0; while((i=N.indexOf(n,i))>=0){c++;i+=n.length;} return c; };
   const cntTam=r=>{ const n=wNorm(r); return TOKENS.filter(t=>t===n).length; };
-  let uzak=true, mode="kok";
+  let uzak=true, mode="kok", sec=-1;   // sec: -1 hepsi, 0-3 tek kök
   function bars(){
     const C=ROOTS.map(r=>[r[1], (mode==="kok"?cntKok:cntTam)(r[0]), r[2], r[0]]);
     const mx=Math.max(...C.map(x=>x[1]),1);
-    return C.map(c=>'<div class="probrow"><span class="pw">'+esc(c[0])+' <span class="ar" style="display:inline;font-size:1rem">'+esc(c[3])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+c[2]+';width:'+(c[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+c[1]+'×</span></div>').join("");
+    return C.map((c,i)=>'<div class="probrow"'+(sec>=0&&sec!==i?' style="opacity:.35"':'')+'><span class="pw">'+esc(c[0])+' <span class="ar" style="display:inline;font-size:1rem">'+esc(c[3])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+c[2]+';width:'+(c[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+c[1]+'×</span></div>').join("");
+  }
+  /* Vurgu aralıkları, çubuklarla AYNI kuralı kullanır: kök kipinde her
+     geçiş, yazım kipinde yalnız bağımsız kelime. Böylece metindeki işaret
+     sayısı çubuktaki sayıya eşit çıkar; eşit çıkmazsa biri yanlıştır. */
+  function araliklar(){
+    const g=[];
+    ROOTS.forEach((r,ri)=>{
+      if(sec>=0&&sec!==ri) return;
+      const n=wNorm(r[0]); if(!n) return;
+      let i=0;
+      while((i=NORMX.indexOf(n,i))>=0){
+        const bas=(i===0)||NORMX[i-1]===" ";
+        const son=(i+n.length===NORMX.length)||NORMX[i+n.length]===" ";
+        if(mode==="kok"||(bas&&son)) g.push([i,i+n.length,ri]);
+        i+=n.length;
+      }
+    });
+    g.sort((a,b)=>a[0]-b[0]);
+    const tek=[]; let bitis=-1;
+    for(const x of g){ if(x[0]>=bitis){ tek.push(x); bitis=x[1]; } }
+    return tek;
+  }
+  function metinHtml(){
+    let out="", p=0, say=0;
+    for(const [s,e,ri] of araliklar()){
+      const os=NMAP[s], oe=NMAP[e-1];
+      if(os==null||oe==null||os<p) continue;
+      out+=esc(CLEANX.slice(p,os))
+         + '<mark style="--u:'+ROOTS[ri][2]+'">'+esc(CLEANX.slice(os,oe+1))+'</mark>';
+      p=oe+1; say++;
+    }
+    out+=esc(CLEANX.slice(p));
+    return {html:out, say};
+  }
+  function metinBlok(){
+    const m=metinHtml();
+    const lg='<div class="uzlgnd">'
+      + '<button data-r="-1" aria-pressed="'+(sec<0)+'" style="--u:var(--ink)">Hepsi</button>'
+      + ROOTS.map((r,i)=>'<button data-r="'+i+'" aria-pressed="'+(sec===i)+'" style="--u:'+r[2]+'"><span class="nk"></span>'+esc(r[1])+'</button>').join("")
+      + '</div>';
+    return lg
+      + '<div class="uzmetin" dir="rtl">'+m.html+'</div>'
+      + '<p class="uznot">Yukarıdaki kesitte <b>'+m.say+'</b> yer işaretlendi; çubuklardaki sayıların toplamı da bu. '
+      + (mode==="kok"
+         ? 'Kök kipinde kelimenin içinde geçen ek ve türevler de işaretlenir.'
+         : 'Yazım kipinde yalnız tek başına duran kelime işaretlenir; aradaki fark, sayım tasarımının bulguyu nasıl değiştirdiğidir.')
+      + ' Bir köke dokunarak yalnız onu görebilirsiniz.</p>';
   }
   function show(){
     $("#uz-yakin").setAttribute("aria-pressed",String(!uzak)); $("#uz-uzak").setAttribute("aria-pressed",String(uzak));
@@ -2486,13 +2549,19 @@ $("#w-verify").addEventListener("click",()=>{
         ? 'Kök ailesiyle: <span class="ar" style="display:inline;font-size:1rem">فتح</span> ailesi (فتح، فتوح، افتتح…) tek kalemde sayılır; Arapçada saymak <b>kök</b> işidir.'
         : 'Birebir yazımla: yalnız bağımsız kelime sayılır; sayıların nasıl düştüğüne bak. Ders: sayım tasarımı (kök mü, yazım mı?) bulgunun kendisini değiştirir; makalende hangisini seçtiğini <b>beyan et</b>.')
       +'</p>'
+      + metinBlok()
       + '<div class="imza"><b>İmza karşılaştırması:</b> kitabın GENELİNDE fetihlerin %52,2\'si sulhan, %42,5\'i anveten (EICD-B, 226 kayıt). Bu kesitte ise anve ve fetih kökü öne geçiyor: <b>bölge imzası</b>. Uzak okumanın meyvesi budur: fark gördüğün yerde soru doğar. Wensinck\'in konkordansı da tam bunun içindi: önce say, sonra oku.</div>';
   }
   $("#uz-yakin").addEventListener("click",()=>{ uzak=false; show(); });
   $("#uz-uzak").addEventListener("click",()=>{ uzak=true; show(); });
   $("#uz-body").addEventListener("click",e=>{
-    const b=e.target.closest(".uzseg button"); if(!b) return;
-    mode=b.dataset.m; show();
+    const kip=e.target.closest(".uzseg button");
+    if(kip){ mode=kip.dataset.m; show(); return; }
+    const kok=e.target.closest(".uzlgnd button");
+    if(kok){ const v=+kok.dataset.r; sec=(v===sec?-1:v); show(); return; }
+    const cub=e.target.closest(".probrow");   /* çubuğa dokunmak da seçer */
+    if(cub){ const liste=[...$("#uz-body").querySelectorAll(".probrow")];
+             const v=liste.indexOf(cub); sec=(v===sec?-1:v); show(); }
   });
   show();
 })();
