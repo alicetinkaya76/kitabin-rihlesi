@@ -332,6 +332,43 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    yapacağım" ve "bittiğini nasıl anlayacağım" hiçbir yerde yoktu.
    Yeni başlayan için asıl soyutluk buradaydı.                             */
 /* T-Corpus: üç kapı ve Google Form kaldırıldı; doğrudan e-posta. */
+/* ---- VEKTÖR & KOSİNÜS: sıfırdan --------------------------------------
+   "Her parça bir vektördür, yakınlık kosinüsle ölçülür" cümlesi hiç
+   bilmeyene hiçbir şey söylemiyordu; üstelik açıklaması "İleri düzey"
+   panelinin içine gömülüydü. Burada üç adımda, sitenin 1. durakta
+   kurduğu KOORDİNAT fikrine bağlanarak anlatılıyor. Koordinatlar
+   temsilî; kosinüs hesabı gerçek ve adım adım gösteriliyor.            */
+.vk{margin:12px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.vk>summary{cursor:pointer;list-style:none;padding:13px 18px;font-family:var(--sans);font-size:.95rem;
+  font-weight:700;color:var(--insan);background:var(--insan-soft);display:flex;align-items:center;gap:8px}
+.vk>summary::-webkit-details-marker{display:none}
+.vk>summary::before{content:"?";flex:none;width:22px;height:22px;border-radius:50%;background:var(--insan);
+  color:#fff;font-size:.82rem;text-align:center;line-height:22px;font-weight:800}
+.vk .ic{padding:16px 18px 18px}
+.vkad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.vkad>div{background:var(--chip);border-radius:10px;padding:12px 14px}
+.vkad .n{font-family:var(--sans);font-size:.72rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--insan);display:block;margin-bottom:4px}
+.vkad .b{font-family:var(--sans);font-size:.95rem;font-weight:700;display:block;margin-bottom:4px;line-height:1.4}
+.vkad .a{font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.6}
+.vksec{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.vksec button{font-family:var(--sans);font-size:.88rem;cursor:pointer;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink)}
+.vksec button[aria-pressed="true"]{border-color:var(--insan);background:var(--insan-soft);color:var(--insan);font-weight:700}
+.vkg{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:center}
+.vkhesap{font-family:var(--sans);font-size:.92rem;line-height:1.75}
+.vkhesap .sat{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.vkhesap .sat:last-of-type{border-bottom:0}
+.vkhesap .sag{font-family:var(--mono);font-size:.88rem;white-space:nowrap}
+.vksonuc{margin-top:10px;background:var(--insan-soft);border-radius:10px;padding:11px 14px;
+  font-family:var(--sans);font-size:.95rem;line-height:1.6}
+.vksonuc b{color:var(--insan);font-size:1.15rem}
+.vkcetvel{margin-top:10px}
+.vkcetvel .yol{height:9px;border-radius:999px;background:linear-gradient(90deg,var(--rubric),var(--line),var(--korpus));position:relative}
+.vkcetvel .im{position:absolute;top:-5px;width:19px;height:19px;border-radius:50%;background:var(--insan);
+  border:3px solid var(--card);transform:translateX(-50%);transition:left .3s ease}
+.vkcetvel .uc{display:flex;justify-content:space-between;font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-top:6px}
+@media(max-width:700px){.vkad{grid-template-columns:1fr}.vkg{grid-template-columns:1fr}}
 .epk{flex:1;min-width:240px;display:flex;flex-direction:column;gap:8px;justify-content:center}
 .epl{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--tc-mavi);font-weight:800}
 .epa{font-family:var(--sans);font-size:1.15rem;font-weight:800;color:#fff;background:var(--tc-mavi);
@@ -952,11 +989,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .soruout .q{font-family:var(--serif);font-size:1.15rem;line-height:1.5}
 .soruout .q b{color:var(--rubric)}
 .kapi4{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:10px 0}
-.kapi{border-radius:10px;padding:9px 12px;font-family:var(--sans);font-size:.75rem;line-height:1.5;border-left:4px solid}
+.kapi{border-radius:10px;padding:12px 14px;font-family:var(--sans);font-size:.88rem;line-height:1.6;border-left:4px solid}
 .kapi.ok{background:var(--korpus-soft);border-color:var(--korpus)}
 .kapi.uy{background:var(--rubric-soft);border-color:var(--rubric)}
-.kapi b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
-.kapi.ok b{color:var(--korpus)} .kapi.uy b{color:var(--rubric)}
+.kapi>b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px}
+.kapi b{color:var(--ink)}
+.kapi.ok>b{color:var(--korpus)}
+.kapi.uy>b{color:var(--rubric)} .kapi.uy b{color:var(--rubric)}
 .tabloprev{overflow-x:auto;margin-top:6px}
 .tabloprev table{border-collapse:collapse;font-family:var(--sans);font-size:.75rem;min-width:100%}
 .tabloprev th,.tabloprev td{border:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}
@@ -1388,7 +1427,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="embwrap"><div class="telozet"><b>Anlam yerleştirme · telefon özeti</b><ol><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">Girdi:</b> Metin parçaları giriyor</li><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">İşlem:</b> Her parça sayı dizisine çevriliyor</li><li><b style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit">Çıktı:</b> Yakın anlamlılar haritada yan yana düşüyor</li></ol></div><div id="embmap"></div></div>
     <div class="embchips" id="embchips"></div>
     <p class="mwhy">Sözlük değil, <b>harita</b>: eğitim sırasında her parça bu uzayda bir yer edinir; yakın anlam yakın düşer. <span class="ar" style="display:inline;font-size:1rem">فتح</span> iki mahalleye de komşudur: "açmak" mı, "fethetmek" mi? Onu bir sonraki adım söyler. <span class="temsili">yerleşim temsilîdir</span> oysa gerçekte binlerce boyut vardır, biz ikisini görüyoruz.</p>
-    <details class="mdeep"><summary>Meraklısına: "nokta" dediğin nedir?</summary><p>Her parça bir <b>vektördür</b>: binlerce sayılık bir liste (gömme/embedding). "Yakınlık", bu listelerin benzerliğidir ve kosinüsle ölçülür. Aşağıda <a href="#deep">Çekirdeğe iniş · Kat 1</a>'de iki kelimenin sayı şeritlerini yan yana koyup benzerliği kendin hesaplatabilirsin: <i>rıhle</i> ile <i>sefer</i> 0,99 çıkar.</p></details>
+    <details class="vk" id="vkblok" open><summary>Hiç bilmiyorum: «nokta», «vektör», «yakınlık» ne demek?</summary><div class="ic" id="vkic"></div></details>
   </div>
 
   <div class="mstep">
@@ -2642,6 +2681,77 @@ $("#w-verify").addEventListener("click",()=>{
   }));
 });
 
+/* ---------- VEKTÖR & KOSİNÜS: sıfırdan ---------- */
+(function(){
+  const ic=document.getElementById("vkic"); if(!ic) return;
+  /* Koordinatlar TEMSİLÎ (gerçek modelde binlerce boyut var).
+     Kosinüs hesabı GERÇEK: aşağıdaki sayılardan adım adım çıkarılıyor. */
+  const K={
+    sulh:{ad:"sulh",ar:"صلح",v:[8,7]},
+    ahd :{ad:"ahd", ar:"عهد",v:[7,8]},
+    fetih:{ad:"fetih",ar:"فتح",v:[10,0]},
+    anve:{ad:"anve",ar:"عنوة",v:[5,-10]}
+  };
+  /* Çiftler bilerek sitenin kendi vakasından: sulh ile anve, EICD-B'nin
+     iki zıt fetih tarzı. Kosinüsün eksiye düşmesi burada bir tesadüf
+     değil, anlamın kendisi. */
+  const CIFT=[["sulh","ahd","Yakın anlam"],["fetih","anve","Akraba"],["sulh","anve","Zıt"]];
+  let se=0;
+  const T=(a,b)=>a[0]*b[0]+a[1]*b[1];
+  const B=a=>Math.sqrt(a[0]*a[0]+a[1]*a[1]);
+  const vir=x=>x.toFixed(2).replace(".",",");
+
+  function ciz(){
+    const [ka,kb,et]=CIFT[se], A=K[ka], Bk=K[kb];
+    const ta=T(A.v,Bk.v), ba=B(A.v), bb=B(Bk.v), cos=ta/(ba*bb);
+    const O=[150,150], S=11;
+    const uc=v=>[O[0]+v[0]*S, O[1]-v[1]*S];
+    const pa=uc(A.v), pb=uc(Bk.v);
+    const aci=Math.acos(Math.max(-1,Math.min(1,cos)))*180/Math.PI;
+    const svg='<svg viewBox="0 0 300 300" width="100%" style="max-width:260px;background:var(--chip);border-radius:10px">'
+      +'<line x1="20" y1="150" x2="280" y2="150" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<line x1="150" y1="20" x2="150" y2="280" stroke="var(--line)" stroke-width="1.5"/>'
+      +'<defs><marker id="vkok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">'
+      +'<path d="M0 0L10 5L0 10z" fill="var(--insan)"/></marker>'
+      +'<marker id="vkok2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">'
+      +'<path d="M0 0L10 5L0 10z" fill="var(--model)"/></marker></defs>'
+      +'<line x1="150" y1="150" x2="'+pa[0]+'" y2="'+pa[1]+'" stroke="var(--insan)" stroke-width="3.5" marker-end="url(#vkok)"/>'
+      +'<line x1="150" y1="150" x2="'+pb[0]+'" y2="'+pb[1]+'" stroke="var(--model)" stroke-width="3.5" marker-end="url(#vkok2)"/>'
+      +'<text x="'+(pa[0]+(pa[0]>150?6:-6))+'" y="'+(pa[1]-7)+'" text-anchor="'+(pa[0]>150?"start":"end")+'" style="font-family:var(--arabic);font-size:19px;fill:var(--insan)">'+A.ar+'</text>'
+      +'<text x="'+(pb[0]+(pb[0]>150?6:-6))+'" y="'+(pb[1]+(pb[1]>150?18:-7))+'" text-anchor="'+(pb[0]>150?"start":"end")+'" style="font-family:var(--arabic);font-size:19px;fill:var(--model)">'+Bk.ar+'</text>'
+      +'<text x="158" y="142" style="font-family:var(--sans);font-size:12px;fill:var(--muted)">açı ≈ '+Math.round(aci)+'°</text>'
+      +'</svg>';
+    ic.innerHTML=
+      '<div class="vkad">'
+      + '<div><span class="n">1 · Şehir</span><span class="b">Konya\'yı iki sayı tarif eder</span>'
+      + '<span class="a">Enlem 37,87 · boylam 32,49. Birinci durakta gördüğünüz şey buydu: yer adı koordinata bağlanınca harita çıkıyor.</span></div>'
+      + '<div><span class="n">2 · Kelime</span><span class="b">Kelimeyi de sayılar tarif eder</span>'
+      + '<span class="a">Ama iki değil, <b>binlerce</b>. Her sayı bir ölçü tutar: ne kadar savaşla, ne kadar antlaşmayla, ne kadar yerle ilgili… Bu sayı listesine <b>vektör</b> denir. Kelimenin koordinatıdır.</span></div>'
+      + '<div><span class="n">3 · Yakınlık</span><span class="b">Mesafe değil, <b>yön</b> ölçülür</span>'
+      + '<span class="a">İki kelime aynı yöne mi bakıyor? Bu soruyu tek sayıya indiren ölçüye <b>kosinüs benzerliği</b> denir. Aynı yön 1, alakasız 0, tam zıt −1.</span></div>'
+      + '</div>'
+      + '<div class="vksec">'+CIFT.map((c,i)=>'<button data-i="'+i+'" aria-pressed="'+(i===se)+'">'+esc(K[c[0]].ad)+' ↔ '+esc(K[c[1]].ad)+' · '+esc(c[2])+'</button>').join("")+'</div>'
+      + '<div class="vkg"><div>'+svg+'</div><div class="vkhesap">'
+      +   '<div class="sat"><span>Okların koordinatları</span><span class="sag">('+A.v[0]+', '+A.v[1]+') · ('+Bk.v[0]+', '+Bk.v[1]+')</span></div>'
+      +   '<div class="sat"><span>Çarpıp topla</span><span class="sag">'+A.v[0]+'·'+Bk.v[0]+' + '+A.v[1]+'·'+Bk.v[1]+' = '+ta+'</span></div>'
+      +   '<div class="sat"><span>Okların boyu</span><span class="sag">'+vir(ba)+' ve '+vir(bb)+'</span></div>'
+      +   '<div class="sat"><span>Böl</span><span class="sag">'+ta+' ÷ ('+vir(ba)+'×'+vir(bb)+')</span></div>'
+      +   '<div class="vksonuc">Kosinüs benzerliği: <b>'+vir(cos)+'</b><br><span style="color:var(--muted);font-size:.88rem">'
+      +   (cos>0.9?"Neredeyse aynı yöne bakıyorlar: anlamca komşu."
+        : cos>0.5?"Aynı tarafa bakıyorlar ama açı var: akraba, aynı değil."
+        : cos>0?"Az ilgili." : "Farklı yönler: alakasız ya da zıt.")+'</span></div>'
+      +   '<div class="vkcetvel"><div class="yol"><div class="im" style="left:'+((cos+1)/2*100).toFixed(1)+'%"></div></div>'
+      +   '<div class="uc"><span>−1 · tam zıt</span><span>0 · alakasız</span><span>1 · aynı</span></div></div>'
+      + '</div></div>'
+      + '<p class="mwhy" style="margin-top:12px"><b>Dikkat:</b> yukarıdaki iki sayı <span class="temsili">temsilîdir</span> gerçek modelde her kelime binlerce sayıdır ve kimse onları tek tek okumaz. Ama <b>hesap gerçek</b>: kosinüs tam da böyle, çarp-topla-böl ile bulunur. Binlerce boyutta da formül aynı, yalnız satır uzar. Gerçek şeritleri görmek isterseniz aşağıdaki <a href="#deep">Çekirdeğe iniş · Kat 1</a> panelinde sekiz sayıyla duruyor.</p>';
+  }
+  ic.addEventListener("click",e=>{
+    const b=e.target.closest(".vksec button"); if(!b) return;
+    se=+b.dataset.i; ciz();
+  });
+  ciz();
+})();
+
 /* ---------- METİNDEN HARİTAYA ---------- */
 (function(){
   const kutu=document.getElementById("mhb");
@@ -3302,10 +3412,10 @@ function soruRender(){
       +'<div class="btnrow" style="justify-content:flex-start;margin:8px 0 0"><button class="wbtn alt" data-fix="m" data-v="'+gm+'">Malzemeyi genişlet → '+esc(d.m[gm].ad)+'</button>'
       +(alt>=0?'<button class="wbtn alt" data-fix="e" data-v="'+alt+'">Ekseni değiştir → '+esc(d.e[alt].ad)+'</button>':'')+'</div>'];
   }
-  else k3=[1,"3 · Karşılaştırma var mı?","Eksen: <b>"+esc(e.st)+"</b>. Bir tabloyu iddiaya çeviren şey karşılaştırmadır ve bu eksen seçtiğin malzemede gerçekten var."];
+  else k3=[1,"3 · Karşılaştırma var mı?","Karşılaştırma ekseni: <b>"+esc(e.st)+"</b>. Bir tabloyu iddiaya çeviren şey karşılaştırmadır; bu eksen seçtiğin malzemede gerçekten var."];
   const K=[
    [1,"1 · Sayılabilir mi?","Satır = bir "+esc(b.ad)+". Sayılabilir bir birim seçtin. «Etki», «önem», «ruh» gibi birimler bu tezgâhta çalışmaz, çünkü onlar sayının değil, yorumun konusudur."],
-   [1,"2 · Delili var mı?","Her satır <b>"+esc(m.no)+"</b> içinde bir yere dayanacak. Delil sütunu boş kalan satır tabloya girmez; dördüncü duraktaki tezgâh tam bunu denetler."],
+   [1,"2 · Delili var mı?","Her satırın delili <b>"+esc(m.ad)+"</b> içinde geçen bir cümle olacak. Delil sütunu boş kalan satır tabloya girmez; dördüncü duraktaki tezgâh tam bunu denetler."],
    k3,
    [olcekH[2],"4 · Ölçek tutuyor mu?","<b>"+olcekH[0]+"</b> "+olcekH[1]]
   ];
