@@ -280,11 +280,46 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .kap a{font-family:var(--sans);font-size:.75rem;margin-top:auto;padding-top:4px}
 .yenilik{width:100%;max-width:720px;margin:20px auto 0;background:var(--model-soft);border-left:5px solid var(--model);border-radius:10px;padding:13px 17px;text-align:left;font-family:var(--sans);font-size:.92rem;line-height:1.7}
 .yenilik b{color:var(--model)}
-.alanlar{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));width:100%;max-width:860px;margin:14px auto 0;text-align:left}
-.alan{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.alan .ad{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800}
-.alan .kl{font-family:var(--serif);font-size:.92rem;margin:4px 0 6px;display:block}
-.alan .dj{font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.5}
+/* ---- ALAN KARTLARI ------------------------------------------------------
+   Bölümün fikri tek şey: KLASİK SORU → DİJİTAL BİÇİM. Kartlar bunu
+   göstersin diye ikiye bölündü: üstte soru (serif, âlimin sesi), altta
+   çıktı (ayrı zeminde, yeşil rozetle). Aradaki ok bir süs değil, dönüşümün
+   kendisi. Puntolar büyütüldü: etiket .66→.75, soru .92→1.08, cevap .82→.92 */
+.alanlar{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  width:100%;max-width:980px;margin:20px auto 0;text-align:left;align-items:stretch}
+.alan{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);
+  transition:transform .18s ease,box-shadow .18s ease}
+.alan:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 18px 36px -20px rgba(0,0,0,.35)}
+.alan .ad{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--rubric);font-weight:800;padding:13px 18px 0;display:block}
+.alan .kl{font-family:var(--serif);font-size:1.08rem;line-height:1.55;display:block;
+  padding:7px 18px 15px;color:var(--ink)}
+.alan .dj{font-family:var(--sans);font-size:.92rem;color:var(--muted);line-height:1.6;
+  background:var(--chip);border-top:1px solid var(--line);padding:14px 18px 16px;
+  flex:1;position:relative}
+.alan .dj::before{content:"↓";position:absolute;top:-14px;left:18px;width:28px;height:28px;
+  border-radius:50%;background:var(--korpus);color:#fff;font-family:var(--sans);font-weight:800;
+  font-size:.9rem;line-height:28px;text-align:center;box-shadow:0 0 0 4px var(--card)}
+.alan .dj b{display:block;color:var(--korpus);font-size:.95rem;margin:6px 0 5px;letter-spacing:.01em}
+.alan.merkez{border-color:color-mix(in srgb,var(--rubric) 42%,transparent);border-width:2px}
+.alan.merkez .dj{background:var(--rubric-soft)}
+.alan.merkez .dj::before{background:var(--rubric)}
+.alan .mrk{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--rubric);margin-top:8px}
+.alan.genis{grid-column:1/-1}
+@media(min-width:761px){
+  /* Geniş kartta flex yetmiyor: etiket ile soru aynı satıra düşüyordu.
+     Grid ile sol sütunda alt alta, sağ sütunda cevap, cevap iki satırı da
+     kaplıyor. Ok da aşağıyı değil sağı gösteriyor: dönüşüm yatay. */
+  .alan.genis{display:grid;grid-template-columns:38% 1fr;grid-template-rows:auto 1fr;
+    grid-template-areas:"ad dj" "kl dj"}
+  .alan.genis .ad{grid-area:ad;padding:20px 24px 0}
+  .alan.genis .kl{grid-area:kl;padding:8px 24px 22px;font-size:1.15rem;align-self:start}
+  .alan.genis .dj{grid-area:dj;border-top:0;border-left:1px solid var(--line);padding:22px 26px}
+  .alan.genis .dj::before{content:"\2192";top:24px;left:-14px}
+}
+@media(max-width:560px){.alanlar{grid-template-columns:1fr}}
 .alan .dj b{color:var(--korpus)}
 /* düz-metin kırıcı bileşenler */
 .dou{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:8px}
@@ -956,13 +991,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
   <p class="one" style="margin:24px auto 4px;font-size:1rem"><b>Which questions does it answer?</b> On the left the classical question, on the right the form it takes at digital scale:</p>
   <div class="alanlar">
-    <div class="alan"><span class="ad">Qurʾānic exegesis</span><span class="kl">“In which morphological patterns does this concept occur in the Qurʾān?”</span><span class="dj">→ <b>Root-and-pattern table:</b> every derivative is listed with its verse and context; the divergent choices of two translations are set side by side.</span></div>
-    <div class="alan"><span class="ad">Ḥadīth</span><span class="kl">“At which transmitter do the reports of this chapter converge?”</span><span class="dj">→ <b>Isnād network:</b> transmitters become nodes and chains become edges; the common link (madār) becomes visible through measurement.</span></div>
-    <div class="alan"><span class="ad">Islamic history</span><span class="kl">“Were the cities taken by treaty or by force?”</span><span class="dj">→ <b>Evidence-linked record set:</b> 226 events, each with its city, hijrī year, type and an evidence sentence drawn from the text. <i>The central case study of this site.</i></span></div>
-    <div class="alan"><span class="ad">Islamic law</span><span class="kl">“How did a single question shift over time across fatwā collections?”</span><span class="dj">→ <b>Time series:</b> the reasoning given for the same question in fatwās from different periods is classified and compared year by year.</span></div>
-    <div class="alan"><span class="ad">Sufism</span><span class="kl">“Into which geography, and in which generation, did a spiritual lineage spread?”</span><span class="dj">→ <b>Network and map together:</b> master–disciple ties are drawn as a network while lodges are given coordinates.</span></div>
-    <div class="alan"><span class="ad">İslâm felsefesi &amp; kelâm</span><span class="kl">"Bir düşünür ilimleri nasıl tasnif ediyor; aklî ile naklî arasındaki sınır ne kadar geçirgen?"</span><span class="dj">→ <b>Tipli yönlü ağ:</b> ilimler düğüm, aralarındaki ilişkiler <i>tipi ve yönü belirtilmiş</i> kenar olur (asıl · alet · şart · dal · temel · uygulama + reddiye · müdafaa + kardeşlik). Böylece "sınır ne kadar geçirgen" sorusu, payı ve paydası yazılı bir orana döner.</span></div>
-    <div class="alan"><span class="ad">Ottoman & Turkish</span><span class="kl">“When did a concept rise in the periodical press?”</span><span class="dj">→ <b>Frequency chart:</b> the concept’s occurrences in newspapers and journals are plotted by year and the breaks are periodised.</span></div>
+    <div class="alan"><span class="ad">Qurʾānic exegesis</span><span class="kl">“In which morphological patterns does this concept occur in the Qurʾān?”</span><span class="dj"><b>Kök-kalıp tablosu</b>every derivative is listed with its verse and context; the divergent choices of two translations are set side by side.</span></div>
+    <div class="alan"><span class="ad">Ḥadīth</span><span class="kl">“At which transmitter do the reports of this chapter converge?”</span><span class="dj"><b>İsnad ağı</b>transmitters become nodes and chains become edges; the common link (madār) becomes visible through measurement.</span></div>
+    <div class="alan merkez"><span class="ad">Islamic history</span><span class="kl">“Were the cities taken by treaty or by force?”</span><span class="dj"><b>Delilli kayıt seti</b>226 events, each with its city, hijrī year, type and an evidence sentence drawn from the text.<span class="mrk">★ Bu sitenin merkez örneği</span></span></div>
+    <div class="alan"><span class="ad">Islamic law</span><span class="kl">“How did a single question shift over time across fatwā collections?”</span><span class="dj"><b>Zaman serisi</b>the reasoning given for the same question in fatwās from different periods is classified and compared year by year.</span></div>
+    <div class="alan"><span class="ad">Sufism</span><span class="kl">“Into which geography, and in which generation, did a spiritual lineage spread?”</span><span class="dj"><b>Ağ + harita birlikte</b>master–disciple ties are drawn as a network while lodges are given coordinates.</span></div>
+    <div class="alan"><span class="ad">Osmanlı &amp; Türkçe</span><span class="kl">“When did a concept rise in the periodical press?”</span><span class="dj"><b>Frekans grafiği</b>the concept’s occurrences in newspapers and journals are plotted by year and the breaks are periodised.</span></div>
+    <div class="alan genis"><span class="ad">İslâm felsefesi &amp; kelâm</span><span class="kl">"Bir düşünür ilimleri nasıl tasnif ediyor; aklî ile naklî arasındaki sınır ne kadar geçirgen?"</span><span class="dj"><b>Tipli yönlü ağ</b>ilimler düğüm, aralarındaki ilişkiler <i>tipi ve yönü belirtilmiş</i> kenar olur (asıl · alet · şart · dal · temel · uygulama + reddiye · müdafaa + kardeşlik). Böylece "sınır ne kadar geçirgen" sorusu, payı ve paydası yazılı bir orana döner.</span></div>
   </div>
   <p class="one small muted" style="margin:10px auto 0">All six are old questions. What changed is the answer’s <b>scale</b> ve denetlenebilirliği, çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
 
