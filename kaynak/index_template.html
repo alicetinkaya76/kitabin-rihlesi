@@ -32,7 +32,13 @@
   --chip:#262A31; --band:#1B1F28; --code-bg:#181B20; --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 34px -16px rgba(0,0,0,.65); }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
+small{font-size:max(12px,.85em)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(pointer:coarse){
+  .terim{padding:4px 3px}
+  .uzlgnd button,.vksec button,.mhsec button,.uzseg button{padding:10px 15px}
+  .kimsec button{padding:13px 14px}
+}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.5;font-size:17px}
 a{color:var(--insan)}
 :focus-visible{outline:2px solid var(--insan);outline-offset:2px;border-radius:4px}
@@ -76,7 +82,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 @media (max-width:700px){
   .telozet{display:block;background:var(--chip);border-radius:10px;padding:10px 12px;
     margin:0 0 10px;font-family:var(--sans);font-size:.82rem;line-height:1.5}
-  .telozet b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  .telozet b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;
     color:var(--rubric);margin-bottom:4px}
   .telozet ol{margin:0;padding-left:18px}
   .telozet li{margin:2px 0}
@@ -96,7 +102,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .hero .sub{font-family:var(--sans);color:var(--muted);margin-top:10px;font-size:clamp(.95rem,2.4vw,1.15rem)}
 .hero .stats{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px;font-family:var(--sans)}
 .hero .stats b{font-size:clamp(1.3rem,3.4vw,1.9rem);display:block;font-variant-numeric:tabular-nums}
-.hero .stats span{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.hero .stats span{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 
 /* açılış: terimsiz üç cümle */
 .nebu{width:100%;max-width:700px;margin:20px auto 4px;text-align:left;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--rubric);border-radius:16px;padding:16px 20px;box-shadow:var(--shadow);font-family:var(--sans)}
@@ -144,7 +150,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .mapui{position:absolute;z-index:800;left:12px;top:12px;display:flex;flex-direction:column;gap:8px;max-width:74%}
 .playbtn{font-family:var(--sans);font-weight:700;font-size:.92rem;background:var(--ink);color:var(--paper);border:none;border-radius:999px;padding:10px 18px;cursor:pointer;box-shadow:var(--shadow)}
 .vchips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-.vchips button{font-family:var(--sans);font-size:.75rem;border:none;border-radius:999px;padding:8px 13px;color:#fff;cursor:pointer;opacity:.95}
+.vchips button{font-family:var(--sans);font-size:.82rem;border:none;border-radius:999px;padding:8px 13px;color:#fff;cursor:pointer;opacity:.95}
 .vchips button[aria-pressed="false"]{opacity:.3}
 .nowchip{position:absolute;z-index:800;left:12px;bottom:12px;font-family:var(--sans);font-size:.82rem;background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--line);border-radius:10px;padding:8px 14px;box-shadow:var(--shadow);display:none;max-width:85%}
 .nowchip b{font-variant-numeric:tabular-nums}
@@ -159,7 +165,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .stopchips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .dresser{max-width:520px;width:100%;margin:0 auto;text-align:left}
 .drawer{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;box-shadow:var(--shadow);overflow:hidden}
-.drawer>button{all:unset;display:flex;align-items:center;gap:12px;width:100%;padding:14px 18px;cursor:pointer;font-family:var(--sans)}
+.drawer>button{all:unset;box-sizing:border-box;min-width:0;display:flex;align-items:center;gap:12px;width:100%;padding:14px 18px;cursor:pointer;font-family:var(--sans)}
 .drawer>button:hover{background:var(--chip)}
 .drawer .knob{width:34px;height:10px;border-radius:4px;background:var(--line);flex:none;transition:background .2s}
 .drawer.open .knob{background:var(--model)}
@@ -192,14 +198,14 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .ring text{font-family:var(--sans);font-weight:800;font-size:22px;fill:var(--ink)}
 .rstats{font-family:var(--sans);display:flex;gap:18px;flex-wrap:wrap}
 .rstats b{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}
-.rstats span{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.rstats span{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .rsentence{background:var(--korpus-soft);border-radius:10px;padding:12px 16px;margin-top:14px;font-size:.92rem}
 .rdetail{margin-top:10px}
 .rdetail summary{font-family:var(--sans);font-size:.82rem;color:var(--insan);cursor:pointer}
 .rtable{overflow-x:auto;margin-top:8px}
 .rtable table{border-collapse:collapse;width:100%;font-size:.82rem}
 .rtable td,.rtable th{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
-.st{font-family:var(--sans);font-size:.66rem;font-weight:700;border-radius:4px;padding:2px 8px}
+.st{font-family:var(--sans);font-size:.75rem;font-weight:700;border-radius:4px;padding:2px 8px}
 .st-tam{background:var(--korpus-soft);color:var(--korpus)} .st-kismi{background:var(--model-soft);color:var(--model)} .st-yok{background:var(--rubric-soft);color:var(--rubric)}
 .ctx{background:var(--code-bg);border-radius:10px;padding:10px 14px;margin-top:8px}
 .ctx .ar{font-size:1.15rem}
@@ -213,7 +219,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .mno{position:absolute;top:-14px;left:18px;width:30px;height:30px;border-radius:50%;background:var(--model);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
 .mstep h3{font-family:var(--sans);font-size:1rem;margin:4px 0 8px;padding-right:2px}
 .mstep .mwhy{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:10px}
-.termtag{float:right;font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;background:var(--chip);color:var(--muted);border-radius:4px;padding:3px 8px;margin-left:8px;margin-top:2px}
+.termtag{float:right;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;background:var(--chip);color:var(--muted);border-radius:4px;padding:3px 8px;margin-left:8px;margin-top:2px}
 .ioline{font-family:var(--sans);font-size:.75rem;color:var(--muted);background:var(--code-bg);border-radius:10px;padding:6px 11px;margin:0 0 10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .ioline b{color:var(--ink);font-weight:600}
 .ioline .arr{color:var(--rubric);font-weight:800}
@@ -305,7 +311,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .alan.merkez{border-color:color-mix(in srgb,var(--rubric) 42%,transparent);border-width:2px}
 .alan.merkez .dj{background:var(--rubric-soft)}
 .alan.merkez .dj::before{background:var(--rubric)}
-.alan .mrk{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+.alan .mrk{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.08em;
   text-transform:uppercase;color:var(--rubric);margin-top:8px}
 /* ---- UZAK OKUMA: metinde vurgulama --------------------------------------
    Çubuklar sayıyı söylüyordu ama sayı soyut kalıyordu. Aynı sayım kuralıyla
@@ -345,10 +351,10 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
    · koruyan. Her alet ne ürettiğini kendi söylüyor.                       */
 /* Yolun kimliği: üç bilgi üç kutuya ayrıldı, soru başlıklarıyla. */
 .yolkim{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 18px 16px;margin:0 0 12px;box-shadow:var(--shadow)}
-.yke{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rubric);font-weight:800;display:block;margin-bottom:10px}
+.yke{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rubric);font-weight:800;display:block;margin-bottom:10px}
 .ykg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .ykk{background:var(--chip);border-radius:10px;padding:10px 13px}
-.ykk .k{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:3px}
+.ykk .k{display:block;font-family:var(--sans);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:3px}
 .ykk .v{display:block;font-family:var(--sans);font-size:.92rem;line-height:1.5;color:var(--ink)}
 .ykk .v a{color:var(--insan)}
 .ilk60{margin-top:12px}
@@ -359,9 +365,9 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 @media(max-width:720px){.ykg{grid-template-columns:1fr}}
 .atolyeharita{width:100%;max-width:900px;margin:16px auto 4px;display:grid;gap:10px}
 .athsat{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:start}
-.athet{font-family:var(--sans);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+.athet{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;
   font-weight:800;color:var(--u);padding-top:9px;line-height:1.5}
-.athet span{display:block;font-size:.7rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted)}
+.athet span{display:block;font-size:.78rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted)}
 .athk{display:flex;flex-wrap:wrap;gap:8px}
 .athk a{display:flex;align-items:center;gap:9px;text-decoration:none;background:var(--card);
   border:1px solid var(--line);border-left:4px solid var(--u);border-radius:11px;padding:9px 14px 9px 11px;
@@ -371,7 +377,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
   font-family:var(--sans);font-weight:800;font-size:.82rem;text-align:center;line-height:24px}
 .athk .hi{display:block;font-family:var(--sans);font-size:.92rem;font-weight:700;line-height:1.3}
 .athk .hc{display:block;font-family:var(--sans);font-size:.8rem;color:var(--muted);line-height:1.4;margin-top:1px}
-.athk .ind{font-family:var(--sans);font-size:.68rem;font-weight:800;color:var(--korpus);
+.athk .ind{font-family:var(--sans);font-size:.75rem;font-weight:800;color:var(--korpus);
   background:var(--korpus-soft);border-radius:999px;padding:2px 7px;margin-left:2px}
 @media(max-width:720px){.athsat{grid-template-columns:1fr;gap:5px}.athet{padding-top:0}}
 .vk{margin:12px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -383,7 +389,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .vk .ic{padding:16px 18px 18px}
 .vkad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
 .vkad>div{background:var(--chip);border-radius:10px;padding:12px 14px}
-.vkad .n{font-family:var(--sans);font-size:.72rem;font-weight:800;letter-spacing:.09em;
+.vkad .n{font-family:var(--sans);font-size:.75rem;font-weight:800;letter-spacing:.09em;
   text-transform:uppercase;color:var(--insan);display:block;margin-bottom:4px}
 .vkad .b{font-family:var(--sans);font-size:.95rem;font-weight:700;display:block;margin-bottom:4px;line-height:1.4}
 .vkad .a{font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.6}
@@ -392,10 +398,11 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
   border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink)}
 .vksec button[aria-pressed="true"]{border-color:var(--insan);background:var(--insan-soft);color:var(--insan);font-weight:700}
 .vkg{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:center}
+.vkg>div{min-width:0}
 .vkhesap{font-family:var(--sans);font-size:.92rem;line-height:1.75}
 .vkhesap .sat{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}
 .vkhesap .sat:last-of-type{border-bottom:0}
-.vkhesap .sag{font-family:var(--mono);font-size:.88rem;white-space:nowrap}
+.vkhesap .sag{font-family:var(--mono);font-size:.85rem;overflow-wrap:anywhere;text-align:right}
 .vksonuc{margin-top:10px;background:var(--insan-soft);border-radius:10px;padding:11px 14px;
   font-family:var(--sans);font-size:.95rem;line-height:1.6}
 .vksonuc b{color:var(--insan);font-size:1.15rem}
@@ -436,7 +443,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
   border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
 .mhg>div{padding:16px 18px}
 .mhg>div+div{border-left:1px solid var(--line)}
-.mhg .et{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+.mhg .et{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--korpus);font-weight:800;display:block;margin-bottom:8px}
 .mhg .ar{font-family:var(--arabic);font-size:1.25rem;line-height:2.05;direction:rtl;text-align:right}
 .mhg .ar mark{background:color-mix(in srgb,var(--korpus) 26%,transparent);
@@ -444,7 +451,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .mhg .cv{font-family:var(--sans);font-size:.9rem;color:var(--muted);line-height:1.6;margin:10px 0 0;
   padding-top:10px;border-top:1px dashed var(--line)}
 .mhg .kv{display:block;margin-bottom:9px}
-.mhg .kv .k{font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+.mhg .kv .k{font-family:var(--sans);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);font-weight:800;display:block}
 .mhg .kv .v{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);display:block}
 .mhg .kv .v.mono{font-family:var(--mono);font-size:.95rem;letter-spacing:-.01em}
@@ -489,7 +496,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
   width:30px;height:30px;border-radius:50%;background:var(--insan);color:#fff;text-align:center;
   line-height:30px;font-family:var(--sans);font-weight:800;font-size:.95rem;z-index:1;
   box-shadow:0 0 0 4px var(--paper)}
-.okadim .no{font-family:var(--sans);font-size:.72rem;font-weight:800;letter-spacing:.1em;
+.okadim .no{font-family:var(--sans);font-size:.75rem;font-weight:800;letter-spacing:.1em;
   text-transform:uppercase;color:var(--insan)}
 .okadim .bs{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);line-height:1.4}
 .okadim .ar{font-family:var(--arabic);font-size:1.4rem;line-height:1.95;direction:rtl;text-align:right;
@@ -552,7 +559,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .bittibox,.tuzakbox{border-radius:10px;padding:8px 12px;font-family:var(--sans);font-size:.75rem;line-height:1.5}
 .bittibox{background:var(--korpus-soft);border-left:4px solid var(--korpus)}
 .tuzakbox{background:var(--rubric-soft);border-left:4px solid var(--rubric)}
-.bittibox b,.tuzakbox b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
+.bittibox b,.tuzakbox b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
 .step .when{font-size:.75rem;padding:4px 13px;border-radius:999px}
 #trackplan{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
 #trackplan .step{margin:0}
@@ -573,7 +580,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .npage svg *{stroke:var(--muted);fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
 .npage svg .fA{fill:var(--model-soft);stroke:var(--model)}
 .npage svg .fB{fill:var(--muted);stroke:none}
-.ncap{font-family:var(--sans);font-size:.66rem;color:var(--muted);text-align:center;margin-top:3px}
+.ncap{font-family:var(--sans);font-size:.75rem;color:var(--muted);text-align:center;margin-top:3px}
 .nrow{display:flex;gap:14px;align-items:flex-start;text-align:left}
 .dolapflow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;font-family:var(--sans);font-size:.75rem;font-weight:700;margin:16px auto 0;width:100%;max-width:640px}
 .dolapflow a,.dolapflow .burasi{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;text-decoration:none;color:var(--ink)}
@@ -606,7 +613,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .ustanotu>summary{color:var(--korpus)!important}
 .ikinci{font-family:var(--sans);font-size:.75rem;color:var(--muted);font-style:italic;display:block;margin-top:6px}
 .stepchips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
-.stepchips a{font-family:var(--sans);font-size:.66rem;font-style:normal;border:1px dashed var(--line);border-radius:999px;padding:3px 10px;text-decoration:none;color:var(--insan)}
+.stepchips a{font-family:var(--sans);font-size:.75rem;font-style:normal;border:1px dashed var(--line);border-radius:999px;padding:3px 10px;text-decoration:none;color:var(--insan)}
 .dongu{width:100%;max-width:720px;margin:12px auto 0;background:var(--insan-soft);border-radius:10px;padding:11px 16px;font-family:var(--sans);font-size:.82rem;text-align:center}
 .uzseg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:var(--sans);font-size:.75rem;margin:2px 0 10px}
 .uzseg button{all:unset;padding:6px 13px;cursor:pointer;font-weight:600}
@@ -640,7 +647,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .sugg button{flex:1;font-family:var(--sans);font-size:.92rem;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:9px 6px 6px;cursor:pointer;display:flex;flex-direction:column;gap:4px;align-items:center}
 .sugg button:hover{border-color:var(--insan)}
 .sugg .sbar{height:4px;border-radius:4px;background:var(--insan);opacity:.85;align-self:stretch}
-.sugg .spct{font-size:.66rem;color:var(--muted);font-weight:400}
+.sugg .spct{font-size:.75rem;color:var(--muted);font-weight:400}
 .punch{display:none;background:var(--ink);color:var(--paper);border-radius:10px;padding:14px 16px;font-family:var(--sans);font-size:.92rem;margin-top:12px;text-align:center}
 .scalebox{width:100%;max-width:520px;margin:18px auto 0;text-align:left;font-family:var(--sans)}
 .scalerow{margin:10px 0}
@@ -657,13 +664,13 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .deep>summary::after{content:" ▸";color:var(--insan)}
 .deep[open]>summary::after{content:" ▾"}
 .dpanel{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--insan);border-radius:10px;padding:16px 18px;margin-top:12px;box-shadow:var(--shadow)}
-.dpanel h4{font-family:var(--sans);font-size:.92rem;margin:0 0 8px}
+.dpanel h4,.dpanel .dph{font-family:var(--sans);font-size:.92rem;margin:0 0 8px}
 .dpanel .mwhy{font-family:var(--sans);font-size:.92rem;color:var(--muted);margin-top:10px}
 .wordchips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
 .wordchips button{font-family:var(--sans);font-size:.82rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
 .wordchips button[aria-pressed="true"]{background:var(--insan);color:#fff;border-color:var(--insan)}
 #vecarea{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.vecrow{display:flex;gap:3px;align-items:center;margin:6px 0;font-family:var(--mono);font-size:.66rem}
+.vecrow{display:flex;gap:3px;align-items:center;margin:6px 0;font-family:var(--mono);font-size:.75rem}
 .vecrow .vlab{width:64px;font-family:var(--sans);font-weight:700;font-size:.82rem}
 .vcell{flex:1;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-variant-numeric:tabular-nums;min-width:34px}
 .simwrap{margin-top:10px;font-family:var(--sans);font-size:.82rem}
@@ -696,7 +703,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .trackchips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 6px}
 .trackchips button{font-family:var(--sans);font-size:.82rem;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
 .trackchips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.step .when{display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--rubric-soft);color:var(--rubric);border-radius:4px;padding:2px 8px;margin-bottom:4px}
+.step .when{display:inline-block;font-family:var(--sans);font-size:.75rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--rubric-soft);color:var(--rubric);border-radius:4px;padding:2px 8px;margin-bottom:4px}
 .step a{font-family:var(--sans);font-size:.82rem}
 .gercek{background:var(--insan-soft);border-radius:10px;padding:12px 16px;font-size:.92rem;margin:14px 0}
 .merdiven{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--sans);font-size:.75rem;margin-top:8px}
@@ -704,7 +711,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .merdiven .mx{color:var(--rubric);font-weight:700}
 /* token & embedding */
 .tokstage{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-height:96px}
-.toklabel{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 0 4px}
+.toklabel{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 0 4px}
 .tokrow{display:flex;flex-wrap:wrap;gap:5px;direction:rtl;justify-content:flex-start}
 .tokrow.ltr{direction:ltr}
 .tok{font-family:var(--arabic);font-size:1.15rem;padding:2px 9px;border-radius:10px;background:var(--card);border:1px solid var(--line);transition:background .3s}
@@ -726,7 +733,7 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .temsili{font-family:var(--sans);font-size:.75rem;color:var(--muted);border:1px dashed var(--line);border-radius:4px;padding:1px 7px;vertical-align:2px}
 /* story tour */
 .tourcard{position:absolute;z-index:900;left:12px;right:12px;bottom:12px;max-width:470px;margin:0 auto;background:color-mix(in srgb,var(--card) 96%,transparent);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 12px;display:none;backdrop-filter:blur(6px)}
-.tourcard .tno{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800}
+.tourcard .tno{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800}
 .tourcard h3{font-family:var(--sans);font-size:1.15rem;margin:2px 0 6px}
 .tourcard .ar{font-size:1.35rem;max-height:5.2em;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .tourcard .ttr{font-size:.92rem;color:var(--muted);margin-top:6px}
@@ -743,10 +750,10 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px;box-shadow:var(--shadow)}
 .flip .front{background:var(--card);border:1px solid var(--line);transform:translateZ(1px)}
 .flip .front b{font-family:var(--sans);font-size:1rem}
-.flip .front span{font-family:var(--sans);font-size:.66rem;color:var(--muted)}
+.flip .front span{font-family:var(--sans);font-size:.75rem;color:var(--muted)}
 .flip .back{background:var(--ink);color:var(--paper);transform:rotateY(180deg) translateZ(1px)}
 .flip .back b{font-family:var(--serif);font-size:1rem}
-.flip .back span{font-family:var(--sans);font-size:.66rem;opacity:.75;text-align:center;line-height:1.3}
+.flip .back span{font-family:var(--sans);font-size:.75rem;opacity:.75;text-align:center;line-height:1.3}
 /* progress dots */
 .dots{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:1500;display:flex;flex-direction:column;gap:10px}
 .dots a{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;transition:transform .2s,background .2s}
@@ -764,11 +771,11 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 /* rail */
 .rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:12px;padding:8px 2px 16px;width:100%;max-width:820px;margin:0 auto}
 .railcard{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 16px 12px;text-align:left;display:flex;flex-direction:column;gap:6px}
-.railcard .rk{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+.railcard .rk{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700}
 .railcard h3{font-family:var(--sans);font-size:1rem;margin:0}
 .railcard p{font-size:.82rem;margin:0;color:var(--muted)}
 .railcard .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
-.railcard .chip{font-family:var(--sans);font-size:.66rem;background:var(--chip);border-radius:999px;padding:2px 8px;color:var(--muted)}
+.railcard .chip{font-family:var(--sans);font-size:.75rem;background:var(--chip);border-radius:999px;padding:2px 8px;color:var(--muted)}
 /* closing */
 .fiil{display:inline-flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:var(--sans);font-weight:700;letter-spacing:.04em;font-size:.92rem;background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:10px;margin:16px 0}
 footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sans);font-size:.75rem;color:var(--muted)}
@@ -796,7 +803,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .tp-card .en{font-size:.75rem;color:var(--muted);font-style:italic;display:block;margin-bottom:8px}
 .tp-card p{font-size:.92rem;line-height:1.7;margin:0}
 .tp-kadim{background:var(--korpus-soft);border-radius:10px;padding:9px 12px;margin-top:10px;font-size:.82rem}
-.tp-kadim b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:2px}
+.tp-kadim b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:2px}
 .tp-nerede{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
 .tp-nerede a{font-size:.75rem;border:1px dashed var(--line);border-radius:999px;padding:4px 11px;text-decoration:none;color:var(--insan);background:var(--card)}
 .tp-list{list-style:none;padding:0;margin:6px 0 0}
@@ -804,7 +811,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .tp-list button{all:unset;display:block;width:100%;padding:9px 4px;cursor:pointer;font-size:.92rem}
 .tp-list button:hover{background:var(--chip)}
 .tp-list .le{color:var(--muted);font-size:.75rem;font-style:italic;margin-left:6px}
-.tp-listhead{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:16px 0 2px}
+.tp-listhead{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:16px 0 2px}
 #tp-backdrop{position:fixed;inset:0;background:rgba(15,17,22,.34);z-index:2999;opacity:0;pointer-events:none;transition:opacity .3s}
 #tp-backdrop.open{opacity:1;pointer-events:auto}
 .tp-open-btn{font-family:var(--sans);font-size:.82rem;font-weight:700;background:var(--insan-soft);color:var(--insan)!important;border-radius:999px;padding:6px 13px;text-decoration:none}
@@ -818,19 +825,19 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .tpop .pen{font-size:.75rem;color:var(--muted);font-style:italic;display:block;margin:1px 0 7px}
 .tpop p{font-size:.82rem;line-height:1.5;margin:0}
 .tpop .pk{background:var(--korpus-soft);border-radius:10px;padding:7px 10px;margin-top:8px;font-size:.75rem}
-.tpop .pk b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus)}
+.tpop .pk b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus)}
 .tpop .prow{display:flex;gap:8px;align-items:center;margin-top:10px}
 .tpop .pmore{all:unset;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--insan);border-bottom:1px solid var(--insan)}
 .tpop .pclose{all:unset;cursor:pointer;margin-left:auto;color:var(--muted);font-size:1rem;padding:2px 6px;border-radius:4px}
 .tpop .pclose:hover{background:var(--chip)}
 .kavramkart{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--insan);border-radius:10px;padding:14px 16px;margin:0 0 12px;text-align:left;box-shadow:var(--shadow)}
-.kavramkart .kk-lab{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--insan);font-weight:800}
-.kavramkart h4{font-family:var(--serif);font-size:1.35rem;margin:2px 0 0}
+.kavramkart .kk-lab{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--insan);font-weight:800}
+.kavramkart .kavh{font-family:var(--serif);font-size:1.35rem;margin:2px 0 0}
 .kavramkart .kk-en{font-family:var(--sans);font-size:.75rem;color:var(--muted);font-style:italic;display:block;margin-bottom:8px}
 .kavramkart p{font-family:var(--sans);font-size:.92rem;line-height:1.7;margin:0}
 .kavramkart .kk-kadim{background:var(--korpus-soft);border-radius:10px;padding:8px 12px;margin-top:9px;font-family:var(--sans);font-size:.82rem}
-.kavramkart .kk-kadim b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:1px}
-.kavramkart .kk-more{all:unset;cursor:pointer;font-family:var(--sans);font-size:.75rem;font-weight:700;color:var(--insan);margin-top:9px;display:inline-block;border-bottom:1px solid var(--insan)}
+.kavramkart .kk-kadim b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--korpus);margin-bottom:1px}
+.kavramkart .kk-more{all:unset;cursor:pointer;font-family:var(--sans);font-size:.75rem;font-weight:700;color:var(--insan);margin-top:9px;display:inline-block;border-bottom:1px solid var(--insan);min-height:34px;display:inline-flex;align-items:center}
 .kavramkart .kk-ek{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:8px;display:block}
 .terimserit{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;max-width:720px;margin:16px auto 0;font-family:var(--sans);font-size:.82rem;color:var(--muted)}
 .terimserit button{all:unset;cursor:pointer;background:var(--insan-soft);color:var(--insan);border-radius:999px;padding:5px 12px;font-weight:600}
@@ -838,10 +845,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .terimserit button:focus-visible{outline:2px solid var(--insan);outline-offset:2px}
 
 .tpop{width:min(400px,92vw);max-height:min(74vh,620px);overflow-y:auto}
-.tpop h4.kh,.tp-card h4.kh{font-family:var(--serif);font-size:1.15rem;margin:0}
-.tp-card h4.kh{font-size:1.15rem}
+.tpop h3.kh,.tp-card h3.kh{font-family:var(--serif);font-size:1.15rem;margin:0}
+.tp-card h3.kh{font-size:1.15rem}
 .kbox{border-radius:10px;padding:8px 11px;margin-top:9px;font-size:.82rem;line-height:1.5}
-.kbox b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
+.kbox b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
 .kbox.ko{background:var(--model-soft)} .kbox.ko b{color:var(--model)}
 .kbox.kd{background:var(--rubric-soft)} .kbox.kd b{color:var(--rubric)}
 .kbox.kk2{background:var(--korpus-soft)} .kbox.kk2 b{color:var(--korpus)}
@@ -875,25 +882,25 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .io2>div{flex:1;min-width:190px;border-radius:10px;padding:9px 12px;font-family:var(--sans);font-size:.82rem;line-height:1.5}
 .io2 .gir{background:var(--code-bg);border-left:4px solid var(--muted)}
 .io2 .cik{background:var(--korpus-soft);border-left:4px solid var(--korpus)}
-.io2 b{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px;color:var(--muted)}
+.io2 b{display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px;color:var(--muted)}
 .io2 .cik b{color:var(--korpus)}
 .karar{background:var(--insan-soft);border-radius:10px;padding:12px 15px;margin:12px 0}
-.karar>b{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--insan);display:block;margin-bottom:2px}
+.karar>b{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--insan);display:block;margin-bottom:2px}
 .karar .ks{font-family:var(--serif);font-size:1rem;font-style:italic;margin-bottom:8px;display:block}
 .secenek{display:flex;gap:9px;align-items:flex-start;margin:7px 0;font-family:var(--sans);font-size:.82rem;line-height:1.5}
-.secenek .mark{flex:none;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:800;background:var(--card);border:1.5px solid var(--line);color:var(--muted)}
+.secenek .mark{flex:none;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;background:var(--card);border:1.5px solid var(--line);color:var(--muted)}
 .secenek.iyi .mark{background:var(--korpus);border-color:var(--korpus);color:#fff}
 .secenek.kotu .mark{background:var(--rubric-soft);border-color:var(--rubric);color:var(--rubric)}
 .secenek b{color:var(--ink)}
 .ciktiornek{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin:12px 0;font-family:var(--mono);font-size:.75rem;line-height:1.7;overflow-x:auto;white-space:pre-wrap}
-.ciktiornek .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.ciktiornek .lbl{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
 .tikanma{background:var(--rubric-soft);border-radius:10px;padding:10px 14px;margin:12px 0;font-family:var(--sans);font-size:.82rem;line-height:1.5}
-.tikanma b{color:var(--rubric);display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
+.tikanma b{color:var(--rubric);display:block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
 .olcekrow{background:var(--model-soft);border-radius:10px;padding:9px 13px;margin:12px 0;font-family:var(--sans);font-size:.82rem}
 .olcekrow b{color:var(--model)}
 .emekbar{width:100%;max-width:820px;margin:16px auto 0}
 .emekbar .track{display:flex;height:26px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
-.emekbar .seg{display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.66rem;font-weight:700;color:#fff;cursor:pointer;transition:filter .2s}
+.emekbar .seg{display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.75rem;font-weight:700;color:#fff;cursor:pointer;transition:filter .2s}
 .emekbar .seg:hover{filter:brightness(1.12)}
 .emekbar .cap{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:6px;text-align:center}
 
@@ -905,9 +912,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .ilkeler{width:100%;max-width:820px;margin:16px auto 0;overflow-x:auto}
 .ilkeler table{border-collapse:collapse;width:100%;min-width:520px;font-family:var(--sans);font-size:.82rem}
 .ilkeler th,.ilkeler td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;line-height:1.5}
-.ilkeler th{background:var(--chip);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.ilkeler th{background:var(--chip);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .ilkeler td:first-child{width:44%}
-.ilkeler .no{display:inline-block;width:19px;height:19px;border-radius:4px;background:var(--tc-mavi);color:#fff;font-weight:800;font-size:.66rem;text-align:center;line-height:19px;margin-right:6px}
+.ilkeler .no{display:inline-block;width:19px;height:19px;border-radius:4px;background:var(--tc-mavi);color:#fff;font-weight:800;font-size:.75rem;text-align:center;line-height:19px;margin-right:6px}
 
 /* kayıt kapısı */
 .kayit{width:100%;max-width:820px;margin:22px auto 0;background:var(--card);border:2px solid var(--tc-mavi);border-radius:16px;padding:20px 22px;text-align:left;box-shadow:var(--shadow)}
@@ -916,21 +923,22 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .kayitrow{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .kayitqr{flex:0 0 156px;text-align:center}
 .kayitqr img{width:156px;height:156px;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
-.kayitqr span{font-family:var(--sans);font-size:.66rem;color:var(--muted);display:block;margin-top:5px;line-height:1.3}
+.kayitqr span{font-family:var(--sans);font-size:.75rem;color:var(--muted);display:block;margin-top:5px;line-height:1.3}
 .kvkk{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.5;margin:13px 0 0;border-top:1px dashed var(--line);padding-top:10px}
 .kapilar{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));width:100%;max-width:820px;margin:16px auto 0}
 .kapi4k{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--tc-mavi);border-radius:16px;padding:14px 16px;text-align:left}
-.kapi4k h4{font-family:var(--sans);font-size:.92rem;margin:0 0 5px}
+.dph{font-size:1.02rem;margin:0 0 6px;font-family:var(--sans)}
+.kapi4k h4,.kapi4k .dph{font-family:var(--sans);font-size:.92rem;margin:0 0 5px}
 .kapi4k p{font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.5;margin:0 0 8px}
 .kapi4k .mini{font-family:var(--sans);font-size:.75rem;line-height:1.5}
 .kapi4k .mini b{color:var(--ink)}
 .tcproj{width:100%;max-width:820px;margin:14px auto 0}
 .tcfil{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
-.tcfil button{font-family:var(--sans);font-size:.75rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
+.tcfil button{font-family:var(--sans);font-size:.82rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
 .tcfil button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .tcgrid{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(238px,1fr))}
 .tccard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px;text-align:left}
-.tccard .st{display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-bottom:5px}
+.tccard .st{display:inline-block;font-family:var(--sans);font-size:.75rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-bottom:5px}
 .tccard .st.y{background:var(--korpus-soft);color:var(--korpus)}
 .tccard .st.b{background:var(--model-soft);color:var(--model)}
 .tccard .st.g{background:var(--chip);color:var(--muted)}
@@ -940,10 +948,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .tcband{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:16px auto 0;font-family:var(--sans)}
 .tcband>div{text-align:center}
 .tcband b{display:block;font-size:1.35rem;color:var(--tc-mavi);font-variant-numeric:tabular-nums}
-.tcband span{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.tcband span{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .tciletisim{width:100%;max-width:640px;margin:18px auto 0;background:var(--ink);color:var(--paper);border-radius:16px;padding:18px 20px;text-align:left;font-family:var(--sans);font-size:.82rem;line-height:1.7}
 .tciletisim a{color:var(--paper);text-decoration:underline}
-.tciletisim .bas{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;opacity:.7;display:block;margin-bottom:6px}
+.tciletisim .bas{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;opacity:.7;display:block;margin-bottom:6px}
 @media(max-width:640px){.ilkeler td:first-child{width:auto}}
 
 /* ---------- nesep: gerçek ölçekli zaman şeridi + harita ---------- */
@@ -962,7 +970,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .zs .cag{font-family:var(--sans);font-size:9.5px;fill:var(--muted);letter-spacing:.04em;text-transform:uppercase}
 #nesepmap{width:100%;max-width:820px;height:290px;border-radius:16px;border:1px solid var(--line);background:#cfe0ea;margin:10px auto 0}
 .haritanot{font-family:var(--sans);font-size:.75rem;color:var(--muted);margin-top:7px;text-align:center}
-.dagitikrozet{display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:700;background:var(--model-soft);color:var(--model);border-radius:999px;padding:2px 10px;margin-left:6px}
+.dagitikrozet{display:inline-block;font-family:var(--sans);font-size:.75rem;font-weight:700;background:var(--model-soft);color:var(--model);border-radius:999px;padding:2px 10px;margin-left:6px}
 /* ---------- veri seti: 226 kare + künye + kod defteri ---------- */
 .kareler{display:grid;grid-template-columns:repeat(auto-fill,minmax(11px,1fr));gap:2px;width:min(560px,100%);margin:10px auto 0}
 .kare{aspect-ratio:1;border-radius:4px;background:var(--chip);transition:transform .15s,opacity .15s;cursor:default}
@@ -977,7 +985,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .kunyekart h3,.kunyekart h4{font-family:var(--sans);font-size:.92rem;margin:0 0 8px}
 .kunyesat{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);font-size:.82rem;line-height:1.5}
 .kunyesat:last-child{border-bottom:none}
-.kunyesat b{flex:0 0 132px;color:var(--muted);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;padding-top:2px}
+.kunyesat b{flex:0 0 132px;color:var(--muted);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;padding-top:2px}
 .kodtablo{overflow-x:auto;margin-top:8px}
 .kodtablo table{border-collapse:collapse;font-family:var(--sans);font-size:.85rem;width:100%;min-width:520px}
 .kodtablo th,.kodtablo td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
@@ -985,13 +993,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .kodtablo code{font-family:var(--mono);font-size:.82rem}
 .kodtablo tr.zorunlu td:first-child{border-left:3px solid var(--rubric)}
 @media(max-width:640px){.kareler{grid-template-columns:repeat(auto-fill,minmax(9px,1fr));width:100%}
- .ncap{font-size:.66rem}.termtag{font-size:.66rem}.seviye{font-size:.75rem}
+ .ncap{font-size:.75rem}.termtag{font-size:.75rem}.seviye{font-size:.75rem}
  .haritanot{font-size:.82rem}
  .atolye .soruout .lb,.atolye .sablon .lbl,.atolye .ciktiornek .lbl,.atolye .yzout .lbl,
- .atolye .secrow>b,.istpanel .ciktiornek .lbl,.kodtablo table th{font-size:.66rem}
+ .atolye .secrow>b,.istpanel .ciktiornek .lbl,.kodtablo table th{font-size:.75rem}
  /* viewBox'lı şemalar dar ekranda okunmaz hâle geliyordu (10px yazı → 4,6px).
     Küçültmek yerine tasarım genişliğinde bırakıp kutusunun içinde kaydırtıyoruz. */
- .akis,#netmini,#embmap,#attarea{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .akis,#netmini,#embmap,#attarea{overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0;max-width:100%}
  #attarea>svg{width:min(560px,100%);min-width:460px;max-width:none}
  .akis>svg{width:min(820px,100%);min-width:600px;max-width:none}
 /* şemalar dar ekranda kayar (küçültülse yazı okunmaz); GENİŞ ekranda kutuya
@@ -999,7 +1007,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 @media(min-width:700px){.akis::after,#netmini::after,#embmap::after,#attarea::after{display:none}}
  #netmini>svg{width:min(700px,100%);min-width:520px;max-width:none}
  #embmap>svg{width:min(520px,100%);min-width:420px;max-width:none}
- .akis::after,#netmini::after,#embmap::after,#attarea::after{content:'→ şemayı yana kaydırabilirsiniz';display:block;position:sticky;left:0;font-family:var(--sans);font-size:.66rem;color:var(--muted);text-align:center;margin-top:2px}
+ .akis::after,#netmini::after,#embmap::after,#attarea::after{content:'→ şemayı yana kaydırabilirsiniz';display:block;position:sticky;left:0;font-family:var(--sans);font-size:.75rem;color:var(--muted);text-align:center;margin-top:2px}
  .kunyesat{flex-direction:column;gap:1px}.kunyesat b{flex:none}#nesepmap{height:220px}}
 
 /* ---------- makale atölyesi (5. durak) ---------- */
@@ -1011,17 +1019,17 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .atolye .ah h3{font-family:var(--sans);font-size:1.15rem;margin:0;line-height:1.3}
 .atolye .an{flex:none;width:29px;height:29px;border-radius:10px;background:var(--rubric);color:#fff;font-family:var(--sans);font-weight:800;font-size:.92rem;display:flex;align-items:center;justify-content:center}
 .atolye .ap{font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.5;margin:0 0 12px}
-.atolye .altbaslik{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:14px 0 5px;font-weight:700}
+.atolye .altbaslik{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:14px 0 5px;font-weight:700}
 /* A · soru tezgâhı */
 .secrow{margin-bottom:9px}
-.secrow>b{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.secrow>b{display:block;font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .secrow .opts{display:flex;gap:6px;flex-wrap:wrap}
-.secrow button{font-family:var(--sans);font-size:.75rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 12px;cursor:pointer;text-align:left;line-height:1.3;max-width:100%}
-.secrow button small{display:block;font-size:.66rem;color:var(--muted);margin-top:1px}
+.secrow button{font-family:var(--sans);font-size:.82rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 12px;cursor:pointer;text-align:left;line-height:1.3;max-width:100%}
+.secrow button small{display:block;font-size:.75rem;color:var(--muted);margin-top:1px}
 .secrow button[aria-pressed="true"]{border-color:var(--rubric);background:var(--rubric-soft)}
 .secrow button[aria-pressed="true"] small{color:var(--rubric)}
 .soruout{background:var(--code-bg);border:1px solid var(--line);border-left:6px solid var(--korpus);border-radius:10px;padding:13px 16px;margin:12px 0 4px}
-.soruout .lb{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.soruout .lb{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
 .soruout .q{font-family:var(--serif);font-size:1.15rem;line-height:1.5}
 .soruout .q b{color:var(--rubric)}
 .kapi4{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:10px 0}
@@ -1035,30 +1043,30 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .tabloprev{overflow-x:auto;margin-top:6px}
 .tabloprev table{border-collapse:collapse;font-family:var(--sans);font-size:.75rem;min-width:100%}
 .tabloprev th,.tabloprev td{border:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}
-.tabloprev th{background:var(--chip);font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.tabloprev th{background:var(--chip);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .tabloprev td{font-family:var(--mono);font-size:.75rem}
 .tabloprev .dl{color:var(--rubric)}
 /* B · takvim */
 .haftalar{display:flex;gap:2px;margin:12px 0 4px;border-radius:10px;overflow:hidden}
-.haftalar .fz{display:flex;flex-direction:column;justify-content:center;padding:9px 8px;font-family:var(--sans);font-size:.66rem;color:#fff;font-weight:700;line-height:1.3;min-width:0}
-.haftalar .fz span{font-size:.66rem;font-weight:600;opacity:.9;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.haftalar .fz{display:flex;flex-direction:column;justify-content:center;padding:9px 8px;font-family:var(--sans);font-size:.75rem;color:#fff;font-weight:700;line-height:1.3;min-width:0}
+.haftalar .fz span{font-size:.75rem;font-weight:600;opacity:.9;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mtas{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:10px}
 .mtas>div{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-family:var(--sans);font-size:.75rem;line-height:1.3}
-.mtas .h{display:inline-block;background:var(--ink);color:var(--paper);border-radius:4px;padding:1px 7px;font-size:.66rem;font-weight:800;margin-bottom:3px}
+.mtas .h{display:inline-block;background:var(--ink);color:var(--paper);border-radius:4px;padding:1px 7px;font-size:.75rem;font-weight:800;margin-bottom:3px}
 .takvimhk{background:var(--insan-soft);border-radius:10px;padding:10px 14px;margin-top:11px;font-family:var(--sans);font-size:.82rem;line-height:1.5}
 .takvimhk b{color:var(--insan)}
 /* C · anatomi */
 .anpar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
-.anpar button{font-family:var(--sans);font-size:.75rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.anpar button{font-family:var(--sans);font-size:.82rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 .anpar button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .anpar .no{font-weight:800;color:var(--rubric);margin-right:4px}
 .anpar button[aria-pressed="true"] .no{color:var(--paper)}
 #anpanel{margin:0;max-width:none}
 .sablon{background:var(--code-bg);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;font-family:var(--mono);font-size:.75rem;line-height:1.7;margin:9px 0;white-space:pre-wrap}
-.sablon .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.sablon .lbl{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
 .sablon mark{background:var(--model-soft);color:inherit;border-radius:4px;padding:0 3px}
 /* D · hakem gözü */
-.hkmgrup{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800;margin:12px 0 5px}
+.hkmgrup{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rubric);font-weight:800;margin:12px 0 5px}
 .hkm{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
 .hkm input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--korpus)}
 .hkm .t{font-family:var(--sans);font-size:.82rem;line-height:1.5}
@@ -1071,15 +1079,15 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .meter .vd{font-weight:800;white-space:nowrap}
 /* E · beyan */
 .yzsec{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
-.yzsec button{font-family:var(--sans);font-size:.75rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer}
+.yzsec button{font-family:var(--sans);font-size:.82rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer}
 .yzsec button[aria-pressed="true"]{border-color:var(--korpus);background:var(--korpus-soft)}
 .yzsec button[aria-pressed="true"]::before{content:"✓ ";font-weight:800;color:var(--korpus)}
 .yzinput{font-family:var(--sans);font-size:.82rem;width:100%;max-width:420px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
 .yzout{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:9px 0;font-family:var(--serif);font-size:.92rem;line-height:1.7;white-space:pre-wrap}
-.yzout .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.yzout .lbl{font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
 .kirmizicizgi{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:10px}
 .kirmizicizgi>div{background:var(--rubric-soft);border-left:4px solid var(--rubric);border-radius:10px;padding:8px 12px;font-family:var(--sans);font-size:.75rem;line-height:1.5}
-.kirmizicizgi b{display:block;color:var(--rubric);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
+.kirmizicizgi b{display:block;color:var(--rubric);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
 /* F · kurtarma */
 .kurt{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
 .kurt>details{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:0}
@@ -1196,7 +1204,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <div class="yenilik"><b>Peki yeni olan ne?</b> Soru değil, <b>ölçek ve hız</b>. A. J. Wensinck'in heyeti hadis lafızlarının dizinini yarım asırda tamamladı; Muhammed Fuâd Abdülbâkī Kur'ân-ı Kerîm mu'cemini yıllar süren bir emekle hazırladı. Bugün bir öğrenci, kendi seçtiği bir eserin <b>temizlenmiş küçük bir kesitinin</b> ilk dizinini bir hafta sonunda çıkarabiliyor; tam eser çalışması ayrıca temizlik ve denetim ister. Emek azalmadı; <b>yer değiştirdi</b>: dizin çıkarmaktan, çıkanı denetlemeye ve yorumlamaya geçti.</div>
 
   <p class="one" style="margin:20px auto 0;font-size:1rem"><b>Peki duygu analizi, konu modelleme, metin yeniden kullanımı?</b> Bunlar da bu alanın sık kullanılan araçları; üçünün de bir tuzağı var:</p>
-  <details class="mdeep" id="baskamercekler" style="width:100%;max-width:820px;margin:8px auto 0;text-align:left"><summary><b>Duygu analizi · konu modelleme · metin yeniden kullanımı</b> : üç mercek daha, dürüst uyarılarıyla</summary>
+  <details class="mdeep" id="baskamercekler" style="width:100%;max-width:820px;margin:8px auto 0;text-align:left"><summary><b>Duygu analizi · konu modelleme · metin yeniden kullanımı</b>: üç mercek daha, dürüst uyarılarıyla</summary>
     <p class="small muted" style="margin:0 0 10px">Bu sayfa dört kavram üzerine kuruldu, çünkü ilk projede en çok işe yarayanlar onlar. Ama alanda sık geçen üç yöntem daha var; her birinin bir <b>tuzağı</b> var ve tuzağı bilinmeden kullanılmaz.</p>
     <div class="dou" style="grid-template-columns:1fr">
       <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri modern dille eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını önce ölçün, sonra kullanın; o ölçümü de makalede verin.</div>
@@ -1218,7 +1226,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
   <p class="one small muted" style="margin:10px auto 0">Altı sorunun altısı da eski sorular. Değişen: cevabın <b>ölçeği</b> ve denetlenebilirliği, çünkü her kaydın delili kaynağa bağlı kalıyor.</p>
 
-  <p class="one" style="margin:20px auto 6px;font-size:1rem"><b>Kısa bir tarihçe</b> : bu yöntemin kökleri kendi ilim geleneğimizde. Sekiz durak, üç görünüşte: künye şeridi, gerçek ölçekli zaman çizgisi ve harita. Birinden birine dokunun; üçü birlikte hareket eder.</p>
+  <p class="one" style="margin:20px auto 6px;font-size:1rem"><b>Kısa bir tarihçe</b>: bu yöntemin kökleri kendi ilim geleneğimizde. Sekiz durak, üç görünüşte: künye şeridi, gerçek ölçekli zaman çizgisi ve harita. Birinden birine dokunun; üçü birlikte hareket eder.</p>
   <div class="timeline" id="nesep"></div>
   <div class="zamankutu"><svg class="zs" id="nesepzaman" viewBox="0 0 1000 210" role="img" aria-label="Yöntemin nesebi: gerçek ölçekli zaman çizgisi"></svg></div>
   <p class="haritanot" style="margin:2px auto 0;max-width:700px">Üstteki eksen <b>gerçek ölçekli</b>: bin yılda iki durak. Alttaki büyüteç son yüz yılı açıyor: altı durak. Şeridin söylediği tek cümle bu: <b>yöntemin nesebi eski, hızlanması yeni.</b></p>
@@ -1227,7 +1235,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="haritanot" id="nesepmapnot"></p>
   <p class="one" style="margin:10px auto 0;font-size:.92rem;color:var(--muted)">Bu ilimlerde <b>tasnif, fihrist ve mu'cem</b> geleneği asırlardır sürüyor. Değişen, emeğin bir kısmının makineye geçmesi; usul ve hüküm araştırmacıda kalıyor.</p>
 
-  <p class="one" style="margin:26px auto 6px;font-size:1rem"><b>Aynı malzemeye dört mercek</b> ; malzememiz hep aynı: Belâzürî'nin (ö. 279/892-93) <i>Fütûhu'l-büldân</i> adlı eseri. Merceğe dokun, ne gösterdiğini gör:</p>
+  <p class="one" style="margin:26px auto 6px;font-size:1rem"><b>Aynı malzemeye dört mercek</b>; malzememiz hep aynı: Belâzürî'nin (ö. 279/892-93) <i>Fütûhu'l-büldân</i> adlı eseri. Merceğe dokun, ne gösterdiğini gör:</p>
   <div class="lensrow" id="lensrow"></div>
   <div class="lenspanel" id="lenspanel"></div>
 
@@ -1246,7 +1254,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         <span class="arr">→</span>
         <div><span>3 · TARA</span><code class="ar">ف<mark>فتح</mark>ها <mark>عنو</mark>ه</code><em>kök dizisi geçiyor mu? geçtiyse +1</em></div>
       </div>
-      <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:6px 0 0">Ctrl+F'ten tek farkı: kuralları <b>açıkça yazdık</b> : hangi harf neye dönüşür, sayım köke mi yazıma mı bakar. Kural açık olunca sayım <b>tekrarlanabilir</b> olur; kuralı açık olunca tekrarlanabilir olur. Bu, sayımın denetlenebilmesinin şartlarından biridir; yorumun doğruluğunu tek başına garanti etmez. Aynı sadeleştirme (<b>normalizasyon</b>: imlâ farklarını eşitleme), 4. duraktaki delil denetiminin de motorudur; KISMÎ eşleşmeler tam bu tablodan doğar.</p>
+      <p style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:6px 0 0">Ctrl+F'ten tek farkı: kuralları <b>açıkça yazdık</b>: hangi harf neye dönüşür, sayım köke mi yazıma mı bakar. Kural açık olunca sayım <b>tekrarlanabilir</b> olur; kuralı açık olunca tekrarlanabilir olur. Bu, sayımın denetlenebilmesinin şartlarından biridir; yorumun doğruluğunu tek başına garanti etmez. Aynı sadeleştirme (<b>normalizasyon</b>: imlâ farklarını eşitleme), 4. duraktaki delil denetiminin de motorudur; KISMÎ eşleşmeler tam bu tablodan doğar.</p>
     </details>
     <p class="mwhy">Yakın okuma tek pasajın derinliğidir; uzak okuma bin sayfanın kuşbakışıdır. Rakip değiller; ikisi bir dürbünün iki ucu. <span class="temsili">sayım gerçek: Belâzürî kesitinden canlı sayılıyor</span></p>
   </div>
@@ -1284,7 +1292,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
       <p style="font-family:var(--sans);font-size:.92rem;color:var(--muted);margin:12px 0 0;line-height:1.65"><b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor: dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
-    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından; ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür: <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span> ; canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
+    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından; ok yönü: <b>kimden okudu</b>. Düğümlere dokun: <b>Şâfiî</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür: <i>er-Risâle</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>el-Muvattaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. <span class="temsili">yerleşim şematik; bağlar kaynaklı</span>; canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Uzak Okuma</a> içinde, s. 173.</p>
   </div>
   <p class="one" style="margin:22px auto 6px;font-size:1rem"><b>Sınırları baştan çizelim</b> · üç yaygın zan, üç cevap:</p>
   <div class="degildir">
@@ -1349,7 +1357,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   <p class="one" style="margin:26px auto 0"><b>Ama bir kayıt veri seti değildir.</b> Veri seti, <i>aynı çekmecelere sahip</i> kayıtların tamamıdır. Açtığınız çekmece, yayımlanan EICD-B'nin 226 kaydından biri. Diğer 225'i de burada:</p>
   <div class="kareler" id="kareler" aria-label="226 kayıt"></div>
   <div class="karelegend" id="karelegend"></div>
-  <p class="one small" style="margin:9px auto 0;color:var(--muted)">Renkler yayımlanan dağılımdan (EICD-B, Tablo 2 ve Tablo 4). <b>Karelerin sırası temsilîdir</b> : hangi karenin hangi şehir olduğu bu görselde yoktur; burada gösterilen yalnız oranlardır. Siyah çerçeveli kare, yukarıda çekmecelerini açtığınız kayıt.</p>
+  <p class="one small" style="margin:9px auto 0;color:var(--muted)">Renkler yayımlanan dağılımdan (EICD-B, Tablo 2 ve Tablo 4). <b>Karelerin sırası temsilîdir</b>: hangi karenin hangi şehir olduğu bu görselde yoktur; burada gösterilen yalnız oranlardır. Siyah çerçeveli kare, yukarıda çekmecelerini açtığınız kayıt.</p>
 
   <div class="kunyekart">
     <h3>Bir kayıt yığınını <i>veri seti</i> yapan sekiz şey</h3>
@@ -1358,7 +1366,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
   </div>
 
   <details class="mdeep" style="max-width:640px;margin:12px auto 0;text-align:left"><summary>📓 Kod defteri (İng. <i>codebook</i>) · her çekmecenin kuralı</summary>
-    <p class="small" style="margin:0 0 8px">Kod defteri, veri setinin kullanma kılavuzudur: hangi alan ne demek, hangi değerleri alabilir, nasıl türetildi, boş kalabilir mi. <b>Kod defteri olmayan veri seti okunamaz</b> ; altı ay sonra kendiniz de okuyamazsınız.</p>
+    <p class="small" style="margin:0 0 8px">Kod defteri, veri setinin kullanma kılavuzudur: hangi alan ne demek, hangi değerleri alabilir, nasıl türetildi, boş kalabilir mi. <b>Kod defteri olmayan veri seti okunamaz</b>; altı ay sonra kendiniz de okuyamazsınız.</p>
     <div class="kodtablo" id="kodtablo"></div>
     <p class="small muted" style="margin:8px 0 0">Kırmızı kenarlı satırlar <b>zorunlu</b> alanlardır: biri boşsa kayıt veri setine girmez.</p>
   </details>
@@ -1521,7 +1529,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <summary>🔬 Çok meraklısına: çekirdeğe iniş · dört mekanizma <span class="seviye derin" style="margin-left:4px">İleri düzey</span></summary>
 
     <div class="dpanel">
-      <h4>Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h4>
+      <h3 class="dph">Kat 1 · Kelime dediğin, bir sayı listesidir (vektör)</h3>
       <p class="small" style="margin:0 0 6px">İki kelime seç; sayı şeritlerini ve aralarındaki benzerliği gör:</p>
       <div class="wordchips" id="vw-a"></div>
       <div class="wordchips" id="vw-b"></div>
@@ -1531,7 +1539,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
 
     <div class="dpanel">
-      <h4>Kat 2 · Dikkat kafaları: aynı cümleye aynı anda farklı gözler bakar</h4>
+      <h3 class="dph">Kat 2 · Dikkat kafaları: aynı cümleye aynı anda farklı gözler bakar</h3>
       <div class="headbtns" id="headbtns">
         <button data-h="0" aria-pressed="true">Kafa 1 · "kim?"</button>
         <button data-h="1" aria-pressed="false">Kafa 2 · "ne zaman?"</button>
@@ -1541,7 +1549,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
 
     <div class="dpanel">
-      <h4>Kat 3 · Son karar bir zar atışıdır: sıcaklığı sen ayarla</h4>
+      <h3 class="dph">Kat 3 · Son karar bir zar atışıdır: sıcaklığı sen ayarla</h3>
       <p class="small" style="margin:0 0 4px">"Bugün hava çok güzel …" yani sıradaki kelimenin yarışı:</p>
       <div id="probarea"></div>
       <div class="tempwrap">Sıcaklık (temperature): <b id="tval">1.0</b> düşükte hep favori kazanır, yüksekte sürprizler artar<br>
@@ -1551,7 +1559,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </div>
 
     <div class="dpanel">
-      <h4>Kat 4 · Peki bu sayıları kim ayarladı? Milyarlarca küçük düzeltme</h4>
+      <h3 class="dph">Kat 4 · Peki bu sayıları kim ayarladı? Milyarlarca küçük düzeltme</h3>
       <div class="lossbox"><canvas id="losscv" width="600" height="220"></canvas></div>
       <div class="losscnt" id="losscnt">düzeltme: 0</div>
       <div style="margin-top:8px"><button class="wbtn alt" id="trainbtn">▶ Eğitimi izle</button></div>
@@ -1688,7 +1696,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     </details>
   </div>
 
-  <div class="altbaslik" style="max-width:820px;margin:26px auto 0;font-family:var(--sans);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700">Sorun kurulduysa: dört evrelik plan</div>
+  <div class="altbaslik" style="max-width:820px;margin:26px auto 0;font-family:var(--sans);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700">Sorun kurulduysa: dört evrelik plan</div>
   <div class="planbar" style="max-width:820px;margin-left:auto;margin-right:auto;width:100%">
     <span id="planprog"></span><div class="ptrack"><div class="pfill2" id="planfill" style="width:0"></div></div>
     <button class="wbtn alt" id="plandl" style="padding:6px 12px;font-size:.75rem">📄 Tek sayfalık planı indir</button>
@@ -1889,7 +1897,7 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- MAP ---------- */
 let map=null, voyLayers={}, stopMarkers=[], playTimer=null, playing=false;
-function fmtDate(s){ return s? s.split("-")[0] : ""; }
+function fmtDate(s){ return s? s.split("-")[0]: ""; }
 function initMap(){
   try{
     if(typeof L==="undefined") throw new Error("leaflet yok");
@@ -1954,7 +1962,7 @@ function togglePlay(){
     if(i%6===0||i===seq.length-1) map.panTo([s[1],s[2]],{animate:!reduced,duration:.4});
     now.innerHTML="<b>"+esc(s[3])+"</b> · <span style='color:"+v.color+"'>●</span> "+esc(v.title.split(":")[0])+" <span class='muted'>("+esc(v.years)+")</span>";
     i++;
-    playTimer=setTimeout(step, reduced? 40 : 110);
+    playTimer=setTimeout(step, reduced? 40: 110);
   };
   step();
   window._walker=walker; window._trail=trail;
@@ -2017,7 +2025,7 @@ else window.addEventListener("load", initMap, {once:true});
   let wa="hava", wb="yağmur";
   const cos=(a,b)=>{let d=0,na=0,nb=0;for(let i=0;i<a.length;i++){d+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i];}return d/Math.sqrt(na*nb);};
   function cellColor(v){
-    return v>=0? "rgba(30,122,70,"+(0.25+0.75*Math.min(1,v))+")" : "rgba(185,28,28,"+(0.25+0.75*Math.min(1,-v))+")";
+    return v>=0? "rgba(30,122,70,"+(0.25+0.75*Math.min(1,v))+")": "rgba(185,28,28,"+(0.25+0.75*Math.min(1,-v))+")";
   }
   function vecRow(w){
     return '<div class="vecrow"><span class="vlab">'+esc(w)+'</span>'+VECS[w].map(v=>'<span class="vcell" style="background:'+cellColor(v)+';color:'+(Math.abs(v)>=.5?"#fff":"var(--ink)")+'">'+v.toFixed(1)+'</span>').join("")+'</div>';
@@ -2027,7 +2035,7 @@ else window.addEventListener("load", initMap, {once:true});
     const s=cos(VECS[wa],VECS[wb]);
     $("#simlab").innerHTML="<b>"+esc(wa)+"</b> ile <b>"+esc(wb)+"</b> benzerliği: <b>"+s.toFixed(2)+"</b> (−1…+1)";
     $("#simfill").style.width=Math.max(0,(s+1)/2*100)+"%";
-    $("#simfill").style.background = s>0.5? "var(--korpus)" : s>0? "var(--model)" : "var(--rubric)";
+    $("#simfill").style.background = s>0.5? "var(--korpus)": s>0? "var(--model)": "var(--rubric)";
     document.querySelectorAll("#vw-a button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===wa));
     document.querySelectorAll("#vw-b button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===wb));
   }
@@ -2104,7 +2112,7 @@ else window.addEventListener("load", initMap, {once:true});
         const fx=i/260, px=36+fx*(W-52);
         const base=Math.exp(-fx*3.1), noise=(Math.sin(i*7.3)+Math.sin(i*2.9))*0.035*Math.exp(-fx*2);
         const py=14+(1-(base+noise))* (H-46);
-        i? x.lineTo(px,py) : x.moveTo(px,py);
+        i? x.lineTo(px,py): x.moveTo(px,py);
       }
       x.stroke();
       $("#losscnt").textContent="düzeltme: "+Math.floor(Math.pow(el,1.6)*1.8e9).toLocaleString("tr-TR")+(el>=1?" ve gerçekte bunun binlerce katı":"…");
@@ -2192,10 +2200,10 @@ else window.addEventListener("load", initMap, {once:true});
          ["","Kişi sayarsanız","(râvi, âlim, mürid) → ağ ve prosopografi üretirsiniz."],
          ["","Kelime sayarsanız","(kavram, kalıp, terim) → frekans ve kavram tarihi üretirsiniz."],
          ["iyi","Üçünden birini seçin.","İlk projede ikisini birden kovalamak, iki yarım iş demektir. Diğerleri ikinci makalenin konusudur."]],
-    ornek:"Soruyu dönüştürme alıştırması:\n\n  SOHBET  → \"Belâzürî fetihleri nasıl anlatır?\"\n  ARAŞTIRMA → \"Hangi şehir, hangi hicrî yılda,\n              hangi yolla (sulhan/anveten) alınmış;\n              bu hükmün delili metindeki hangi cümle?\"",
+    ornek:"Soruyu dönüştürme alıştırması:\n\n SOHBET  → \"Belâzürî fetihleri nasıl anlatır?\"\n ARAŞTIRMA → \"Hangi şehir, hangi hicrî yılda,\n              hangi yolla (sulhan/anveten) alınmış;\n              bu hükmün delili metindeki hangi cümle?\"",
     usta:"<b>İyi sorunun üç testi.</b> <i>Tablo testi:</i> cevabın bir tablo çizilebiliyor mu? Çizemiyorsanız soru henüz sohbettir. <i>Delil testi:</i> tablonun her satırı kaynaktan tek bir cümleye bağlanabiliyor mu? <i>Ölçek testi:</i> elle 10 örnekte yürüyor mu? 10'da yürümeyen, 10.000'de hiç yürümez.",
     tik:"Soru fazla geniş kaldıysa bir boyutu sabitleyin: tek bölge, tek yüzyıl, tek bab, tek müellif. Daraltmak fakirleşmek değildir; ilk bulguyu mümkün kılan şeydir.",
-    olcekler:["Betimleyici soru: \"Ne kadar, hangi oranda?\"","Karşılaştırmalı soru: \"A ile B arasında ne değişiyor?\"","Açıklayıcı soru: \"Neden değişiyor?\" ; literatürle tartışma gerektirir."],
+    olcekler:["Betimleyici soru: \"Ne kadar, hangi oranda?\"","Karşılaştırmalı soru: \"A ile B arasında ne değişiyor?\"","Açıklayıcı soru: \"Neden değişiyor?\"; literatürle tartışma gerektirir."],
     yol:["EICD-B: Şehirler antlaşmayla mı, kuvvetle mi alındı?","Hadis yolu: Bu babın rivayetleri hangi râvide düğümleniyor?"],
     bag:[[KURL2+"#d3","📚 Dört soru kalıbı"]]},
 
@@ -2226,7 +2234,7 @@ else window.addEventListener("load", initMap, {once:true});
     sec:[["kotu","Silin.","Tablo temiz görünür; ama iz kalmaz. Sonradan \"kaç kayıt elendi?\" sorusuna cevap veremezsiniz; bu, sessiz bir veri kaybıdır."],
          ["iyi","İşaretleyin ve sonuçların dışında bırakın.","EICD-B'nin yaptığı budur: kayıtların %8,4'ü işaretli durur, sayımlara girmez, ama kaybolmaz. Şeffaflık böyle sağlanır."],
          ["","Elle düzeltin.","Meşrudur; ancak her düzeltmeyi kaydedin. Kayıtsız düzeltme, veriyi \"eller değmiş\" hâle getirir."]],
-    ornek:"Örnek denetim raporu (EICD-B):\n  226 kayıt denetlendi\n  ├ TAM   (harfiyen bulundu)      79  · %35,0\n  ├ KISMÎ (imlâ farkıyla)        128  · %56,6\n  └ BULUNAMADI → sonuç dışı       19  · %8,4\n  Bağımsız listeyle karşılaştırma: 22 şehrin 18'i eşleşti.",
+    ornek:"Örnek denetim raporu (EICD-B):\n  226 kayıt denetlendi\n  ├ TAM   (harfiyen bulundu)      79  · %35,0\n  ├ KISMÎ (imlâ farkıyla)        128  · %56,6\n  └ BULUNAMADI → sonuç dışı       19  · %8,4\n Bağımsız listeyle karşılaştırma: 22 şehrin 18'i eşleşti.",
     usta:"<b>Üç mukabele türü.</b> <i>İç:</i> delil, kaynak metinde gerçekten var mı? <i>Dış:</i> bulgular bağımsız bir listeyle örtüşüyor mu? <i>Tutarlılık:</i> kayıtlar birbirini yalanlıyor mu? Hicrî 21'de vefat etmiş bir komutana 25 yılı fethi yazılamaz. Ve altın kural: hata analizi de ilimdir; EICD-B'nin iki \"hatası\", Mısır'ın sulhan mı anveten mi alındığı asırlık ihtilafın üzerine düşmüştü.",
     tik:"Delil bulunamıyor ama kayıt doğru görünüyorsa: önce normalizasyonu kontrol edin (hemze, tâ-i merbûta, harekeler). Hâlâ bulunmuyorsa kaydı çekimser listesine alın; \"muhtemelen doğrudur\" bir delil değildir.",
     olcekler:["Kayıtların tamamını elle kontrol edin: 20 kayıtta bu bir saattir.","Otomatik denetim + rastgele %20'lik örneklemi elle doğrulama.","Otomatik denetim + bağımsız bir listeyle dış karşılaştırma + kronoloji bekçisi."],
@@ -2297,7 +2305,7 @@ else window.addEventListener("load", initMap, {once:true});
   function emek(){
     var h='<div class="track">'+IST.map(function(t,i){
       return '<div class="seg" data-i="'+i+'" style="width:'+t.pay+'%;background:'+RENK[i]+'" title="'+esc(t.ad)+' · emeğin ~%'+t.pay+'\'i">'+(t.pay>=15?esc(t.ad):'')+'</div>'; }).join("")+'</div>'
-      +'<div class="cap">Emeğin istasyonlara dağılımı <span class="temsili">temsilî</span> : çoğu kişi veri toplamayı en uzun adım sanır; gerçekte <b>denetim</b> en uzun sürendir ve daima hafife alınır.</div>';
+      +'<div class="cap">Emeğin istasyonlara dağılımı <span class="temsili">temsilî</span>: çoğu kişi veri toplamayı en uzun adım sanır; gerçekte <b>denetim</b> en uzun sürendir ve daima hafife alınır.</div>';
     document.getElementById("emekbar").innerHTML=h;
   }
   function ciz(){ akis(); panel(); emek(); }
@@ -2371,7 +2379,7 @@ else window.addEventListener("load", initMap, {once:true});
     /* Eşik 560'tan 680'e çıkarıldı: 1000 birimlik viewBox 564px'e sığdığında
        yazılar %59'a küçülüyor ve büyüteçteki altı etiket birbirine giriyordu.
        Ölçüldü: 600px'te 6 çakışma, 700px'te sıfır. */
-    Z = en<680 ? ZM.dar : ZM.genis;
+    Z = en<680 ? ZM.dar: ZM.genis;
     const el=$("#nesepzaman"); el.setAttribute("viewBox",Z.vb);
     const bx0=zx(1930), bx1=zx(2030);
     const T=(c,x,y,t,ank,fs,ek)=>'<text class="'+c+'" x="'+x+'" y="'+y+'" text-anchor="'+(ank||"middle")+'" style="font-size:'+fs+'px"'+(ek||"")+'>'+t+'</text>';
@@ -2405,9 +2413,9 @@ else window.addEventListener("load", initMap, {once:true});
         /* Satır aralığı 13 birimdi; yazı kutuları da ~13 birim yüksek olduğu
            için bazı genişliklerde yıl ile kendi adı sınırda biniyordu
            (800px'te ölçüldü). Aralık 16 birime çıkarıldı. */
-        const yYil = ust ? Z.inset-12 : Z.inset-46;
-        const yAd  = ust ? Z.inset-28 : Z.inset-62;
-        const ad = NESEP[i][1].length>13 ? NESEP[i][1].slice(0,12)+"…" : NESEP[i][1];
+        const yYil = ust ? Z.inset-12: Z.inset-46;
+        const yAd  = ust ? Z.inset-28: Z.inset-62;
+        const ad = NESEP[i][1].length>13 ? NESEP[i][1].slice(0,12)+"…": NESEP[i][1];
         g+=T("yil",x,yYil,NYETIKET[i],"middle",Z.fYil,' data-zy="'+i+'"');
         g+=T("ad",x,yAd,esc(ad),"middle",Z.fAd);
       }
@@ -2443,7 +2451,7 @@ else window.addEventListener("load", initMap, {once:true});
       if(window.ResizeObserver){ let ilk=true;
         new ResizeObserver(es=>{ const b=es[0].contentRect; if(b.width>50 && (ilk || Math.abs(b.width-(nmap._sonW||0))>40)){ ilk=false; nmap._sonW=b.width; sigdir(); } })
           .observe(document.getElementById("nesepmap")); }
-      $("#nesepmapnot").innerHTML='Kesikli çizgi <b>kronolojiktir</b>: Bağdat → Dımaşk → Leiden → Kahire → New York. Düz bir "batıya gidiş" değil; ilim merkezleri yer değiştirdi. <b>Son üç durağın haritada yeri yok</b> : Şâmile, OpenITI ve sohbet modelleri bir şehre değil ağa ait. Şeridin ikinci cümlesi bu: yöntem şehirden ağa taşındı.';
+      $("#nesepmapnot").innerHTML='Kesikli çizgi <b>kronolojiktir</b>: Bağdat → Dımaşk → Leiden → Kahire → New York. Düz bir "batıya gidiş" değil; ilim merkezleri yer değiştirdi. <b>Son üç durağın haritada yeri yok</b>: Şâmile, OpenITI ve sohbet modelleri bir şehre değil ağa ait. Şeridin ikinci cümlesi bu: yöntem şehirden ağa taşındı.';
     }catch(e){
       const d=document.getElementById("nesepmap");
       if(d){ d.style.height="auto"; d.style.background="var(--code-bg)"; d.innerHTML='<p class="small muted" style="padding:14px;margin:0">Harita yüklenemedi (bağlantı ya da tarayıcı kısıtı). Durakların yerleri: Bağdat (987) · Dımaşk (1341) · Leiden (1936-88) · Kahire (1945) · New York (1949); son üç durak bir şehre değil ağa aittir.</p>'; }
@@ -2460,7 +2468,7 @@ else window.addEventListener("load", initMap, {once:true});
       +'<span class="termtag" style="float:none;display:inline-block;margin:8px 8px 0 0">bugünkü adı: '+esc(n[4])+'</span>'
       +'<span style="display:inline-block;margin-top:8px;font-size:.82rem">'+n[6]+'</span>'
       +'<div style="margin-top:9px;font-family:var(--sans);font-size:.82rem;border-top:1px dashed var(--line);padding-top:7px">'
-      +'<b>Nerede:</b> '+(NYER[i].dagitik? '<span class="dagitikrozet">dağıtık · şehri yok</span> ' : esc(NYER[i].ad)+' — ')
+      +'<b>Nerede:</b> '+(NYER[i].dagitik? '<span class="dagitikrozet">dağıtık · şehri yok</span> ': esc(NYER[i].ad)+' — ')
       +esc(NYER[i].not)+'</div></div></div>';
     document.querySelectorAll("#nesepzaman .dot").forEach(d=>d.classList.toggle("on", +d.dataset.z===i));
     document.querySelectorAll("#nesepzaman .yil").forEach(t=>t.classList.toggle("on", +t.dataset.zy===i));
@@ -2522,7 +2530,7 @@ function showTour(i){
   flyStop(s);
 }
 function closeTour(){ $("#tourcard").style.display="none"; tourOpen=false; }
-$("#tour").addEventListener("click",()=>{ if(playing) stopPlay(); tourOpen? closeTour() : showTour(0); });
+$("#tour").addEventListener("click",()=>{ if(playing) stopPlay(); tourOpen? closeTour(): showTour(0); });
 $("#t-next").addEventListener("click",()=>showTour(tIdx+1));
 $("#t-prev").addEventListener("click",()=>showTour(tIdx-1));
 $("#t-close").addEventListener("click",closeTour);
@@ -2629,8 +2637,8 @@ function wVerify(delil){
     const ok=dolu();
     w1.classList.toggle("kilitli",!ok);
     durum.innerHTML = ok
-      ? "✓ İki kaydı çıkardınız. Şimdi aynı metni modele verip <b>kendi cevabınızla karşılaştıracaksınız</b> ; fark çıkarsa hangisinin haklı olduğunu metne dönüp siz karara bağlayacaksınız."
-      : "Şehir ve delil sütunlarını iki satır için de doldurun; bir sonraki adım o zaman açılır. Yanlış yazmaktan çekinmeyin, karşılaştırma zaten bunun için var.";
+      ? "✓ İki kaydı çıkardınız. Şimdi aynı metni modele verip <b>kendi cevabınızla karşılaştıracaksınız</b>; fark çıkarsa hangisinin haklı olduğunu metne dönüp siz karara bağlayacaksınız."
+     : "Şehir ve delil sütunlarını iki satır için de doldurun; bir sonraki adım o zaman açılır. Yanlış yazmaktan çekinmeyin, karşılaştırma zaten bunun için var.";
   }
   alan.forEach(x=>x.addEventListener("input",tazele));
   tazele();
@@ -2659,7 +2667,7 @@ $("#pathpick").addEventListener("click",e=>{
   const quick=b.dataset.p==="quick";
   $("#path-quick").style.display=quick?"":"none";
   $("#path-own").style.display=quick?"none":"";
-  (quick? $("#path-quick") : $("#path-own")).scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
+  (quick? $("#path-quick"): $("#path-own")).scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
 });
 /* hemen dene: tek dokunuş */
 let programmaticFill=false;
@@ -2720,7 +2728,7 @@ $("#w-verify").addEventListener("click",()=>{
   const CIRC=2*Math.PI*44;
   let h='<div class="ringrow"><svg class="ring" viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="55" cy="55" r="44" fill="none" stroke="var(--korpus)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(CIRC*pct/100).toFixed(1)+' '+CIRC.toFixed(1)+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle">%'+pct+'</text></svg>';
   h+='<div class="rstats"><div><b style="color:var(--korpus)">'+nT+'</b><span>TAM</span></div><div><b style="color:var(--model)">'+nK+'</b><span>KISMÎ</span></div><div><b style="color:var(--rubric)">'+nY+'</b><span>dışarıda</span></div></div></div>';
-  h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı." : Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
+  h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı.": Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
   h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Sonuç kartını indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button></div>';
   h+='<details class="rdetail"><summary>Kayıt kayıt ayrıntı (satıra dokun: delili kitapta gör)</summary><div class="rtable"><table><tr><th>Kayıt</th><th>Yıl</th><th>Durum</th></tr>';
   rows.forEach((r,i)=>{ const c=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
@@ -2795,8 +2803,8 @@ $("#w-verify").addEventListener("click",()=>{
       +   '<div class="sat"><span>Böl</span><span class="sag">'+ta+' ÷ ('+vir(ba)+'×'+vir(bb)+')</span></div>'
       +   '<div class="vksonuc">Kosinüs benzerliği: <b>'+vir(cos)+'</b><br><span style="color:var(--muted);font-size:.88rem">'
       +   (cos>0.9?"Neredeyse aynı yöne bakıyorlar: anlamca komşu."
-        : cos>0.5?"Aynı tarafa bakıyorlar ama açı var: akraba, aynı değil."
-        : cos>0?"Az ilgili." : "Farklı yönler: alakasız ya da zıt.")+'</span></div>'
+       : cos>0.5?"Aynı tarafa bakıyorlar ama açı var: akraba, aynı değil."
+       : cos>0?"Az ilgili.": "Farklı yönler: alakasız ya da zıt.")+'</span></div>'
       +   '<div class="vkcetvel"><div class="yol"><div class="im" style="left:'+((cos+1)/2*100).toFixed(1)+'%"></div></div>'
       +   '<div class="uc"><span>−1 · tam zıt</span><span>0 · alakasız</span><span>1 · aynı</span></div></div>'
       + '</div></div>'
@@ -2820,7 +2828,7 @@ $("#w-verify").addEventListener("click",()=>{
   const ay=["Muharrem","Safer","Rebîülevvel","Rebîülâhir","Cemâziyelevvel","Cemâziyelâhir",
             "Receb","Şâban","Ramazan","Şevvâl","Zilkade","Zilhicce"];
   function hicri(s){ if(!s) return "—"; const p=String(s).split("-");
-    return p.length>1 ? p[0]+" / "+(ay[+p[1]-1]||p[1]) : p[0]; }
+    return p.length>1 ? p[0]+" / "+(ay[+p[1]-1]||p[1]): p[0]; }
   function ciz(){
     const s=V[se];
     const q=s.quote_ar, i=q.indexOf(s.ar);
@@ -2868,7 +2876,7 @@ $("#w-verify").addEventListener("click",()=>{
   const capa="قالوا: وكان الزبير";
   const bas=CLEANX.indexOf(capa);
   if(bas<0){ kutu.remove(); return; }
-  const pasaj=CLEANX.slice(bas, CLEANX.indexOf("وكتب بذلك", bas)>0 ? CLEANX.indexOf("وكتب بذلك", bas) : bas+430);
+  const pasaj=CLEANX.slice(bas, CLEANX.indexOf("وكتب بذلك", bas)>0 ? CLEANX.indexOf("وكتب بذلك", bas): bas+430);
 
   const ISARET=[
     ["عمرو بن العاصي","var(--insan)"],
@@ -2967,7 +2975,7 @@ $("#w-verify").addEventListener("click",()=>{
       + '<p class="uznot">Yukarıdaki kesitte <b>'+m.say+'</b> yer işaretlendi; çubuklardaki sayıların toplamı da bu. '
       + (mode==="kok"
          ? 'Kök kipinde kelimenin içinde geçen ek ve türevler de işaretlenir.'
-         : 'Yazım kipinde yalnız tek başına duran kelime işaretlenir; aradaki fark, sayım tasarımının bulguyu nasıl değiştirdiğidir.')
+        : 'Yazım kipinde yalnız tek başına duran kelime işaretlenir; aradaki fark, sayım tasarımının bulguyu nasıl değiştirdiğidir.')
       + ' Bir köke dokunarak yalnız onu görebilirsiniz.</p>';
   }
   function show(){
@@ -2981,7 +2989,7 @@ $("#w-verify").addEventListener("click",()=>{
       + bars()
       + '<p class="mwhy" style="margin-top:8px">'+(mode==="kok"
         ? 'Kök ailesiyle: <span class="ar" style="display:inline;font-size:1rem">فتح</span> ailesi (فتح، فتوح، افتتح…) tek kalemde sayılır; Arapçada saymak <b>kök</b> işidir.'
-        : 'Birebir yazımla: yalnız bağımsız kelime sayılır; sayıların nasıl düştüğüne bak. Ders: sayım tasarımı (kök mü, yazım mı?) bulgunun kendisini değiştirir; makalende hangisini seçtiğini <b>beyan et</b>.')
+       : 'Birebir yazımla: yalnız bağımsız kelime sayılır; sayıların nasıl düştüğüne bak. Ders: sayım tasarımı (kök mü, yazım mı?) bulgunun kendisini değiştirir; makalende hangisini seçtiğini <b>beyan et</b>.')
       +'</p>'
       + metinBlok()
       + '<div class="imza"><b>İmza karşılaştırması:</b> kitabın GENELİNDE fetihlerin %52,2\'si sulhan, %42,5\'i anveten (EICD-B, 226 kayıt). Bu kesitte ise anve ve fetih kökü öne geçiyor: <b>bölge imzası</b>. Uzak okumanın meyvesi budur: fark gördüğün yerde soru doğar. Wensinck\'in konkordansı da tam bunun içindi: önce say, sonra oku.</div>';
@@ -3150,7 +3158,7 @@ const TRACKMETA={
   hedef:"yöntem ağırlıklı ise DSH · DHQ; Türkçe için Nazariyat, İslâm Araştırmaları",
   ilk60:["Bir tasnif bölümü seç ve ilimleri, müellifin kendi bölümlemesiyle, düğüm olarak listele (20 dk).","Beş tiplik bir ilişki listesi ve bir yön kuralı yaz (20 dk).","İlk 10 kenarı delil ibaresiyle birlikte tabloya dök (20 dk)."]},
  "Kendi metnim · genel rota":{urun:"kendi seçtiğin metnin delilli bir tablosu + onu tarif eden kısa not",
-  emsal:'<a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">EICD-B (DSH 2026, açık erişim)</a> ; alanı farklı olsa da adımlar aynı',
+  emsal:'<a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">EICD-B (DSH 2026, açık erişim)</a>; alanı farklı olsa da adımlar aynı',
   hedef:"kendi alanının TR Dizin\'li dergisi; veri makalesi için JOHD",
   ilk60:["Metninden 5-10 sayfalık bir kesit seç; neyin sayılacağına karar ver (10 dk).","Kütüphane\'den atölye paketini indir, talimatı kendi alanına göre uyarla (20 dk).","İlk 10 kaydı çıkar; delil sütununu boş bırakma (30 dk)."]},
  "Osmanlı & Türkçe":{urun:"bir kavramın on yıllara göre grafiği + dönemlendirme notu",
@@ -3246,7 +3254,7 @@ $("#plandl").addEventListener("click",()=>tekSayfaIndir());
   $("#karelegend").addEventListener("click",e=>{
     const b=e.target.closest("button"); if(!b) return;
     if(b.dataset.kip){ kip = kip==="tarz"?"delil":"tarz"; vurgu=null; ciz(); return; }
-    const gi=+b.dataset.g; vurgu = vurgu===gi ? null : gi; uygula();
+    const gi=+b.dataset.g; vurgu = vurgu===gi ? null: gi; uygula();
   });
   ciz();
 
@@ -3302,15 +3310,15 @@ $("#plandl").addEventListener("click",()=>tekSayfaIndir());
 
   const KAPI=[
    ["🗃 Veriyi kullan","İzin istemenize gerek yok: veri setleri açık lisanslı ve sürümlü. A aletindeki «hazır bir veri seti» seçeneği tam bunu kastediyor. Malzeme derleme aşamasını atlayıp doğrudan soruya odaklanırsınız.",
-    "<b>İslam Tarih Atlası katmanları</b> : el-A‘lâm 13.940 biyografi · Yâkūt 12.954 coğrafî kayıt · DİA 8.528 madde · Evliyâ Çelebi 5.444 durak · CC BY-SA 4.0 + DOI<br><b>İTA</b> : 2.179 tarihçi · 2.770 eser · 3.356 ilişki kaydı (açık JSON)<br><b>Ridda Savaşları</b> : 138 kabile olayı, üç klasik kronikten"],
+    "<b>İslam Tarih Atlası katmanları</b>: el-A‘lâm 13.940 biyografi · Yâkūt 12.954 coğrafî kayıt · DİA 8.528 madde · Evliyâ Çelebi 5.444 durak · CC BY-SA 4.0 + DOI<br><b>İTA</b>: 2.179 tarihçi · 2.770 eser · 3.356 ilişki kaydı (açık JSON)<br><b>Ridda Savaşları</b>: 138 kabile olayı, üç klasik kronikten"],
    ["🤝 Yürüyen bir işe katıl","Aşağıdaki listede <b>Beta</b> rozetli her proje el bekliyor. Beta, «bitti ama cilalanıyor» demek değil; «yürüyor, eksikleri var» demek. Bir öğrencinin girebileceği en gerçekçi kapı budur.",
     "Tefsir Atlası · Tabakat · Siyer Atlası · Salibiyyât · Dijital Tasavvuf Atlası · Frontier Heritage Corpus · İslam’da Kitap Tarihi"],
    ["📄 Kendi sorunu getir","Beşinci durakta indirdiğiniz tek sayfalık dosya tam bunun için var: soru cümlesi, tablonun sütunları, saat bütçenize göre takvim, hakem listesi ve beyan. Danışmanınıza götürdüğünüz dosyayı merkeze de götürebilirsiniz.",
     "<b>Ne gönderilir:</b> yol-haritasi-….md · özgeçmiş değil"],
    ["🎓 Öğren","Merkez yalnız veri üretmiyor; kendi ifadesiyle «veriyle düşünen insan yetiştiriyor». Üç eğitim hattı yayında ya da dönemlik.",
-    "<b>Verinin Dili</b> : lise düzeyinde altı interaktif veri okuryazarlığı modülü<br><b>MicroGPT Academy</b> : dil modellerinin mantığını satır satır öğreten iki dilli platform<br><b>Halka</b> : dönemde altı kitaplık bilim tarihi okuma grubu"]
+    "<b>Verinin Dili</b>: lise düzeyinde altı interaktif veri okuryazarlığı modülü<br><b>MicroGPT Academy</b>: dil modellerinin mantığını satır satır öğreten iki dilli platform<br><b>Halka</b>: dönemde altı kitaplık bilim tarihi okuma grubu"]
   ];
-  $("#tckapilar").innerHTML=KAPI.map(k=>'<div class="kapi4k"><h4>'+esc(k[0])+'</h4><p>'+k[1]+'</p><div class="mini">'+k[2]+'</div></div>').join("");
+  $("#tckapilar").innerHTML=KAPI.map(k=>'<div class="kapi4k"><h3 class="dph">'+esc(k[0])+'</h3><p>'+k[1]+'</p><div class="mini">'+k[2]+'</div></div>').join("");
 
   /* durum: y=yayında · b=beta · g=geliştiriliyor */
   const PRJ=[
@@ -3441,7 +3449,7 @@ function soruUyum(){ const d=SORU[curTrack]; return d.e[sSec.e].ger.indexOf(sSec
 function soruCumle(){
   const d=SORU[curTrack], m=d.m[sSec.m], b=d.b[sSec.b], e=d.e[sSec.e];
   return e.st ? m.ic+" "+b.bs+", "+e.ad+" nasıl "+e.fi+"?"
-              : m.ic+" "+b.bs+" nasıl dağılıyor?";
+             : m.ic+" "+b.bs+" nasıl dağılıyor?";
 }
 /* seçim düğmeleri rota değişince bir kez çizilir; tıklamada yalnız aria-pressed
    güncellenir — aksi hâlde innerHTML yenilenmesi klavye odağını düşürür */
@@ -3460,14 +3468,14 @@ function soruRender(){
     x.setAttribute("aria-pressed", sSec[x.dataset.s]===+x.dataset.i ? "true":"false"));
   $("#soruOut").innerHTML='<span class="lb">Soru cümlen</span><span class="q">'+esc(soruCumle())+'</span>'
     +(uy? '<p class="small muted" style="margin:8px 0 0">Bu cümleyi giriş bölümünün ikinci paragrafına olduğu gibi koyabilirsin. Ölçek: '+esc(m.ol)+'.</p>'
-        : '<p class="small" style="margin:8px 0 0;color:var(--rubric)"><b>Bu soru şu an kendi içinde tutarsız</b> ; üçüncü kapıya bak.</p>');
+       : '<p class="small" style="margin:8px 0 0;color:var(--rubric)"><b>Bu soru şu an kendi içinde tutarsız</b>; üçüncü kapıya bak.</p>');
   const sc=Math.min(4,m.o+(e.st&&uy?1:0));
   const olcekH=[["Ödev ölçeği.","Bir hafta sonunda biter; araştırma notuna çevrilebilir.",1],
     ["Araştırma notu / veri makalesi ölçeği.","Bir dönemde rahat biter.",1],
     ["Veri makalesi ya da ulusal tam makale ölçeği.","Bir dönem + yaz gerekir.",1],
     ["Tam makale ölçeği.","Bir dönemde zor: ya malzemeyi daraltın ya ekseni tek tutun.",0]][sc-1];
   let k3;
-  if(!e.st) k3=[0,"3 · Karşılaştırma var mı?","Eksen seçmedin. Bu bir <b>betimdir</b> : betim de yayımlanır (veri makalesi tam olarak budur) ama iddia taşımaz. Bilerek seçtiysen sorun yok; unuttuysan bir eksen ekle."];
+  if(!e.st) k3=[0,"3 · Karşılaştırma var mı?","Eksen seçmedin. Bu bir <b>betimdir</b>: betim de yayımlanır (veri makalesi tam olarak budur) ama iddia taşımaz. Bilerek seçtiysen sorun yok; unuttuysan bir eksen ekle."];
   else if(!uy){
     const gm=e.ger[0], alt=d.e.findIndex((x,i)=>i!==sSec.e&&x.st&&x.ger.indexOf(sSec.m)>=0);
     k3=[0,"3 · Karşılaştırma tutmuyor",
@@ -3499,7 +3507,7 @@ $("#soruKapi").addEventListener("click",e=>{
 document.querySelectorAll("[data-k5]").forEach(b=>b.addEventListener("click",()=>{
   $("#k5c").innerHTML = b.dataset.k5==="e"
    ? "O hâlde bu bir <b>sınama</b> değil, bir <b>teyit</b>. Teyit de değerlidir, ama makalede «beklendiği gibi» deyip geç, ağırlığı oraya verme. Asıl merakını bir kademe daralt: tahmininin <i>tutmadığı</i> yeri ara. Bilim, tahminin çatladığı yerde başlar."
-   : "İyi. Sonucu bilmediğin soru, cevabı yayımlanmaya değer sorudur. Şunu şimdi yaz ve bir kenara koy: «Ben şunu bekliyorum: …» Veri geldiğinde bu not, kendini kandırmana engel olur.";
+  : "İyi. Sonucu bilmediğin soru, cevabı yayımlanmaya değer sorudur. Şunu şimdi yaz ve bir kenara koy: «Ben şunu bekliyorum: …» Veri geldiğinde bu not, kendini kandırmana engel olur.";
 }));
 
 /* ===== B · DÖNEM TAKVİMİ ===== */
@@ -3521,7 +3529,7 @@ function takvimRender(){
    +'<p class="small muted" style="margin:2px 0 0">'+S.h+' hafta · toplam ~'+S.toplam+' saat · haftada '+curSaat+' saat</p>'
    +'<div class="mtas">'+FAZ.map((f,i)=>'<div><span class="h">H'+ends[i]+' sonu</span><br><b>'+esc(f.ad)+'</b> — '+esc(f.is)+'<br><span style="color:var(--korpus);font-weight:700">✓ '+esc(MTAS[i])+'</span></div>').join("")+'</div>'
    +'<div class="takvimhk"><b>Hedef:</b> '+esc(S.hedef)+'. '+esc(S.kes)
-   +'<br><b>Toplam emek üç seçenekte de 40-60 saat civarındadır</b> ; değişen, bu emeğin kaç haftaya yayıldığıdır.'
+   +'<br><b>Toplam emek üç seçenekte de 40-60 saat civarındadır</b>; değişen, bu emeğin kaç haftaya yayıldığıdır.'
    +'<br><b>İki hafta geri kalırsanız</b> takvimi uzatmayın, kapsamı kesin: ikinci bölgeyi ya da ikinci ekseni çıkarın. Uzayan takvim, dönem sonunda yarım kalan bir işe dönüşüyor.</div>';
 }
 $("#saatsec").addEventListener("click",e=>{
@@ -3613,7 +3621,7 @@ function hkmState(){ try{ return JSON.parse(localStorage.getItem("rihle_hakem")|
 function hkmProg(){
   const st=hkmState(), n=st.filter(Boolean).length;
   $("#hkmfill").style.width=(n/HKM.length*100)+"%";
-  const vd = n<=5? "Henüz gönderme" : n<=9? "Eksikleri kapat" : n<12? "Çok yakın" : "Gönderilebilir";
+  const vd = n<=5? "Henüz gönderme": n<=9? "Eksikleri kapat": n<12? "Çok yakın": "Gönderilebilir";
   $("#hkmvd").textContent=n+"/"+HKM.length+" · "+vd;
   document.querySelectorAll("#hkmliste .hkm").forEach((el,i)=>el.classList.toggle("tik",!!st[i]));
 }
@@ -3643,17 +3651,17 @@ function yzMetin(){
   const secili=YZ.filter((_,i)=>yzSec[i]);
   const m=($("#yzmodel").value||"").trim() || "[model adı, sürümü, kullanım tarihi]";
   const el=yzElenen==="at" ? ["eşleşmeyen kayıtlar veri setine alınmamıştır","unmatched records were excluded from the dataset"]
-                           : ["eşleşmeyen kayıtlar işaretlenerek veri setinde bırakılmıştır","unmatched records were retained in the dataset and flagged"];
+                          : ["eşleşmeyen kayıtlar işaretlenerek veri setinde bırakılmıştır","unmatched records were retained in the dataset and flagged"];
   const tr = secili.length
    ? "Bu çalışmada "+m+" adlı büyük dil modeli şu işler için kullanılmıştır: "+secili.map(x=>x.tr).join("; ")+". "
      +"Modelin ürettiği her kayıt asıl metinle karşılaştırılarak denetlenmiş, "+el[0]+"; doğrulama usulü ve oranı Malzeme ve Yöntem bölümünde verilmiştir. "
      +"Metnin bilimsel içeriğinden, yorumundan ve olası hatalarından yalnızca yazar(lar) sorumludur. Model yazar olarak gösterilmemiştir."
-   : "Bu çalışmanın hiçbir aşamasında büyük dil modeli kullanılmamıştır.";
+  : "Bu çalışmanın hiçbir aşamasında büyük dil modeli kullanılmamıştır.";
   const en = secili.length
    ? "A large language model ("+m+") was used in this study for the following tasks: "+secili.map(x=>x.en).join("; ")+". "
      +"Every record produced by the model was checked against the source text and "+el[1]+"; the verification procedure and rate are reported in the Materials and Methods section. "
      +"The author(s) are solely responsible for the scholarly content, interpretation and any remaining errors. The model is not listed as an author."
-   : "No large language model was used at any stage of this study.";
+  : "No large language model was used at any stage of this study.";
   return [tr,en];
 }
 function yzCiz(){
@@ -3662,7 +3670,7 @@ function yzCiz(){
 function yzRender(){
   document.querySelectorAll("#yzsec button[data-y]").forEach((x,i)=>x.setAttribute("aria-pressed", yzSec[i]?"true":"false"));
   const t=yzMetin();
-  const uy=YZ.some((x,i)=>yzSec[i]&&x.uy) ? '<p class="small" style="color:var(--rubric);margin:7px 0 0"><b>Dikkat:</b> '+esc(YZ[5].uy)+'</p>' : "";
+  const uy=YZ.some((x,i)=>yzSec[i]&&x.uy) ? '<p class="small" style="color:var(--rubric);margin:7px 0 0"><b>Dikkat:</b> '+esc(YZ[5].uy)+'</p>': "";
   $("#yztr").innerHTML='<span class="lbl">Türkçe beyan</span>'+esc(t[0])+uy;
   $("#yzen").innerHTML='<span class="lbl">English statement</span>'+esc(t[1]);
   try{ localStorage.setItem("rihle_yz",JSON.stringify({s:yzSec,e:yzElenen})); }catch(e){}
@@ -3719,8 +3727,8 @@ const EMS=[
 
  {ad:"Çıkarım",no:"model, şema, normalizasyon",ilke:"«Yapay zekâdan yararlanıldı» cümlesi makalenin hiçbir yerinde yok.",
   govde:'<div class="ciktiornek"><span class="lbl">Makalede yazılı olanlar</span>'
-   +'model      : Claude 3 Sonnet (Anthropic)\nkimlik     : claude-3-Sonnet-20240229\nsıcaklık   : 0\nparça      : ~2.000 token, 200 token bindirme\ntalimatlar : tamamı ek malzemede\nseçim gerekçesi : uzun bağlam, şemaya tutarlı uyum,\n             klasik Arapçada düşük uydurma eğilimi</div>'
-   +'<div class="ornekbox"><b>Şema: kapalı liste + zorunlu delil</b>Model, sabit bir olay şemasına uyan JSON üretmeye zorlanıyor: <code>year_ah</code> tam sayı; <code>conquest_type</code> <b>kapalı liste</b> (sulhan / anwatan / reconsolidation); şehir, komutan, halife dizge; ve <b>zorunlu <code>evidence</code> alanı</b> : bağlamdan alınmış kısa Arapça pasaj.</div>'
+   +'model     : Claude 3 Sonnet (Anthropic)\nkimlik    : claude-3-Sonnet-20240229\nsıcaklık  : 0\nparça     : ~2.000 token, 200 token bindirme\ntalimatlar: tamamı ek malzemede\nseçim gerekçesi: uzun bağlam, şemaya tutarlı uyum,\n             klasik Arapçada düşük uydurma eğilimi</div>'
+   +'<div class="ornekbox"><b>Şema: kapalı liste + zorunlu delil</b>Model, sabit bir olay şemasına uyan JSON üretmeye zorlanıyor: <code>year_ah</code> tam sayı; <code>conquest_type</code> <b>kapalı liste</b> (sulhan / anwatan / reconsolidation); şehir, komutan, halife dizge; ve <b>zorunlu <code>evidence</code> alanı</b>: bağlamdan alınmış kısa Arapça pasaj.</div>'
    +'<div class="ikincibox" style="margin-top:8px"><b>Normalizasyon kararları</b>(1) hemze varyantları ve tatvîl temizliği · (2) yer adlarının yazım varyantlarının uyumlanması · (3) halife ve komutan adlarının toplama için normalizasyonu. Ayrıca «/» ile verilen müşterek komutanlıklar ayrıştırıldı. Tekilleştirme anahtarı: <code>(year_ah, city_arabic, commander_arabic)</code>.</div>'
    +'<div class="olcekrow"><b>Sürdürülebilirlik notu:</b> makale, ticarî bir arayüze bağlılığın tekrarlanabilirlik riski olduğunu açıkça yazıyor ve açık ağırlıklı modellerle (Llama 3 70B, Qwen 2.5) ön denemeyi bildiriyor; karmaşık pasajlarda bir miktar hassasiyet kaybıyla.</div>',
   ders:"Bu sitede öğrettiğimiz iki kural, <b>kapalı liste</b> ve <b>zorunlu delil sütunu</b> , makalenin yöntem bölümünde aynen duruyor. Aradaki tek fark, orada bunların adı «controlled vocabulary» ve «evidence field».",
@@ -3787,7 +3795,7 @@ const KURT=[
  ["Veri hiçbir şey göstermiyor","<b>«Fark yok» da bir bulgudur</b>, ama tek şartla: beklentini <i>önceden</i> yazmış olman. A aletindeki beşinci kapıda «ben şunu bekliyorum» notunu aldıysan, elinde yayımlanabilir bir negatif sonuç var. Ölçünü ve örneklem büyüklüğünü açıkça yaz; «yeterince veri yoktu» ile «fark yoktu» aynı şey değildir. Hedefi araştırma notuna çevir; bu tür notlar dergilerde kabul görüyor."],
  ["Danışmanım dijital yöntem bilmiyor","Danışman <b>alanın</b> hakemidir, aletin değil; makaleyi alan taşır. Ona iki şey götür: <b>soru cümlen</b> ve <b>tablon</b>. İkisi de dijital değildir; ikisini de değerlendirebilir. Alet tarafı için ikinci bir okuyucu bul: bilgisayar mühendisliği ya da dilbilim bölümünde bu işi yapan bir doktora öğrencisi çoğu zaman yardıma açıktır. Danışmanı ikna etmenin en hızlı yolu, bitmiş küçük bir tablodur."],
  ["Metnin taraması berbat, OCR bozuk","<b>Elle yazılmış 200 kelime, bozuk 20.000 kelimeden iyidir.</b> Bozuk metinden çıkan sayı sayı değildir. Üç seçenek: (1) ölçeği küçült, kesiti elle temizle; (2) Transkribus'ta model dene (Osmanlıca modelleri var); (3) aynı metnin başka bir neşrini ara. Hangisini seçersen seç, «metin şu kaynaktan, şu kalitede» cümlesini Malzeme bölümüne yaz."],
- ["Model uyduruyor","Bu bir arıza değil, <b>tabiat</b>: model en olası kelimeyi üretir, doğruyu değil. Çözüm üç katmanlı: kapalı liste (serbest cevap yerine seçenek), delil sütunu zorunluluğu (her kayıt asıl metinden bir ibare taşısın), mukabele (dördüncü duraktaki tezgâh). Uydurma kaydı yakalamak başarısızlık değil, <b>yöntemin çalıştığının kanıtıdır</b> ; ayrıca makalede bu oranı yazmak size puan kazandırır."],
+ ["Model uyduruyor","Bu bir arıza değil, <b>tabiat</b>: model en olası kelimeyi üretir, doğruyu değil. Çözüm üç katmanlı: kapalı liste (serbest cevap yerine seçenek), delil sütunu zorunluluğu (her kayıt asıl metinden bir ibare taşısın), mukabele (dördüncü duraktaki tezgâh). Uydurma kaydı yakalamak başarısızlık değil, <b>yöntemin çalıştığının kanıtıdır</b>; ayrıca makalede bu oranı yazmak size puan kazandırır."],
  ["Zaman yetmedi","Takvimi uzatma, <b>kapsamı kes</b>. Bir bölge yerine bir şehir, üç bab yerine bir bab, üç yayın yerine bir yayın. Kesilen kısmı «gelecek çalışma» diye yaz; bu kayıp değil, plandır. Yarım kalmış büyük iş yayımlanmaz; bitmiş küçük iş yayımlanır ve ikincisini kolaylaştırır."],
  ["Makale reddedildi","<b>Hakem raporu bedava danışmanlıktır</b>; çoğu öğrencinin göremediği kadar ayrıntılı bir okumadır. Üç adım: (1) gerekçeleri maddele, duygusal cümleleri ayıkla; (2) düzeltilebilir olanları düzelt; (3) katılmadığın maddeye kısa ve saygılı bir cevap yaz, ikinci dergiye üç hafta içinde gönder. Reddedilmemiş araştırmacı yoktur; bekletilmiş makale vardır."]];
 $("#kurtliste").innerHTML=KURT.map(k=>'<details><summary>'+esc(k[0])+'</summary><div>'+k[1]+'</div></details>').join("");
@@ -3838,7 +3846,7 @@ function dosyaMd(){
    .concat(ANA.map((a,i)=>"- **"+(i+1)+". "+a.ad+"** ("+a.pay+"): "+a.ne+"  \n  *EICD-B'de:* "+dz(a.em)))
    .concat(["","## E · Hakem gözü: kapatılacak eksikler",""])
    .concat(eksik.length? eksik.map(h=>"- [ ] "+h[1]+"  \n  *Eksikse gelecek cümle:* «"+h[2]+"»")
-                       : ["On iki maddenin hepsi işaretli. Gönderilebilir."])
+                      : ["On iki maddenin hepsi işaretli. Gönderilebilir."])
    .concat(["","## F · Yapay zekâ kullanım beyanı","",t[0],"","**AI use statement**","",t[1],"",
     "## G · Danışman e-postası","","```",epostaText(),"```","",
     "---","Merdiven: araştırma notu → veri makalesi (JOHD) → ulusal tam makale → uluslararası",
@@ -3860,7 +3868,7 @@ function tekSayfaHtml(){
   const donum=FAZ.map((f,i)=>"<li><b>H"+ends[i]+" sonu, "+esc(f.ad)+":</b> "+esc(MTAS[i])+"</li>").join("");
   const risk = e.st
     ? "Eksen karşılaştırması (" + esc(e.ad) + ") kaynakta eşit yoğunlukta temsil edilmeyebilir; fark gerçek olmayıp kaynağın ilgisinden doğabilir."
-    : "Betimleyici bir sayım yaptığım için, bulunan dağılım kaynağın kapsamıyla sınırlıdır; genelleme iddiası kurmuyorum.";
+   : "Betimleyici bir sayım yaptığım için, bulunan dağılım kaynağın kapsamıyla sınırlıdır; genelleme iddiası kurmuyorum.";
   return ['<!doctype html><html lang="tr"><head><meta charset="utf-8">',
    '<title>Araştırma planı · tek sayfa</title><style>',
    '@page{size:A4;margin:16mm}',
@@ -3945,7 +3953,7 @@ $("#flipall").addEventListener("click",e=>{
   cards.forEach((c,i)=>setTimeout(()=>{
     c.classList.toggle("flipped",anyClosed); c.setAttribute("aria-pressed",anyClosed);
   }, reduced?0:i*110));
-  e.target.textContent=anyClosed? "Hepsini geri çevir" : "Hepsini çevir";
+  e.target.textContent=anyClosed? "Hepsini geri çevir": "Hepsini çevir";
 });
 
 /* ---------- MUKABELE KARNESİ ---------- */
@@ -4002,7 +4010,7 @@ function drawKarne(n,nT,nK,nY,pct){
       const num=tokStage===2;
       ar.innerHTML=TOK_AR.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
       en.innerHTML=TOK_EN.map((t,i)=>'<span class="tok c'+(i%4)+(num?' num':'')+'">'+esc(num?t[1]:t[0])+'</span>').join("");
-      $("#tok-cnt").textContent="Arapça: "+TOK_AR.length+" parça · İngilizce: "+TOK_EN.length+" parça"+(num?" ; model yalnız sağdaki numaraları görür":"");
+      $("#tok-cnt").textContent="Arapça: "+TOK_AR.length+" parça · İngilizce: "+TOK_EN.length+" parça"+(num?"; model yalnız sağdaki numaraları görür":"");
     }
     document.querySelectorAll(".tokseg button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.s==String(tokStage)));
   }
@@ -4049,7 +4057,7 @@ function drawKarne(n,nT,nK,nY,pct){
   drawEmb("فتح"); document.querySelector("#embchips button").setAttribute("aria-pressed","true");
   $("#m-quote").textContent="Metin: "+Q;
   /* 1 · daktilo */
-  const OUT='\n{ "şehir": "طنجة / Tanca",\n  "tarih_h": "725 Receb",\n  "tür": "çıkış: hac niyeti",\n  "delil": "'+Q.slice(0,34)+'…" }';
+  const OUT='\n{ "şehir": "طنجة / Tanca",\n "tarih_h": "725 Receb",\n "tür": "çıkış: hac niyeti",\n "delil": "'+Q.slice(0,34)+'…" }';
   let typed=false, typeTimer=null, typeTimer2=null;
   function showBars(){
     const b=$("#m-bars"); b.style.display="block";
@@ -4059,7 +4067,7 @@ function drawKarne(n,nT,nK,nY,pct){
       const b2=$("#m-bars2"); b2.style.display="block";
       b2.querySelectorAll(".bfill").forEach(f=>{ f.style.width="0"; });
       setTimeout(()=>b2.querySelectorAll(".bfill").forEach(f=>{ f.style.width=f.dataset.w+"%"; }),60);
-    }, reduced? 80 : 2400);
+    }, reduced? 80: 2400);
   }
   const SPLIT=OUT.indexOf('"tür": "')+'"tür": "'.length;
   function typeRange(el,from,to,done){
@@ -4105,7 +4113,7 @@ function drawKarne(n,nT,nK,nY,pct){
     const map=W[b.dataset.f]||{};
     pass.querySelectorAll("span").forEach(s=>{
       const w=s.dataset.w.replace(/[،.]/g,"");
-      s.className = map[w]===1? "w1" : map[w]===2? "w2" : "";
+      s.className = map[w]===1? "w1": map[w]===2? "w2": "";
     });
   });
   /* 3 · kapılar */
@@ -4113,7 +4121,7 @@ function drawKarne(n,nT,nK,nY,pct){
   const DOORS='<div class="doorrow"><div class="door on">ÇIKIŞ</div><div class="door">ZİYARET</div><div class="door">YALNIZ ANILAN</div></div><p class="mwhy" style="margin-top:8px">Üç değerli kapalı liste: cevap ancak bu kapılardan çıkar; pasajdaki işaret hangi kapıyı destekliyorsa o yanar.</p>';
   const area=$("#m-doorarea");
   function setDoors(closed){
-    area.innerHTML = closed? DOORS : '<div class="chaos">'+esc(CHAOS)+'</div>';
+    area.innerHTML = closed? DOORS: '<div class="chaos">'+esc(CHAOS)+'</div>';
     $("#m-closed").setAttribute("aria-pressed",closed?"true":"false");
     $("#m-free").setAttribute("aria-pressed",closed?"false":"true");
   }
@@ -4199,7 +4207,7 @@ function wGeocode(label){
   const n=wNorm(label), lite=String(label).toLowerCase();
   for(const g of WGAZ)
     for(const v of g.names){
-      const nv=/[؀-ۿ]/.test(v)? wNorm(v) : null;
+      const nv=/[؀-ۿ]/.test(v)? wNorm(v): null;
       if((nv && nv.length>2 && n.includes(nv)) || (!nv && lite.includes(v))) return g;
     }
   return null;
@@ -4226,8 +4234,8 @@ function drawWizMap(rows){
     else wmapObj.setView([31,20],4);
   });
   note.style.display="block";
-  note.innerHTML=(hits.length? hits.length+" kayıt haritalandı (yeşil=TAM, kehribar=KISMÎ). " : "")+
-    (misses.length? "<b>Konumlanamadı:</b> "+esc(misses.join(", "))+" çünkü modern araçlar tarihî adı bilmez; üretim hattı bu yüzden tarihî gazetteer kullanır (el-Süreyyâ → <a href='https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2'>Kütüphane</a>)." : "Bütün kayıtlar konumlandı; üretim hattında bu işi 2.000'den fazla yer içeren el-Süreyyâ gazetteer'i yapar.");
+  note.innerHTML=(hits.length? hits.length+" kayıt haritalandı (yeşil=TAM, kehribar=KISMÎ). ": "")+
+    (misses.length? "<b>Konumlanamadı:</b> "+esc(misses.join(", "))+" çünkü modern araçlar tarihî adı bilmez; üretim hattı bu yüzden tarihî gazetteer kullanır (el-Süreyyâ → <a href='https://alicetinkaya76.github.io/kitabin-rihlesi/kutuphane.html#d2'>Kütüphane</a>).": "Bütün kayıtlar konumlandı; üretim hattında bu işi 2.000'den fazla yer içeren el-Süreyyâ gazetteer'i yapar.");
   $("#wmap").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
 }
 
@@ -4377,7 +4385,7 @@ function TERIM_SISTEMI(){
   if(!panel) return;
   function esc2(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
   function kayitHTML(x,i,mini){
-    var h='<h4 class="kh">'+esc2(x.a)+'</h4><span class="pen">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>';
+    var h='<h3 class="kh">'+esc2(x.a)+'</h3><span class="pen">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>';
     if(x.o) h+='<div class="kbox ko"><b>Bu araştırmada nasıl görünür?</b>'+esc2(x.o)+'</div>';
     if(x.dk) h+='<div class="kbox kd"><b>Dikkat</b>'+esc2(x.dk)+'</div>';
     if(x.k&&x.k!=="—") h+='<div class="kbox kk2"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>';
@@ -4441,7 +4449,7 @@ function TERIM_SISTEMI(){
     pop.classList.add("open"); popAcik=true;
     var r=btn.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight;
     var left=Math.min(Math.max(10, r.left+r.width/2-pw/2), Math.max(10, innerWidth-pw-10));
-    var top=(r.bottom+ph+14<innerHeight)? r.bottom+8 : (r.top-ph-8);
+    var top=(r.bottom+ph+14<innerHeight)? r.bottom+8: (r.top-ph-8);
     top=Math.min(Math.max(10, top), Math.max(10, innerHeight-ph-10));
     pop.style.left=left+"px"; pop.style.top=top+"px";
   }
@@ -4474,7 +4482,7 @@ function TERIM_SISTEMI(){
     if(i==null) return;
     var x=T[i], ek=el.getAttribute("data-ek");
     el.classList.add("kavramkart");
-    el.innerHTML='<span class="kk-lab">Kavram</span><h4>'+esc2(x.a)+'</h4><span class="kk-en">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>'
+    el.innerHTML='<span class="kk-lab">Kavram</span><h3 class="kavh">'+esc2(x.a)+'</h3><span class="kk-en">İng. '+esc2(x.en)+'</span><p>'+esc2(x.d)+'</p>'
       +((x.k&&x.k!=="—")?'<div class="kk-kadim"><b>Gelenekteki karşılığı</b>'+esc2(x.k)+'</div>':'')
       +(ek?'<span class="kk-ek">'+ek+'</span>':'')
       +'<button class="kk-more" data-i="'+i+'">Tam kayıt · nerede geçiyor →</button>';
