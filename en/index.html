@@ -329,6 +329,17 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .b2k+.b2k{border-left:1px solid var(--line)}
 .b2b{font-family:var(--sans);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--u);font-weight:800;display:block;margin-bottom:9px}
 .b2k p{font-family:var(--serif);font-size:1rem;line-height:1.75;margin:0}
+.b2ust{font-family:var(--sans);font-size:.9rem;color:var(--muted);line-height:1.6;margin:0 0 10px}
+.b2tab{border-collapse:collapse;margin-top:7px;font-family:var(--sans);font-size:.9rem;width:100%}
+.b2tab td{padding:4px 10px 4px 0;border-bottom:1px dashed var(--line)}
+.b2tab td.mono{font-family:var(--mono);font-size:.88rem;color:var(--model);white-space:nowrap}
+.b2tab td.not{font-size:.82rem;color:var(--muted)}
+.b2tab u,.b2beyitmini u,.b2n u{text-decoration-color:var(--insan);text-decoration-thickness:2px;text-underline-offset:3px}
+.b2f2{display:block;font-family:var(--mono);font-size:.88rem;background:var(--chip);border-radius:7px;
+  padding:5px 10px;margin-top:5px;width:fit-content}
+.b2f2 b{color:var(--model)}
+.b2mini{display:block;font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.55}
+.mono2{font-family:var(--mono);font-size:.88rem;color:var(--model)}
 .b2t{margin:0 0 12px;padding-left:22px;font-family:var(--sans);font-size:.92rem;line-height:1.65;color:var(--ink)}
 .b2t li{margin-bottom:10px}
 .b2t li b{color:var(--ink)}
@@ -1302,21 +1313,32 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         </div>
         <div class="b2k" style="--u:var(--model)">
           <span class="b2b">Makinenin sayışı — dört adımda</span>
+          <p class="b2ust">Koordinatlar iki boyutlu oyuncak haritada ve <span class="temsili">illustrative</span> gerçek model binlerce boyutta aynı dört işlemi yapar. Ama buradan sonrası <b>düz aritmetik</b>: her sayıyı elinizle doğrulayabilirsiniz.</p>
           <ol class="b2t">
             <li><b>Yük taşıyan kelimeleri görür.</b>
-              <span class="b2beyitmini">Ne <mark>yanar</mark> <mark>kimse</mark> bana <mark>âteş-i dilden</mark> <mark>özge</mark>, ne <mark>açar kimse kapım</mark> bâd-ı sabâdan <mark>gayrı</mark>.</span></li>
-            <li><b>Her kelimenin yönünü vektöründen bilir</b> <span class="temsili">illustrative</span>
-              <span class="b2kat">yanar · âteş-i dil <em>→ hüzün 0,88</em></span>
-              <span class="b2kat">"ne… kimse… özge/gayrı" yokluk kalıbı <em>→ yalnızlık 0,84</em></span>
-              <span class="b2kat">açılmayan kapı <em>→ hüzün 0,79</em></span>
-              <span class="b2kat">bâd-ı sabâ <em>→ nötr 0,12: rüzgârın dostluğunu bilmez</em></span></li>
-            <li><b>Beyti tek vektörde toplar:</b> kelime vektörlerinin bağlamla tartılmış ortalaması. Üçüncü duraktaki "her kelimeyi yazarken bütün pasajı tartar" işleminin aynısı.</li>
-            <li><b>Duygu yönüyle açıyı ölçer:</b> az önceki merdivenin son iki basamağı, bir cümleye uygulanmış hâlde. <span class="b2f">kosinüs(beyit, hüzün) = <b>0,93</b></span></li>
+              <span class="b2beyitmini">Ne <mark>yanar</mark> <mark>kimse</mark> bana <mark>âteş-i dilden</mark> <mark>özge</mark>, ne <mark>açar kimse kapım</mark> <u>bâd-ı sabâdan</u> <mark>gayrı</mark>.</span></li>
+            <li><b>Her işaretli kelimenin haritadaki koordinatını okur.</b>
+              <table class="b2tab"><tbody>
+                <tr><td>yanar</td><td class="mono">(9, 1)</td><td>âteş-i dil</td><td class="mono">(9, 1)</td></tr>
+                <tr><td>yokluk kalıbı</td><td class="mono">(8, 0)</td><td>açılmayan kapı</td><td class="mono">(7, 1)</td></tr>
+                <tr><td><u>bâd-ı sabâ</u></td><td class="mono">(2, 2)</td><td colspan="2" class="not">← haritanın nötr köşesi</td></tr>
+              </tbody></table></li>
+            <li><b>Beyti tek noktada toplar: ortalama.</b>
+              <span class="b2f2">x: (9+9+8+7+2) ÷ 5 = <b>7</b></span>
+              <span class="b2f2">y: (1+1+0+1+2) ÷ 5 = <b>1</b></span>
+              <span class="b2f2">beyit = <b>(7, 1)</b></span>
+              <span class="b2mini">Gerçek model düz değil, bağlamla <i>tartılmış</i> ortalama alır; o tartıyı üçüncü durakta göreceksiniz.</span></li>
+            <li><b>Beyit ile duygu yönü arasındaki açıyı ölçer.</b> Hüzün yönü haritada <span class="mono2">(7, 4)</span>:
+              <span class="b2f2">çarp-topla: 7·7 + 1·4 = <b>53</b></span>
+              <span class="b2f2">okların boyu: 7,07 × 8,06 = <b>57</b></span>
+              <span class="b2f2">böl: 53 ÷ 57 = <b>0,93</b></span>
+              <span class="b2mini">Az önceki merdivenin son basamağı; kosinüs hesabının aynısı.</span></li>
           </ol>
+          <p class="b2ust" style="margin-top:2px">Aynı dört işlem, öteki duygu yönleriyle tekrarlanır: yalnızlık <span class="mono2">(6, 4)</span> ve ümit <span class="mono2">(0, 9)</span>.</p>
           <div class="b2s"><span>hüzün</span><i style="width:93%"></i><b>0,93</b></div>
-          <div class="b2s"><span>yalnızlık</span><i style="width:89%"></i><b>0,89</b></div>
-          <div class="b2s"><span>ümit</span><i style="width:8%"></i><b>0,08</b></div>
-          <p class="b2n">İşaretli kelimelere dikkat: 2. adımda bâd-ı sabâ <b>nötr</b> kaldı. İnsan orada beytin en ince yerini görür: tek dostun bir rüzgâr oluşunu. Model o inceliği toplama katamaz, çünkü eğitim verisinde rüzgâr çoğunlukla havadır, dost değil. <b>Sayı yakınlık ölçer, zarafet okumaz</b> ve 0,93'e ne kadar güveneceğinize yine siz karar verirsiniz.</p>
+          <div class="b2s"><span>yalnızlık</span><i style="width:90%"></i><b>0,90</b></div>
+          <div class="b2s"><span>ümit</span><i style="width:14%"></i><b>0,14</b></div>
+          <p class="b2n">Şimdi tabloya dönün: <u>bâd-ı sabâ</u> <span class="mono2">(2, 2)</span> ile nötr köşede kaldı ve ortalamayı aşağı çekti. İnsan tam orada beytin en ince yerini görür: tek dostun bir rüzgâr oluşunu. Model o inceliği katamaz, çünkü eğitim verisinde rüzgâr çoğunlukla havadır, dost değil. <b>Sayı yakınlık ölçer, zarafet okumaz.</b> Bu zincirde muğlak kalan tek şey koordinatların nereden geldiğidir; cevabı tek kelime: <b>eğitim</b> ve onu üçüncü durakta açacağız.</p>
         </div>
       </div>
     </div>
