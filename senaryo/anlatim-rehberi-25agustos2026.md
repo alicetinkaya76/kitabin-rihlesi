@@ -91,7 +91,18 @@ Perdede: "Bu sayfa nedir?" kartı.
 
 ### 1 · Temeller (6–14) — köprü kurma
 
-Perdede: mu'cem/konkordans hikâyesi, sonra İbn Battûta haritası.
+Perdede: önce **iki kelime kartı + sayısallaşma merdiveni** (24.08'de
+eklendi), sonra mu'cem hikâyesi ve İbn Battûta haritası.
+
+- **Merdiveni hüzün kelimesiyle yürü** (60-90 sn): "Beşerî bilimler anlamı
+  inceler; dijital her şeyi sayıya çevirir. Peki mânâ nasıl sayıya döner?
+  Bakın: hüzün... yazıya emanet ediliyor... harfler numara oluyor...
+  kelime bir koordinata dönüyor... ve bir model çıkıp diyor ki: bu metin
+  0,91 hüzünlü." Sonra dönüş cümlesini sesli oku: **"Bu sayı hüznün
+  kendisi değil, hüznün metinde bıraktığı izin ölçüsüdür. Matematik ruhu
+  duymaz; desenleri sayar. O yüzden son söz hep insanda."**
+  Bu 90 saniye, hocanın bütün sunum boyunca duymak istediği cümledir;
+  erken söyle, gerisini rahat dinlesin.
 
 - **Geçmişten başla, teknolojiden değil.** Wensinck'in yarım asırlık
   mu'cem emeğini anlat; sonra tek cümle: *"Bugün bir öğrenci, temizlenmiş

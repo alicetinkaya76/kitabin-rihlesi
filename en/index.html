@@ -291,6 +291,46 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .kap a{font-family:var(--sans);font-size:.75rem;margin-top:auto;padding-top:4px}
 .yenilik{width:100%;max-width:720px;margin:20px auto 0;background:var(--model-soft);border-left:5px solid var(--model);border-radius:10px;padding:13px 17px;text-align:left;font-family:var(--sans);font-size:.92rem;line-height:1.7}
 .yenilik b{color:var(--model)}
+/* ---- İKİ KELİME + SAYISALLAŞMA MERDİVENİ -------------------------------
+   Sayfa bileşik terimi ("dijital beşerî bilimler") tanımlıyordu ama iki
+   kelimeyi ayrı ayrı hiç tanımlamıyordu; mânânın sayıya NASIL döndüğü de
+   hiçbir yerde gösterilmiyordu. Bu blok o boşluğu kapatır: iki tanım
+   kartı + bir kelimenin beş basamaklı inişi + dürüst dönüş notu.
+   Tamamen statik: sunuma bir gün kala JS riski alınmadı.                 */
+.ikitanim{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:960px;margin:18px auto 0;text-align:left}
+.tanim{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--u);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.tanim .tb{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--u);font-weight:800;display:block;margin-bottom:6px}
+.tanim .ta{font-family:var(--serif);font-size:1.25rem;font-weight:700;display:block;margin-bottom:8px}
+.tanim p{font-family:var(--serif);font-size:.95rem;line-height:1.7;margin:0 0 9px}
+.tanim p:last-child{margin:0}
+.tanim .orn{background:var(--chip);border-radius:9px;padding:10px 13px;font-size:.9rem}
+.sdm{width:100%;max-width:960px;margin:16px auto 0;text-align:left}
+.sdm-b{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:sdm}
+.sdm-b>div{position:relative;background:var(--card);border:1px solid var(--line);padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px}
+.sdm-b>div:first-child{border-radius:12px 0 0 12px}
+.sdm-b>div:last-child{border-radius:0 12px 12px 0}
+.sdm-b>div+div{border-left:0}
+.sdm-b>div+div::before{content:"→";position:absolute;left:-13px;top:40px;width:26px;height:26px;border-radius:50%;
+  background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:800;font-size:.85rem;
+  text-align:center;line-height:26px;z-index:1;box-shadow:0 0 0 4px var(--paper)}
+.sdm-b .sk{font-family:var(--sans);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--u)}
+.sdm-b .sv{font-family:var(--sans);font-weight:700;font-size:1rem;min-height:54px;display:flex;align-items:center}
+.sdm-b .sv.ar{font-family:var(--arabic);font-size:1.7rem;justify-content:flex-end;direction:rtl}
+.sdm-b .sv.mono{font-family:var(--mono);font-size:.8rem;letter-spacing:-.01em;padding-left:12px}
+.sdm-b .sa{font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.55}
+.sdm-ilk{background:var(--insan-soft)!important;border-color:color-mix(in srgb,var(--insan) 30%,transparent)!important}
+.sdm-son{background:var(--model-soft)!important;border-color:color-mix(in srgb,var(--model) 30%,transparent)!important}
+.sdmdonus{margin:14px 0 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--insan);
+  border-radius:0 12px 12px 0;padding:15px 18px;font-family:var(--serif);font-size:1rem;line-height:1.75}
+.sdmdonus b{color:var(--insan)}
+@media(max-width:860px){
+  .ikitanim{grid-template-columns:1fr}
+  .sdm-b{grid-template-columns:1fr}
+  .sdm-b>div{border-radius:12px!important;border-left:1px solid var(--line)!important}
+  .sdm-b>div+div{margin-top:20px}
+  .sdm-b>div+div::before{content:"↓";left:50%;top:-14px;transform:translateX(-50%)}
+  .sdm-b .sv{min-height:0}
+}
 /* ---- ALAN KARTLARI ------------------------------------------------------
    Bölümün fikri tek şey: KLASİK SORU → DİJİTAL BİÇİM. Kartlar bunu
    göstersin diye ikiye bölündü: üstte soru (serif, âlimin sesi), altta
@@ -1174,7 +1214,59 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 <!-- 0 · TANIŞ -->
 <section class="scene wrap band" id="tanis" style="text-align:center;align-items:center">
   <div class="kicker">1 · Foundations</div><span class="seviye temel">Basic · everyone</span>
-  <h2>What are the digital humanities?</h2>
+  <h2>Önce iki kelimeyi tanıyalım</h2>
+  <p class="one" style="margin:0 auto 4px">Adımızda iki kelime var ve ikisi iki ayrı dünyadan geliyor. Buluşmalarının ne demek olduğunu anlamak için önce ayrı ayrı tanışalım.</p>
+
+  <div class="ikitanim">
+    <div class="tanim" style="--u:var(--insan)">
+      <span class="tb">Birinci kelime</span>
+      <span class="ta">Beşerî bilimler</span>
+      <p>İnsanın ürettiği <b>anlamı</b> inceleyen ilimlerin ortak adı: metin, tarih, dil, din, sanat. Fizik taşın nasıl düştüğünü ölçer; beşerî bilimler, o taşı mezar taşına çeviren insanın <b>ne demek istediğini</b> sorar.</p>
+      <p class="orn"><b>Somut örnekleri bu salondur:</b> müfessirin âyetteki tek bir edatın inceliğini tartması; muhaddisin râvinin hıfzını ve adaletini yoklaması; edebiyat tarihçisinin Fuzûlî'deki hüznün nereden aktığını sorması.</p>
+      <p>Geleneksel ölçü aleti yoktur; okuyan insanın birikimi, zevki ve vicdanı vardır.</p>
+    </div>
+    <div class="tanim" style="--u:var(--model)">
+      <span class="tb">İkinci kelime</span>
+      <span class="ta">Dijital</span>
+      <p>Latince <i>digitus</i>tan, parmaktan: parmakla <b>sayılan</b> her şey. Dijital, bilgiyi <b>sayıya çevirerek</b> saklamanın ve işlemenin adıdır.</p>
+      <p class="orn"><b>Somut örnekleri cebinizdedir:</b> şu an okuduğunuz bu harf (<span style="font-family:var(--arabic)">ح</span>) makinenin gözünde 1581 sayısıdır; bir fotoğraf milyonlarca piksel değeri, bir ses kaydı saniyede kırk dört bin ölçümdür. Telefonunuzdaki her şey, bu sayfa dahil, sayıdır.</p>
+      <p>Sayının hüneri tektir: sayılır, sıralanır, karşılaştırılır. Ama bu hüneri milyarlarca kez, yorulmadan ve hep aynı biçimde gösterir.</p>
+    </div>
+  </div>
+
+  <div class="sdm">
+    <p class="one" style="margin:22px auto 10px;text-align:center"><b>Peki mânâ nasıl sayıya döner?</b> Tek bir kelimenin inişini izleyin: okuyanın ruhunda canlanan şeyden, bir hesap sonucuna.</p>
+    <div class="sdm-b">
+      <div class="sdm-ilk" style="--u:var(--insan)">
+        <span class="sk">1 · Anlam</span>
+        <span class="sv" style="font-family:var(--serif);font-style:italic">hüzün</span>
+        <span class="sa">Okuyanın içinde bir burukluk; Fuzûlî'yi, gurbeti, kabir başını çağırır. Bunu yalnız insan yaşar.</span>
+      </div>
+      <div style="--u:var(--ink)">
+        <span class="sk">2 · Yazı</span>
+        <span class="sv ar">حُزْن</span>
+        <span class="sa">Anlam üç harfe emanet edilir. Yazı, ilk kayıt teknolojisiydi; sayısallaşma burada başladı.</span>
+      </div>
+      <div style="--u:var(--ink)">
+        <span class="sk">3 · Kod</span>
+        <span class="sv mono">1581 · 1586 · 1606</span>
+        <span class="sa">Her harfin evrensel numarası (Unicode). Artık makinenin alfabesindeyiz; harf değil sayı işleniyor.</span>
+      </div>
+      <div style="--u:var(--ink)">
+        <span class="sk">4 · Vektör</span>
+        <span class="sv mono">[0,42 · −0,13 · …]</span>
+        <span class="sa">Kelime, anlam haritasında bir koordinata döner <span class="temsili">değerler temsilî</span> keder, gam ve firâk bu uzayda ona komşu düşer.</span>
+      </div>
+      <div class="sdm-son" style="--u:var(--model)">
+        <span class="sk">5 · Skor</span>
+        <span class="sv mono">hüzün ≈ 0,91</span>
+        <span class="sa">Bir duygu analizi modeli cümleye sayı verir: "bu metin şu kadar hüzünlü" <span class="temsili">illustrative</span></span>
+      </div>
+    </div>
+    <div class="sdmdonus">Merdivenin sonunda elde kalan sayı, hüznün kendisi değildir; hüznün metinde bıraktığı <b>izin ölçüsüdür</b>. Matematik ruhu duymaz: ruhun kelime seçiminde, tekrarında ve komşuluklarında bıraktığı <b>desenleri</b> sayar. O yüzden 0,91'in ne demek olduğunu yine bir insan söyler; skor işaret eder, mânâyı siz okursunuz. Bu sayfanın bundan sonraki her durağı bu merdivenin bir basamağını sağlamlaştırır ve son sözü hep aynı yere bırakır: <b>hüküm insanda</b>. Merdivenin makine katlarını üçüncü durakta açacağız; duygu skorunun tuzaklarını da az aşağıda, üç mercekte.</div>
+  </div>
+
+  <h2 style="margin-top:34px">Şimdi bileşimi kurabiliriz: dijital beşerî bilimler nedir?</h2>
   <p class="one" style="margin:0 auto 8px">The humanities ask their old questions of material that is now <b>countable, mappable and searchable</b> malzemeyle sormak. Müstakil yeni bir ilim değil; mu'cem, fihrist ve tabakat geleneğinin dijital araçlarla sürdürülmesi. Peki bu üç kelime pratikte ne demek?</p>
 
   <div class="kapasite">
