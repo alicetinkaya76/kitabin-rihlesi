@@ -1,7 +1,7 @@
 {
-  "_not": "Kütüphane bağlantılarının son TAM denetimi. Sayı buradan değil, site_data.json'dan sayılır; burada yalnız tarih durur. Yeni denetim yaptığında tarihi güncelle ve senaryo/link-denetimi-<GGAAYYYY>.tsv dosyasını ekle.",
-  "kisa": "14.08.2026",
-  "uzun": "14 Ağustos 2026",
-  "kayit": "senaryo/link-denetimi-14082026.tsv",
-  "istisna": "Voyant Tools'un ana sunucusu o gün de kapalıydı (HTTP 502); kart açılan resmî aynaya bakıyor."
+ "_not": "Kütüphane bağlantılarının son TAM denetimi. Sayı site_data.json'dan sayılır; burada yalnız tarih durur.",
+ "kisa": "24.08.2026",
+ "uzun": "24 Ağustos 2026",
+ "kayit": "senaryo/link-denetimi-24082026.tsv",
+ "istisna": "4 yayıncı sayfası (OUP makale/politika ×3, Chicago ×1) Cloudflare insan-doğrulaması arkasında; gerçek tarayıcıda açılıyor. Voyant ana sunucusu ve aynası ayrıca denetlendi."
 }
