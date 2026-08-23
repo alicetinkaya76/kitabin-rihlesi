@@ -34,6 +34,11 @@
 html{scroll-behavior:smooth;overflow-x:clip}
 small{font-size:max(12px,.85em)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:700px){
+  .leaflet-popup-content{font-size:.95rem;line-height:1.6;margin:12px 16px}
+  .leaflet-popup-content .ar{font-size:1.3rem;line-height:1.9}
+  .leaflet-popup-content-wrapper{max-width:86vw}
+}
 @media(pointer:coarse){
   .terim{padding:4px 3px}
   .uzlgnd button,.vksec button,.mhsec button,.uzseg button{padding:10px 15px}
@@ -1114,7 +1119,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 .nebu .lede, .nebu .degil, .nebu .ozgun p{font-family:var(--serif);line-height:1.7}
 .nav .lang{margin-left:8px;border:1px solid var(--line);font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px;background:var(--card)}.nav .lang:hover{background:var(--rubric-soft);border-color:var(--rubric)}.nav .lib+.lang{margin-left:6px}.enwip{background:var(--model-soft);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.78rem;color:var(--ink);text-align:center;padding:7px 16px;line-height:1.5}.enwip b{color:var(--model)}.enwip a{color:inherit}</style>
 
-<div class="enwip">This English edition is <b>a work in progress</b>: <b>34%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
+<div class="enwip">This English edition is <b>a work in progress</b>: <b>33%</b> of the text has been translated so far. Passages not yet translated appear in Turkish. The interactive tools work identically in both editions.</div><a class="skip" href="#tanis">Skip to content</a>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top">The Riḥla of a Book</a>
   <a href="#tanis">1 Foundations</a><a href="#arastirmaci">2 The road</a><a href="#makine">3 Machine</a><a href="#sozluk">Glossary</a><a href="#dene">4 Try it</a><a href="#ilham">5 Article</a><a href="#tcorpus">Kapanış · T-Corpus</a>
@@ -1209,7 +1214,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div class="dou" style="grid-template-columns:1fr">
       <div class="ornekbox"><b>Duygu analizi · sentiment analysis</b>Bir metnin olumlu / olumsuz / nötr tonunu otomatik etiketleme. Kavram tarihinde, basın dilinde ve modern telifte bir tutumun zaman içinde sertleşip yumuşadığını ölçmek için kullanılır.<br><span style="color:var(--rubric)"><b>Tuzak:</b></span> hazır duygu modelleri modern dille eğitildi. Klasik Arapça ya da Osmanlı Türkçesi bir metne doğrudan uygulandığında ölçtüğü şey çoğu zaman metnin tonu değil, modelin o dile ne kadar yabancı olduğudur. Kullanacaksanız: kendi alanınızdan elle etiketlenmiş bir sınama kümesi kurun, modelin başarımını önce ölçün, sonra kullanın; o ölçümü de makalede verin.</div>
       <div class="ikincibox"><b>Konu modelleme · topic modelling</b>Büyük bir metin yığınında birlikte geçen kelime kümelerini otomatik çıkarma; "bu külliyat kaç konuya ayrılıyor?" sorusunun keşif aracı.<br><b>Tuzak:</b> konu sayısını siz seçersiniz ve çıkan kümeler yorumlanmayı bekler; model onlara ad vermez. Keşif için iyidir; delil için tek başına yetmez.</div>
-      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Eşiği beyan edin.</div>
+      <div class="ornekbox" style="background:var(--insan-soft);border-left-color:var(--insan)"><b>Metin yeniden kullanımı · text reuse</b>Bir pasajın başka eserlerde nerede ve ne kadar değişerek tekrarlandığını bulma. Klasik gelenekte iktibas, nakil ve şerh zincirlerini görünür kılar; KITAB projesinin ana yöntemi budur.<br><b>Tuzak:</b> benzerlik eşiğini siz belirlersiniz. Eşik düşükse her şey birbirine benzer, yüksekse gerçek nakiller kaçar. Kullanmadan önce üç soruya yazılı cevap verin: <b>eşiğim ne ve neden?</b> · <b>sınırı ne belirledi?</b> (tesadüfî benzerlik nerede biter, nakil nerede başlar) · <b>hangi eseri hangi metinde arıyorum?</b> (yön önemlidir: kaynak → alıntılayan).</div>
     </div>
     <p class="small muted" style="margin:10px 0 0">Üçünün ortak dersi, bu sayfanın baştan beri tekrar ettiği kuralın aynısı: <b>aracın ne ölçtüğünü beyan etmeden sonucu savunamazsınız.</b></p>
   </details>
@@ -1246,6 +1251,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
     <div data-terim="uzak okuma" data-ek="Karşıtı sayılan <b>close reading</b> ( <i>close reading</i>) is the detailed analysis of a single text; the two are not rivals but complements. The source of the concept is also available in Turkish: Franco Moretti, <a href='https://www.bilgiyay.com/kitap/uzak-okuma/' target='_blank' rel='noopener'>Distant Reading (Turkish ed.)</a>, çev. Onur Gayretli, İstanbul Bilgi Üniversitesi Yayınları, 2021."></div>
     <div class="mtoggle" role="group"><button id="uz-yakin" aria-pressed="false">Close reading</button><button id="uz-uzak" aria-pressed="true">Distant reading</button></div>
     <div id="uz-body"></div>
+    <details class="mdeep" style="margin-top:10px"><summary>Kendi metninizde sayın</summary>
+      <p class="small muted" style="margin:6px 0 8px">Bir pasaj yapıştırın, saymak istediğiniz kelimeleri virgülle yazın. Sayım aynı kurallarla çalışır (Arapça imlâ eşitlenir; kök kipi kelime içindeki türevleri de sayar).</p>
+      <textarea id="ku-metin" rows="4" placeholder="Pasajınızı buraya yapıştırın (Arapça ya da Osmanlıca)…" style="width:100%;font-family:var(--arabic);font-size:1.1rem;direction:rtl;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"></textarea>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+        <input id="ku-kelime" placeholder="kelimeler: فتح, صلح, جزية" style="flex:1;min-width:180px;font-family:var(--arabic);font-size:1.05rem;direction:rtl;padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink)">
+        <button class="wbtn" id="ku-say">Say</button>
+      </div>
+      <div id="ku-sonuc" style="margin-top:10px"></div>
+      <p class="small muted" style="margin:8px 0 0">Bölüm bölüm arama ve delil denetimi için: <a href="kutuphane.html#tezgah">Tam Tezgâh</a> — metni oraya da yapıştırabilirsiniz; sonuçlar hangi bölümde geçtiğini söyler.</p>
+    </details>
     <details class="mdeep"><summary>For the curious: how exactly does the counter count?</summary>
       <div class="norm3">
         <div><span>1 · RAW</span><code class="ar">فَفَتَحَهَا عَنْوَةً</code><em>as it stands in the text, with vowel marks</em></div>
@@ -1292,7 +1307,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
 
       <p style="font-family:var(--sans);font-size:.92rem;color:var(--muted);margin:12px 0 0;line-height:1.65"><b>Bu merceğin yayımlanmaya giden hâli:</b> aynı mantık kişiler yerine <i>ilimlere</i> uygulandığında Fârâbî'nin, Gazzâlî'nin ve İbn Haldûn'un ilim tasnifleri karşılaştırılabilir hâle geliyor: dokuz ilişki tipi, bir yön kuralı ve her kenara metinden bir delil ibaresiyle. Beşinci duraktaki <a href="#ilham">Felsefe &amp; İlimler Tasnifi</a> rotası bu yolu adım adım veriyor.</p>
     </details>
-    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından; ok yönü: <b>from whom they transmitted</b>. Touch the nodes: <b>al-Shāfiʿī</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür: <i>al-Risāla</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>al-Muwaṭṭaʾ</i> : the second bridge. What the ṭabaqāt already knew, in the language of the graph. <span class="temsili">the layout is schematic; the ties are sourced</span>. Canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Distant Reading (Turkish ed.)</a> , p. 173.</p>
+    <p class="mwhy">Gerçek bağlar, tabakat kaynaklarından; ok yönü: <b>from whom they transmitted</b>. Touch the nodes: <b>al-Shāfiʿī</b>, Hicaz ile Irak havzalarını birleştiren köprü düğümdür: <i>al-Risāla</i>'nin iki dünyayı konuşturması tesadüf değil. Şeybânî ise hem Ebû Hanîfe'nin talebesi hem Mâlik'ten <i>al-Muwaṭṭaʾ</i> râvisi: ikinci köprü. Tabakātın bildiği bilgi, grafiğin diliyle. Aynı yöntem Fütûh'un rivayet zincirlerine uygulanırsa fetih haritasının yanına bir de <b>âlim-râvi ağı</b> çıkar; disiplinler arası köprü tam burada durur. <span class="temsili">the layout is schematic; the ties are sourced</span>. Canlısını Gephi ile kendiniz çizebilirsiniz (tarifi Kütüphane'de). Ağ çözümlemesinin edebiyat metinlerine uygulanışı için: Moretti, "Ağ Kuramı, Olay Örgüsü Analizi", <a href="https://www.bilgiyay.com/kitap/uzak-okuma/" target="_blank" rel="noopener">Distant Reading (Turkish ed.)</a> , p. 173.</p>
   </div>
   <p class="one" style="margin:22px auto 6px;font-size:1rem"><b>Let us draw the boundaries at the outset</b> · üç yaygın zan, üç cevap:</p>
   <div class="degildir">
@@ -2729,7 +2744,7 @@ $("#w-verify").addEventListener("click",()=>{
   let h='<div class="ringrow"><svg class="ring" viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="55" cy="55" r="44" fill="none" stroke="var(--korpus)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(CIRC*pct/100).toFixed(1)+' '+CIRC.toFixed(1)+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle">%'+pct+'</text></svg>';
   h+='<div class="rstats"><div><b style="color:var(--korpus)">'+nT+'</b><span>TAM</span></div><div><b style="color:var(--model)">'+nK+'</b><span>KISMÎ</span></div><div><b style="color:var(--rubric)">'+nY+'</b><span>dışarıda</span></div></div></div>';
   h+='<div class="rsentence">"'+rows.length+' kayıttan '+(nT+nK)+' tanesi delille doğrulandı; '+nY+' kayıt sonuç dışı.": Bu cümle seni "yapay zekâya yaptırdım" diyenlerden ayırır.</div>';
-  h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Sonuç kartını indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button></div>';
+  h+='<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="wbtn alt" id="w-karne">🖼 Sonuç kartını indir</button><button class="wbtn alt" id="w-harita">🗺 Doğrulananları haritala</button><button class="wbtn alt" id="w-rapor">📄 Yazdırılabilir rapor</button><button class="wbtn alt" id="w-ris">📚 Künye (Zotero .ris)</button></div>';
   h+='<details class="rdetail"><summary>Kayıt kayıt ayrıntı (satıra dokun: delili kitapta gör)</summary><div class="rtable"><table><tr><th>Kayıt</th><th>Yıl</th><th>Durum</th></tr>';
   rows.forEach((r,i)=>{ const c=r.st==="TAM"?"st-tam":r.st==="KISMÎ"?"st-kismi":"st-yok";
     h+='<tr data-i="'+i+'" style="cursor:pointer"><td><b>'+esc(r.label)+'</b></td><td>'+esc(r.yil||"—")+'</td><td><span class="st '+c+'">'+r.st+'</span></td></tr>'; });
@@ -2738,6 +2753,38 @@ $("#w-verify").addEventListener("click",()=>{
   $("#w2").classList.add("completed"); $("#w3").classList.add("completed");
   rep.querySelector("#w-karne").addEventListener("click",()=>drawKarne(rows.length,nT,nK,nY,pct));
   rep.querySelector("#w-harita").addEventListener("click",()=>drawWizMap(rows));
+  /* Geri bildirim (20.08): "elde ettiğim bilgileri PDF hâline getiremiyorum;
+     Zotero'ya aktarmak da kullanışlı olurdu." Rapor, yazdırılabilir HTML
+     olarak iner: açıp Yazdır → PDF. Künye .ris: Zotero'ya sürükle-bırak. */
+  rep.querySelector("#w-rapor").addEventListener("click",()=>{
+    const sat=rows.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.label)+'</td><td>'+esc(r.yil??"")+'</td><td>'+esc(r.tur??"")+'</td><td>'+esc(r.komutan??"")+'</td><td class="ar">'+esc(r.delil??"")+'</td><td>'+esc(r.st)+'</td></tr>').join("");
+    const html='<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>Mukabele raporu</title><style>'
+      +'@page{size:A4 landscape;margin:14mm}body{font:11pt/1.5 Georgia,serif;color:#1F2937;padding:16px}'
+      +'h1{font-size:15pt;margin:0 0 2px}.k{font:9pt sans-serif;color:#6B7280;margin:0 0 12px}'
+      +'table{border-collapse:collapse;width:100%;font-size:9.5pt}th,td{border:1px solid #D1D5DB;padding:4px 7px;text-align:left;vertical-align:top}'
+      +'th{background:#F4F0E5;font-family:sans-serif;font-size:8.5pt;text-transform:uppercase;letter-spacing:.05em}'
+      +'.ar{direction:rtl;text-align:right;font-size:11pt}.oz{background:#E7F2EB;border-radius:8px;padding:9px 12px;font-family:sans-serif;font-size:10pt;margin:0 0 12px}'
+      +'.imza{margin-top:12px;font:8.5pt sans-serif;color:#6B7280;border-top:1px solid #D1D5DB;padding-top:6px}</style></head><body>'
+      +'<h1>Mukabele raporu · Belâzürî atölye kesiti</h1>'
+      +'<p class="k">Hazırlayan: [adınız] · Tarih: '+new Date().toLocaleDateString("tr-TR")+' · Kaynak: Fütûhu\'l-büldân, OpenITI 2025.1.9</p>'
+      +'<div class="oz">'+rows.length+' kayıttan '+nT+' tanesi harfiyen (TAM), '+nK+' tanesi imlâ farkıyla (KISMÎ) bulundu; '+nY+' kayıt delili bulunamadığı için sonuç dışı bırakıldı. Delil denetimi yalnız ibarenin kaynakta bulunduğunu gösterir; alan hükümleri ayrıca insan denetimi ister.</div>'
+      +'<table><thead><tr><th>#</th><th>Kayıt</th><th>Hicrî yıl</th><th>Tür</th><th>Komutan</th><th>Delil</th><th>Durum</th></tr></thead><tbody>'+sat+'</tbody></table>'
+      +'<p class="imza">Bir Kitabın Rıhlesi tezgâhında üretildi · alicetinkaya76.github.io/kitabin-rihlesi · Bu dosyayı tarayıcıda açıp Yazdır → PDF olarak kaydet deyin.</p>'
+      +'</body></html>';
+    const b2=new Blob([html],{type:"text/html;charset=utf-8"});
+    const a2=document.createElement("a"); a2.href=URL.createObjectURL(b2); a2.download="mukabele-raporu.html";
+    document.body.appendChild(a2); a2.click(); a2.remove(); setTimeout(()=>URL.revokeObjectURL(a2.href),4000);
+  });
+  rep.querySelector("#w-ris").addEventListener("click",()=>{
+    const ris=["TY  - BOOK","AU  - el-Belâzürî, Ahmed b. Yahyâ","TI  - Fütûhu'l-büldân",
+      "PY  - 892","N1  - OpenITI sürümü 2025.1.9; atölye kesiti: Mısır bölümü","ER  - ","",
+      "TY  - DATA","AU  - Çetinkaya, Ali","AU  - Çifçi, Zahid",
+      "TI  - EICD-B: Early Islamic Conquest Dataset – al-Balādhurī","PY  - 2026",
+      "PB  - Zenodo","N1  - DSH 2026 makalesinin veri seti; 226 delilli kayıt","ER  - "].join("\n");
+    const b3=new Blob([ris],{type:"application/x-research-info-systems"});
+    const a3=document.createElement("a"); a3.href=URL.createObjectURL(b3); a3.download="kunyeler.ris";
+    document.body.appendChild(a3); a3.click(); a3.remove(); setTimeout(()=>URL.revokeObjectURL(a3.href),4000);
+  });
   rep.querySelectorAll("tr[data-i]").forEach(tr=>tr.addEventListener("click",()=>{
     const r=rows[+tr.dataset.i]; const box=rep.querySelector("#w-ctx");
     if(r.n==null||r.n<0){ box.innerHTML='<div class="ctx"><span class="small" style="color:var(--rubric)">Delil kitapta bulunamadı; bu kayıt sonuçlara giremez.</span></div>'; return; }
@@ -2994,6 +3041,25 @@ $("#w-verify").addEventListener("click",()=>{
       + metinBlok()
       + '<div class="imza"><b>İmza karşılaştırması:</b> kitabın GENELİNDE fetihlerin %52,2\'si sulhan, %42,5\'i anveten (EICD-B, 226 kayıt). Bu kesitte ise anve ve fetih kökü öne geçiyor: <b>bölge imzası</b>. Uzak okumanın meyvesi budur: fark gördüğün yerde soru doğar. Wensinck\'in konkordansı da tam bunun içindi: önce say, sonra oku.</div>';
   }
+  /* Geri bildirim (20.08): "kendim dosya yüklediğimde Belâzürî'de olduğu
+     gibi sayım yapamıyor." Aynı sayaç, kullanıcının pasajına açıldı. */
+  const kuSay=document.getElementById("ku-say");
+  if(kuSay) kuSay.addEventListener("click",()=>{
+    const M=wNorm(document.getElementById("ku-metin").value||"");
+    const kel=(document.getElementById("ku-kelime").value||"").split(",").map(s=>s.trim()).filter(Boolean).slice(0,6);
+    const kutu=document.getElementById("ku-sonuc");
+    if(M.length<40||!kel.length){ kutu.innerHTML='<span class="small" style="color:var(--rubric)">En az birkaç cümlelik pasaj ve en az bir kelime gerekli.</span>'; return; }
+    const TOK=M.split(" ").filter(Boolean);
+    const renk=["var(--korpus)","var(--rubric)","var(--model)","var(--insan)","var(--tc-altin)","var(--muted)"];
+    const S=kel.map((k,i)=>{
+      const nk=wNorm(k); let kok=0,j=0;
+      while((j=M.indexOf(nk,j))>=0){kok++; j+=nk.length;}
+      return [k, kok, TOK.filter(x=>x===nk).length, renk[i%renk.length]];
+    });
+    const mx=Math.max(...S.map(x=>x[1]),1);
+    kutu.innerHTML=S.map(s=>'<div class="probrow"><span class="pw"><span class="ar" style="display:inline;font-size:1rem">'+esc(s[0])+'</span></span><div class="ptrack"><div class="pfill" style="background:'+s[3]+';width:'+(s[1]/mx*100).toFixed(0)+'%"></div></div><span class="ppct">'+s[1]+'× kök · '+s[2]+'× yazım</span></div>').join("")
+      +'<p class="small muted" style="margin:6px 0 0">'+TOK.length.toLocaleString("tr-TR")+' kelimelik pasajda sayıldı. Kök ile yazım farkı büyükse, kelime çekimli biçimlerde geçiyor demektir.</p>';
+  });
   $("#uz-yakin").addEventListener("click",()=>{ uzak=false; show(); });
   $("#uz-uzak").addEventListener("click",()=>{ uzak=true; show(); });
   $("#uz-body").addEventListener("click",e=>{
@@ -3160,7 +3226,7 @@ const TRACKMETA={
  "Kendi metnim · genel rota":{urun:"kendi seçtiğin metnin delilli bir tablosu + onu tarif eden kısa not",
   emsal:'<a href="https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqag093/8722428" target="_blank" rel="noopener">EICD-B (DSH 2026, açık erişim)</a>; alanı farklı olsa da adımlar aynı',
   hedef:"kendi alanının TR Dizin\'li dergisi; veri makalesi için JOHD",
-  ilk60:["Metninden 5-10 sayfalık bir kesit seç; neyin sayılacağına karar ver (10 dk).","Kütüphane\'den atölye paketini indir, talimatı kendi alanına göre uyarla (20 dk).","İlk 10 kaydı çıkar; delil sütununu boş bırakma (30 dk)."]},
+  ilk60:["Metninden 5-10 sayfalık bir kesit seç; neyin sayılacağına karar ver: bir nahiv metninde birim şâhid beyit olabilir, bir fıkıh metninde mesele, bir tabakatta hoca-talebe bağı (10 dk).","Kütüphane\'den atölye paketini indir, talimatı kendi alanına göre uyarla (20 dk).","İlk 10 kaydı çıkar; delil sütununu boş bırakma (30 dk)."]},
  "Ottoman & Turkish":{urun:"a chart of one concept by decade + a periodisation note",
   emsal:'<a href="https://dergipark.org.tr/en/pub/iuislamtd/article/1123964" target="_blank" rel="noopener">Saraçoğlu 2022 · DH &amp; ilahiyat (DergiPark)</a>',
   hedef:"An indexed religious-studies or social-science journal; the journal chooser will help",
@@ -4181,10 +4247,10 @@ function drawKarne(n,nT,nK,nY,pct){
 /* Mini gazetteer: kesitin coğrafyası (Mısır-Mağrib-Endülüs hattı). Tam liste değildir;
    bulunamayan şehir, tarihî gazetteer'in neden var olduğunu öğretir. */
 const WGAZ=[
- {tr:"Bâbilyûn (Eski Kahire)", names:["بابليون","الحصن","babil","fustat","الفسطاط","fustât"], lat:30.006, lon:31.233},
+ {tr:"Bâbilyûn (Eski Kahire)", names:["بابليون","الحصن","babil","fustat","الفسطاط","fustât","kahire","cairo","eski kahire"], lat:30.006, lon:31.233},
  {tr:"Alexandria", names:["الاسكندرية","الإسكندرية","iskenderiye","alexandria"], lat:31.199, lon:29.919},
  {tr:"Ayn Şems", names:["عين شمس","ayn şems","ayn sems"], lat:30.129, lon:31.318},
- {tr:"Kaysâriye (Filistin)", names:["قيسارية","kaysariye","caesarea"], lat:32.500, lon:34.892},
+ {tr:"Kaysâriye (Filistin)", names:["قيسارية","kaysariye","caesarea","sezarea"], lat:32.500, lon:34.892},
  {tr:"Hulvân", names:["حلوان","hulvan"], lat:29.841, lon:31.301},
  {tr:"Feyyûm", names:["الفيوم","feyyum","fayyum"], lat:29.310, lon:30.841},
  {tr:"Berka", names:["برقة","berka","barka"], lat:32.489, lon:20.833},
@@ -4192,7 +4258,7 @@ const WGAZ=[
  {tr:"Kayravan", names:["القيروان","kayravan","qayrawan"], lat:35.678, lon:10.096},
  {tr:"Tangier", names:["طنجة","tanca","tangier"], lat:35.760, lon:-5.834},
  {tr:"Sebte (Ceuta)", names:["سبتة","sebte","ceuta"], lat:35.889, lon:-5.320},
- {tr:"Kurtuba", names:["قرطبة","kurtuba","cordoba"], lat:37.884, lon:-4.779},
+ {tr:"Kurtuba", names:["قرطبة","kurtuba","cordoba","kordoba"], lat:37.884, lon:-4.779},
  {tr:"Endülüs", names:["الأندلس","الاندلس","endülüs","endulus"], lat:37.884, lon:-4.779},
  {tr:"Tuleytula (Toledo)", names:["طليطلة","tuleytula","toledo"], lat:39.862, lon:-4.027},
  {tr:"İşbîliye (Sevilla)", names:["إشبيلية","اشبيلية","işbiliye","sevilla"], lat:37.389, lon:-5.984},
@@ -4235,7 +4301,7 @@ function drawWizMap(rows){
   });
   note.style.display="block";
   note.innerHTML=(hits.length? hits.length+" kayıt haritalandı (yeşil=TAM, kehribar=KISMÎ). ": "")+
-    (misses.length? "<b>Konumlanamadı:</b> "+esc(misses.join(", "))+" çünkü modern araçlar tarihî adı bilmez; üretim hattı bu yüzden tarihî gazetteer kullanır (el-Süreyyâ → <a href='https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#d2'>Kütüphane</a>).": "Bütün kayıtlar konumlandı; üretim hattında bu işi 2.000'den fazla yer içeren el-Süreyyâ gazetteer'i yapar.");
+    (misses.length? "<b>Konumlanamadı:</b> "+esc(misses.join(", "))+" çünkü modern araçlar tarihî adı bilmez (güncel adla da deneyebilirsiniz: Kahire, Kordoba, Toledo tanınır); üretim hattı bu yüzden tarihî gazetteer kullanır (el-Süreyyâ → <a href='https://alicetinkaya76.github.io/kitabin-rihlesi/en/kutuphane.html#d2'>Kütüphane</a>).": "Bütün kayıtlar konumlandı; üretim hattında bu işi 2.000'den fazla yer içeren el-Süreyyâ gazetteer'i yapar.");
   $("#wmap").scrollIntoView({behavior:reduced?"auto":"smooth",block:"center"});
 }
 
