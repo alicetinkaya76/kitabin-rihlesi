@@ -338,7 +338,16 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .b2map{margin:12px auto 8px;max-width:480px}
 .b2map svg{display:block;width:100%;height:auto;font-family:var(--sans)}
 .b2map text.u{text-decoration:underline;text-decoration-color:var(--insan);text-decoration-thickness:2px}
-.b2maplab{display:block;font-family:var(--sans);font-size:.84rem;color:var(--muted);line-height:1.6;margin:4px 2px 14px}
+.b2leg{margin:10px 0 4px}
+.b2leg p{font-family:var(--sans);font-size:.9rem;color:var(--ink);margin:0 0 7px;line-height:1.55}
+.b2leg .b2no{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--model);color:var(--model);font-size:.75rem;font-weight:700;margin-right:8px;font-family:var(--sans);vertical-align:-4px}
+.b2leg u{text-decoration-color:var(--insan);text-decoration-thickness:2px;text-underline-offset:3px}
+.b2ac{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;margin:12px 0 2px}
+.b2ac>summary{cursor:pointer;list-style:none;padding:10px 13px;font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--insan)}
+.b2ac>summary::-webkit-details-marker{display:none}
+.b2ac>summary::after{content:" ▾";color:var(--muted)}
+.b2ac[open]>summary::after{content:" ▴"}
+.b2ac>div{padding:0 13px 12px}
 .b2f2{display:block;font-family:var(--mono);font-size:.88rem;background:var(--chip);border-radius:7px;
   padding:5px 10px;margin-top:5px;width:fit-content}
 .b2f2 b{color:var(--model)}
@@ -1317,8 +1326,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         </div>
         <div class="b2k" style="--u:var(--model)">
           <span class="b2b">Makinenin sayışı — dört adımda</span>
-          <p class="b2ust">İşte harita. 10×10'luk bu oyuncak düzlem ve üzerindeki koordinatlar <span class="temsili">illustrative</span>; gerçek model aynı işi binlerce boyutta yapar. Ama haritadan sonrası <b>düz aritmetik</b>: her sayıyı elinizle doğrulayabilirsiniz.</p>
-          <div class="b2map"><svg viewBox="0 0 410 310" role="img" aria-label="Oyuncak harita: beş kelime noktası, beytin ortalama oku, hüzün ve ümit yönleri, aradaki açı">
+          <p class="b2ust">10×10'luk bu oyuncak harita ve koordinatları <span class="temsili">illustrative</span>; gerçek model aynı işi binlerce boyutta yapar. Eksenlerin tek tek adı yok — anlam, noktaların <b>birbirine göre duruşunda</b>.</p>
+          <span class="b2beyitmini">Ne <mark>yanar</mark> <mark>kimse</mark> bana <mark>âteş-i dilden</mark> <mark>özge</mark>, ne <mark>açar kimse kapım</mark> <u>bâd-ı sabâdan</u> <mark>gayrı</mark>.</span>
+          <div class="b2map"><svg viewBox="0 0 410 318" role="img" aria-label="Oyuncak harita: beş kelime noktası koordinatlarıyla, ortalamada birleşen kesikli çizgiler, beytin oku, hüzün ve ümit yönleri, aradaki açı">
             <defs>
               <marker id="b2okM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--model)"/></marker>
               <marker id="b2okI" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker>
@@ -1333,7 +1343,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
             </g>
             <path d="M24 268 L206 244 L206 172 Z" fill="var(--model-soft)" opacity=".4"/>
             <path d="M93 259 A70 70 0 0 0 86 235" fill="none" stroke="var(--model)" stroke-width="1.6"/>
-            <line x1="29" y1="264" x2="29" y2="58" stroke="var(--muted)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#b2okU)"/>
+            <g stroke-dasharray="3 3">
+              <line x1="258" y1="244" x2="206" y2="244" stroke="var(--muted)" stroke-width="1.2" opacity=".6"/>
+              <line x1="206" y1="268" x2="206" y2="244" stroke="var(--muted)" stroke-width="1.2" opacity=".6"/>
+              <line x1="76" y1="220" x2="206" y2="244" stroke="var(--insan)" stroke-width="1.4" opacity=".75"/>
+            </g>
+            <line x1="29" y1="264" x2="29" y2="58" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#b2okU)"/>
             <line x1="24" y1="268" x2="201" y2="175" stroke="var(--model)" stroke-width="2.2" marker-end="url(#b2okM)"/>
             <line x1="24" y1="268" x2="200" y2="245" stroke="var(--ink)" stroke-width="2.4" marker-end="url(#b2okI)"/>
             <line x1="258" y1="219" x2="258" y2="236" stroke="var(--muted)" stroke-width="1"/>
@@ -1345,11 +1360,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
             <circle cx="76" cy="220" r="4.5" fill="var(--insan)"/>
             <circle cx="206" cy="244" r="6" fill="var(--ink)" stroke="var(--card)" stroke-width="2"/>
             <g font-size="16" fill="var(--ink)">
-              <text x="258" y="214" text-anchor="middle">yanar · âteş-i dil</text>
-              <text x="292" y="262">açılmayan kapı</text>
+              <text x="258" y="214" text-anchor="middle">yanar · âteş-i dil <tspan fill="var(--muted)">(9, 1)</tspan></text>
+              <text x="292" y="248">açılmayan kapı</text>
+              <text x="292" y="266" fill="var(--muted)">(8, 1)</text>
               <text x="212" y="288" text-anchor="middle">yokluk kalıbı</text>
-              <text x="76" y="204" text-anchor="middle" fill="var(--insan)" class="u">bâd-ı sabâ</text>
-              <text x="198" y="234" text-anchor="middle" font-weight="700">beyit (7, 1)</text>
+              <text x="212" y="306" text-anchor="middle" fill="var(--muted)">(7, 0)</text>
+              <text x="76" y="190" text-anchor="middle" fill="var(--insan)" class="u">bâd-ı sabâ</text>
+              <text x="76" y="208" text-anchor="middle" fill="var(--insan)">(2, 2)</text>
+              <text x="198" y="230" text-anchor="middle" font-weight="700">beyit (7, 1)</text>
               <text x="206" y="163" text-anchor="middle" fill="var(--model)" font-weight="700">hüzün (7, 4)</text>
               <text x="32" y="60" fill="var(--muted)">ümit (0, 9)</text>
               <text x="108" y="246" fill="var(--model)" font-weight="700">0,93</text>
@@ -1362,32 +1380,33 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
               <text x="17" y="33" text-anchor="end">10</text>
             </g>
           </svg>
-          <p class="b2maplab">Eksenlerin tek tek adı yok; anlam, noktaların <b>birbirine göre duruşunda</b>. Beytin oku ile hüzün yönü arasındaki açı dar: 0,93 o darlığın ölçüsü. Ümit oku ise neredeyse dik duruyor; 0,14 oradan geliyor. Yalnızlık yönü (6, 4), hüzünün hemen yanına düştüğü için ayrıca çizilmedi. Dört adım aşağıda; her sayı bu resme geri döner.</p></div>
-          <ol class="b2t">
-            <li><b>Yük taşıyan kelimeleri görür.</b>
-              <span class="b2beyitmini">Ne <mark>yanar</mark> <mark>kimse</mark> bana <mark>âteş-i dilden</mark> <mark>özge</mark>, ne <mark>açar kimse kapım</mark> <u>bâd-ı sabâdan</u> <mark>gayrı</mark>.</span></li>
-            <li><b>Her işaretli kelimenin haritadaki koordinatını okur.</b>
-              <table class="b2tab"><tbody>
-                <tr><td>yanar</td><td class="mono">(9, 1)</td><td>âteş-i dil</td><td class="mono">(9, 1)</td></tr>
-                <tr><td>yokluk kalıbı</td><td class="mono">(7, 0)</td><td>açılmayan kapı</td><td class="mono">(8, 1)</td></tr>
-                <tr><td><u>bâd-ı sabâ</u></td><td class="mono">(2, 2)</td><td colspan="2" class="not">← haritanın nötr köşesi</td></tr>
-              </tbody></table></li>
-            <li><b>Beyti tek noktada toplar: ortalama.</b>
-              <span class="b2f2">x: (9+9+7+8+2) ÷ 5 = <b>7</b></span>
-              <span class="b2f2">y: (1+1+0+1+2) ÷ 5 = <b>1</b></span>
-              <span class="b2f2">beyit = <b>(7, 1)</b></span>
-              <span class="b2mini">Gerçek model düz değil, bağlamla <i>tartılmış</i> ortalama alır; o tartıyı üçüncü durakta göreceksiniz.</span></li>
-            <li><b>Beyit ile duygu yönü arasındaki açıyı ölçer.</b> Hüzün yönü haritada <span class="mono2">(7, 4)</span>:
-              <span class="b2f2">çarp-topla: 7·7 + 1·4 = <b>53</b></span>
-              <span class="b2f2">okların boyu: 7,07 × 8,06 = <b>57</b></span>
-              <span class="b2f2">böl: 53 ÷ 57 = <b>0,93</b></span>
-              <span class="b2mini">Az önceki merdivenin son basamağı; kosinüs hesabının aynısı.</span></li>
-          </ol>
-          <p class="b2ust" style="margin-top:2px">Aynı dört işlem, öteki duygu yönleriyle tekrarlanır: yalnızlık <span class="mono2">(6, 4)</span> ve ümit <span class="mono2">(0, 9)</span>.</p>
+          </div>
+          <div class="b2leg">
+            <p><span class="b2no">1</span><b>Görür</b> — yük taşıyan kelimeler beyitte işaretli; tek nötr kelime <u>bâd-ı sabâ</u> altı çizili.</p>
+            <p><span class="b2no">2</span><b>Okur</b> — işaretli kelimeler haritada beş noktada toplanır, koordinatları yanlarında.</p>
+            <p><span class="b2no">3</span><b>Toplar</b> — kesikli çizgiler beş noktayı düz ortalamada birleştirir: <span class="mono2">beyit = (7, 1)</span>.</p>
+            <p><span class="b2no">4</span><b>Ölçer</b> — beytin kalın oku ile hüzün yönü arasındaki dar açı, turuncu kama: <span class="mono2">0,93</span>.</p>
+          </div>
+          <p class="b2ust" style="margin-top:2px">Aynı açı ölçümü öteki duygu yönleriyle de yapılır:</p>
           <div class="b2s"><span>hüzün</span><i style="width:93%"></i><b>0,93</b></div>
           <div class="b2s"><span>yalnızlık</span><i style="width:90%"></i><b>0,90</b></div>
           <div class="b2s"><span>ümit</span><i style="width:14%"></i><b>0,14</b></div>
-          <p class="b2n">Şimdi tabloya dönün: <u>bâd-ı sabâ</u> <span class="mono2">(2, 2)</span> ile nötr köşede kaldı ve ortalamayı aşağı çekti. İnsan tam orada beytin en ince yerini görür: tek dostun bir rüzgâr oluşunu. Model o inceliği katamaz, çünkü eğitim verisinde rüzgâr çoğunlukla havadır, dost değil. <b>Sayı yakınlık ölçer, zarafet okumaz.</b> Bu zincirde muğlak kalan tek şey koordinatların nereden geldiğidir; cevabı tek kelime: <b>eğitim</b> ve onu üçüncü durakta açacağız.</p>
+          <p class="b2n">Haritadaki mavi kesikli çizgiye bakın: <u>bâd-ı sabâ</u> nötr köşede kaldı ve ortalamayı aşağı çekti. İnsan tam orada beytin en ince yerini görür — tek dostun bir rüzgâr oluşunu; model bunu katamaz, çünkü eğitim verisinde rüzgâr çoğunlukla havadır, dost değil. <b>Sayı yakınlık ölçer, zarafet okumaz.</b> Muğlak kalan tek şey — koordinatlar nereden geliyor? — tek kelime: <b>eğitim</b>; üçüncü durakta.</p>
+          <details class="b2ac"><summary>Hesabın tamamı — her sayıyı elinizle doğrulayın</summary><div>
+            <table class="b2tab"><tbody>
+              <tr><td>yanar</td><td class="mono">(9, 1)</td><td>âteş-i dil</td><td class="mono">(9, 1)</td></tr>
+              <tr><td>yokluk kalıbı</td><td class="mono">(7, 0)</td><td>açılmayan kapı</td><td class="mono">(8, 1)</td></tr>
+              <tr><td><u>bâd-ı sabâ</u></td><td class="mono">(2, 2)</td><td colspan="2" class="not">← haritanın nötr köşesi</td></tr>
+            </tbody></table>
+            <span class="b2f2" style="margin-top:9px">x: (9+9+7+8+2) ÷ 5 = <b>7</b></span>
+            <span class="b2f2">y: (1+1+0+1+2) ÷ 5 = <b>1</b></span>
+            <span class="b2f2">beyit = <b>(7, 1)</b></span>
+            <span class="b2mini">Gerçek model düz değil, bağlamla <i>tartılmış</i> ortalama alır; o tartıyı üçüncü durakta göreceksiniz.</span>
+            <span class="b2f2" style="margin-top:9px">çarp-topla: 7·7 + 1·4 = <b>53</b></span>
+            <span class="b2f2">okların boyu: 7,07 × 8,06 = <b>57</b></span>
+            <span class="b2f2">böl: 53 ÷ 57 = <b>0,93</b></span>
+            <span class="b2mini">Girişteki merdivenin son basamağı; kosinüs hesabının aynısı. Yalnızlık yönüyle <span class="mono2">(6, 4)</span> aynı hesap 0,90, ümitle <span class="mono2">(0, 9)</span> 0,14 verir; yalnızlık oku hüzünün hemen yanına düştüğü için haritaya çizilmedi.</span>
+          </div></details>
         </div>
       </div>
     </div>

@@ -108,7 +108,8 @@ eklendi), sonra mu'cem hikâyesi ve İbn Battûta haritası.
   hüzün yönü arasındaki dar açıyı perdede çiz — *"0,93 bu darlığın
   ölçüsü"* — sonra ümit okunun dikliğini göster: *"0,14 de bu dikliğin."*
   Dört adımlık hesabı sahnede okuma; haritayı göster, aritmetiği sayfaya
-  bırak. Soru gelirse tablo ve formüller zaten ekranda.
+  bırak. Soru gelirse "Hesabın tamamı" bölmesini aç — tablo ve formüller
+  orada katlı duruyor.
 
 - **Geçmişten başla, teknolojiden değil.** Wensinck'in yarım asırlık
   mu'cem emeğini anlat; sonra tek cümle: *"Bugün bir öğrenci, temizlenmiş
