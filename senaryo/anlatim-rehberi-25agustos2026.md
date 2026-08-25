@@ -107,9 +107,13 @@ eklendi), sonra mu'cem hikâyesi ve İbn Battûta haritası.
 - **Fuzûlî beytinde haritayı parmağınla göster** (30 sn): beytin oku ile
   hüzün yönü arasındaki dar açıyı perdede çiz — *"0,93 bu darlığın
   ölçüsü"* — sonra ümit okunun dikliğini göster: *"0,14 de bu dikliğin."*
-  Dört adımlık hesabı sahnede okuma; haritayı göster, aritmetiği sayfaya
-  bırak. Soru gelirse "Hesabın tamamı" bölmesini aç — tablo ve formüller
-  orada katlı duruyor.
+  Eksenlerin adı artık üstünde (acı ve ümit çağrışımı); "oyuncakta ad
+  verdik, gerçekte adsız ve binlerce" cümlesi hazır.
+  Dört adımlık hesabı sahnede okuma; hesap şeridi ve Pisagor üçgenleri
+  sayfada, soru gelirse "Hesabın tamamı" bölmesi de katlı duruyor.
+  Vakit varsa 3B figürde tek cümle (15 sn): *"Bir eksen ekledik — uzlet;
+  hesap değişmedi, sonuç yine 0,93. Binlerce eksende de hesap bu."*
+  Bu cümle, 'binlerce boyut' lafını masala olmaktan çıkarır.
 
 - **Geçmişten başla, teknolojiden değil.** Wensinck'in yarım asırlık
   mu'cem emeğini anlat; sonra tek cümle: *"Bugün bir öğrenci, temizlenmiş
