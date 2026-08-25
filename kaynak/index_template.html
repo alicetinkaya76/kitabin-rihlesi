@@ -347,6 +347,20 @@ h1,h2{line-height:1.3;text-wrap:balance;margin:0}
 .b2leg p{font-family:var(--sans);font-size:.9rem;color:var(--ink);margin:0 0 7px;line-height:1.55}
 .b2leg .b2no{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--model);color:var(--model);font-size:.75rem;font-weight:700;margin-right:8px;font-family:var(--sans);vertical-align:-4px}
 .b2leg u{text-decoration-color:var(--insan);text-decoration-thickness:2px;text-underline-offset:3px}
+.b2h{margin:14px 0 6px;padding:12px 14px 13px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.b2hb{font-family:var(--sans);font-weight:700;font-size:.95rem;margin:0 0 10px;color:var(--ink)}
+.b2hg{display:grid;grid-template-columns:52px 52px 52px 1fr;gap:6px 10px;align-items:center;font-family:var(--sans)}
+.b2hl{font-size:.85rem;color:var(--muted);text-align:right}
+.b2box{display:flex;align-items:center;justify-content:center;height:36px;border:1.5px solid var(--ink);border-radius:8px;font-family:var(--mono);font-style:normal;font-size:1.05rem;font-weight:700;background:var(--paper);color:var(--ink)}
+.b2box.m{border-color:var(--model);color:var(--model)}
+.b2box.s{border-style:dashed;border-color:var(--muted)}
+.b2hc{text-align:center;color:var(--model);font-weight:700;font-size:1rem;font-family:var(--sans)}
+.b2hn{font-size:.85rem;color:var(--muted);font-family:var(--sans);line-height:1.5}
+.b2hn b{color:var(--ink)}
+.b2hboy{display:flex;gap:16px;align-items:flex-end;margin:13px 0 8px;flex-wrap:wrap}
+.b2hboy svg{flex:none;font-family:var(--sans)}
+.b2hboy .b2hn{flex:1;min-width:180px}
+.b2map3{max-width:440px}
 .b2ac{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;margin:12px 0 2px}
 .b2ac>summary{cursor:pointer;list-style:none;padding:10px 13px;font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--insan)}
 .b2ac>summary::-webkit-details-marker{display:none}
@@ -1343,7 +1357,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
         </div>
         <div class="b2k" style="--u:var(--model)">
           <span class="b2b">Makinenin sayışı — dört adımda</span>
-          <p class="b2ust">10×10'luk bu oyuncak harita ve koordinatları <span class="temsili">temsilî</span>; gerçek model aynı işi binlerce boyutta yapar. Eksenlerin tek tek adı yok — anlam, noktaların <b>birbirine göre duruşunda</b>.</p>
+          <p class="b2ust">10×10'luk bu oyuncak harita ve koordinatları <span class="temsili">temsilî</span>. İzleyebilesiniz diye iki eksene ad verdik: sağa gittikçe <b>acı çağrışımı</b>, yukarı çıktıkça <b>ümit çağrışımı</b> artar. Gerçek modelde eksenlerin adı yoktur ve sayısı binlercedir; anlam, noktaların <b>birbirine göre duruşunda</b> taşınır.</p>
           <span class="b2beyitmini">Ne <mark>yanar</mark> <mark>kimse</mark> bana <mark>âteş-i dilden</mark> <mark>özge</mark>, ne <mark>açar kimse kapım</mark> <u>bâd-ı sabâdan</u> <mark>gayrı</mark>.</span>
           <div class="b2map"><svg viewBox="0 0 410 318" role="img" aria-label="Oyuncak harita: beş kelime noktası koordinatlarıyla, ortalamada birleşen kesikli çizgiler, beytin oku, hüzün ve ümit yönleri, aradaki açı">
             <defs>
@@ -1396,6 +1410,10 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
               <text x="17" y="153" text-anchor="end">5</text>
               <text x="17" y="33" text-anchor="end">10</text>
             </g>
+            <g font-size="15" font-style="italic" fill="var(--muted)">
+              <text x="397" y="306" text-anchor="end">acı çağrışımı →</text>
+              <text x="30" y="16">↑ ümit çağrışımı</text>
+            </g>
           </svg>
           </div>
           <div class="b2leg">
@@ -1404,6 +1422,48 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
             <p><span class="b2no">3</span><b>Toplar</b> — kesikli çizgiler beş noktayı düz ortalamada birleştirir: <span class="mono2">beyit = (7, 1)</span>.</p>
             <p><span class="b2no">4</span><b>Ölçer</b> — beytin kalın oku ile hüzün yönü arasındaki dar açı, turuncu kama: <span class="mono2">0,93</span>.</p>
           </div>
+          <div class="b2h">
+            <p class="b2hb">0,93 nereden çıkıyor? Hesabı gözünüzle izleyin</p>
+            <div class="b2hg">
+              <span class="b2hl">beyit</span><i class="b2box">7</i><i class="b2box">1</i><span class="b2hn">acı · ümit değerleri</span>
+              <span class="b2hl"></span><span class="b2hc">×</span><span class="b2hc">×</span><span class="b2hn">alt alta çarpın</span>
+              <span class="b2hl">hüzün</span><i class="b2box m">7</i><i class="b2box m">4</i><span class="b2hn"></span>
+              <span class="b2hl"></span><i class="b2box s">49</i><i class="b2box s">4</i><span class="b2hn">toplayın: 49 + 4 = <b>53</b></span>
+            </div>
+            <div class="b2hboy">
+              <svg viewBox="0 0 150 50" width="150" height="50" aria-label="Beyit okunun boyu: dik kenarlar 7 ve 1, uzunluk 7,07"><path d="M6 34 L104 34 L104 20 Z" fill="var(--insan-soft)" stroke="var(--ink)" stroke-width="1.3"/><text x="52" y="48" font-size="12" text-anchor="middle" fill="var(--muted)">7</text><text x="112" y="31" font-size="12" fill="var(--muted)">1</text><text x="44" y="18" font-size="12.5" font-weight="700" fill="var(--ink)">7,07</text></svg>
+              <svg viewBox="0 0 150 96" width="150" height="96" aria-label="Hüzün okunun boyu: dik kenarlar 7 ve 4, uzunluk 8,06"><path d="M6 80 L104 80 L104 24 Z" fill="var(--model-soft)" stroke="var(--model)" stroke-width="1.3"/><text x="52" y="94" font-size="12" text-anchor="middle" fill="var(--muted)">7</text><text x="112" y="56" font-size="12" fill="var(--muted)">4</text><text x="38" y="46" font-size="12.5" font-weight="700" fill="var(--model)">8,06</text></svg>
+              <span class="b2hn">Okların boyu, haritadaki okların gerçek uzunluğudur — dik kenarlardan hesaplanır (Pisagor): beytinki <b>7,07</b>, hüzününki <b>8,06</b>; çarpımı <b>57</b>.</span>
+            </div>
+            <span class="b2f2">yakınlık = 53 ÷ 57 = <b>0,93</b></span>
+            <span class="b2mini">Çarpımların toplamı, okların boyuna bölünür; açı daraldıkça sonuç 1'e yaklaşır. Kosinüs dedikleri bu bölmedir.</span>
+          </div>
+          <div class="b2map b2map3"><svg viewBox="0 0 410 250" role="img" aria-label="Üç boyutlu sürüm: acı, ümit ve uzlet eksenleri; beyit (7,1,4) ve hüzün (7,4,3) okları arasındaki açı yine 0,93">
+            <g stroke="var(--line)" stroke-width="1" opacity=".5">
+              <line x1="170" y1="205" x2="60" y2="140"/><line x1="210" y1="205" x2="100" y2="140"/><line x1="250" y1="205" x2="140" y2="140"/><line x1="290" y1="205" x2="180" y2="140"/><line x1="330" y1="205" x2="220" y2="140"/><line x1="370" y1="205" x2="260" y2="140"/>
+              <line x1="170" y1="205" x2="370" y2="205"/><line x1="148" y1="192" x2="348" y2="192"/><line x1="126" y1="179" x2="326" y2="179"/><line x1="104" y1="166" x2="304" y2="166"/><line x1="82" y1="153" x2="282" y2="153"/><line x1="60" y1="140" x2="260" y2="140"/>
+            </g>
+            <g stroke="var(--muted)" stroke-width="1.4">
+              <line x1="170" y1="205" x2="370" y2="205"/><line x1="170" y1="205" x2="170" y2="55"/><line x1="170" y1="205" x2="60" y2="140"/>
+            </g>
+            <g stroke-dasharray="3 3" stroke="var(--muted)" stroke-width="1" opacity=".7">
+              <line x1="266" y1="164" x2="266" y2="179"/><line x1="277" y1="125.5" x2="277" y2="185.5"/>
+            </g>
+            <path d="M225.2 181.4 A60 60 0 0 0 218.2 169.2" fill="none" stroke="var(--model)" stroke-width="1.6"/>
+            <line x1="170" y1="205" x2="261" y2="166" stroke="var(--ink)" stroke-width="2.4" marker-end="url(#b2okI)"/>
+            <line x1="170" y1="205" x2="272" y2="129" stroke="var(--model)" stroke-width="2.2" marker-end="url(#b2okM)"/>
+            <g font-size="16">
+              <text x="240" y="168" font-weight="700" fill="var(--model)">0,93</text>
+              <text x="282" y="190" font-weight="700" fill="var(--ink)">beyit (7, 1, 4)</text>
+              <text x="277" y="113" text-anchor="middle" font-weight="700" fill="var(--model)">hüzün (7, 4, 3)</text>
+            </g>
+            <g font-size="15" font-style="italic" fill="var(--muted)">
+              <text x="374" y="211">acı</text>
+              <text x="170" y="46" text-anchor="middle">ümit</text>
+              <text x="6" y="128">uzlet (yeni)</text>
+            </g>
+          </svg></div>
+          <p class="b2ust" style="margin-top:4px">Üçüncü ekseni ekledik: <b>uzlet</b>. Hesap değişmedi, çarp-topla yalnızca bir terim uzadı — <span class="mono2">7·7 + 1·4 + 4·3 = 65</span>, boylar <span class="mono2">8,12 × 8,60 = 69,9</span>, bölünce <span class="mono2">yine 0,93</span>. Gerçek model aynı işi binlerce eksende yapar; o resim çizilemez, ama hesabı bu ikisinin aynısıdır.</p>
           <p class="b2ust" style="margin-top:2px">Aynı açı ölçümü öteki duygu yönleriyle de yapılır:</p>
           <div class="b2s"><span>hüzün</span><i style="width:93%"></i><b>0,93</b></div>
           <div class="b2s"><span>yalnızlık</span><i style="width:90%"></i><b>0,90</b></div>
@@ -1423,6 +1483,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--sa
             <span class="b2f2">okların boyu: 7,07 × 8,06 = <b>57</b></span>
             <span class="b2f2">böl: 53 ÷ 57 = <b>0,93</b></span>
             <span class="b2mini">Girişteki merdivenin son basamağı; kosinüs hesabının aynısı. Yalnızlık yönüyle <span class="mono2">(6, 4)</span> aynı hesap 0,90, ümitle <span class="mono2">(0, 9)</span> 0,14 verir; yalnızlık oku hüzünün hemen yanına düştüğü için haritaya çizilmedi.</span>
+            <span class="b2mini">Üçüncü eksen (uzlet) değerleri: yanar 3 · âteş-i dil 3 · yokluk kalıbı 6 · açılmayan kapı 6 · bâd-ı sabâ 2 → ortalama <b>4</b>; hüzün yönünün uzleti 3. Hüzün yönünün ümit ekseninde 4'te durması da bilinçli: divan hüznü saf acı değildir, içinde vuslat ümidi taşır.</span>
           </div></details>
         </div>
       </div>
